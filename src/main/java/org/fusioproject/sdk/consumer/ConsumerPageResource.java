@@ -41,7 +41,7 @@ public class ConsumerPageResource extends ResourceAbstract {
     public Page_Collection consumerActionPageGetAll(Collection_Query query) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
-        Map<String, Object> params = this.objectMapper.convertValue(obj, Map.class);
+        Map<String, Object> params = this.objectMapper.convertValue(query, Map.class);
         for(Map.Entry<String, Object> entry : params.entrySet()) {
             builder.setParameter(entry.getKey(), entry.getValue().toString());
         }
