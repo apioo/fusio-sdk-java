@@ -1,0 +1,64 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.fusioproject</groupId>
+  <artifactId>sdk</artifactId>
+  <version>0.1.0</version>
+  <packaging>jar</packaging>
+  <name>Fusio SDK client</name>
+  <description>This library helps to connect to a Fusio instance</description>
+  <url>https://www.fusio-project.org/</url>
+  <licenses>
+    <license>
+      <name>MIT</name>
+      <url>https://opensource.org/licenses/MIT</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <id>chriskapp</id>
+      <name>Christoph Kappestein</name>
+      <email>christoph.kappestein@gmail.com</email>
+      <url>https://chrisk.app/</url>
+      <roles>
+        <role>developer</role>
+      </roles>
+      <timezone>Europe/Berlin</timezone>
+    </developer>
+  </developers>
+  <scm>
+    <url>https://github.com/apioo/fusio-sdk-java</url>
+  </scm>
+  <distributionManagement>
+    <repository>
+      <id>github</id>
+      <name>GitHub Packages</name>
+      <url>https://maven.pkg.github.com/apioo/fusio-sdk-java</url>
+    </repository>
+  </distributionManagement>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>11</source>
+          <target>11</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  <repositories>
+    <repository>
+      <id>jitpack.io</id>
+      <url>https://jitpack.io</url>
+    </repository>
+  </repositories>
+  <dependencies>
+    <dependency>
+      <groupId>com.github.apioo</groupId>
+      <artifactId>sdkgen-java</artifactId>
+      <version>0.1.4</version>
+    </dependency>
+  </dependencies>
+</project>
