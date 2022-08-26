@@ -42,8 +42,10 @@ public class ConsumerAppResource extends ResourceAbstract {
         URIBuilder builder = new URIBuilder(this.url);
 
         Map<String, Object> params = this.objectMapper.convertValue(query, Map.class);
-        for(Map.Entry<String, Object> entry : params.entrySet()) {
-            builder.setParameter(entry.getKey(), entry.getValue().toString());
+        for (Map.Entry<String, Object> entry : params.entrySet()) {
+            if (entry.getValue() != null) {
+                builder.setParameter(entry.getKey(), entry.getValue().toString());
+            }
         }
 
         HttpGet request = new HttpGet(builder.build());
