@@ -10,6 +10,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 public class Collection<T> {
     private int totalResults;
     private int startIndex;
+    private int itemsPerPage;
     private T[] entry;
     @JsonSetter("totalResults")
     public void setTotalResults(int totalResults) {
@@ -26,6 +27,14 @@ public class Collection<T> {
     @JsonGetter("startIndex")
     public int getStartIndex() {
         return this.startIndex;
+    }
+    @JsonSetter("itemsPerPage")
+    public void setItemsPerPage(int itemsPerPage) {
+        this.itemsPerPage = itemsPerPage;
+    }
+    @JsonGetter("itemsPerPage")
+    public int getItemsPerPage() {
+        return this.itemsPerPage;
     }
     @JsonSetter("entry")
     public void setEntry(T[] entry) {
