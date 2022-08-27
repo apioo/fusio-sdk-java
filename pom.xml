@@ -59,7 +59,13 @@
     <dependency>
       <groupId>com.github.apioo</groupId>
       <artifactId>sdkgen-java</artifactId>
-      <version>0.1.7</version>
+      <version>0.1.8</version>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.13.2</version>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 </project>
