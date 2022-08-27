@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 public class Route {
     private int id;
+    private int status;
     private int priority;
     private String path;
     private String controller;
@@ -21,6 +22,14 @@ public class Route {
     @JsonGetter("id")
     public int getId() {
         return this.id;
+    }
+    @JsonSetter("status")
+    public void setStatus(int status) {
+        this.status = status;
+    }
+    @JsonGetter("status")
+    public int getStatus() {
+        return this.status;
     }
     @JsonSetter("priority")
     public void setPriority(int priority) {
