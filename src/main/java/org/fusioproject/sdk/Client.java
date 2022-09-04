@@ -47,8 +47,7 @@ public class Client {
             clientId,
             clientSecret,
             this.baseUrl + "/authorization/token",
-            "",
-            this.baseUrl + "/authorization/refresh"
+            ""
         );
     }
 }
