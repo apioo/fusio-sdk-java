@@ -1,13 +1,13 @@
 
-# Fusio SDK
+# Fusio Java SDK
 
-This Java library helps to talk to the Fusio (https://www.fusio-project.org/)
-API. It uses the automatically generated definition of the Fusio backend.
+This is the official Fusio Java SDK, it helps to talk to the Fusio (https://www.fusio-project.org/)
+open source API management system.
 
 ## Usage
 
-The following example shows how you can get a client for the backend to obtain
-all configured routes.
+The following example shows how you can get all registered routes at the backend.
+A working example is also available at: https://github.com/apioo/fusio-sample-java-cli
 
 ```java
 package org.fusioproject.sample;
@@ -28,6 +28,7 @@ public class Main {
 
     public static void main(String[] args) throws URISyntaxException, IOException {
         List<String> scopes = new ArrayList<>();
+        scopes.add("backend");
         TokenStoreInterface tokenStore = new MemoryTokenStore();
 
         Client client = new Client("https://demo.fusio-project.org/", "test", "FRsNh1zKCXlB", scopes, tokenStore);
@@ -37,7 +38,7 @@ public class Main {
 
         System.out.println("Routes:");
         for (int i = 0; i < collection.getEntry().length; i++) {
-            System.out.println("" + collection.getEntry()[i].getPath());
+            System.out.println("* " + collection.getEntry()[i].getPath());
         }
     }
 
