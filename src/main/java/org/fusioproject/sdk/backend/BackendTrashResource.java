@@ -38,7 +38,7 @@ public class BackendTrashResource extends ResourceAbstract {
         this(baseUrl, httpClient, new ObjectMapper());
     }
 
-    public Trash_Types backendActionTrashGetTypes() throws URISyntaxException, IOException {
+    public TrashTypes backendActionTrashGetTypes() throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 
@@ -46,7 +46,7 @@ public class BackendTrashResource extends ResourceAbstract {
 
         HttpResponse response = this.httpClient.execute(request);
 
-        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), Trash_Types.class);
+        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), TrashTypes.class);
     }
 
 }

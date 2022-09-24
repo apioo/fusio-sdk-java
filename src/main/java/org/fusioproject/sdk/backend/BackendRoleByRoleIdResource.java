@@ -24,20 +24,20 @@ public class BackendRoleByRoleIdResource extends ResourceAbstract {
     private final HttpClient httpClient;
     private final ObjectMapper objectMapper;
 
-    private final String role_id;
+    private final String roleId;
 
-    public BackendRoleByRoleIdResource(String role_id, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
+    public BackendRoleByRoleIdResource(String roleId, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
         super(baseUrl, httpClient, objectMapper);
 
-        this.role_id = role_id;
+        this.roleId = roleId;
 
-        this.url = baseUrl + "/backend/role/"+role_id+"";
+        this.url = baseUrl + "/backend/role/"+roleId+"";
         this.httpClient = httpClient;
         this.objectMapper = objectMapper;
     }
 
-    public BackendRoleByRoleIdResource(String role_id, String baseUrl, HttpClient httpClient) {
-        this(role_id, baseUrl, httpClient, new ObjectMapper());
+    public BackendRoleByRoleIdResource(String roleId, String baseUrl, HttpClient httpClient) {
+        this(roleId, baseUrl, httpClient, new ObjectMapper());
     }
 
     public Role backendActionRoleGet() throws URISyntaxException, IOException {
@@ -51,7 +51,7 @@ public class BackendRoleByRoleIdResource extends ResourceAbstract {
         return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), Role.class);
     }
 
-    public Message backendActionRoleUpdate(Role_Update data) throws URISyntaxException, IOException {
+    public Message backendActionRoleUpdate(RoleUpdate data) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 

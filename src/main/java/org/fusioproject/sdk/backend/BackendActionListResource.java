@@ -38,7 +38,7 @@ public class BackendActionListResource extends ResourceAbstract {
         this(baseUrl, httpClient, new ObjectMapper());
     }
 
-    public Action_Index backendActionActionGetIndex() throws URISyntaxException, IOException {
+    public ActionIndex backendActionActionGetIndex() throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 
@@ -46,7 +46,7 @@ public class BackendActionListResource extends ResourceAbstract {
 
         HttpResponse response = this.httpClient.execute(request);
 
-        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), Action_Index.class);
+        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), ActionIndex.class);
     }
 
 }

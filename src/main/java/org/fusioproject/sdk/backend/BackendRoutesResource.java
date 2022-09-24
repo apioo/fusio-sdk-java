@@ -38,7 +38,7 @@ public class BackendRoutesResource extends ResourceAbstract {
         this(baseUrl, httpClient, new ObjectMapper());
     }
 
-    public Route_Collection backendActionRouteGetAll(Collection_Category_Query query) throws URISyntaxException, IOException {
+    public RouteCollection backendActionRouteGetAll(CollectionCategoryQuery query) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
         Map<String, Object> params = this.objectMapper.convertValue(query, Map.class);
@@ -52,10 +52,10 @@ public class BackendRoutesResource extends ResourceAbstract {
 
         HttpResponse response = this.httpClient.execute(request);
 
-        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), Route_Collection.class);
+        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), RouteCollection.class);
     }
 
-    public Message backendActionRouteCreate(Route_Create data) throws URISyntaxException, IOException {
+    public Message backendActionRouteCreate(RouteCreate data) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 

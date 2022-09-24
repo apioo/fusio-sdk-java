@@ -38,7 +38,7 @@ public class ConsumerRegisterResource extends ResourceAbstract {
         this(baseUrl, httpClient, new ObjectMapper());
     }
 
-    public Message consumerActionUserRegister(User_Register data) throws URISyntaxException, IOException {
+    public Message consumerActionUserRegister(UserRegister data) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 

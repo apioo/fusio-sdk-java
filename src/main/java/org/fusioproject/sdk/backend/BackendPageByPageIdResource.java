@@ -24,20 +24,20 @@ public class BackendPageByPageIdResource extends ResourceAbstract {
     private final HttpClient httpClient;
     private final ObjectMapper objectMapper;
 
-    private final String page_id;
+    private final String pageId;
 
-    public BackendPageByPageIdResource(String page_id, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
+    public BackendPageByPageIdResource(String pageId, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
         super(baseUrl, httpClient, objectMapper);
 
-        this.page_id = page_id;
+        this.pageId = pageId;
 
-        this.url = baseUrl + "/backend/page/"+page_id+"";
+        this.url = baseUrl + "/backend/page/"+pageId+"";
         this.httpClient = httpClient;
         this.objectMapper = objectMapper;
     }
 
-    public BackendPageByPageIdResource(String page_id, String baseUrl, HttpClient httpClient) {
-        this(page_id, baseUrl, httpClient, new ObjectMapper());
+    public BackendPageByPageIdResource(String pageId, String baseUrl, HttpClient httpClient) {
+        this(pageId, baseUrl, httpClient, new ObjectMapper());
     }
 
     public Page backendActionPageGet() throws URISyntaxException, IOException {
@@ -51,7 +51,7 @@ public class BackendPageByPageIdResource extends ResourceAbstract {
         return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), Page.class);
     }
 
-    public Message backendActionPageUpdate(Page_Update data) throws URISyntaxException, IOException {
+    public Message backendActionPageUpdate(PageUpdate data) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 

@@ -38,7 +38,7 @@ public class ConsumerAppResource extends ResourceAbstract {
         this(baseUrl, httpClient, new ObjectMapper());
     }
 
-    public App_Collection consumerActionAppGetAll(Collection_Query query) throws URISyntaxException, IOException {
+    public AppCollection consumerActionAppGetAll(CollectionQuery query) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
         Map<String, Object> params = this.objectMapper.convertValue(query, Map.class);
@@ -52,10 +52,10 @@ public class ConsumerAppResource extends ResourceAbstract {
 
         HttpResponse response = this.httpClient.execute(request);
 
-        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), App_Collection.class);
+        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), AppCollection.class);
     }
 
-    public Message consumerActionAppCreate(App_Create data) throws URISyntaxException, IOException {
+    public Message consumerActionAppCreate(AppCreate data) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 

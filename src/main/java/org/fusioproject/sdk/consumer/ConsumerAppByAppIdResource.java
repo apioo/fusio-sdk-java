@@ -24,20 +24,20 @@ public class ConsumerAppByAppIdResource extends ResourceAbstract {
     private final HttpClient httpClient;
     private final ObjectMapper objectMapper;
 
-    private final String app_id;
+    private final String appId;
 
-    public ConsumerAppByAppIdResource(String app_id, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
+    public ConsumerAppByAppIdResource(String appId, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
         super(baseUrl, httpClient, objectMapper);
 
-        this.app_id = app_id;
+        this.appId = appId;
 
-        this.url = baseUrl + "/consumer/app/"+app_id+"";
+        this.url = baseUrl + "/consumer/app/"+appId+"";
         this.httpClient = httpClient;
         this.objectMapper = objectMapper;
     }
 
-    public ConsumerAppByAppIdResource(String app_id, String baseUrl, HttpClient httpClient) {
-        this(app_id, baseUrl, httpClient, new ObjectMapper());
+    public ConsumerAppByAppIdResource(String appId, String baseUrl, HttpClient httpClient) {
+        this(appId, baseUrl, httpClient, new ObjectMapper());
     }
 
     public App consumerActionAppGet() throws URISyntaxException, IOException {
@@ -51,7 +51,7 @@ public class ConsumerAppByAppIdResource extends ResourceAbstract {
         return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), App.class);
     }
 
-    public Message consumerActionAppUpdate(App_Update data) throws URISyntaxException, IOException {
+    public Message consumerActionAppUpdate(AppUpdate data) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 

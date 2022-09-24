@@ -40,7 +40,7 @@ public class ConsumerProviderByProviderResource extends ResourceAbstract {
         this(provider, baseUrl, httpClient, new ObjectMapper());
     }
 
-    public User_JWT consumerActionUserProvider(User_Provider data) throws URISyntaxException, IOException {
+    public UserJWT consumerActionUserProvider(UserProvider data) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 
@@ -50,7 +50,7 @@ public class ConsumerProviderByProviderResource extends ResourceAbstract {
 
         HttpResponse response = this.httpClient.execute(request);
 
-        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), User_JWT.class);
+        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), UserJWT.class);
     }
 
 }

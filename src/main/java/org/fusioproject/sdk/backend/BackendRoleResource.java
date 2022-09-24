@@ -38,7 +38,7 @@ public class BackendRoleResource extends ResourceAbstract {
         this(baseUrl, httpClient, new ObjectMapper());
     }
 
-    public Role_Collection backendActionRoleGetAll(Collection_Query query) throws URISyntaxException, IOException {
+    public RoleCollection backendActionRoleGetAll(CollectionQuery query) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
         Map<String, Object> params = this.objectMapper.convertValue(query, Map.class);
@@ -52,10 +52,10 @@ public class BackendRoleResource extends ResourceAbstract {
 
         HttpResponse response = this.httpClient.execute(request);
 
-        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), Role_Collection.class);
+        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), RoleCollection.class);
     }
 
-    public Message backendActionRoleCreate(Role_Create data) throws URISyntaxException, IOException {
+    public Message backendActionRoleCreate(RoleCreate data) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 

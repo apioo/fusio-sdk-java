@@ -38,7 +38,7 @@ public class BackendEventResource extends ResourceAbstract {
         this(baseUrl, httpClient, new ObjectMapper());
     }
 
-    public Event_Collection backendActionEventGetAll(Collection_Category_Query query) throws URISyntaxException, IOException {
+    public EventCollection backendActionEventGetAll(CollectionCategoryQuery query) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
         Map<String, Object> params = this.objectMapper.convertValue(query, Map.class);
@@ -52,10 +52,10 @@ public class BackendEventResource extends ResourceAbstract {
 
         HttpResponse response = this.httpClient.execute(request);
 
-        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), Event_Collection.class);
+        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), EventCollection.class);
     }
 
-    public Message backendActionEventCreate(Event_Create data) throws URISyntaxException, IOException {
+    public Message backendActionEventCreate(EventCreate data) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 

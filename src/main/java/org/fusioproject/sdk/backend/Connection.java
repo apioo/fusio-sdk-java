@@ -11,7 +11,7 @@ public class Connection {
     private int id;
     private String name;
     private String _class;
-    private Connection_Config config;
+    private ConnectionConfig config;
     @JsonSetter("id")
     public void setId(int id) {
         this.id = id;
@@ -29,7 +29,7 @@ public class Connection {
         return this.name;
     }
     @JsonSetter("class")
-    public void set_Class(String _class) {
+    public void setClass(String _class) {
         this._class = _class;
     }
     @JsonGetter("class")
@@ -37,11 +37,11 @@ public class Connection {
         return this._class;
     }
     @JsonSetter("config")
-    public void setConfig(Connection_Config config) {
+    public void setConfig(ConnectionConfig config) {
         this.config = config;
     }
     @JsonGetter("config")
-    public Connection_Config getConfig() {
+    public ConnectionConfig getConfig() {
         return this.config;
     }
 }

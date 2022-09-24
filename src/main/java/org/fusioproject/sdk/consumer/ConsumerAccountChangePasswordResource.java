@@ -38,7 +38,7 @@ public class ConsumerAccountChangePasswordResource extends ResourceAbstract {
         this(baseUrl, httpClient, new ObjectMapper());
     }
 
-    public Message consumerActionUserChangePassword(Account_ChangePassword data) throws URISyntaxException, IOException {
+    public Message consumerActionUserChangePassword(AccountChangePassword data) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 

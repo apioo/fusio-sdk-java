@@ -24,23 +24,23 @@ public class BackendLogErrorByErrorIdResource extends ResourceAbstract {
     private final HttpClient httpClient;
     private final ObjectMapper objectMapper;
 
-    private final String error_id;
+    private final String errorId;
 
-    public BackendLogErrorByErrorIdResource(String error_id, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
+    public BackendLogErrorByErrorIdResource(String errorId, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
         super(baseUrl, httpClient, objectMapper);
 
-        this.error_id = error_id;
+        this.errorId = errorId;
 
-        this.url = baseUrl + "/backend/log/error/"+error_id+"";
+        this.url = baseUrl + "/backend/log/error/"+errorId+"";
         this.httpClient = httpClient;
         this.objectMapper = objectMapper;
     }
 
-    public BackendLogErrorByErrorIdResource(String error_id, String baseUrl, HttpClient httpClient) {
-        this(error_id, baseUrl, httpClient, new ObjectMapper());
+    public BackendLogErrorByErrorIdResource(String errorId, String baseUrl, HttpClient httpClient) {
+        this(errorId, baseUrl, httpClient, new ObjectMapper());
     }
 
-    public Log_Error backendActionLogErrorGet() throws URISyntaxException, IOException {
+    public LogError backendActionLogErrorGet() throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 
@@ -48,7 +48,7 @@ public class BackendLogErrorByErrorIdResource extends ResourceAbstract {
 
         HttpResponse response = this.httpClient.execute(request);
 
-        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), Log_Error.class);
+        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), LogError.class);
     }
 
 }

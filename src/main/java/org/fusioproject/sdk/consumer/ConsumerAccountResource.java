@@ -38,7 +38,7 @@ public class ConsumerAccountResource extends ResourceAbstract {
         this(baseUrl, httpClient, new ObjectMapper());
     }
 
-    public User_Account consumerActionUserGet() throws URISyntaxException, IOException {
+    public UserAccount consumerActionUserGet() throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 
@@ -46,10 +46,10 @@ public class ConsumerAccountResource extends ResourceAbstract {
 
         HttpResponse response = this.httpClient.execute(request);
 
-        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), User_Account.class);
+        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), UserAccount.class);
     }
 
-    public Message consumerActionUserUpdate(User_Account data) throws URISyntaxException, IOException {
+    public Message consumerActionUserUpdate(UserAccount data) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 

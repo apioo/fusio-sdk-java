@@ -14,7 +14,7 @@ public class Rate {
     private String name;
     private int rateLimit;
     private Duration timespan;
-    private Rate_Allocation[] allocation;
+    private RateAllocation[] allocation;
     @JsonSetter("id")
     public void setId(int id) {
         this.id = id;
@@ -56,11 +56,11 @@ public class Rate {
         return this.timespan;
     }
     @JsonSetter("allocation")
-    public void setAllocation(Rate_Allocation[] allocation) {
+    public void setAllocation(RateAllocation[] allocation) {
         this.allocation = allocation;
     }
     @JsonGetter("allocation")
-    public Rate_Allocation[] getAllocation() {
+    public RateAllocation[] getAllocation() {
         return this.allocation;
     }
 }

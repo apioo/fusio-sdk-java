@@ -11,8 +11,8 @@ public class Schema {
     private int id;
     private int status;
     private String name;
-    private Schema_Source source;
-    private Schema_Form form;
+    private SchemaSource source;
+    private SchemaForm form;
     @JsonSetter("id")
     public void setId(int id) {
         this.id = id;
@@ -38,19 +38,19 @@ public class Schema {
         return this.name;
     }
     @JsonSetter("source")
-    public void setSource(Schema_Source source) {
+    public void setSource(SchemaSource source) {
         this.source = source;
     }
     @JsonGetter("source")
-    public Schema_Source getSource() {
+    public SchemaSource getSource() {
         return this.source;
     }
     @JsonSetter("form")
-    public void setForm(Schema_Form form) {
+    public void setForm(SchemaForm form) {
         this.form = form;
     }
     @JsonGetter("form")
-    public Schema_Form getForm() {
+    public SchemaForm getForm() {
         return this.form;
     }
 }

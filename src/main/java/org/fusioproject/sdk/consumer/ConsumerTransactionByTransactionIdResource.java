@@ -24,20 +24,20 @@ public class ConsumerTransactionByTransactionIdResource extends ResourceAbstract
     private final HttpClient httpClient;
     private final ObjectMapper objectMapper;
 
-    private final String transaction_id;
+    private final String transactionId;
 
-    public ConsumerTransactionByTransactionIdResource(String transaction_id, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
+    public ConsumerTransactionByTransactionIdResource(String transactionId, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
         super(baseUrl, httpClient, objectMapper);
 
-        this.transaction_id = transaction_id;
+        this.transactionId = transactionId;
 
-        this.url = baseUrl + "/consumer/transaction/"+transaction_id+"";
+        this.url = baseUrl + "/consumer/transaction/"+transactionId+"";
         this.httpClient = httpClient;
         this.objectMapper = objectMapper;
     }
 
-    public ConsumerTransactionByTransactionIdResource(String transaction_id, String baseUrl, HttpClient httpClient) {
-        this(transaction_id, baseUrl, httpClient, new ObjectMapper());
+    public ConsumerTransactionByTransactionIdResource(String transactionId, String baseUrl, HttpClient httpClient) {
+        this(transactionId, baseUrl, httpClient, new ObjectMapper());
     }
 
     public Transaction consumerActionTransactionGet() throws URISyntaxException, IOException {

@@ -38,7 +38,7 @@ public class BackendAccountChangePasswordResource extends ResourceAbstract {
         this(baseUrl, httpClient, new ObjectMapper());
     }
 
-    public Message backendActionAccountChangePassword(Account_ChangePassword data) throws URISyntaxException, IOException {
+    public Message backendActionAccountChangePassword(AccountChangePassword data) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 

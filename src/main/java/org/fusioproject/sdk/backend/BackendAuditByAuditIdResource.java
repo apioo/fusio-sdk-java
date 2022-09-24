@@ -24,20 +24,20 @@ public class BackendAuditByAuditIdResource extends ResourceAbstract {
     private final HttpClient httpClient;
     private final ObjectMapper objectMapper;
 
-    private final String audit_id;
+    private final String auditId;
 
-    public BackendAuditByAuditIdResource(String audit_id, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
+    public BackendAuditByAuditIdResource(String auditId, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
         super(baseUrl, httpClient, objectMapper);
 
-        this.audit_id = audit_id;
+        this.auditId = auditId;
 
-        this.url = baseUrl + "/backend/audit/"+audit_id+"";
+        this.url = baseUrl + "/backend/audit/"+auditId+"";
         this.httpClient = httpClient;
         this.objectMapper = objectMapper;
     }
 
-    public BackendAuditByAuditIdResource(String audit_id, String baseUrl, HttpClient httpClient) {
-        this(audit_id, baseUrl, httpClient, new ObjectMapper());
+    public BackendAuditByAuditIdResource(String auditId, String baseUrl, HttpClient httpClient) {
+        this(auditId, baseUrl, httpClient, new ObjectMapper());
     }
 
     public Audit backendActionAuditGet() throws URISyntaxException, IOException {

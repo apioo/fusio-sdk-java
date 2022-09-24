@@ -38,7 +38,7 @@ public class ConsumerAuthorizeResource extends ResourceAbstract {
         this(baseUrl, httpClient, new ObjectMapper());
     }
 
-    public Authorize_Meta consumerActionUserGetApp() throws URISyntaxException, IOException {
+    public AuthorizeMeta consumerActionUserGetApp() throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 
@@ -46,10 +46,10 @@ public class ConsumerAuthorizeResource extends ResourceAbstract {
 
         HttpResponse response = this.httpClient.execute(request);
 
-        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), Authorize_Meta.class);
+        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), AuthorizeMeta.class);
     }
 
-    public Authorize_Response consumerActionUserAuthorize(Authorize_Request data) throws URISyntaxException, IOException {
+    public AuthorizeResponse consumerActionUserAuthorize(AuthorizeRequest data) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 
@@ -59,7 +59,7 @@ public class ConsumerAuthorizeResource extends ResourceAbstract {
 
         HttpResponse response = this.httpClient.execute(request);
 
-        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), Authorize_Response.class);
+        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), AuthorizeResponse.class);
     }
 
 }

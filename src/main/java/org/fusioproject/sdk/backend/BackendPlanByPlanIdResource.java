@@ -24,20 +24,20 @@ public class BackendPlanByPlanIdResource extends ResourceAbstract {
     private final HttpClient httpClient;
     private final ObjectMapper objectMapper;
 
-    private final String plan_id;
+    private final String planId;
 
-    public BackendPlanByPlanIdResource(String plan_id, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
+    public BackendPlanByPlanIdResource(String planId, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
         super(baseUrl, httpClient, objectMapper);
 
-        this.plan_id = plan_id;
+        this.planId = planId;
 
-        this.url = baseUrl + "/backend/plan/"+plan_id+"";
+        this.url = baseUrl + "/backend/plan/"+planId+"";
         this.httpClient = httpClient;
         this.objectMapper = objectMapper;
     }
 
-    public BackendPlanByPlanIdResource(String plan_id, String baseUrl, HttpClient httpClient) {
-        this(plan_id, baseUrl, httpClient, new ObjectMapper());
+    public BackendPlanByPlanIdResource(String planId, String baseUrl, HttpClient httpClient) {
+        this(planId, baseUrl, httpClient, new ObjectMapper());
     }
 
     public Plan backendActionPlanGet() throws URISyntaxException, IOException {
@@ -51,7 +51,7 @@ public class BackendPlanByPlanIdResource extends ResourceAbstract {
         return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), Plan.class);
     }
 
-    public Message backendActionPlanUpdate(Plan_Update data) throws URISyntaxException, IOException {
+    public Message backendActionPlanUpdate(PlanUpdate data) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 

@@ -40,7 +40,7 @@ public class BackendTrashByTypeResource extends ResourceAbstract {
         this(type, baseUrl, httpClient, new ObjectMapper());
     }
 
-    public Trash_Data_Collection backendActionTrashGetAll(Collection_Query query) throws URISyntaxException, IOException {
+    public TrashDataCollection backendActionTrashGetAll(CollectionQuery query) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
         Map<String, Object> params = this.objectMapper.convertValue(query, Map.class);
@@ -54,10 +54,10 @@ public class BackendTrashByTypeResource extends ResourceAbstract {
 
         HttpResponse response = this.httpClient.execute(request);
 
-        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), Trash_Data_Collection.class);
+        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), TrashDataCollection.class);
     }
 
-    public Message backendActionTrashRestore(Trash_Restore data) throws URISyntaxException, IOException {
+    public Message backendActionTrashRestore(TrashRestore data) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 

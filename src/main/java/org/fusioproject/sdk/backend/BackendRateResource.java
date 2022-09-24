@@ -38,7 +38,7 @@ public class BackendRateResource extends ResourceAbstract {
         this(baseUrl, httpClient, new ObjectMapper());
     }
 
-    public Rate_Collection backendActionRateGetAll(Collection_Query query) throws URISyntaxException, IOException {
+    public RateCollection backendActionRateGetAll(CollectionQuery query) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
         Map<String, Object> params = this.objectMapper.convertValue(query, Map.class);
@@ -52,10 +52,10 @@ public class BackendRateResource extends ResourceAbstract {
 
         HttpResponse response = this.httpClient.execute(request);
 
-        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), Rate_Collection.class);
+        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), RateCollection.class);
     }
 
-    public Message backendActionRateCreate(Rate_Create data) throws URISyntaxException, IOException {
+    public Message backendActionRateCreate(RateCreate data) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 

@@ -19,7 +19,7 @@ public class App {
     private String appSecret;
     private LocalDateTime date;
     private String[] scopes;
-    private App_Token[] tokens;
+    private AppToken[] tokens;
     @JsonSetter("id")
     public void setId(int id) {
         this.id = id;
@@ -101,11 +101,11 @@ public class App {
         return this.scopes;
     }
     @JsonSetter("tokens")
-    public void setTokens(App_Token[] tokens) {
+    public void setTokens(AppToken[] tokens) {
         this.tokens = tokens;
     }
     @JsonGetter("tokens")
-    public App_Token[] getTokens() {
+    public AppToken[] getTokens() {
         return this.tokens;
     }
 }

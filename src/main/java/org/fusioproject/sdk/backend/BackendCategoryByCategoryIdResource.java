@@ -24,20 +24,20 @@ public class BackendCategoryByCategoryIdResource extends ResourceAbstract {
     private final HttpClient httpClient;
     private final ObjectMapper objectMapper;
 
-    private final String category_id;
+    private final String categoryId;
 
-    public BackendCategoryByCategoryIdResource(String category_id, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
+    public BackendCategoryByCategoryIdResource(String categoryId, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
         super(baseUrl, httpClient, objectMapper);
 
-        this.category_id = category_id;
+        this.categoryId = categoryId;
 
-        this.url = baseUrl + "/backend/category/"+category_id+"";
+        this.url = baseUrl + "/backend/category/"+categoryId+"";
         this.httpClient = httpClient;
         this.objectMapper = objectMapper;
     }
 
-    public BackendCategoryByCategoryIdResource(String category_id, String baseUrl, HttpClient httpClient) {
-        this(category_id, baseUrl, httpClient, new ObjectMapper());
+    public BackendCategoryByCategoryIdResource(String categoryId, String baseUrl, HttpClient httpClient) {
+        this(categoryId, baseUrl, httpClient, new ObjectMapper());
     }
 
     public Category backendActionCategoryGet() throws URISyntaxException, IOException {
@@ -51,7 +51,7 @@ public class BackendCategoryByCategoryIdResource extends ResourceAbstract {
         return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), Category.class);
     }
 
-    public Message backendActionCategoryUpdate(Category_Update data) throws URISyntaxException, IOException {
+    public Message backendActionCategoryUpdate(CategoryUpdate data) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 

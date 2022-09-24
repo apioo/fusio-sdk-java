@@ -24,23 +24,23 @@ public class BackendSchemaPreviewBySchemaIdResource extends ResourceAbstract {
     private final HttpClient httpClient;
     private final ObjectMapper objectMapper;
 
-    private final String schema_id;
+    private final String schemaId;
 
-    public BackendSchemaPreviewBySchemaIdResource(String schema_id, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
+    public BackendSchemaPreviewBySchemaIdResource(String schemaId, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
         super(baseUrl, httpClient, objectMapper);
 
-        this.schema_id = schema_id;
+        this.schemaId = schemaId;
 
-        this.url = baseUrl + "/backend/schema/preview/"+schema_id+"";
+        this.url = baseUrl + "/backend/schema/preview/"+schemaId+"";
         this.httpClient = httpClient;
         this.objectMapper = objectMapper;
     }
 
-    public BackendSchemaPreviewBySchemaIdResource(String schema_id, String baseUrl, HttpClient httpClient) {
-        this(schema_id, baseUrl, httpClient, new ObjectMapper());
+    public BackendSchemaPreviewBySchemaIdResource(String schemaId, String baseUrl, HttpClient httpClient) {
+        this(schemaId, baseUrl, httpClient, new ObjectMapper());
     }
 
-    public Schema_Preview_Response backendActionSchemaGetPreview() throws URISyntaxException, IOException {
+    public SchemaPreviewResponse backendActionSchemaGetPreview() throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 
@@ -48,7 +48,7 @@ public class BackendSchemaPreviewBySchemaIdResource extends ResourceAbstract {
 
         HttpResponse response = this.httpClient.execute(request);
 
-        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), Schema_Preview_Response.class);
+        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), SchemaPreviewResponse.class);
     }
 
 }

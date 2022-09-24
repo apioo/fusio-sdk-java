@@ -38,7 +38,7 @@ public class BackendStatisticUsedPointsResource extends ResourceAbstract {
         this(baseUrl, httpClient, new ObjectMapper());
     }
 
-    public Statistic_Chart backendActionStatisticGetUsedPoints(Backend_Plan_Usage_Collection_Query query) throws URISyntaxException, IOException {
+    public StatisticChart backendActionStatisticGetUsedPoints(BackendPlanUsageCollectionQuery query) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
         Map<String, Object> params = this.objectMapper.convertValue(query, Map.class);
@@ -52,7 +52,7 @@ public class BackendStatisticUsedPointsResource extends ResourceAbstract {
 
         HttpResponse response = this.httpClient.execute(request);
 
-        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), Statistic_Chart.class);
+        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), StatisticChart.class);
     }
 
 }

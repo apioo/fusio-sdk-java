@@ -38,7 +38,7 @@ public class BackendConnectionListResource extends ResourceAbstract {
         this(baseUrl, httpClient, new ObjectMapper());
     }
 
-    public Connection_Index backendActionConnectionGetIndex() throws URISyntaxException, IOException {
+    public ConnectionIndex backendActionConnectionGetIndex() throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 
@@ -46,7 +46,7 @@ public class BackendConnectionListResource extends ResourceAbstract {
 
         HttpResponse response = this.httpClient.execute(request);
 
-        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), Connection_Index.class);
+        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), ConnectionIndex.class);
     }
 
 }

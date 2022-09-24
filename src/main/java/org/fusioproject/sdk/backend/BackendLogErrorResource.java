@@ -38,7 +38,7 @@ public class BackendLogErrorResource extends ResourceAbstract {
         this(baseUrl, httpClient, new ObjectMapper());
     }
 
-    public Log_Error_Collection backendActionLogErrorGetAll(Collection_Query query) throws URISyntaxException, IOException {
+    public LogErrorCollection backendActionLogErrorGetAll(CollectionQuery query) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
         Map<String, Object> params = this.objectMapper.convertValue(query, Map.class);
@@ -52,7 +52,7 @@ public class BackendLogErrorResource extends ResourceAbstract {
 
         HttpResponse response = this.httpClient.execute(request);
 
-        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), Log_Error_Collection.class);
+        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), LogErrorCollection.class);
     }
 
 }

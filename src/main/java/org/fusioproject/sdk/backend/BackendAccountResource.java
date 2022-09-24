@@ -49,7 +49,7 @@ public class BackendAccountResource extends ResourceAbstract {
         return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), User.class);
     }
 
-    public Message backendActionAccountUpdate(User_Update data) throws URISyntaxException, IOException {
+    public Message backendActionAccountUpdate(UserUpdate data) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 

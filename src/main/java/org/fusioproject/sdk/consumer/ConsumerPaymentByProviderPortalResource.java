@@ -40,15 +40,17 @@ public class ConsumerPaymentByProviderPortalResource extends ResourceAbstract {
         this(provider, baseUrl, httpClient, new ObjectMapper());
     }
 
-    public Payment_Portal_Response consumerActionPaymentPortal() throws URISyntaxException, IOException {
+    public PaymentPortalResponse consumerActionPaymentPortal(PaymentPortalRequest data) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 
         HttpPost request = new HttpPost(builder.build());
+        request.addHeader("Content-Type", "application/json");
+        request.setEntity(new StringEntity(this.objectMapper.writeValueAsString(data), ContentType.APPLICATION_JSON));
 
         HttpResponse response = this.httpClient.execute(request);
 
-        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), Payment_Portal_Response.class);
+        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), PaymentPortalResponse.class);
     }
 
 }

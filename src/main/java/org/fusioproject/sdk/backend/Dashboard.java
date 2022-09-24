@@ -8,85 +8,85 @@ package org.fusioproject.sdk.backend;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 public class Dashboard {
-    private Statistic_Chart errorsPerRoute;
-    private Statistic_Chart incomingRequests;
-    private Statistic_Chart incomingTransactions;
-    private Statistic_Chart mostUsedRoutes;
-    private Statistic_Chart timePerRoute;
-    private Dashboard_Apps latestApps;
-    private Dashboard_Requests latestRequests;
-    private Dashboard_Users latestUsers;
-    private Dashboard_Transactions latestTransactions;
+    private StatisticChart errorsPerRoute;
+    private StatisticChart incomingRequests;
+    private StatisticChart incomingTransactions;
+    private StatisticChart mostUsedRoutes;
+    private StatisticChart timePerRoute;
+    private DashboardApps latestApps;
+    private DashboardRequests latestRequests;
+    private DashboardUsers latestUsers;
+    private DashboardTransactions latestTransactions;
     @JsonSetter("errorsPerRoute")
-    public void setErrorsPerRoute(Statistic_Chart errorsPerRoute) {
+    public void setErrorsPerRoute(StatisticChart errorsPerRoute) {
         this.errorsPerRoute = errorsPerRoute;
     }
     @JsonGetter("errorsPerRoute")
-    public Statistic_Chart getErrorsPerRoute() {
+    public StatisticChart getErrorsPerRoute() {
         return this.errorsPerRoute;
     }
     @JsonSetter("incomingRequests")
-    public void setIncomingRequests(Statistic_Chart incomingRequests) {
+    public void setIncomingRequests(StatisticChart incomingRequests) {
         this.incomingRequests = incomingRequests;
     }
     @JsonGetter("incomingRequests")
-    public Statistic_Chart getIncomingRequests() {
+    public StatisticChart getIncomingRequests() {
         return this.incomingRequests;
     }
     @JsonSetter("incomingTransactions")
-    public void setIncomingTransactions(Statistic_Chart incomingTransactions) {
+    public void setIncomingTransactions(StatisticChart incomingTransactions) {
         this.incomingTransactions = incomingTransactions;
     }
     @JsonGetter("incomingTransactions")
-    public Statistic_Chart getIncomingTransactions() {
+    public StatisticChart getIncomingTransactions() {
         return this.incomingTransactions;
     }
     @JsonSetter("mostUsedRoutes")
-    public void setMostUsedRoutes(Statistic_Chart mostUsedRoutes) {
+    public void setMostUsedRoutes(StatisticChart mostUsedRoutes) {
         this.mostUsedRoutes = mostUsedRoutes;
     }
     @JsonGetter("mostUsedRoutes")
-    public Statistic_Chart getMostUsedRoutes() {
+    public StatisticChart getMostUsedRoutes() {
         return this.mostUsedRoutes;
     }
     @JsonSetter("timePerRoute")
-    public void setTimePerRoute(Statistic_Chart timePerRoute) {
+    public void setTimePerRoute(StatisticChart timePerRoute) {
         this.timePerRoute = timePerRoute;
     }
     @JsonGetter("timePerRoute")
-    public Statistic_Chart getTimePerRoute() {
+    public StatisticChart getTimePerRoute() {
         return this.timePerRoute;
     }
     @JsonSetter("latestApps")
-    public void setLatestApps(Dashboard_Apps latestApps) {
+    public void setLatestApps(DashboardApps latestApps) {
         this.latestApps = latestApps;
     }
     @JsonGetter("latestApps")
-    public Dashboard_Apps getLatestApps() {
+    public DashboardApps getLatestApps() {
         return this.latestApps;
     }
     @JsonSetter("latestRequests")
-    public void setLatestRequests(Dashboard_Requests latestRequests) {
+    public void setLatestRequests(DashboardRequests latestRequests) {
         this.latestRequests = latestRequests;
     }
     @JsonGetter("latestRequests")
-    public Dashboard_Requests getLatestRequests() {
+    public DashboardRequests getLatestRequests() {
         return this.latestRequests;
     }
     @JsonSetter("latestUsers")
-    public void setLatestUsers(Dashboard_Users latestUsers) {
+    public void setLatestUsers(DashboardUsers latestUsers) {
         this.latestUsers = latestUsers;
     }
     @JsonGetter("latestUsers")
-    public Dashboard_Users getLatestUsers() {
+    public DashboardUsers getLatestUsers() {
         return this.latestUsers;
     }
     @JsonSetter("latestTransactions")
-    public void setLatestTransactions(Dashboard_Transactions latestTransactions) {
+    public void setLatestTransactions(DashboardTransactions latestTransactions) {
         this.latestTransactions = latestTransactions;
     }
     @JsonGetter("latestTransactions")
-    public Dashboard_Transactions getLatestTransactions() {
+    public DashboardTransactions getLatestTransactions() {
         return this.latestTransactions;
     }
 }

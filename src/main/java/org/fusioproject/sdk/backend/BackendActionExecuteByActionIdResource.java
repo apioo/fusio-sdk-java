@@ -24,23 +24,23 @@ public class BackendActionExecuteByActionIdResource extends ResourceAbstract {
     private final HttpClient httpClient;
     private final ObjectMapper objectMapper;
 
-    private final String action_id;
+    private final String actionId;
 
-    public BackendActionExecuteByActionIdResource(String action_id, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
+    public BackendActionExecuteByActionIdResource(String actionId, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
         super(baseUrl, httpClient, objectMapper);
 
-        this.action_id = action_id;
+        this.actionId = actionId;
 
-        this.url = baseUrl + "/backend/action/execute/"+action_id+"";
+        this.url = baseUrl + "/backend/action/execute/"+actionId+"";
         this.httpClient = httpClient;
         this.objectMapper = objectMapper;
     }
 
-    public BackendActionExecuteByActionIdResource(String action_id, String baseUrl, HttpClient httpClient) {
-        this(action_id, baseUrl, httpClient, new ObjectMapper());
+    public BackendActionExecuteByActionIdResource(String actionId, String baseUrl, HttpClient httpClient) {
+        this(actionId, baseUrl, httpClient, new ObjectMapper());
     }
 
-    public Action_Execute_Response backendActionActionExecute(Action_Execute_Request data) throws URISyntaxException, IOException {
+    public ActionExecuteResponse backendActionActionExecute(ActionExecuteRequest data) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 
@@ -50,7 +50,7 @@ public class BackendActionExecuteByActionIdResource extends ResourceAbstract {
 
         HttpResponse response = this.httpClient.execute(request);
 
-        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), Action_Execute_Response.class);
+        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), ActionExecuteResponse.class);
     }
 
 }

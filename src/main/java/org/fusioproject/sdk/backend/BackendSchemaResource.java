@@ -38,7 +38,7 @@ public class BackendSchemaResource extends ResourceAbstract {
         this(baseUrl, httpClient, new ObjectMapper());
     }
 
-    public Schema_Collection backendActionSchemaGetAll(Collection_Category_Query query) throws URISyntaxException, IOException {
+    public SchemaCollection backendActionSchemaGetAll(CollectionCategoryQuery query) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
         Map<String, Object> params = this.objectMapper.convertValue(query, Map.class);
@@ -52,10 +52,10 @@ public class BackendSchemaResource extends ResourceAbstract {
 
         HttpResponse response = this.httpClient.execute(request);
 
-        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), Schema_Collection.class);
+        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), SchemaCollection.class);
     }
 
-    public Message backendActionSchemaCreate(Schema_Create data) throws URISyntaxException, IOException {
+    public Message backendActionSchemaCreate(SchemaCreate data) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 

@@ -38,7 +38,7 @@ public class BackendMarketplaceResource extends ResourceAbstract {
         this(baseUrl, httpClient, new ObjectMapper());
     }
 
-    public Marketplace_Collection backendActionMarketplaceGetAll() throws URISyntaxException, IOException {
+    public MarketplaceCollection backendActionMarketplaceGetAll() throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 
@@ -46,10 +46,10 @@ public class BackendMarketplaceResource extends ResourceAbstract {
 
         HttpResponse response = this.httpClient.execute(request);
 
-        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), Marketplace_Collection.class);
+        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), MarketplaceCollection.class);
     }
 
-    public Message backendActionMarketplaceInstall(Marketplace_Install data) throws URISyntaxException, IOException {
+    public Message backendActionMarketplaceInstall(MarketplaceInstall data) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 

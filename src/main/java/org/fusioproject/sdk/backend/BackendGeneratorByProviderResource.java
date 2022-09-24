@@ -40,7 +40,7 @@ public class BackendGeneratorByProviderResource extends ResourceAbstract {
         this(provider, baseUrl, httpClient, new ObjectMapper());
     }
 
-    public Form_Container backendActionGeneratorForm() throws URISyntaxException, IOException {
+    public FormContainer backendActionGeneratorForm() throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 
@@ -48,10 +48,10 @@ public class BackendGeneratorByProviderResource extends ResourceAbstract {
 
         HttpResponse response = this.httpClient.execute(request);
 
-        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), Form_Container.class);
+        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), FormContainer.class);
     }
 
-    public Message backendActionGeneratorCreate(Generator_Provider data) throws URISyntaxException, IOException {
+    public Message backendActionGeneratorCreate(GeneratorProvider data) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 
@@ -64,7 +64,7 @@ public class BackendGeneratorByProviderResource extends ResourceAbstract {
         return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class);
     }
 
-    public Generator_Provider_Changelog backendActionGeneratorChangelog(Generator_Provider_Config data) throws URISyntaxException, IOException {
+    public GeneratorProviderChangelog backendActionGeneratorChangelog(GeneratorProviderConfig data) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 
@@ -74,7 +74,7 @@ public class BackendGeneratorByProviderResource extends ResourceAbstract {
 
         HttpResponse response = this.httpClient.execute(request);
 
-        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), Generator_Provider_Changelog.class);
+        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), GeneratorProviderChangelog.class);
     }
 
 }

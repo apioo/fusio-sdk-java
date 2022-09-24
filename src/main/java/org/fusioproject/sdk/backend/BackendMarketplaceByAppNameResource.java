@@ -24,23 +24,23 @@ public class BackendMarketplaceByAppNameResource extends ResourceAbstract {
     private final HttpClient httpClient;
     private final ObjectMapper objectMapper;
 
-    private final String app_name;
+    private final String appName;
 
-    public BackendMarketplaceByAppNameResource(String app_name, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
+    public BackendMarketplaceByAppNameResource(String appName, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
         super(baseUrl, httpClient, objectMapper);
 
-        this.app_name = app_name;
+        this.appName = appName;
 
-        this.url = baseUrl + "/backend/marketplace/"+app_name+"";
+        this.url = baseUrl + "/backend/marketplace/"+appName+"";
         this.httpClient = httpClient;
         this.objectMapper = objectMapper;
     }
 
-    public BackendMarketplaceByAppNameResource(String app_name, String baseUrl, HttpClient httpClient) {
-        this(app_name, baseUrl, httpClient, new ObjectMapper());
+    public BackendMarketplaceByAppNameResource(String appName, String baseUrl, HttpClient httpClient) {
+        this(appName, baseUrl, httpClient, new ObjectMapper());
     }
 
-    public Marketplace_Local_App backendActionMarketplaceGet() throws URISyntaxException, IOException {
+    public MarketplaceLocalApp backendActionMarketplaceGet() throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 
@@ -48,7 +48,7 @@ public class BackendMarketplaceByAppNameResource extends ResourceAbstract {
 
         HttpResponse response = this.httpClient.execute(request);
 
-        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), Marketplace_Local_App.class);
+        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), MarketplaceLocalApp.class);
     }
 
     public Message backendActionMarketplaceUpdate() throws URISyntaxException, IOException {

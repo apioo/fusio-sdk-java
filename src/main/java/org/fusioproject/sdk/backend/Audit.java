@@ -15,7 +15,7 @@ public class Audit {
     private String event;
     private String ip;
     private String message;
-    private Audit_Object content;
+    private AuditObject content;
     private LocalDateTime date;
     @JsonSetter("id")
     public void setId(int id) {
@@ -66,11 +66,11 @@ public class Audit {
         return this.message;
     }
     @JsonSetter("content")
-    public void setContent(Audit_Object content) {
+    public void setContent(AuditObject content) {
         this.content = content;
     }
     @JsonGetter("content")
-    public Audit_Object getContent() {
+    public AuditObject getContent() {
         return this.content;
     }
     @JsonSetter("date")

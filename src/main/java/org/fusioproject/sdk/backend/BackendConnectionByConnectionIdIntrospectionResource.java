@@ -24,23 +24,23 @@ public class BackendConnectionByConnectionIdIntrospectionResource extends Resour
     private final HttpClient httpClient;
     private final ObjectMapper objectMapper;
 
-    private final String connection_id;
+    private final String connectionId;
 
-    public BackendConnectionByConnectionIdIntrospectionResource(String connection_id, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
+    public BackendConnectionByConnectionIdIntrospectionResource(String connectionId, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
         super(baseUrl, httpClient, objectMapper);
 
-        this.connection_id = connection_id;
+        this.connectionId = connectionId;
 
-        this.url = baseUrl + "/backend/connection/"+connection_id+"/introspection";
+        this.url = baseUrl + "/backend/connection/"+connectionId+"/introspection";
         this.httpClient = httpClient;
         this.objectMapper = objectMapper;
     }
 
-    public BackendConnectionByConnectionIdIntrospectionResource(String connection_id, String baseUrl, HttpClient httpClient) {
-        this(connection_id, baseUrl, httpClient, new ObjectMapper());
+    public BackendConnectionByConnectionIdIntrospectionResource(String connectionId, String baseUrl, HttpClient httpClient) {
+        this(connectionId, baseUrl, httpClient, new ObjectMapper());
     }
 
-    public Connection_Introspection_Entities backendActionConnectionIntrospectionGetEntities() throws URISyntaxException, IOException {
+    public ConnectionIntrospectionEntities backendActionConnectionIntrospectionGetEntities() throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 
@@ -48,7 +48,7 @@ public class BackendConnectionByConnectionIdIntrospectionResource extends Resour
 
         HttpResponse response = this.httpClient.execute(request);
 
-        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), Connection_Introspection_Entities.class);
+        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), ConnectionIntrospectionEntities.class);
     }
 
 }

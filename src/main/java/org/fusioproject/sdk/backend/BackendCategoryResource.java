@@ -38,7 +38,7 @@ public class BackendCategoryResource extends ResourceAbstract {
         this(baseUrl, httpClient, new ObjectMapper());
     }
 
-    public Category_Collection backendActionCategoryGetAll(Collection_Query query) throws URISyntaxException, IOException {
+    public CategoryCollection backendActionCategoryGetAll(CollectionQuery query) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
         Map<String, Object> params = this.objectMapper.convertValue(query, Map.class);
@@ -52,10 +52,10 @@ public class BackendCategoryResource extends ResourceAbstract {
 
         HttpResponse response = this.httpClient.execute(request);
 
-        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), Category_Collection.class);
+        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), CategoryCollection.class);
     }
 
-    public Message backendActionCategoryCreate(Category_Create data) throws URISyntaxException, IOException {
+    public Message backendActionCategoryCreate(CategoryCreate data) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 

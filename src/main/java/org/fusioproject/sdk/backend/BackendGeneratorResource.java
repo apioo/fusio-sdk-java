@@ -38,7 +38,7 @@ public class BackendGeneratorResource extends ResourceAbstract {
         this(baseUrl, httpClient, new ObjectMapper());
     }
 
-    public Generator_Index_Providers backendActionGeneratorIndex() throws URISyntaxException, IOException {
+    public GeneratorIndexProviders backendActionGeneratorIndex() throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 
@@ -46,7 +46,7 @@ public class BackendGeneratorResource extends ResourceAbstract {
 
         HttpResponse response = this.httpClient.execute(request);
 
-        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), Generator_Index_Providers.class);
+        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), GeneratorIndexProviders.class);
     }
 
 }

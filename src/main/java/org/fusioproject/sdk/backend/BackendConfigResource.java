@@ -38,7 +38,7 @@ public class BackendConfigResource extends ResourceAbstract {
         this(baseUrl, httpClient, new ObjectMapper());
     }
 
-    public Config_Collection backendActionConfigGetAll(Collection_Query query) throws URISyntaxException, IOException {
+    public ConfigCollection backendActionConfigGetAll(CollectionQuery query) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
         Map<String, Object> params = this.objectMapper.convertValue(query, Map.class);
@@ -52,7 +52,7 @@ public class BackendConfigResource extends ResourceAbstract {
 
         HttpResponse response = this.httpClient.execute(request);
 
-        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), Config_Collection.class);
+        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), ConfigCollection.class);
     }
 
 }

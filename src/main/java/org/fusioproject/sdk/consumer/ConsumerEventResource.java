@@ -38,7 +38,7 @@ public class ConsumerEventResource extends ResourceAbstract {
         this(baseUrl, httpClient, new ObjectMapper());
     }
 
-    public Event_Collection consumerActionEventGetAll(Collection_Query query) throws URISyntaxException, IOException {
+    public EventCollection consumerActionEventGetAll(CollectionQuery query) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
         Map<String, Object> params = this.objectMapper.convertValue(query, Map.class);
@@ -52,7 +52,7 @@ public class ConsumerEventResource extends ResourceAbstract {
 
         HttpResponse response = this.httpClient.execute(request);
 
-        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), Event_Collection.class);
+        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), EventCollection.class);
     }
 
 }

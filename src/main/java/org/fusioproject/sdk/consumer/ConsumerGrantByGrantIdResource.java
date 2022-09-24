@@ -24,20 +24,20 @@ public class ConsumerGrantByGrantIdResource extends ResourceAbstract {
     private final HttpClient httpClient;
     private final ObjectMapper objectMapper;
 
-    private final String grant_id;
+    private final String grantId;
 
-    public ConsumerGrantByGrantIdResource(String grant_id, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
+    public ConsumerGrantByGrantIdResource(String grantId, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
         super(baseUrl, httpClient, objectMapper);
 
-        this.grant_id = grant_id;
+        this.grantId = grantId;
 
-        this.url = baseUrl + "/consumer/grant/"+grant_id+"";
+        this.url = baseUrl + "/consumer/grant/"+grantId+"";
         this.httpClient = httpClient;
         this.objectMapper = objectMapper;
     }
 
-    public ConsumerGrantByGrantIdResource(String grant_id, String baseUrl, HttpClient httpClient) {
-        this(grant_id, baseUrl, httpClient, new ObjectMapper());
+    public ConsumerGrantByGrantIdResource(String grantId, String baseUrl, HttpClient httpClient) {
+        this(grantId, baseUrl, httpClient, new ObjectMapper());
     }
 
     public void consumerActionGrantDelete() throws URISyntaxException, IOException {

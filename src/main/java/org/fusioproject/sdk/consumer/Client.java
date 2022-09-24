@@ -17,10 +17,12 @@ public class Client extends ClientAbstract {
     }
 
     /**
-     * Tag: consumer.user
+     * Endpoint: /consumer/password_reset
+     *
+     * 
      */
-    public ConsumerUserGroup consumerUser() {
-        return new ConsumerUserGroup(
+    public ConsumerPasswordResetResource getConsumerPasswordReset() {
+        return new ConsumerPasswordResetResource(
             this.baseUrl,
             this.newHttpClient(),
             this.objectMapper
@@ -28,10 +30,12 @@ public class Client extends ClientAbstract {
     }
 
     /**
-     * Tag: consumer.transaction
+     * Endpoint: /consumer/register
+     *
+     * 
      */
-    public ConsumerTransactionGroup consumerTransaction() {
-        return new ConsumerTransactionGroup(
+    public ConsumerRegisterResource getConsumerRegister() {
+        return new ConsumerRegisterResource(
             this.baseUrl,
             this.newHttpClient(),
             this.objectMapper
@@ -39,10 +43,13 @@ public class Client extends ClientAbstract {
     }
 
     /**
-     * Tag: consumer.subscription
+     * Endpoint: /consumer/provider/:provider
+     *
+     * 
      */
-    public ConsumerSubscriptionGroup consumerSubscription() {
-        return new ConsumerSubscriptionGroup(
+    public ConsumerProviderByProviderResource getConsumerProviderByProvider(String provider) {
+        return new ConsumerProviderByProviderResource(
+            provider,
             this.baseUrl,
             this.newHttpClient(),
             this.objectMapper
@@ -50,10 +57,12 @@ public class Client extends ClientAbstract {
     }
 
     /**
-     * Tag: consumer.scope
+     * Endpoint: /consumer/login
+     *
+     * 
      */
-    public ConsumerScopeGroup consumerScope() {
-        return new ConsumerScopeGroup(
+    public ConsumerLoginResource getConsumerLogin() {
+        return new ConsumerLoginResource(
             this.baseUrl,
             this.newHttpClient(),
             this.objectMapper
@@ -61,10 +70,12 @@ public class Client extends ClientAbstract {
     }
 
     /**
-     * Tag: consumer.plan
+     * Endpoint: /consumer/authorize
+     *
+     * 
      */
-    public ConsumerPlanGroup consumerPlan() {
-        return new ConsumerPlanGroup(
+    public ConsumerAuthorizeResource getConsumerAuthorize() {
+        return new ConsumerAuthorizeResource(
             this.baseUrl,
             this.newHttpClient(),
             this.objectMapper
@@ -72,10 +83,12 @@ public class Client extends ClientAbstract {
     }
 
     /**
-     * Tag: consumer.payment
+     * Endpoint: /consumer/activate
+     *
+     * 
      */
-    public ConsumerPaymentGroup consumerPayment() {
-        return new ConsumerPaymentGroup(
+    public ConsumerActivateResource getConsumerActivate() {
+        return new ConsumerActivateResource(
             this.baseUrl,
             this.newHttpClient(),
             this.objectMapper
@@ -83,10 +96,12 @@ public class Client extends ClientAbstract {
     }
 
     /**
-     * Tag: consumer.page
+     * Endpoint: /consumer/account/change_password
+     *
+     * 
      */
-    public ConsumerPageGroup consumerPage() {
-        return new ConsumerPageGroup(
+    public ConsumerAccountChangePasswordResource getConsumerAccountChangePassword() {
+        return new ConsumerAccountChangePasswordResource(
             this.baseUrl,
             this.newHttpClient(),
             this.objectMapper
@@ -94,10 +109,12 @@ public class Client extends ClientAbstract {
     }
 
     /**
-     * Tag: consumer.log
+     * Endpoint: /consumer/account
+     *
+     * 
      */
-    public ConsumerLogGroup consumerLog() {
-        return new ConsumerLogGroup(
+    public ConsumerAccountResource getConsumerAccount() {
+        return new ConsumerAccountResource(
             this.baseUrl,
             this.newHttpClient(),
             this.objectMapper
@@ -105,10 +122,13 @@ public class Client extends ClientAbstract {
     }
 
     /**
-     * Tag: consumer.grant
+     * Endpoint: /consumer/transaction/$transaction_id<[0-9]+>
+     *
+     * 
      */
-    public ConsumerGrantGroup consumerGrant() {
-        return new ConsumerGrantGroup(
+    public ConsumerTransactionByTransactionIdResource getConsumerTransactionByTransactionId(String transactionId) {
+        return new ConsumerTransactionByTransactionIdResource(
+            transactionId,
             this.baseUrl,
             this.newHttpClient(),
             this.objectMapper
@@ -116,10 +136,12 @@ public class Client extends ClientAbstract {
     }
 
     /**
-     * Tag: consumer.event
+     * Endpoint: /consumer/transaction
+     *
+     * 
      */
-    public ConsumerEventGroup consumerEvent() {
-        return new ConsumerEventGroup(
+    public ConsumerTransactionResource getConsumerTransaction() {
+        return new ConsumerTransactionResource(
             this.baseUrl,
             this.newHttpClient(),
             this.objectMapper
@@ -127,10 +149,215 @@ public class Client extends ClientAbstract {
     }
 
     /**
-     * Tag: consumer.app
+     * Endpoint: /consumer/subscription/$subscription_id<[0-9]+>
+     *
+     * 
      */
-    public ConsumerAppGroup consumerApp() {
-        return new ConsumerAppGroup(
+    public ConsumerSubscriptionBySubscriptionIdResource getConsumerSubscriptionBySubscriptionId(String subscriptionId) {
+        return new ConsumerSubscriptionBySubscriptionIdResource(
+            subscriptionId,
+            this.baseUrl,
+            this.newHttpClient(),
+            this.objectMapper
+        );
+    }
+
+    /**
+     * Endpoint: /consumer/subscription
+     *
+     * 
+     */
+    public ConsumerSubscriptionResource getConsumerSubscription() {
+        return new ConsumerSubscriptionResource(
+            this.baseUrl,
+            this.newHttpClient(),
+            this.objectMapper
+        );
+    }
+
+    /**
+     * Endpoint: /consumer/scope
+     *
+     * 
+     */
+    public ConsumerScopeResource getConsumerScope() {
+        return new ConsumerScopeResource(
+            this.baseUrl,
+            this.newHttpClient(),
+            this.objectMapper
+        );
+    }
+
+    /**
+     * Endpoint: /consumer/plan/$plan_id<[0-9]+>
+     *
+     * 
+     */
+    public ConsumerPlanByPlanIdResource getConsumerPlanByPlanId(String planId) {
+        return new ConsumerPlanByPlanIdResource(
+            planId,
+            this.baseUrl,
+            this.newHttpClient(),
+            this.objectMapper
+        );
+    }
+
+    /**
+     * Endpoint: /consumer/plan
+     *
+     * 
+     */
+    public ConsumerPlanResource getConsumerPlan() {
+        return new ConsumerPlanResource(
+            this.baseUrl,
+            this.newHttpClient(),
+            this.objectMapper
+        );
+    }
+
+    /**
+     * Endpoint: /consumer/payment/:provider/checkout
+     *
+     * 
+     */
+    public ConsumerPaymentByProviderCheckoutResource getConsumerPaymentByProviderCheckout(String provider) {
+        return new ConsumerPaymentByProviderCheckoutResource(
+            provider,
+            this.baseUrl,
+            this.newHttpClient(),
+            this.objectMapper
+        );
+    }
+
+    /**
+     * Endpoint: /consumer/payment/:provider/portal
+     *
+     * 
+     */
+    public ConsumerPaymentByProviderPortalResource getConsumerPaymentByProviderPortal(String provider) {
+        return new ConsumerPaymentByProviderPortalResource(
+            provider,
+            this.baseUrl,
+            this.newHttpClient(),
+            this.objectMapper
+        );
+    }
+
+    /**
+     * Endpoint: /consumer/page/:page_id
+     *
+     * 
+     */
+    public ConsumerPageByPageIdResource getConsumerPageByPageId(String pageId) {
+        return new ConsumerPageByPageIdResource(
+            pageId,
+            this.baseUrl,
+            this.newHttpClient(),
+            this.objectMapper
+        );
+    }
+
+    /**
+     * Endpoint: /consumer/page
+     *
+     * 
+     */
+    public ConsumerPageResource getConsumerPage() {
+        return new ConsumerPageResource(
+            this.baseUrl,
+            this.newHttpClient(),
+            this.objectMapper
+        );
+    }
+
+    /**
+     * Endpoint: /consumer/log/$log_id<[0-9]+>
+     *
+     * 
+     */
+    public ConsumerLogByLogIdResource getConsumerLogByLogId(String logId) {
+        return new ConsumerLogByLogIdResource(
+            logId,
+            this.baseUrl,
+            this.newHttpClient(),
+            this.objectMapper
+        );
+    }
+
+    /**
+     * Endpoint: /consumer/log
+     *
+     * 
+     */
+    public ConsumerLogResource getConsumerLog() {
+        return new ConsumerLogResource(
+            this.baseUrl,
+            this.newHttpClient(),
+            this.objectMapper
+        );
+    }
+
+    /**
+     * Endpoint: /consumer/grant/$grant_id<[0-9]+>
+     *
+     * 
+     */
+    public ConsumerGrantByGrantIdResource getConsumerGrantByGrantId(String grantId) {
+        return new ConsumerGrantByGrantIdResource(
+            grantId,
+            this.baseUrl,
+            this.newHttpClient(),
+            this.objectMapper
+        );
+    }
+
+    /**
+     * Endpoint: /consumer/grant
+     *
+     * 
+     */
+    public ConsumerGrantResource getConsumerGrant() {
+        return new ConsumerGrantResource(
+            this.baseUrl,
+            this.newHttpClient(),
+            this.objectMapper
+        );
+    }
+
+    /**
+     * Endpoint: /consumer/event
+     *
+     * 
+     */
+    public ConsumerEventResource getConsumerEvent() {
+        return new ConsumerEventResource(
+            this.baseUrl,
+            this.newHttpClient(),
+            this.objectMapper
+        );
+    }
+
+    /**
+     * Endpoint: /consumer/app/$app_id<[0-9]+>
+     *
+     * 
+     */
+    public ConsumerAppByAppIdResource getConsumerAppByAppId(String appId) {
+        return new ConsumerAppByAppIdResource(
+            appId,
+            this.baseUrl,
+            this.newHttpClient(),
+            this.objectMapper
+        );
+    }
+
+    /**
+     * Endpoint: /consumer/app
+     *
+     * 
+     */
+    public ConsumerAppResource getConsumerApp() {
+        return new ConsumerAppResource(
             this.baseUrl,
             this.newHttpClient(),
             this.objectMapper

@@ -38,7 +38,7 @@ public class BackendSdkResource extends ResourceAbstract {
         this(baseUrl, httpClient, new ObjectMapper());
     }
 
-    public Sdk_Response backendActionSdkGetAll() throws URISyntaxException, IOException {
+    public SdkResponse backendActionSdkGetAll() throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 
@@ -46,10 +46,10 @@ public class BackendSdkResource extends ResourceAbstract {
 
         HttpResponse response = this.httpClient.execute(request);
 
-        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), Sdk_Response.class);
+        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), SdkResponse.class);
     }
 
-    public Message backendActionSdkGenerate(Sdk_Generate data) throws URISyntaxException, IOException {
+    public Message backendActionSdkGenerate(SdkGenerate data) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 

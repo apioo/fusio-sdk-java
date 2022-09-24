@@ -38,7 +38,7 @@ public class BackendScopeResource extends ResourceAbstract {
         this(baseUrl, httpClient, new ObjectMapper());
     }
 
-    public Scope_Collection backendActionScopeGetAll(Collection_Category_Query query) throws URISyntaxException, IOException {
+    public ScopeCollection backendActionScopeGetAll(CollectionCategoryQuery query) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
         Map<String, Object> params = this.objectMapper.convertValue(query, Map.class);
@@ -52,10 +52,10 @@ public class BackendScopeResource extends ResourceAbstract {
 
         HttpResponse response = this.httpClient.execute(request);
 
-        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), Scope_Collection.class);
+        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), ScopeCollection.class);
     }
 
-    public Message backendActionScopeCreate(Scope_Create data) throws URISyntaxException, IOException {
+    public Message backendActionScopeCreate(ScopeCreate data) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 

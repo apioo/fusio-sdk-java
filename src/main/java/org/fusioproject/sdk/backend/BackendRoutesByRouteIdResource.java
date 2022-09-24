@@ -24,20 +24,20 @@ public class BackendRoutesByRouteIdResource extends ResourceAbstract {
     private final HttpClient httpClient;
     private final ObjectMapper objectMapper;
 
-    private final String route_id;
+    private final String routeId;
 
-    public BackendRoutesByRouteIdResource(String route_id, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
+    public BackendRoutesByRouteIdResource(String routeId, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
         super(baseUrl, httpClient, objectMapper);
 
-        this.route_id = route_id;
+        this.routeId = routeId;
 
-        this.url = baseUrl + "/backend/routes/"+route_id+"";
+        this.url = baseUrl + "/backend/routes/"+routeId+"";
         this.httpClient = httpClient;
         this.objectMapper = objectMapper;
     }
 
-    public BackendRoutesByRouteIdResource(String route_id, String baseUrl, HttpClient httpClient) {
-        this(route_id, baseUrl, httpClient, new ObjectMapper());
+    public BackendRoutesByRouteIdResource(String routeId, String baseUrl, HttpClient httpClient) {
+        this(routeId, baseUrl, httpClient, new ObjectMapper());
     }
 
     public Route backendActionRouteGet() throws URISyntaxException, IOException {
@@ -51,7 +51,7 @@ public class BackendRoutesByRouteIdResource extends ResourceAbstract {
         return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), Route.class);
     }
 
-    public Message backendActionRouteUpdate(Route_Update data) throws URISyntaxException, IOException {
+    public Message backendActionRouteUpdate(RouteUpdate data) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 

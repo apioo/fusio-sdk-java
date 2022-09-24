@@ -24,23 +24,23 @@ public class ConsumerLogByLogIdResource extends ResourceAbstract {
     private final HttpClient httpClient;
     private final ObjectMapper objectMapper;
 
-    private final String log_id;
+    private final String logId;
 
-    public ConsumerLogByLogIdResource(String log_id, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
+    public ConsumerLogByLogIdResource(String logId, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
         super(baseUrl, httpClient, objectMapper);
 
-        this.log_id = log_id;
+        this.logId = logId;
 
-        this.url = baseUrl + "/consumer/log/"+log_id+"";
+        this.url = baseUrl + "/consumer/log/"+logId+"";
         this.httpClient = httpClient;
         this.objectMapper = objectMapper;
     }
 
-    public ConsumerLogByLogIdResource(String log_id, String baseUrl, HttpClient httpClient) {
-        this(log_id, baseUrl, httpClient, new ObjectMapper());
+    public ConsumerLogByLogIdResource(String logId, String baseUrl, HttpClient httpClient) {
+        this(logId, baseUrl, httpClient, new ObjectMapper());
     }
 
-    public Log consumerActionLogGet(Collection_Query query) throws URISyntaxException, IOException {
+    public Log consumerActionLogGet(CollectionQuery query) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
         Map<String, Object> params = this.objectMapper.convertValue(query, Map.class);

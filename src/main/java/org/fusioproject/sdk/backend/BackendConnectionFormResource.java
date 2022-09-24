@@ -38,7 +38,7 @@ public class BackendConnectionFormResource extends ResourceAbstract {
         this(baseUrl, httpClient, new ObjectMapper());
     }
 
-    public Form_Container backendActionConnectionGetForm(Form_Query query) throws URISyntaxException, IOException {
+    public FormContainer backendActionConnectionGetForm(FormQuery query) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
         Map<String, Object> params = this.objectMapper.convertValue(query, Map.class);
@@ -52,7 +52,7 @@ public class BackendConnectionFormResource extends ResourceAbstract {
 
         HttpResponse response = this.httpClient.execute(request);
 
-        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), Form_Container.class);
+        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), FormContainer.class);
     }
 
 }

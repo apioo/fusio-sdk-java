@@ -40,7 +40,7 @@ public class ConsumerPaymentByProviderCheckoutResource extends ResourceAbstract 
         this(provider, baseUrl, httpClient, new ObjectMapper());
     }
 
-    public Payment_Checkout_Response consumerActionPaymentCheckout(Payment_Checkout_Request data) throws URISyntaxException, IOException {
+    public PaymentCheckoutResponse consumerActionPaymentCheckout(PaymentCheckoutRequest data) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 
@@ -50,7 +50,7 @@ public class ConsumerPaymentByProviderCheckoutResource extends ResourceAbstract 
 
         HttpResponse response = this.httpClient.execute(request);
 
-        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), Payment_Checkout_Response.class);
+        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), PaymentCheckoutResponse.class);
     }
 
 }

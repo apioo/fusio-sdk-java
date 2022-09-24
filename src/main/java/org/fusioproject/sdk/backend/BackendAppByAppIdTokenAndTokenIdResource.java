@@ -24,22 +24,22 @@ public class BackendAppByAppIdTokenAndTokenIdResource extends ResourceAbstract {
     private final HttpClient httpClient;
     private final ObjectMapper objectMapper;
 
-    private final String app_id;
-    private final String token_id;
+    private final String appId;
+    private final String tokenId;
 
-    public BackendAppByAppIdTokenAndTokenIdResource(String app_id, String token_id, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
+    public BackendAppByAppIdTokenAndTokenIdResource(String appId, String tokenId, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
         super(baseUrl, httpClient, objectMapper);
 
-        this.app_id = app_id;
-        this.token_id = token_id;
+        this.appId = appId;
+        this.tokenId = tokenId;
 
-        this.url = baseUrl + "/backend/app/"+app_id+"/token/"+token_id+"";
+        this.url = baseUrl + "/backend/app/"+appId+"/token/"+tokenId+"";
         this.httpClient = httpClient;
         this.objectMapper = objectMapper;
     }
 
-    public BackendAppByAppIdTokenAndTokenIdResource(String app_id, String token_id, String baseUrl, HttpClient httpClient) {
-        this(app_id, token_id, baseUrl, httpClient, new ObjectMapper());
+    public BackendAppByAppIdTokenAndTokenIdResource(String appId, String tokenId, String baseUrl, HttpClient httpClient) {
+        this(appId, tokenId, baseUrl, httpClient, new ObjectMapper());
     }
 
     public Message backendActionAppDeleteToken() throws URISyntaxException, IOException {

@@ -14,7 +14,7 @@ public class Action {
     private String _class;
     private boolean async;
     private String engine;
-    private Action_Config config;
+    private ActionConfig config;
     @JsonSetter("id")
     public void setId(int id) {
         this.id = id;
@@ -40,7 +40,7 @@ public class Action {
         return this.name;
     }
     @JsonSetter("class")
-    public void set_Class(String _class) {
+    public void setClass(String _class) {
         this._class = _class;
     }
     @JsonGetter("class")
@@ -64,11 +64,11 @@ public class Action {
         return this.engine;
     }
     @JsonSetter("config")
-    public void setConfig(Action_Config config) {
+    public void setConfig(ActionConfig config) {
         this.config = config;
     }
     @JsonGetter("config")
-    public Action_Config getConfig() {
+    public ActionConfig getConfig() {
         return this.config;
     }
 }

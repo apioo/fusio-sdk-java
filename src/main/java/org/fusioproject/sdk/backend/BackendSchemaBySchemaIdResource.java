@@ -24,20 +24,20 @@ public class BackendSchemaBySchemaIdResource extends ResourceAbstract {
     private final HttpClient httpClient;
     private final ObjectMapper objectMapper;
 
-    private final String schema_id;
+    private final String schemaId;
 
-    public BackendSchemaBySchemaIdResource(String schema_id, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
+    public BackendSchemaBySchemaIdResource(String schemaId, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
         super(baseUrl, httpClient, objectMapper);
 
-        this.schema_id = schema_id;
+        this.schemaId = schemaId;
 
-        this.url = baseUrl + "/backend/schema/"+schema_id+"";
+        this.url = baseUrl + "/backend/schema/"+schemaId+"";
         this.httpClient = httpClient;
         this.objectMapper = objectMapper;
     }
 
-    public BackendSchemaBySchemaIdResource(String schema_id, String baseUrl, HttpClient httpClient) {
-        this(schema_id, baseUrl, httpClient, new ObjectMapper());
+    public BackendSchemaBySchemaIdResource(String schemaId, String baseUrl, HttpClient httpClient) {
+        this(schemaId, baseUrl, httpClient, new ObjectMapper());
     }
 
     public Schema backendActionSchemaGet() throws URISyntaxException, IOException {
@@ -51,7 +51,7 @@ public class BackendSchemaBySchemaIdResource extends ResourceAbstract {
         return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), Schema.class);
     }
 
-    public Message backendActionSchemaUpdate(Schema_Update data) throws URISyntaxException, IOException {
+    public Message backendActionSchemaUpdate(SchemaUpdate data) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 

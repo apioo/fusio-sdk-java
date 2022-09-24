@@ -24,20 +24,20 @@ public class BackendCronjobByCronjobIdResource extends ResourceAbstract {
     private final HttpClient httpClient;
     private final ObjectMapper objectMapper;
 
-    private final String cronjob_id;
+    private final String cronjobId;
 
-    public BackendCronjobByCronjobIdResource(String cronjob_id, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
+    public BackendCronjobByCronjobIdResource(String cronjobId, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
         super(baseUrl, httpClient, objectMapper);
 
-        this.cronjob_id = cronjob_id;
+        this.cronjobId = cronjobId;
 
-        this.url = baseUrl + "/backend/cronjob/"+cronjob_id+"";
+        this.url = baseUrl + "/backend/cronjob/"+cronjobId+"";
         this.httpClient = httpClient;
         this.objectMapper = objectMapper;
     }
 
-    public BackendCronjobByCronjobIdResource(String cronjob_id, String baseUrl, HttpClient httpClient) {
-        this(cronjob_id, baseUrl, httpClient, new ObjectMapper());
+    public BackendCronjobByCronjobIdResource(String cronjobId, String baseUrl, HttpClient httpClient) {
+        this(cronjobId, baseUrl, httpClient, new ObjectMapper());
     }
 
     public Cronjob backendActionCronjobGet() throws URISyntaxException, IOException {
@@ -51,7 +51,7 @@ public class BackendCronjobByCronjobIdResource extends ResourceAbstract {
         return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), Cronjob.class);
     }
 
-    public Message backendActionCronjobUpdate(Cronjob_Update data) throws URISyntaxException, IOException {
+    public Message backendActionCronjobUpdate(CronjobUpdate data) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 

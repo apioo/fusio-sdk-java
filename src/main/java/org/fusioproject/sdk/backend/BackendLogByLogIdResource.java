@@ -24,20 +24,20 @@ public class BackendLogByLogIdResource extends ResourceAbstract {
     private final HttpClient httpClient;
     private final ObjectMapper objectMapper;
 
-    private final String log_id;
+    private final String logId;
 
-    public BackendLogByLogIdResource(String log_id, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
+    public BackendLogByLogIdResource(String logId, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
         super(baseUrl, httpClient, objectMapper);
 
-        this.log_id = log_id;
+        this.logId = logId;
 
-        this.url = baseUrl + "/backend/log/"+log_id+"";
+        this.url = baseUrl + "/backend/log/"+logId+"";
         this.httpClient = httpClient;
         this.objectMapper = objectMapper;
     }
 
-    public BackendLogByLogIdResource(String log_id, String baseUrl, HttpClient httpClient) {
-        this(log_id, baseUrl, httpClient, new ObjectMapper());
+    public BackendLogByLogIdResource(String logId, String baseUrl, HttpClient httpClient) {
+        this(logId, baseUrl, httpClient, new ObjectMapper());
     }
 
     public Log backendActionLogGet() throws URISyntaxException, IOException {

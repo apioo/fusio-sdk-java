@@ -18,7 +18,7 @@ public class User {
     private int points;
     private String[] scopes;
     private App[] apps;
-    private User_Attributes attributes;
+    private UserAttributes attributes;
     private LocalDateTime date;
     @JsonSetter("id")
     public void setId(int id) {
@@ -93,11 +93,11 @@ public class User {
         return this.apps;
     }
     @JsonSetter("attributes")
-    public void setAttributes(User_Attributes attributes) {
+    public void setAttributes(UserAttributes attributes) {
         this.attributes = attributes;
     }
     @JsonGetter("attributes")
-    public User_Attributes getAttributes() {
+    public UserAttributes getAttributes() {
         return this.attributes;
     }
     @JsonSetter("date")

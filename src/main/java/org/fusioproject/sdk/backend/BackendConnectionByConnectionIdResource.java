@@ -24,20 +24,20 @@ public class BackendConnectionByConnectionIdResource extends ResourceAbstract {
     private final HttpClient httpClient;
     private final ObjectMapper objectMapper;
 
-    private final String connection_id;
+    private final String connectionId;
 
-    public BackendConnectionByConnectionIdResource(String connection_id, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
+    public BackendConnectionByConnectionIdResource(String connectionId, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
         super(baseUrl, httpClient, objectMapper);
 
-        this.connection_id = connection_id;
+        this.connectionId = connectionId;
 
-        this.url = baseUrl + "/backend/connection/"+connection_id+"";
+        this.url = baseUrl + "/backend/connection/"+connectionId+"";
         this.httpClient = httpClient;
         this.objectMapper = objectMapper;
     }
 
-    public BackendConnectionByConnectionIdResource(String connection_id, String baseUrl, HttpClient httpClient) {
-        this(connection_id, baseUrl, httpClient, new ObjectMapper());
+    public BackendConnectionByConnectionIdResource(String connectionId, String baseUrl, HttpClient httpClient) {
+        this(connectionId, baseUrl, httpClient, new ObjectMapper());
     }
 
     public Connection backendActionConnectionGet() throws URISyntaxException, IOException {
@@ -51,7 +51,7 @@ public class BackendConnectionByConnectionIdResource extends ResourceAbstract {
         return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), Connection.class);
     }
 
-    public Message backendActionConnectionUpdate(Connection_Update data) throws URISyntaxException, IOException {
+    public Message backendActionConnectionUpdate(ConnectionUpdate data) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 

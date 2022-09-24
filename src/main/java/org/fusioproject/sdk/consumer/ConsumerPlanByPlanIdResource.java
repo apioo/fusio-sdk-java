@@ -24,20 +24,20 @@ public class ConsumerPlanByPlanIdResource extends ResourceAbstract {
     private final HttpClient httpClient;
     private final ObjectMapper objectMapper;
 
-    private final String plan_id;
+    private final String planId;
 
-    public ConsumerPlanByPlanIdResource(String plan_id, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
+    public ConsumerPlanByPlanIdResource(String planId, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
         super(baseUrl, httpClient, objectMapper);
 
-        this.plan_id = plan_id;
+        this.planId = planId;
 
-        this.url = baseUrl + "/consumer/plan/"+plan_id+"";
+        this.url = baseUrl + "/consumer/plan/"+planId+"";
         this.httpClient = httpClient;
         this.objectMapper = objectMapper;
     }
 
-    public ConsumerPlanByPlanIdResource(String plan_id, String baseUrl, HttpClient httpClient) {
-        this(plan_id, baseUrl, httpClient, new ObjectMapper());
+    public ConsumerPlanByPlanIdResource(String planId, String baseUrl, HttpClient httpClient) {
+        this(planId, baseUrl, httpClient, new ObjectMapper());
     }
 
     public Plan consumerActionPlanGet() throws URISyntaxException, IOException {

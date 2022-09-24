@@ -38,7 +38,7 @@ public class ConsumerActivateResource extends ResourceAbstract {
         this(baseUrl, httpClient, new ObjectMapper());
     }
 
-    public Message consumerActionUserActivate(User_Activate data) throws URISyntaxException, IOException {
+    public Message consumerActionUserActivate(UserActivate data) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 

@@ -24,23 +24,23 @@ public class BackendAppTokenByTokenIdResource extends ResourceAbstract {
     private final HttpClient httpClient;
     private final ObjectMapper objectMapper;
 
-    private final String token_id;
+    private final String tokenId;
 
-    public BackendAppTokenByTokenIdResource(String token_id, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
+    public BackendAppTokenByTokenIdResource(String tokenId, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
         super(baseUrl, httpClient, objectMapper);
 
-        this.token_id = token_id;
+        this.tokenId = tokenId;
 
-        this.url = baseUrl + "/backend/app/token/"+token_id+"";
+        this.url = baseUrl + "/backend/app/token/"+tokenId+"";
         this.httpClient = httpClient;
         this.objectMapper = objectMapper;
     }
 
-    public BackendAppTokenByTokenIdResource(String token_id, String baseUrl, HttpClient httpClient) {
-        this(token_id, baseUrl, httpClient, new ObjectMapper());
+    public BackendAppTokenByTokenIdResource(String tokenId, String baseUrl, HttpClient httpClient) {
+        this(tokenId, baseUrl, httpClient, new ObjectMapper());
     }
 
-    public App_Token backendActionAppTokenGet() throws URISyntaxException, IOException {
+    public AppToken backendActionAppTokenGet() throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 
@@ -48,7 +48,7 @@ public class BackendAppTokenByTokenIdResource extends ResourceAbstract {
 
         HttpResponse response = this.httpClient.execute(request);
 
-        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), App_Token.class);
+        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), AppToken.class);
     }
 
 }

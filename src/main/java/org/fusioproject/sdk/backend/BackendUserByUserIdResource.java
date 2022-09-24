@@ -24,20 +24,20 @@ public class BackendUserByUserIdResource extends ResourceAbstract {
     private final HttpClient httpClient;
     private final ObjectMapper objectMapper;
 
-    private final String user_id;
+    private final String userId;
 
-    public BackendUserByUserIdResource(String user_id, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
+    public BackendUserByUserIdResource(String userId, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
         super(baseUrl, httpClient, objectMapper);
 
-        this.user_id = user_id;
+        this.userId = userId;
 
-        this.url = baseUrl + "/backend/user/"+user_id+"";
+        this.url = baseUrl + "/backend/user/"+userId+"";
         this.httpClient = httpClient;
         this.objectMapper = objectMapper;
     }
 
-    public BackendUserByUserIdResource(String user_id, String baseUrl, HttpClient httpClient) {
-        this(user_id, baseUrl, httpClient, new ObjectMapper());
+    public BackendUserByUserIdResource(String userId, String baseUrl, HttpClient httpClient) {
+        this(userId, baseUrl, httpClient, new ObjectMapper());
     }
 
     public User backendActionUserGet() throws URISyntaxException, IOException {
@@ -51,7 +51,7 @@ public class BackendUserByUserIdResource extends ResourceAbstract {
         return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), User.class);
     }
 
-    public Message backendActionUserUpdate(User_Update data) throws URISyntaxException, IOException {
+    public Message backendActionUserUpdate(UserUpdate data) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 

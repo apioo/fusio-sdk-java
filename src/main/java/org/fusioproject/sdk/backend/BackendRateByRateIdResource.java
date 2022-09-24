@@ -24,20 +24,20 @@ public class BackendRateByRateIdResource extends ResourceAbstract {
     private final HttpClient httpClient;
     private final ObjectMapper objectMapper;
 
-    private final String rate_id;
+    private final String rateId;
 
-    public BackendRateByRateIdResource(String rate_id, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
+    public BackendRateByRateIdResource(String rateId, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
         super(baseUrl, httpClient, objectMapper);
 
-        this.rate_id = rate_id;
+        this.rateId = rateId;
 
-        this.url = baseUrl + "/backend/rate/"+rate_id+"";
+        this.url = baseUrl + "/backend/rate/"+rateId+"";
         this.httpClient = httpClient;
         this.objectMapper = objectMapper;
     }
 
-    public BackendRateByRateIdResource(String rate_id, String baseUrl, HttpClient httpClient) {
-        this(rate_id, baseUrl, httpClient, new ObjectMapper());
+    public BackendRateByRateIdResource(String rateId, String baseUrl, HttpClient httpClient) {
+        this(rateId, baseUrl, httpClient, new ObjectMapper());
     }
 
     public Rate backendActionRateGet() throws URISyntaxException, IOException {
@@ -51,7 +51,7 @@ public class BackendRateByRateIdResource extends ResourceAbstract {
         return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), Rate.class);
     }
 
-    public Message backendActionRateUpdate(Rate_Update data) throws URISyntaxException, IOException {
+    public Message backendActionRateUpdate(RateUpdate data) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 

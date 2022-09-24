@@ -24,20 +24,20 @@ public class BackendScopeByScopeIdResource extends ResourceAbstract {
     private final HttpClient httpClient;
     private final ObjectMapper objectMapper;
 
-    private final String scope_id;
+    private final String scopeId;
 
-    public BackendScopeByScopeIdResource(String scope_id, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
+    public BackendScopeByScopeIdResource(String scopeId, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
         super(baseUrl, httpClient, objectMapper);
 
-        this.scope_id = scope_id;
+        this.scopeId = scopeId;
 
-        this.url = baseUrl + "/backend/scope/"+scope_id+"";
+        this.url = baseUrl + "/backend/scope/"+scopeId+"";
         this.httpClient = httpClient;
         this.objectMapper = objectMapper;
     }
 
-    public BackendScopeByScopeIdResource(String scope_id, String baseUrl, HttpClient httpClient) {
-        this(scope_id, baseUrl, httpClient, new ObjectMapper());
+    public BackendScopeByScopeIdResource(String scopeId, String baseUrl, HttpClient httpClient) {
+        this(scopeId, baseUrl, httpClient, new ObjectMapper());
     }
 
     public Scope backendActionScopeGet() throws URISyntaxException, IOException {
@@ -51,7 +51,7 @@ public class BackendScopeByScopeIdResource extends ResourceAbstract {
         return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), Scope.class);
     }
 
-    public Message backendActionScopeUpdate(Scope_Update data) throws URISyntaxException, IOException {
+    public Message backendActionScopeUpdate(ScopeUpdate data) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 

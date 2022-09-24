@@ -15,7 +15,7 @@ public class Cronjob {
     private String action;
     private LocalDateTime executeDate;
     private int exitCode;
-    private Cronjob_Error[] errors;
+    private CronjobError[] errors;
     @JsonSetter("id")
     public void setId(int id) {
         this.id = id;
@@ -65,11 +65,11 @@ public class Cronjob {
         return this.exitCode;
     }
     @JsonSetter("errors")
-    public void setErrors(Cronjob_Error[] errors) {
+    public void setErrors(CronjobError[] errors) {
         this.errors = errors;
     }
     @JsonGetter("errors")
-    public Cronjob_Error[] getErrors() {
+    public CronjobError[] getErrors() {
         return this.errors;
     }
 }

@@ -38,7 +38,7 @@ public class BackendPageResource extends ResourceAbstract {
         this(baseUrl, httpClient, new ObjectMapper());
     }
 
-    public Page_Collection backendActionPageGetAll(Collection_Query query) throws URISyntaxException, IOException {
+    public PageCollection backendActionPageGetAll(CollectionQuery query) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
         Map<String, Object> params = this.objectMapper.convertValue(query, Map.class);
@@ -52,10 +52,10 @@ public class BackendPageResource extends ResourceAbstract {
 
         HttpResponse response = this.httpClient.execute(request);
 
-        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), Page_Collection.class);
+        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), PageCollection.class);
     }
 
-    public Message backendActionPageCreate(Page_Create data) throws URISyntaxException, IOException {
+    public Message backendActionPageCreate(PageCreate data) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 

@@ -14,7 +14,7 @@ public class Route {
     private String path;
     private String controller;
     private String[] scopes;
-    private Route_Version[] config;
+    private RouteVersion[] config;
     @JsonSetter("id")
     public void setId(int id) {
         this.id = id;
@@ -64,11 +64,11 @@ public class Route {
         return this.scopes;
     }
     @JsonSetter("config")
-    public void setConfig(Route_Version[] config) {
+    public void setConfig(RouteVersion[] config) {
         this.config = config;
     }
     @JsonGetter("config")
-    public Route_Version[] getConfig() {
+    public RouteVersion[] getConfig() {
         return this.config;
     }
 }

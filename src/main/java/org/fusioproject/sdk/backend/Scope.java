@@ -11,7 +11,7 @@ public class Scope {
     private int id;
     private String name;
     private String description;
-    private Scope_Route[] routes;
+    private ScopeRoute[] routes;
     @JsonSetter("id")
     public void setId(int id) {
         this.id = id;
@@ -37,11 +37,11 @@ public class Scope {
         return this.description;
     }
     @JsonSetter("routes")
-    public void setRoutes(Scope_Route[] routes) {
+    public void setRoutes(ScopeRoute[] routes) {
         this.routes = routes;
     }
     @JsonGetter("routes")
-    public Scope_Route[] getRoutes() {
+    public ScopeRoute[] getRoutes() {
         return this.routes;
     }
 }

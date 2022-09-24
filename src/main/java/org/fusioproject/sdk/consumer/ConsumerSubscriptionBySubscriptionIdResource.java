@@ -24,23 +24,23 @@ public class ConsumerSubscriptionBySubscriptionIdResource extends ResourceAbstra
     private final HttpClient httpClient;
     private final ObjectMapper objectMapper;
 
-    private final String subscription_id;
+    private final String subscriptionId;
 
-    public ConsumerSubscriptionBySubscriptionIdResource(String subscription_id, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
+    public ConsumerSubscriptionBySubscriptionIdResource(String subscriptionId, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
         super(baseUrl, httpClient, objectMapper);
 
-        this.subscription_id = subscription_id;
+        this.subscriptionId = subscriptionId;
 
-        this.url = baseUrl + "/consumer/subscription/"+subscription_id+"";
+        this.url = baseUrl + "/consumer/subscription/"+subscriptionId+"";
         this.httpClient = httpClient;
         this.objectMapper = objectMapper;
     }
 
-    public ConsumerSubscriptionBySubscriptionIdResource(String subscription_id, String baseUrl, HttpClient httpClient) {
-        this(subscription_id, baseUrl, httpClient, new ObjectMapper());
+    public ConsumerSubscriptionBySubscriptionIdResource(String subscriptionId, String baseUrl, HttpClient httpClient) {
+        this(subscriptionId, baseUrl, httpClient, new ObjectMapper());
     }
 
-    public Event_Subscription consumerActionEventSubscriptionGet() throws URISyntaxException, IOException {
+    public EventSubscription consumerActionEventSubscriptionGet() throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 
@@ -48,10 +48,10 @@ public class ConsumerSubscriptionBySubscriptionIdResource extends ResourceAbstra
 
         HttpResponse response = this.httpClient.execute(request);
 
-        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), Event_Subscription.class);
+        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), EventSubscription.class);
     }
 
-    public Message consumerActionEventSubscriptionUpdate(Event_Subscription_Update data) throws URISyntaxException, IOException {
+    public Message consumerActionEventSubscriptionUpdate(EventSubscriptionUpdate data) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 

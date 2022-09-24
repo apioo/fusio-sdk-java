@@ -24,20 +24,20 @@ public class BackendEventByEventIdResource extends ResourceAbstract {
     private final HttpClient httpClient;
     private final ObjectMapper objectMapper;
 
-    private final String event_id;
+    private final String eventId;
 
-    public BackendEventByEventIdResource(String event_id, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
+    public BackendEventByEventIdResource(String eventId, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
         super(baseUrl, httpClient, objectMapper);
 
-        this.event_id = event_id;
+        this.eventId = eventId;
 
-        this.url = baseUrl + "/backend/event/"+event_id+"";
+        this.url = baseUrl + "/backend/event/"+eventId+"";
         this.httpClient = httpClient;
         this.objectMapper = objectMapper;
     }
 
-    public BackendEventByEventIdResource(String event_id, String baseUrl, HttpClient httpClient) {
-        this(event_id, baseUrl, httpClient, new ObjectMapper());
+    public BackendEventByEventIdResource(String eventId, String baseUrl, HttpClient httpClient) {
+        this(eventId, baseUrl, httpClient, new ObjectMapper());
     }
 
     public Event backendActionEventGet() throws URISyntaxException, IOException {
@@ -51,7 +51,7 @@ public class BackendEventByEventIdResource extends ResourceAbstract {
         return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), Event.class);
     }
 
-    public Message backendActionEventUpdate(Event_Update data) throws URISyntaxException, IOException {
+    public Message backendActionEventUpdate(EventUpdate data) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 

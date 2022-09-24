@@ -17,7 +17,7 @@ public class Log {
     private String header;
     private String body;
     private LocalDateTime date;
-    private Log_Error[] errors;
+    private LogError[] errors;
     @JsonSetter("id")
     public void setId(int id) {
         this.id = id;
@@ -83,11 +83,11 @@ public class Log {
         return this.date;
     }
     @JsonSetter("errors")
-    public void setErrors(Log_Error[] errors) {
+    public void setErrors(LogError[] errors) {
         this.errors = errors;
     }
     @JsonGetter("errors")
-    public Log_Error[] getErrors() {
+    public LogError[] getErrors() {
         return this.errors;
     }
 }

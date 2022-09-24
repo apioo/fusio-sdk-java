@@ -38,7 +38,7 @@ public class ConsumerLoginResource extends ResourceAbstract {
         this(baseUrl, httpClient, new ObjectMapper());
     }
 
-    public User_JWT consumerActionUserLogin(User_Login data) throws URISyntaxException, IOException {
+    public UserJWT consumerActionUserLogin(UserLogin data) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 
@@ -48,10 +48,10 @@ public class ConsumerLoginResource extends ResourceAbstract {
 
         HttpResponse response = this.httpClient.execute(request);
 
-        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), User_JWT.class);
+        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), UserJWT.class);
     }
 
-    public User_JWT consumerActionUserRefresh(User_Refresh data) throws URISyntaxException, IOException {
+    public UserJWT consumerActionUserRefresh(UserRefresh data) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 
@@ -61,7 +61,7 @@ public class ConsumerLoginResource extends ResourceAbstract {
 
         HttpResponse response = this.httpClient.execute(request);
 
-        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), User_JWT.class);
+        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), UserJWT.class);
     }
 
 }

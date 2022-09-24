@@ -24,20 +24,20 @@ public class ConsumerPageByPageIdResource extends ResourceAbstract {
     private final HttpClient httpClient;
     private final ObjectMapper objectMapper;
 
-    private final String page_id;
+    private final String pageId;
 
-    public ConsumerPageByPageIdResource(String page_id, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
+    public ConsumerPageByPageIdResource(String pageId, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
         super(baseUrl, httpClient, objectMapper);
 
-        this.page_id = page_id;
+        this.pageId = pageId;
 
-        this.url = baseUrl + "/consumer/page/"+page_id+"";
+        this.url = baseUrl + "/consumer/page/"+pageId+"";
         this.httpClient = httpClient;
         this.objectMapper = objectMapper;
     }
 
-    public ConsumerPageByPageIdResource(String page_id, String baseUrl, HttpClient httpClient) {
-        this(page_id, baseUrl, httpClient, new ObjectMapper());
+    public ConsumerPageByPageIdResource(String pageId, String baseUrl, HttpClient httpClient) {
+        this(pageId, baseUrl, httpClient, new ObjectMapper());
     }
 
     public Page consumerActionPageGet() throws URISyntaxException, IOException {

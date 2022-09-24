@@ -38,7 +38,7 @@ public class ConsumerSubscriptionResource extends ResourceAbstract {
         this(baseUrl, httpClient, new ObjectMapper());
     }
 
-    public Event_Subscription_Collection consumerActionEventSubscriptionGetAll(Collection_Query query) throws URISyntaxException, IOException {
+    public EventSubscriptionCollection consumerActionEventSubscriptionGetAll(CollectionQuery query) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
         Map<String, Object> params = this.objectMapper.convertValue(query, Map.class);
@@ -52,10 +52,10 @@ public class ConsumerSubscriptionResource extends ResourceAbstract {
 
         HttpResponse response = this.httpClient.execute(request);
 
-        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), Event_Subscription_Collection.class);
+        return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), EventSubscriptionCollection.class);
     }
 
-    public Message consumerActionEventSubscriptionCreate(Event_Subscription_Create data) throws URISyntaxException, IOException {
+    public Message consumerActionEventSubscriptionCreate(EventSubscriptionCreate data) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 

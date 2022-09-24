@@ -24,20 +24,20 @@ public class BackendTransactionByTransactionIdResource extends ResourceAbstract 
     private final HttpClient httpClient;
     private final ObjectMapper objectMapper;
 
-    private final String transaction_id;
+    private final String transactionId;
 
-    public BackendTransactionByTransactionIdResource(String transaction_id, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
+    public BackendTransactionByTransactionIdResource(String transactionId, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
         super(baseUrl, httpClient, objectMapper);
 
-        this.transaction_id = transaction_id;
+        this.transactionId = transactionId;
 
-        this.url = baseUrl + "/backend/transaction/"+transaction_id+"";
+        this.url = baseUrl + "/backend/transaction/"+transactionId+"";
         this.httpClient = httpClient;
         this.objectMapper = objectMapper;
     }
 
-    public BackendTransactionByTransactionIdResource(String transaction_id, String baseUrl, HttpClient httpClient) {
-        this(transaction_id, baseUrl, httpClient, new ObjectMapper());
+    public BackendTransactionByTransactionIdResource(String transactionId, String baseUrl, HttpClient httpClient) {
+        this(transactionId, baseUrl, httpClient, new ObjectMapper());
     }
 
     public Transaction backendActionTransactionGet() throws URISyntaxException, IOException {

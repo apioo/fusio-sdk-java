@@ -24,20 +24,20 @@ public class BackendConfigByConfigIdResource extends ResourceAbstract {
     private final HttpClient httpClient;
     private final ObjectMapper objectMapper;
 
-    private final String config_id;
+    private final String configId;
 
-    public BackendConfigByConfigIdResource(String config_id, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
+    public BackendConfigByConfigIdResource(String configId, String baseUrl, HttpClient httpClient, ObjectMapper objectMapper) {
         super(baseUrl, httpClient, objectMapper);
 
-        this.config_id = config_id;
+        this.configId = configId;
 
-        this.url = baseUrl + "/backend/config/"+config_id+"";
+        this.url = baseUrl + "/backend/config/"+configId+"";
         this.httpClient = httpClient;
         this.objectMapper = objectMapper;
     }
 
-    public BackendConfigByConfigIdResource(String config_id, String baseUrl, HttpClient httpClient) {
-        this(config_id, baseUrl, httpClient, new ObjectMapper());
+    public BackendConfigByConfigIdResource(String configId, String baseUrl, HttpClient httpClient) {
+        this(configId, baseUrl, httpClient, new ObjectMapper());
     }
 
     public Config backendActionConfigGet() throws URISyntaxException, IOException {
@@ -51,7 +51,7 @@ public class BackendConfigByConfigIdResource extends ResourceAbstract {
         return this.objectMapper.readValue(EntityUtils.toString(response.getEntity(), "UTF-8"), Config.class);
     }
 
-    public Message backendActionConfigUpdate(Config_Update data) throws URISyntaxException, IOException {
+    public Message backendActionConfigUpdate(ConfigUpdate data) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder(this.url);
 
 
