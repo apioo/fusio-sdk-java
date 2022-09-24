@@ -34,7 +34,7 @@ public class Main {
 
         Client client = new Client("https://demo.fusio-project.org/", "test", "FRsNh1zKCXlB", scopes, tokenStore);
 
-        BackendRoutesResource resource = client.backend().backendRoute().getBackendRoutes();
+        BackendRoutesResource resource = client.backend().getBackendRoutes();
         Route_Collection collection = resource.backendActionRouteGetAll(new Collection_Category_Query());
 
         System.out.println("Routes:");
