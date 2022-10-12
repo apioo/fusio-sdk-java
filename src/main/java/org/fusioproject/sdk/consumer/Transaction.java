@@ -7,13 +7,18 @@ package org.fusioproject.sdk.consumer;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import java.time.LocalDateTime;
 public class Transaction {
     private int id;
-    private int status;
+    private int userId;
+    private int planId;
+    private Plan plan;
     private String transactionId;
     private float amount;
-    private int updateDate;
-    private int insertDate;
+    private float points;
+    private LocalDateTime periodStart;
+    private LocalDateTime periodEnd;
+    private LocalDateTime insertDate;
     @JsonSetter("id")
     public void setId(int id) {
         this.id = id;
@@ -22,13 +27,29 @@ public class Transaction {
     public int getId() {
         return this.id;
     }
-    @JsonSetter("status")
-    public void setStatus(int status) {
-        this.status = status;
+    @JsonSetter("userId")
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
-    @JsonGetter("status")
-    public int getStatus() {
-        return this.status;
+    @JsonGetter("userId")
+    public int getUserId() {
+        return this.userId;
+    }
+    @JsonSetter("planId")
+    public void setPlanId(int planId) {
+        this.planId = planId;
+    }
+    @JsonGetter("planId")
+    public int getPlanId() {
+        return this.planId;
+    }
+    @JsonSetter("plan")
+    public void setPlan(Plan plan) {
+        this.plan = plan;
+    }
+    @JsonGetter("plan")
+    public Plan getPlan() {
+        return this.plan;
     }
     @JsonSetter("transactionId")
     public void setTransactionId(String transactionId) {
@@ -46,20 +67,36 @@ public class Transaction {
     public float getAmount() {
         return this.amount;
     }
-    @JsonSetter("updateDate")
-    public void setUpdateDate(int updateDate) {
-        this.updateDate = updateDate;
+    @JsonSetter("points")
+    public void setPoints(float points) {
+        this.points = points;
     }
-    @JsonGetter("updateDate")
-    public int getUpdateDate() {
-        return this.updateDate;
+    @JsonGetter("points")
+    public float getPoints() {
+        return this.points;
+    }
+    @JsonSetter("periodStart")
+    public void setPeriodStart(LocalDateTime periodStart) {
+        this.periodStart = periodStart;
+    }
+    @JsonGetter("periodStart")
+    public LocalDateTime getPeriodStart() {
+        return this.periodStart;
+    }
+    @JsonSetter("periodEnd")
+    public void setPeriodEnd(LocalDateTime periodEnd) {
+        this.periodEnd = periodEnd;
+    }
+    @JsonGetter("periodEnd")
+    public LocalDateTime getPeriodEnd() {
+        return this.periodEnd;
     }
     @JsonSetter("insertDate")
-    public void setInsertDate(int insertDate) {
+    public void setInsertDate(LocalDateTime insertDate) {
         this.insertDate = insertDate;
     }
     @JsonGetter("insertDate")
-    public int getInsertDate() {
+    public LocalDateTime getInsertDate() {
         return this.insertDate;
     }
 }

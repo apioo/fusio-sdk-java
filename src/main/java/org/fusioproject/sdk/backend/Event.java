@@ -12,6 +12,7 @@ public class Event {
     private String name;
     private String description;
     private String schema;
+    private Metadata metadata;
     @JsonSetter("id")
     public void setId(int id) {
         this.id = id;
@@ -43,5 +44,13 @@ public class Event {
     @JsonGetter("schema")
     public String getSchema() {
         return this.schema;
+    }
+    @JsonSetter("metadata")
+    public void setMetadata(Metadata metadata) {
+        this.metadata = metadata;
+    }
+    @JsonGetter("metadata")
+    public Metadata getMetadata() {
+        return this.metadata;
     }
 }

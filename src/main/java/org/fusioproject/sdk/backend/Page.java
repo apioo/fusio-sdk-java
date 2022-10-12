@@ -13,6 +13,7 @@ public class Page {
     private String title;
     private String slug;
     private String content;
+    private Metadata metadata;
     @JsonSetter("id")
     public void setId(int id) {
         this.id = id;
@@ -52,5 +53,13 @@ public class Page {
     @JsonGetter("content")
     public String getContent() {
         return this.content;
+    }
+    @JsonSetter("metadata")
+    public void setMetadata(Metadata metadata) {
+        this.metadata = metadata;
+    }
+    @JsonGetter("metadata")
+    public Metadata getMetadata() {
+        return this.metadata;
     }
 }

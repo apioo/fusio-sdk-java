@@ -17,6 +17,7 @@ public class App {
     private String appSecret;
     private String date;
     private String[] scopes;
+    private Metadata metadata;
     @JsonSetter("id")
     public void setId(int id) {
         this.id = id;
@@ -88,5 +89,13 @@ public class App {
     @JsonGetter("scopes")
     public String[] getScopes() {
         return this.scopes;
+    }
+    @JsonSetter("metadata")
+    public void setMetadata(Metadata metadata) {
+        this.metadata = metadata;
+    }
+    @JsonGetter("metadata")
+    public Metadata getMetadata() {
+        return this.metadata;
     }
 }

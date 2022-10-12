@@ -15,6 +15,7 @@ public class Rate {
     private int rateLimit;
     private Duration timespan;
     private RateAllocation[] allocation;
+    private Metadata metadata;
     @JsonSetter("id")
     public void setId(int id) {
         this.id = id;
@@ -62,5 +63,13 @@ public class Rate {
     @JsonGetter("allocation")
     public RateAllocation[] getAllocation() {
         return this.allocation;
+    }
+    @JsonSetter("metadata")
+    public void setMetadata(Metadata metadata) {
+        this.metadata = metadata;
+    }
+    @JsonGetter("metadata")
+    public Metadata getMetadata() {
+        return this.metadata;
     }
 }

@@ -12,6 +12,7 @@ public class Connection {
     private String name;
     private String _class;
     private ConnectionConfig config;
+    private Metadata metadata;
     @JsonSetter("id")
     public void setId(int id) {
         this.id = id;
@@ -43,5 +44,13 @@ public class Connection {
     @JsonGetter("config")
     public ConnectionConfig getConfig() {
         return this.config;
+    }
+    @JsonSetter("metadata")
+    public void setMetadata(Metadata metadata) {
+        this.metadata = metadata;
+    }
+    @JsonGetter("metadata")
+    public Metadata getMetadata() {
+        return this.metadata;
     }
 }

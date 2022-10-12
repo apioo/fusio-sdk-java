@@ -16,7 +16,7 @@ public class UserAccount {
     private String email;
     private int points;
     private String[] scopes;
-    private UserAttributes attributes;
+    private Metadata metadata;
     private LocalDateTime date;
     @JsonSetter("id")
     public void setId(int id) {
@@ -74,13 +74,13 @@ public class UserAccount {
     public String[] getScopes() {
         return this.scopes;
     }
-    @JsonSetter("attributes")
-    public void setAttributes(UserAttributes attributes) {
-        this.attributes = attributes;
+    @JsonSetter("metadata")
+    public void setMetadata(Metadata metadata) {
+        this.metadata = metadata;
     }
-    @JsonGetter("attributes")
-    public UserAttributes getAttributes() {
-        return this.attributes;
+    @JsonGetter("metadata")
+    public Metadata getMetadata() {
+        return this.metadata;
     }
     @JsonSetter("date")
     public void setDate(LocalDateTime date) {

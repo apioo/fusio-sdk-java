@@ -13,6 +13,7 @@ public class Plan {
     private String description;
     private float price;
     private int points;
+    private Metadata metadata;
     @JsonSetter("id")
     public void setId(int id) {
         this.id = id;
@@ -52,5 +53,13 @@ public class Plan {
     @JsonGetter("points")
     public int getPoints() {
         return this.points;
+    }
+    @JsonSetter("metadata")
+    public void setMetadata(Metadata metadata) {
+        this.metadata = metadata;
+    }
+    @JsonGetter("metadata")
+    public Metadata getMetadata() {
+        return this.metadata;
     }
 }

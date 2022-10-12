@@ -16,6 +16,7 @@ public class Plan {
     private int period;
     private String externalId;
     private String[] scopes;
+    private Metadata metadata;
     @JsonSetter("id")
     public void setId(int id) {
         this.id = id;
@@ -79,5 +80,13 @@ public class Plan {
     @JsonGetter("scopes")
     public String[] getScopes() {
         return this.scopes;
+    }
+    @JsonSetter("metadata")
+    public void setMetadata(Metadata metadata) {
+        this.metadata = metadata;
+    }
+    @JsonGetter("metadata")
+    public Metadata getMetadata() {
+        return this.metadata;
     }
 }

@@ -13,6 +13,7 @@ public class Schema {
     private String name;
     private SchemaSource source;
     private SchemaForm form;
+    private Metadata metadata;
     @JsonSetter("id")
     public void setId(int id) {
         this.id = id;
@@ -52,5 +53,13 @@ public class Schema {
     @JsonGetter("form")
     public SchemaForm getForm() {
         return this.form;
+    }
+    @JsonSetter("metadata")
+    public void setMetadata(Metadata metadata) {
+        this.metadata = metadata;
+    }
+    @JsonGetter("metadata")
+    public Metadata getMetadata() {
+        return this.metadata;
     }
 }

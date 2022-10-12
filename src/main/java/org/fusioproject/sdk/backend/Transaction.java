@@ -15,6 +15,8 @@ public class Transaction {
     private String transactionId;
     private float amount;
     private float points;
+    private LocalDateTime periodStart;
+    private LocalDateTime periodEnd;
     private LocalDateTime insertDate;
     @JsonSetter("id")
     public void setId(int id) {
@@ -63,6 +65,22 @@ public class Transaction {
     @JsonGetter("points")
     public float getPoints() {
         return this.points;
+    }
+    @JsonSetter("periodStart")
+    public void setPeriodStart(LocalDateTime periodStart) {
+        this.periodStart = periodStart;
+    }
+    @JsonGetter("periodStart")
+    public LocalDateTime getPeriodStart() {
+        return this.periodStart;
+    }
+    @JsonSetter("periodEnd")
+    public void setPeriodEnd(LocalDateTime periodEnd) {
+        this.periodEnd = periodEnd;
+    }
+    @JsonGetter("periodEnd")
+    public LocalDateTime getPeriodEnd() {
+        return this.periodEnd;
     }
     @JsonSetter("insertDate")
     public void setInsertDate(LocalDateTime insertDate) {

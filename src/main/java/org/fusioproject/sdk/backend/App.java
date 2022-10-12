@@ -17,6 +17,7 @@ public class App {
     private String parameters;
     private String appKey;
     private String appSecret;
+    private Metadata metadata;
     private LocalDateTime date;
     private String[] scopes;
     private AppToken[] tokens;
@@ -83,6 +84,14 @@ public class App {
     @JsonGetter("appSecret")
     public String getAppSecret() {
         return this.appSecret;
+    }
+    @JsonSetter("metadata")
+    public void setMetadata(Metadata metadata) {
+        this.metadata = metadata;
+    }
+    @JsonGetter("metadata")
+    public Metadata getMetadata() {
+        return this.metadata;
     }
     @JsonSetter("date")
     public void setDate(LocalDateTime date) {

@@ -15,6 +15,7 @@ public class Action {
     private boolean async;
     private String engine;
     private ActionConfig config;
+    private Metadata metadata;
     @JsonSetter("id")
     public void setId(int id) {
         this.id = id;
@@ -70,5 +71,13 @@ public class Action {
     @JsonGetter("config")
     public ActionConfig getConfig() {
         return this.config;
+    }
+    @JsonSetter("metadata")
+    public void setMetadata(Metadata metadata) {
+        this.metadata = metadata;
+    }
+    @JsonGetter("metadata")
+    public Metadata getMetadata() {
+        return this.metadata;
     }
 }

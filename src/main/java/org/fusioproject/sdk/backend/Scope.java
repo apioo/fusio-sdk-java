@@ -12,6 +12,7 @@ public class Scope {
     private String name;
     private String description;
     private ScopeRoute[] routes;
+    private Metadata metadata;
     @JsonSetter("id")
     public void setId(int id) {
         this.id = id;
@@ -43,5 +44,13 @@ public class Scope {
     @JsonGetter("routes")
     public ScopeRoute[] getRoutes() {
         return this.routes;
+    }
+    @JsonSetter("metadata")
+    public void setMetadata(Metadata metadata) {
+        this.metadata = metadata;
+    }
+    @JsonGetter("metadata")
+    public Metadata getMetadata() {
+        return this.metadata;
     }
 }

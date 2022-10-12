@@ -11,6 +11,7 @@ public class Scope {
     private int id;
     private String name;
     private String description;
+    private Metadata metadata;
     @JsonSetter("id")
     public void setId(int id) {
         this.id = id;
@@ -34,5 +35,13 @@ public class Scope {
     @JsonGetter("description")
     public String getDescription() {
         return this.description;
+    }
+    @JsonSetter("metadata")
+    public void setMetadata(Metadata metadata) {
+        this.metadata = metadata;
+    }
+    @JsonGetter("metadata")
+    public Metadata getMetadata() {
+        return this.metadata;
     }
 }
