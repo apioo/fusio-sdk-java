@@ -17,7 +17,7 @@ public class Client extends ClientAbstract {
     }
 
     /**
-     * Endpoint: /backend/user/$user_id<[0-9]+>
+     * Endpoint: /backend/user/$user_id&lt;[0-9]+&gt;
      *
      * 
      */
@@ -71,7 +71,7 @@ public class Client extends ClientAbstract {
     }
 
     /**
-     * Endpoint: /backend/transaction/$transaction_id<[0-9]+>
+     * Endpoint: /backend/transaction/$transaction_id&lt;[0-9]+&gt;
      *
      * 
      */
@@ -241,7 +241,7 @@ public class Client extends ClientAbstract {
     }
 
     /**
-     * Endpoint: /backend/scope/$scope_id<[0-9]+|^~>
+     * Endpoint: /backend/scope/$scope_id&lt;[0-9]+|^~&gt;
      *
      * 
      */
@@ -281,7 +281,7 @@ public class Client extends ClientAbstract {
     }
 
     /**
-     * Endpoint: /backend/schema/$schema_id<[0-9]+|^~>
+     * Endpoint: /backend/schema/$schema_id&lt;[0-9]+|^~&gt;
      *
      * 
      */
@@ -295,7 +295,7 @@ public class Client extends ClientAbstract {
     }
 
     /**
-     * Endpoint: /backend/schema/form/$schema_id<[0-9]+>
+     * Endpoint: /backend/schema/form/$schema_id&lt;[0-9]+&gt;
      *
      * 
      */
@@ -336,7 +336,7 @@ public class Client extends ClientAbstract {
     }
 
     /**
-     * Endpoint: /backend/routes/$route_id<[0-9]+>
+     * Endpoint: /backend/routes/$route_id&lt;[0-9]+&gt;
      *
      * 
      */
@@ -363,7 +363,7 @@ public class Client extends ClientAbstract {
     }
 
     /**
-     * Endpoint: /backend/role/$role_id<[0-9]+|^~>
+     * Endpoint: /backend/role/$role_id&lt;[0-9]+|^~&gt;
      *
      * 
      */
@@ -390,7 +390,7 @@ public class Client extends ClientAbstract {
     }
 
     /**
-     * Endpoint: /backend/rate/$rate_id<[0-9]+|^~>
+     * Endpoint: /backend/rate/$rate_id&lt;[0-9]+|^~&gt;
      *
      * 
      */
@@ -417,7 +417,7 @@ public class Client extends ClientAbstract {
     }
 
     /**
-     * Endpoint: /backend/plan/$plan_id<[0-9]+|^~>
+     * Endpoint: /backend/plan/$plan_id&lt;[0-9]+|^~&gt;
      *
      * 
      */
@@ -444,7 +444,7 @@ public class Client extends ClientAbstract {
     }
 
     /**
-     * Endpoint: /backend/page/$page_id<[0-9]+|^~>
+     * Endpoint: /backend/page/$page_id&lt;[0-9]+|^~&gt;
      *
      * 
      */
@@ -498,7 +498,7 @@ public class Client extends ClientAbstract {
     }
 
     /**
-     * Endpoint: /backend/log/$log_id<[0-9]+>
+     * Endpoint: /backend/log/$log_id&lt;[0-9]+&gt;
      *
      * 
      */
@@ -525,7 +525,7 @@ public class Client extends ClientAbstract {
     }
 
     /**
-     * Endpoint: /backend/log/error/$error_id<[0-9]+>
+     * Endpoint: /backend/log/error/$error_id&lt;[0-9]+&gt;
      *
      * 
      */
@@ -579,7 +579,7 @@ public class Client extends ClientAbstract {
     }
 
     /**
-     * Endpoint: /backend/event/$event_id<[0-9]+|^~>
+     * Endpoint: /backend/event/$event_id&lt;[0-9]+|^~&gt;
      *
      * 
      */
@@ -606,7 +606,7 @@ public class Client extends ClientAbstract {
     }
 
     /**
-     * Endpoint: /backend/event/subscription/$subscription_id<[0-9]+>
+     * Endpoint: /backend/event/subscription/$subscription_id&lt;[0-9]+&gt;
      *
      * 
      */
@@ -646,7 +646,7 @@ public class Client extends ClientAbstract {
     }
 
     /**
-     * Endpoint: /backend/cronjob/$cronjob_id<[0-9]+|^~>
+     * Endpoint: /backend/cronjob/$cronjob_id&lt;[0-9]+|^~&gt;
      *
      * 
      */
@@ -673,7 +673,7 @@ public class Client extends ClientAbstract {
     }
 
     /**
-     * Endpoint: /backend/connection/$connection_id<[0-9]+|^~>/introspection/:entity
+     * Endpoint: /backend/connection/$connection_id&lt;[0-9]+|^~&gt;/introspection/:entity
      *
      * 
      */
@@ -688,7 +688,7 @@ public class Client extends ClientAbstract {
     }
 
     /**
-     * Endpoint: /backend/connection/$connection_id<[0-9]+|^~>/introspection
+     * Endpoint: /backend/connection/$connection_id&lt;[0-9]+|^~&gt;/introspection
      *
      * 
      */
@@ -702,7 +702,7 @@ public class Client extends ClientAbstract {
     }
 
     /**
-     * Endpoint: /backend/connection/$connection_id<[0-9]+|^~>/redirect
+     * Endpoint: /backend/connection/$connection_id&lt;[0-9]+|^~&gt;/redirect
      *
      * 
      */
@@ -716,7 +716,7 @@ public class Client extends ClientAbstract {
     }
 
     /**
-     * Endpoint: /backend/connection/$connection_id<[0-9]+|^~>
+     * Endpoint: /backend/connection/$connection_id&lt;[0-9]+|^~&gt;
      *
      * 
      */
@@ -769,7 +769,7 @@ public class Client extends ClientAbstract {
     }
 
     /**
-     * Endpoint: /backend/config/$config_id<[0-9]+|^~>
+     * Endpoint: /backend/config/$config_id&lt;[0-9]+|^~&gt;
      *
      * 
      */
@@ -796,7 +796,7 @@ public class Client extends ClientAbstract {
     }
 
     /**
-     * Endpoint: /backend/category/$category_id<[0-9]+|^~>
+     * Endpoint: /backend/category/$category_id&lt;[0-9]+|^~&gt;
      *
      * 
      */
@@ -823,7 +823,7 @@ public class Client extends ClientAbstract {
     }
 
     /**
-     * Endpoint: /backend/audit/$audit_id<[0-9]+>
+     * Endpoint: /backend/audit/$audit_id&lt;[0-9]+&gt;
      *
      * 
      */
@@ -850,7 +850,7 @@ public class Client extends ClientAbstract {
     }
 
     /**
-     * Endpoint: /backend/app/$app_id<[0-9]+>/token/:token_id
+     * Endpoint: /backend/app/$app_id&lt;[0-9]+&gt;/token/:token_id
      *
      * 
      */
@@ -865,7 +865,7 @@ public class Client extends ClientAbstract {
     }
 
     /**
-     * Endpoint: /backend/app/$app_id<[0-9]+>
+     * Endpoint: /backend/app/$app_id&lt;[0-9]+&gt;
      *
      * 
      */
@@ -892,7 +892,7 @@ public class Client extends ClientAbstract {
     }
 
     /**
-     * Endpoint: /backend/app/token/$token_id<[0-9]+>
+     * Endpoint: /backend/app/token/$token_id&lt;[0-9]+&gt;
      *
      * 
      */
@@ -919,7 +919,7 @@ public class Client extends ClientAbstract {
     }
 
     /**
-     * Endpoint: /backend/action/$action_id<[0-9]+|^~>
+     * Endpoint: /backend/action/$action_id&lt;[0-9]+|^~&gt;
      *
      * 
      */

@@ -122,7 +122,7 @@ public class Client extends ClientAbstract {
     }
 
     /**
-     * Endpoint: /consumer/transaction/$transaction_id<[0-9]+>
+     * Endpoint: /consumer/transaction/$transaction_id&lt;[0-9]+&gt;
      *
      * 
      */
@@ -149,7 +149,7 @@ public class Client extends ClientAbstract {
     }
 
     /**
-     * Endpoint: /consumer/subscription/$subscription_id<[0-9]+>
+     * Endpoint: /consumer/subscription/$subscription_id&lt;[0-9]+&gt;
      *
      * 
      */
@@ -189,7 +189,7 @@ public class Client extends ClientAbstract {
     }
 
     /**
-     * Endpoint: /consumer/plan/$plan_id<[0-9]+>
+     * Endpoint: /consumer/plan/$plan_id&lt;[0-9]+&gt;
      *
      * 
      */
@@ -271,7 +271,7 @@ public class Client extends ClientAbstract {
     }
 
     /**
-     * Endpoint: /consumer/log/$log_id<[0-9]+>
+     * Endpoint: /consumer/log/$log_id&lt;[0-9]+&gt;
      *
      * 
      */
@@ -298,7 +298,7 @@ public class Client extends ClientAbstract {
     }
 
     /**
-     * Endpoint: /consumer/grant/$grant_id<[0-9]+>
+     * Endpoint: /consumer/grant/$grant_id&lt;[0-9]+&gt;
      *
      * 
      */
@@ -338,7 +338,7 @@ public class Client extends ClientAbstract {
     }
 
     /**
-     * Endpoint: /consumer/app/$app_id<[0-9]+>
+     * Endpoint: /consumer/app/$app_id&lt;[0-9]+&gt;
      *
      * 
      */
