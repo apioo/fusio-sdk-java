@@ -17,8 +17,8 @@ import app.sdkgen.client.TokenStore.MemoryTokenStore;
 import app.sdkgen.client.TokenStoreInterface;
 import org.fusioproject.sdk.Client;
 import org.fusioproject.sdk.backend.BackendRoutesResource;
-import org.fusioproject.sdk.backend.Collection_Category_Query;
-import org.fusioproject.sdk.backend.Route_Collection;
+import org.fusioproject.sdk.backend.CollectionCategoryQuery;
+import org.fusioproject.sdk.backend.RouteCollection;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -34,8 +34,8 @@ public class Main {
 
         Client client = new Client("https://demo.fusio-project.org/", "test", "FRsNh1zKCXlB", scopes, tokenStore);
 
-        BackendRoutesResource resource = client.backend().getBackendRoutes();
-        Route_Collection collection = resource.backendActionRouteGetAll(new Collection_Category_Query());
+        BackendRoutesResource routes = client.backend().getBackendRoutes();
+        RouteCollection collection = routes.backendActionRouteGetAll(new CollectionCategoryQuery());
 
         System.out.println("Routes:");
         for (int i = 0; i < collection.getEntry().length; i++) {
