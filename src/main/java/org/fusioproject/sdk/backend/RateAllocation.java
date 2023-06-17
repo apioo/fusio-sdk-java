@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 public class RateAllocation {
     private int id;
-    private int routeId;
+    private int operationId;
     private int userId;
     private int planId;
     private int appId;
@@ -22,13 +22,13 @@ public class RateAllocation {
     public int getId() {
         return this.id;
     }
-    @JsonSetter("routeId")
-    public void setRouteId(int routeId) {
-        this.routeId = routeId;
+    @JsonSetter("operationId")
+    public void setOperationId(int operationId) {
+        this.operationId = operationId;
     }
-    @JsonGetter("routeId")
-    public int getRouteId() {
-        return this.routeId;
+    @JsonGetter("operationId")
+    public int getOperationId() {
+        return this.operationId;
     }
     @JsonSetter("userId")
     public void setUserId(int userId) {

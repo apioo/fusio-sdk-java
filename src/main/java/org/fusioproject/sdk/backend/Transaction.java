@@ -13,8 +13,8 @@ public class Transaction {
     private int userId;
     private int planId;
     private String transactionId;
-    private float amount;
-    private float points;
+    private double amount;
+    private double points;
     private LocalDateTime periodStart;
     private LocalDateTime periodEnd;
     private LocalDateTime insertDate;
@@ -51,19 +51,19 @@ public class Transaction {
         return this.transactionId;
     }
     @JsonSetter("amount")
-    public void setAmount(float amount) {
+    public void setAmount(double amount) {
         this.amount = amount;
     }
     @JsonGetter("amount")
-    public float getAmount() {
+    public double getAmount() {
         return this.amount;
     }
     @JsonSetter("points")
-    public void setPoints(float points) {
+    public void setPoints(double points) {
         this.points = points;
     }
     @JsonGetter("points")
-    public float getPoints() {
+    public double getPoints() {
         return this.points;
     }
     @JsonSetter("periodStart")

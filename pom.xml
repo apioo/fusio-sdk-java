@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.fusio-project</groupId>
   <artifactId>sdk</artifactId>
-  <version>1.0.3</version>
+  <version>1.0.4</version>
   <packaging>jar</packaging>
   <name>Fusio SDK client</name>
   <description>This library helps to connect to a Fusio instance</description>
@@ -115,7 +115,7 @@
     <dependency>
       <groupId>app.sdkgen</groupId>
       <artifactId>client</artifactId>
-      <version>0.2.8</version>
+      <version>1.0.2</version>
     </dependency>
     <dependency>
       <groupId>junit</groupId>

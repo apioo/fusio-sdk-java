@@ -8,1007 +8,253 @@ package org.fusioproject.sdk.backend;
 import app.sdkgen.client.ClientAbstract;
 import app.sdkgen.client.Credentials.*;
 import app.sdkgen.client.CredentialsInterface;
-import app.sdkgen.client.TokenStoreInterface;
-import java.util.List;
+import app.sdkgen.client.Exception.Authenticator.InvalidCredentialsException;
+import app.sdkgen.client.Exception.ClientException;
+import app.sdkgen.client.Exception.UnknownStatusCodeException;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.*;
+import org.apache.http.client.utils.URIBuilder;
+import org.apache.http.entity.ContentType;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.util.EntityUtils;
+
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Client extends ClientAbstract {
-    public Client(String baseUrl, CredentialsInterface credentials, TokenStoreInterface tokenStore, List<String> scopes) {
-        super(baseUrl, credentials, tokenStore, scopes);
+    public Client(String baseUrl, CredentialsInterface credentials) throws InvalidCredentialsException {
+        super(baseUrl, credentials);
     }
 
-    /**
-     * Endpoint: /backend/user/$user_id&lt;[0-9]+&gt;
-     *
-     * 
-     */
-    public BackendUserByUserIdResource getBackendUserByUserId(String userId) {
-        return new BackendUserByUserIdResource(
-            userId,
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
+    public UserTag user()
+    {
+        return new UserTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
         );
     }
 
-    /**
-     * Endpoint: /backend/user
-     *
-     * 
-     */
-    public BackendUserResource getBackendUser() {
-        return new BackendUserResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
+    public TrashTag trash()
+    {
+        return new TrashTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
         );
     }
 
-    /**
-     * Endpoint: /backend/trash/:type
-     *
-     * 
-     */
-    public BackendTrashByTypeResource getBackendTrashByType(String type) {
-        return new BackendTrashByTypeResource(
-            type,
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
+    public TransactionTag transaction()
+    {
+        return new TransactionTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
         );
     }
 
-    /**
-     * Endpoint: /backend/trash
-     *
-     * 
-     */
-    public BackendTrashResource getBackendTrash() {
-        return new BackendTrashResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
+    public StatisticTag statistic()
+    {
+        return new StatisticTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
         );
     }
 
-    /**
-     * Endpoint: /backend/transaction/$transaction_id&lt;[0-9]+&gt;
-     *
-     * 
-     */
-    public BackendTransactionByTransactionIdResource getBackendTransactionByTransactionId(String transactionId) {
-        return new BackendTransactionByTransactionIdResource(
-            transactionId,
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
+    public SdkTag sdk()
+    {
+        return new SdkTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
         );
     }
 
-    /**
-     * Endpoint: /backend/transaction
-     *
-     * 
-     */
-    public BackendTransactionResource getBackendTransaction() {
-        return new BackendTransactionResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
+    public ScopeTag scope()
+    {
+        return new ScopeTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
         );
     }
 
-    /**
-     * Endpoint: /backend/statistic/used_points
-     *
-     * 
-     */
-    public BackendStatisticUsedPointsResource getBackendStatisticUsedPoints() {
-        return new BackendStatisticUsedPointsResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
+    public SchemaTag schema()
+    {
+        return new SchemaTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
         );
     }
 
-    /**
-     * Endpoint: /backend/statistic/time_per_route
-     *
-     * 
-     */
-    public BackendStatisticTimePerRouteResource getBackendStatisticTimePerRoute() {
-        return new BackendStatisticTimePerRouteResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
+    public OperationTag operation()
+    {
+        return new OperationTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
         );
     }
 
-    /**
-     * Endpoint: /backend/statistic/time_average
-     *
-     * 
-     */
-    public BackendStatisticTimeAverageResource getBackendStatisticTimeAverage() {
-        return new BackendStatisticTimeAverageResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
+    public RoleTag role()
+    {
+        return new RoleTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
         );
     }
 
-    /**
-     * Endpoint: /backend/statistic/most_used_routes
-     *
-     * 
-     */
-    public BackendStatisticMostUsedRoutesResource getBackendStatisticMostUsedRoutes() {
-        return new BackendStatisticMostUsedRoutesResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
+    public RateTag rate()
+    {
+        return new RateTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
         );
     }
 
-    /**
-     * Endpoint: /backend/statistic/most_used_apps
-     *
-     * 
-     */
-    public BackendStatisticMostUsedAppsResource getBackendStatisticMostUsedApps() {
-        return new BackendStatisticMostUsedAppsResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
+    public PlanTag plan()
+    {
+        return new PlanTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
         );
     }
 
-    /**
-     * Endpoint: /backend/statistic/issued_tokens
-     *
-     * 
-     */
-    public BackendStatisticIssuedTokensResource getBackendStatisticIssuedTokens() {
-        return new BackendStatisticIssuedTokensResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
+    public PageTag page()
+    {
+        return new PageTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
         );
     }
 
-    /**
-     * Endpoint: /backend/statistic/incoming_transactions
-     *
-     * 
-     */
-    public BackendStatisticIncomingTransactionsResource getBackendStatisticIncomingTransactions() {
-        return new BackendStatisticIncomingTransactionsResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
+    public MarketplaceTag marketplace()
+    {
+        return new MarketplaceTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
         );
     }
 
-    /**
-     * Endpoint: /backend/statistic/incoming_requests
-     *
-     * 
-     */
-    public BackendStatisticIncomingRequestsResource getBackendStatisticIncomingRequests() {
-        return new BackendStatisticIncomingRequestsResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
+    public LogTag log()
+    {
+        return new LogTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
         );
     }
 
-    /**
-     * Endpoint: /backend/statistic/errors_per_route
-     *
-     * 
-     */
-    public BackendStatisticErrorsPerRouteResource getBackendStatisticErrorsPerRoute() {
-        return new BackendStatisticErrorsPerRouteResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
+    public GeneratorTag generator()
+    {
+        return new GeneratorTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
         );
     }
 
-    /**
-     * Endpoint: /backend/statistic/count_requests
-     *
-     * 
-     */
-    public BackendStatisticCountRequestsResource getBackendStatisticCountRequests() {
-        return new BackendStatisticCountRequestsResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
+    public EventTag event()
+    {
+        return new EventTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
         );
     }
 
-    /**
-     * Endpoint: /backend/sdk
-     *
-     * 
-     */
-    public BackendSdkResource getBackendSdk() {
-        return new BackendSdkResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
+    public DashboardTag dashboard()
+    {
+        return new DashboardTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
         );
     }
 
-    /**
-     * Endpoint: /backend/scope/$scope_id&lt;[0-9]+|^~&gt;
-     *
-     * 
-     */
-    public BackendScopeByScopeIdResource getBackendScopeByScopeId(String scopeId) {
-        return new BackendScopeByScopeIdResource(
-            scopeId,
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
+    public CronjobTag cronjob()
+    {
+        return new CronjobTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
         );
     }
 
-    /**
-     * Endpoint: /backend/scope/categories
-     *
-     * 
-     */
-    public BackendScopeCategoriesResource getBackendScopeCategories() {
-        return new BackendScopeCategoriesResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
+    public ConnectionTag connection()
+    {
+        return new ConnectionTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
         );
     }
 
-    /**
-     * Endpoint: /backend/scope
-     *
-     * 
-     */
-    public BackendScopeResource getBackendScope() {
-        return new BackendScopeResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
+    public ConfigTag config()
+    {
+        return new ConfigTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
         );
     }
 
-    /**
-     * Endpoint: /backend/schema/$schema_id&lt;[0-9]+|^~&gt;
-     *
-     * 
-     */
-    public BackendSchemaBySchemaIdResource getBackendSchemaBySchemaId(String schemaId) {
-        return new BackendSchemaBySchemaIdResource(
-            schemaId,
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
+    public CategoryTag category()
+    {
+        return new CategoryTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
         );
     }
 
-    /**
-     * Endpoint: /backend/schema/form/$schema_id&lt;[0-9]+&gt;
-     *
-     * 
-     */
-    public BackendSchemaFormBySchemaIdResource getBackendSchemaFormBySchemaId(String schemaId) {
-        return new BackendSchemaFormBySchemaIdResource(
-            schemaId,
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
+    public AuditTag audit()
+    {
+        return new AuditTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
         );
     }
 
-    /**
-     * Endpoint: /backend/schema/preview/:schema_id
-     *
-     * 
-     */
-    public BackendSchemaPreviewBySchemaIdResource getBackendSchemaPreviewBySchemaId(String schemaId) {
-        return new BackendSchemaPreviewBySchemaIdResource(
-            schemaId,
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
+    public AppTag app()
+    {
+        return new AppTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
         );
     }
 
-    /**
-     * Endpoint: /backend/schema
-     *
-     * 
-     */
-    public BackendSchemaResource getBackendSchema() {
-        return new BackendSchemaResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
+    public ActionTag action()
+    {
+        return new ActionTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
         );
     }
 
-    /**
-     * Endpoint: /backend/routes/$route_id&lt;[0-9]+&gt;
-     *
-     * 
-     */
-    public BackendRoutesByRouteIdResource getBackendRoutesByRouteId(String routeId) {
-        return new BackendRoutesByRouteIdResource(
-            routeId,
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
+    public AccountTag account()
+    {
+        return new AccountTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
         );
     }
 
-    /**
-     * Endpoint: /backend/routes
-     *
-     * 
-     */
-    public BackendRoutesResource getBackendRoutes() {
-        return new BackendRoutesResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /backend/role/$role_id&lt;[0-9]+|^~&gt;
-     *
-     * 
-     */
-    public BackendRoleByRoleIdResource getBackendRoleByRoleId(String roleId) {
-        return new BackendRoleByRoleIdResource(
-            roleId,
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /backend/role
-     *
-     * 
-     */
-    public BackendRoleResource getBackendRole() {
-        return new BackendRoleResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /backend/rate/$rate_id&lt;[0-9]+|^~&gt;
-     *
-     * 
-     */
-    public BackendRateByRateIdResource getBackendRateByRateId(String rateId) {
-        return new BackendRateByRateIdResource(
-            rateId,
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /backend/rate
-     *
-     * 
-     */
-    public BackendRateResource getBackendRate() {
-        return new BackendRateResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /backend/plan/$plan_id&lt;[0-9]+|^~&gt;
-     *
-     * 
-     */
-    public BackendPlanByPlanIdResource getBackendPlanByPlanId(String planId) {
-        return new BackendPlanByPlanIdResource(
-            planId,
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /backend/plan
-     *
-     * 
-     */
-    public BackendPlanResource getBackendPlan() {
-        return new BackendPlanResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /backend/page/$page_id&lt;[0-9]+|^~&gt;
-     *
-     * 
-     */
-    public BackendPageByPageIdResource getBackendPageByPageId(String pageId) {
-        return new BackendPageByPageIdResource(
-            pageId,
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /backend/page
-     *
-     * 
-     */
-    public BackendPageResource getBackendPage() {
-        return new BackendPageResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /backend/marketplace/:app_name
-     *
-     * 
-     */
-    public BackendMarketplaceByAppNameResource getBackendMarketplaceByAppName(String appName) {
-        return new BackendMarketplaceByAppNameResource(
-            appName,
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /backend/marketplace
-     *
-     * 
-     */
-    public BackendMarketplaceResource getBackendMarketplace() {
-        return new BackendMarketplaceResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /backend/log/$log_id&lt;[0-9]+&gt;
-     *
-     * 
-     */
-    public BackendLogByLogIdResource getBackendLogByLogId(String logId) {
-        return new BackendLogByLogIdResource(
-            logId,
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /backend/log
-     *
-     * 
-     */
-    public BackendLogResource getBackendLog() {
-        return new BackendLogResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /backend/log/error/$error_id&lt;[0-9]+&gt;
-     *
-     * 
-     */
-    public BackendLogErrorByErrorIdResource getBackendLogErrorByErrorId(String errorId) {
-        return new BackendLogErrorByErrorIdResource(
-            errorId,
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /backend/log/error
-     *
-     * 
-     */
-    public BackendLogErrorResource getBackendLogError() {
-        return new BackendLogErrorResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /backend/generator/:provider
-     *
-     * 
-     */
-    public BackendGeneratorByProviderResource getBackendGeneratorByProvider(String provider) {
-        return new BackendGeneratorByProviderResource(
-            provider,
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /backend/generator
-     *
-     * 
-     */
-    public BackendGeneratorResource getBackendGenerator() {
-        return new BackendGeneratorResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /backend/event/$event_id&lt;[0-9]+|^~&gt;
-     *
-     * 
-     */
-    public BackendEventByEventIdResource getBackendEventByEventId(String eventId) {
-        return new BackendEventByEventIdResource(
-            eventId,
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /backend/event
-     *
-     * 
-     */
-    public BackendEventResource getBackendEvent() {
-        return new BackendEventResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /backend/event/subscription/$subscription_id&lt;[0-9]+&gt;
-     *
-     * 
-     */
-    public BackendEventSubscriptionBySubscriptionIdResource getBackendEventSubscriptionBySubscriptionId(String subscriptionId) {
-        return new BackendEventSubscriptionBySubscriptionIdResource(
-            subscriptionId,
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /backend/event/subscription
-     *
-     * 
-     */
-    public BackendEventSubscriptionResource getBackendEventSubscription() {
-        return new BackendEventSubscriptionResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /backend/dashboard
-     *
-     * 
-     */
-    public BackendDashboardResource getBackendDashboard() {
-        return new BackendDashboardResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /backend/cronjob/$cronjob_id&lt;[0-9]+|^~&gt;
-     *
-     * 
-     */
-    public BackendCronjobByCronjobIdResource getBackendCronjobByCronjobId(String cronjobId) {
-        return new BackendCronjobByCronjobIdResource(
-            cronjobId,
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /backend/cronjob
-     *
-     * 
-     */
-    public BackendCronjobResource getBackendCronjob() {
-        return new BackendCronjobResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /backend/connection/$connection_id&lt;[0-9]+|^~&gt;/introspection/:entity
-     *
-     * 
-     */
-    public BackendConnectionByConnectionIdIntrospectionAndEntityResource getBackendConnectionByConnectionIdIntrospectionAndEntity(String connectionId, String entity) {
-        return new BackendConnectionByConnectionIdIntrospectionAndEntityResource(
-            connectionId,
-            entity,
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /backend/connection/$connection_id&lt;[0-9]+|^~&gt;/introspection
-     *
-     * 
-     */
-    public BackendConnectionByConnectionIdIntrospectionResource getBackendConnectionByConnectionIdIntrospection(String connectionId) {
-        return new BackendConnectionByConnectionIdIntrospectionResource(
-            connectionId,
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /backend/connection/$connection_id&lt;[0-9]+|^~&gt;/redirect
-     *
-     * 
-     */
-    public BackendConnectionByConnectionIdRedirectResource getBackendConnectionByConnectionIdRedirect(String connectionId) {
-        return new BackendConnectionByConnectionIdRedirectResource(
-            connectionId,
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /backend/connection/$connection_id&lt;[0-9]+|^~&gt;
-     *
-     * 
-     */
-    public BackendConnectionByConnectionIdResource getBackendConnectionByConnectionId(String connectionId) {
-        return new BackendConnectionByConnectionIdResource(
-            connectionId,
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /backend/connection/form
-     *
-     * 
-     */
-    public BackendConnectionFormResource getBackendConnectionForm() {
-        return new BackendConnectionFormResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /backend/connection/list
-     *
-     * 
-     */
-    public BackendConnectionListResource getBackendConnectionList() {
-        return new BackendConnectionListResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /backend/connection
-     *
-     * 
-     */
-    public BackendConnectionResource getBackendConnection() {
-        return new BackendConnectionResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /backend/config/$config_id&lt;[0-9]+|^~&gt;
-     *
-     * 
-     */
-    public BackendConfigByConfigIdResource getBackendConfigByConfigId(String configId) {
-        return new BackendConfigByConfigIdResource(
-            configId,
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /backend/config
-     *
-     * 
-     */
-    public BackendConfigResource getBackendConfig() {
-        return new BackendConfigResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /backend/category/$category_id&lt;[0-9]+|^~&gt;
-     *
-     * 
-     */
-    public BackendCategoryByCategoryIdResource getBackendCategoryByCategoryId(String categoryId) {
-        return new BackendCategoryByCategoryIdResource(
-            categoryId,
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /backend/category
-     *
-     * 
-     */
-    public BackendCategoryResource getBackendCategory() {
-        return new BackendCategoryResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /backend/audit/$audit_id&lt;[0-9]+&gt;
-     *
-     * 
-     */
-    public BackendAuditByAuditIdResource getBackendAuditByAuditId(String auditId) {
-        return new BackendAuditByAuditIdResource(
-            auditId,
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /backend/audit
-     *
-     * 
-     */
-    public BackendAuditResource getBackendAudit() {
-        return new BackendAuditResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /backend/app/$app_id&lt;[0-9]+&gt;/token/:token_id
-     *
-     * 
-     */
-    public BackendAppByAppIdTokenAndTokenIdResource getBackendAppByAppIdTokenAndTokenId(String appId, String tokenId) {
-        return new BackendAppByAppIdTokenAndTokenIdResource(
-            appId,
-            tokenId,
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /backend/app/$app_id&lt;[0-9]+&gt;
-     *
-     * 
-     */
-    public BackendAppByAppIdResource getBackendAppByAppId(String appId) {
-        return new BackendAppByAppIdResource(
-            appId,
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /backend/app
-     *
-     * 
-     */
-    public BackendAppResource getBackendApp() {
-        return new BackendAppResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /backend/app/token/$token_id&lt;[0-9]+&gt;
-     *
-     * 
-     */
-    public BackendAppTokenByTokenIdResource getBackendAppTokenByTokenId(String tokenId) {
-        return new BackendAppTokenByTokenIdResource(
-            tokenId,
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /backend/app/token
-     *
-     * 
-     */
-    public BackendAppTokenResource getBackendAppToken() {
-        return new BackendAppTokenResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /backend/action/$action_id&lt;[0-9]+|^~&gt;
-     *
-     * 
-     */
-    public BackendActionByActionIdResource getBackendActionByActionId(String actionId) {
-        return new BackendActionByActionIdResource(
-            actionId,
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /backend/action/execute/:action_id
-     *
-     * 
-     */
-    public BackendActionExecuteByActionIdResource getBackendActionExecuteByActionId(String actionId) {
-        return new BackendActionExecuteByActionIdResource(
-            actionId,
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /backend/action/form
-     *
-     * 
-     */
-    public BackendActionFormResource getBackendActionForm() {
-        return new BackendActionFormResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /backend/action/list
-     *
-     * 
-     */
-    public BackendActionListResource getBackendActionList() {
-        return new BackendActionListResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /backend/action
-     *
-     * 
-     */
-    public BackendActionResource getBackendAction() {
-        return new BackendActionResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
 
-    /**
-     * Endpoint: /backend/account/change_password
-     *
-     * 
-     */
-    public BackendAccountChangePasswordResource getBackendAccountChangePassword() {
-        return new BackendAccountChangePasswordResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /backend/account
-     *
-     * 
-     */
-    public BackendAccountResource getBackendAccount() {
-        return new BackendAccountResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
 
 }

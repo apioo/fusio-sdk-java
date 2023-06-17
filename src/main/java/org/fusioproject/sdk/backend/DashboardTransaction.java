@@ -13,7 +13,7 @@ public class DashboardTransaction {
     private String status;
     private String provider;
     private String transactionId;
-    private float amount;
+    private double amount;
     private LocalDateTime date;
     @JsonSetter("id")
     public void setId(int id) {
@@ -48,11 +48,11 @@ public class DashboardTransaction {
         return this.transactionId;
     }
     @JsonSetter("amount")
-    public void setAmount(float amount) {
+    public void setAmount(double amount) {
         this.amount = amount;
     }
     @JsonGetter("amount")
-    public float getAmount() {
+    public double getAmount() {
         return this.amount;
     }
     @JsonSetter("date")

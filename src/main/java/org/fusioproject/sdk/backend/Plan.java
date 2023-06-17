@@ -11,7 +11,7 @@ public class Plan {
     private int id;
     private String name;
     private String description;
-    private float price;
+    private double price;
     private int points;
     private int period;
     private String externalId;
@@ -42,11 +42,11 @@ public class Plan {
         return this.description;
     }
     @JsonSetter("price")
-    public void setPrice(float price) {
+    public void setPrice(double price) {
         this.price = price;
     }
     @JsonGetter("price")
-    public float getPrice() {
+    public double getPrice() {
         return this.price;
     }
     @JsonSetter("points")

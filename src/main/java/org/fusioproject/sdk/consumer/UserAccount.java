@@ -16,6 +16,7 @@ public class UserAccount {
     private String email;
     private int points;
     private String[] scopes;
+    private UserPlan[] plans;
     private Metadata metadata;
     private LocalDateTime date;
     @JsonSetter("id")
@@ -73,6 +74,14 @@ public class UserAccount {
     @JsonGetter("scopes")
     public String[] getScopes() {
         return this.scopes;
+    }
+    @JsonSetter("plans")
+    public void setPlans(UserPlan[] plans) {
+        this.plans = plans;
+    }
+    @JsonGetter("plans")
+    public UserPlan[] getPlans() {
+        return this.plans;
     }
     @JsonSetter("metadata")
     public void setMetadata(Metadata metadata) {

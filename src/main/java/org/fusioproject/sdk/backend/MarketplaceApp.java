@@ -14,6 +14,7 @@ public class MarketplaceApp {
     private String website;
     private String downloadUrl;
     private String shaHash;
+    private String startUrl;
     @JsonSetter("version")
     public void setVersion(String version) {
         this.version = version;
@@ -61,5 +62,13 @@ public class MarketplaceApp {
     @JsonGetter("sha1Hash")
     public String getShaHash() {
         return this.shaHash;
+    }
+    @JsonSetter("startUrl")
+    public void setStartUrl(String startUrl) {
+        this.startUrl = startUrl;
+    }
+    @JsonGetter("startUrl")
+    public String getStartUrl() {
+        return this.startUrl;
     }
 }

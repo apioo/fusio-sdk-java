@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 public class GeneratorProviderChangelog {
     private Schema[] schemas;
     private Action[] actions;
-    private Route[] routes;
+    private Operation[] operations;
     @JsonSetter("schemas")
     public void setSchemas(Schema[] schemas) {
         this.schemas = schemas;
@@ -27,12 +27,12 @@ public class GeneratorProviderChangelog {
     public Action[] getActions() {
         return this.actions;
     }
-    @JsonSetter("routes")
-    public void setRoutes(Route[] routes) {
-        this.routes = routes;
+    @JsonSetter("operations")
+    public void setOperations(Operation[] operations) {
+        this.operations = operations;
     }
-    @JsonGetter("routes")
-    public Route[] getRoutes() {
-        return this.routes;
+    @JsonGetter("operations")
+    public Operation[] getOperations() {
+        return this.operations;
     }
 }

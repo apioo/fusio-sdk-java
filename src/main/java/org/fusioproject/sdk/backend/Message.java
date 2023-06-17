@@ -10,6 +10,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 public class Message {
     private boolean success;
     private String message;
+    private String id;
     @JsonSetter("success")
     public void setSuccess(boolean success) {
         this.success = success;
@@ -25,5 +26,13 @@ public class Message {
     @JsonGetter("message")
     public String getMessage() {
         return this.message;
+    }
+    @JsonSetter("id")
+    public void setId(String id) {
+        this.id = id;
+    }
+    @JsonGetter("id")
+    public String getId() {
+        return this.id;
     }
 }

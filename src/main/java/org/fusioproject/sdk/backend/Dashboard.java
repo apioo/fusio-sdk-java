@@ -8,22 +8,22 @@ package org.fusioproject.sdk.backend;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 public class Dashboard {
-    private StatisticChart errorsPerRoute;
+    private StatisticChart errorsPerOperation;
     private StatisticChart incomingRequests;
     private StatisticChart incomingTransactions;
-    private StatisticChart mostUsedRoutes;
-    private StatisticChart timePerRoute;
+    private StatisticChart mostUsedOperations;
+    private StatisticChart timePerOperation;
     private DashboardApps latestApps;
     private DashboardRequests latestRequests;
     private DashboardUsers latestUsers;
     private DashboardTransactions latestTransactions;
-    @JsonSetter("errorsPerRoute")
-    public void setErrorsPerRoute(StatisticChart errorsPerRoute) {
-        this.errorsPerRoute = errorsPerRoute;
+    @JsonSetter("errorsPerOperation")
+    public void setErrorsPerOperation(StatisticChart errorsPerOperation) {
+        this.errorsPerOperation = errorsPerOperation;
     }
-    @JsonGetter("errorsPerRoute")
-    public StatisticChart getErrorsPerRoute() {
-        return this.errorsPerRoute;
+    @JsonGetter("errorsPerOperation")
+    public StatisticChart getErrorsPerOperation() {
+        return this.errorsPerOperation;
     }
     @JsonSetter("incomingRequests")
     public void setIncomingRequests(StatisticChart incomingRequests) {
@@ -41,21 +41,21 @@ public class Dashboard {
     public StatisticChart getIncomingTransactions() {
         return this.incomingTransactions;
     }
-    @JsonSetter("mostUsedRoutes")
-    public void setMostUsedRoutes(StatisticChart mostUsedRoutes) {
-        this.mostUsedRoutes = mostUsedRoutes;
+    @JsonSetter("mostUsedOperations")
+    public void setMostUsedOperations(StatisticChart mostUsedOperations) {
+        this.mostUsedOperations = mostUsedOperations;
     }
-    @JsonGetter("mostUsedRoutes")
-    public StatisticChart getMostUsedRoutes() {
-        return this.mostUsedRoutes;
+    @JsonGetter("mostUsedOperations")
+    public StatisticChart getMostUsedOperations() {
+        return this.mostUsedOperations;
     }
-    @JsonSetter("timePerRoute")
-    public void setTimePerRoute(StatisticChart timePerRoute) {
-        this.timePerRoute = timePerRoute;
+    @JsonSetter("timePerOperation")
+    public void setTimePerOperation(StatisticChart timePerOperation) {
+        this.timePerOperation = timePerOperation;
     }
-    @JsonGetter("timePerRoute")
-    public StatisticChart getTimePerRoute() {
-        return this.timePerRoute;
+    @JsonGetter("timePerOperation")
+    public StatisticChart getTimePerOperation() {
+        return this.timePerOperation;
     }
     @JsonSetter("latestApps")
     public void setLatestApps(DashboardApps latestApps) {

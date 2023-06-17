@@ -8,360 +8,127 @@ package org.fusioproject.sdk.consumer;
 import app.sdkgen.client.ClientAbstract;
 import app.sdkgen.client.Credentials.*;
 import app.sdkgen.client.CredentialsInterface;
-import app.sdkgen.client.TokenStoreInterface;
-import java.util.List;
+import app.sdkgen.client.Exception.Authenticator.InvalidCredentialsException;
+import app.sdkgen.client.Exception.ClientException;
+import app.sdkgen.client.Exception.UnknownStatusCodeException;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.*;
+import org.apache.http.client.utils.URIBuilder;
+import org.apache.http.entity.ContentType;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.util.EntityUtils;
+
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Client extends ClientAbstract {
-    public Client(String baseUrl, CredentialsInterface credentials, TokenStoreInterface tokenStore, List<String> scopes) {
-        super(baseUrl, credentials, tokenStore, scopes);
+    public Client(String baseUrl, CredentialsInterface credentials) throws InvalidCredentialsException {
+        super(baseUrl, credentials);
     }
 
-    /**
-     * Endpoint: /consumer/password_reset
-     *
-     * 
-     */
-    public ConsumerPasswordResetResource getConsumerPasswordReset() {
-        return new ConsumerPasswordResetResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
+    public AccountTag account()
+    {
+        return new AccountTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
         );
     }
 
-    /**
-     * Endpoint: /consumer/register
-     *
-     * 
-     */
-    public ConsumerRegisterResource getConsumerRegister() {
-        return new ConsumerRegisterResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
+    public TransactionTag transaction()
+    {
+        return new TransactionTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
         );
     }
 
-    /**
-     * Endpoint: /consumer/provider/:provider
-     *
-     * 
-     */
-    public ConsumerProviderByProviderResource getConsumerProviderByProvider(String provider) {
-        return new ConsumerProviderByProviderResource(
-            provider,
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
+    public SubscriptionTag subscription()
+    {
+        return new SubscriptionTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
         );
     }
 
-    /**
-     * Endpoint: /consumer/login
-     *
-     * 
-     */
-    public ConsumerLoginResource getConsumerLogin() {
-        return new ConsumerLoginResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
+    public ScopeTag scope()
+    {
+        return new ScopeTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
         );
     }
 
-    /**
-     * Endpoint: /consumer/authorize
-     *
-     * 
-     */
-    public ConsumerAuthorizeResource getConsumerAuthorize() {
-        return new ConsumerAuthorizeResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
+    public PlanTag plan()
+    {
+        return new PlanTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
         );
     }
 
-    /**
-     * Endpoint: /consumer/activate
-     *
-     * 
-     */
-    public ConsumerActivateResource getConsumerActivate() {
-        return new ConsumerActivateResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
+    public PaymentTag payment()
+    {
+        return new PaymentTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
         );
     }
 
-    /**
-     * Endpoint: /consumer/account/change_password
-     *
-     * 
-     */
-    public ConsumerAccountChangePasswordResource getConsumerAccountChangePassword() {
-        return new ConsumerAccountChangePasswordResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
+    public PageTag page()
+    {
+        return new PageTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
         );
     }
 
-    /**
-     * Endpoint: /consumer/account
-     *
-     * 
-     */
-    public ConsumerAccountResource getConsumerAccount() {
-        return new ConsumerAccountResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
+    public LogTag log()
+    {
+        return new LogTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
         );
     }
 
-    /**
-     * Endpoint: /consumer/transaction/$transaction_id&lt;[0-9]+&gt;
-     *
-     * 
-     */
-    public ConsumerTransactionByTransactionIdResource getConsumerTransactionByTransactionId(String transactionId) {
-        return new ConsumerTransactionByTransactionIdResource(
-            transactionId,
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
+    public GrantTag grant()
+    {
+        return new GrantTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
         );
     }
 
-    /**
-     * Endpoint: /consumer/transaction
-     *
-     * 
-     */
-    public ConsumerTransactionResource getConsumerTransaction() {
-        return new ConsumerTransactionResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
+    public EventTag event()
+    {
+        return new EventTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
         );
     }
 
-    /**
-     * Endpoint: /consumer/subscription/$subscription_id&lt;[0-9]+&gt;
-     *
-     * 
-     */
-    public ConsumerSubscriptionBySubscriptionIdResource getConsumerSubscriptionBySubscriptionId(String subscriptionId) {
-        return new ConsumerSubscriptionBySubscriptionIdResource(
-            subscriptionId,
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
+    public AppTag app()
+    {
+        return new AppTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
         );
     }
 
-    /**
-     * Endpoint: /consumer/subscription
-     *
-     * 
-     */
-    public ConsumerSubscriptionResource getConsumerSubscription() {
-        return new ConsumerSubscriptionResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
 
-    /**
-     * Endpoint: /consumer/scope
-     *
-     * 
-     */
-    public ConsumerScopeResource getConsumerScope() {
-        return new ConsumerScopeResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /consumer/plan/$plan_id&lt;[0-9]+&gt;
-     *
-     * 
-     */
-    public ConsumerPlanByPlanIdResource getConsumerPlanByPlanId(String planId) {
-        return new ConsumerPlanByPlanIdResource(
-            planId,
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /consumer/plan
-     *
-     * 
-     */
-    public ConsumerPlanResource getConsumerPlan() {
-        return new ConsumerPlanResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /consumer/payment/:provider/checkout
-     *
-     * 
-     */
-    public ConsumerPaymentByProviderCheckoutResource getConsumerPaymentByProviderCheckout(String provider) {
-        return new ConsumerPaymentByProviderCheckoutResource(
-            provider,
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /consumer/payment/:provider/portal
-     *
-     * 
-     */
-    public ConsumerPaymentByProviderPortalResource getConsumerPaymentByProviderPortal(String provider) {
-        return new ConsumerPaymentByProviderPortalResource(
-            provider,
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /consumer/page/:page_id
-     *
-     * 
-     */
-    public ConsumerPageByPageIdResource getConsumerPageByPageId(String pageId) {
-        return new ConsumerPageByPageIdResource(
-            pageId,
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /consumer/page
-     *
-     * 
-     */
-    public ConsumerPageResource getConsumerPage() {
-        return new ConsumerPageResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /consumer/log/$log_id&lt;[0-9]+&gt;
-     *
-     * 
-     */
-    public ConsumerLogByLogIdResource getConsumerLogByLogId(String logId) {
-        return new ConsumerLogByLogIdResource(
-            logId,
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /consumer/log
-     *
-     * 
-     */
-    public ConsumerLogResource getConsumerLog() {
-        return new ConsumerLogResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /consumer/grant/$grant_id&lt;[0-9]+&gt;
-     *
-     * 
-     */
-    public ConsumerGrantByGrantIdResource getConsumerGrantByGrantId(String grantId) {
-        return new ConsumerGrantByGrantIdResource(
-            grantId,
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /consumer/grant
-     *
-     * 
-     */
-    public ConsumerGrantResource getConsumerGrant() {
-        return new ConsumerGrantResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /consumer/event
-     *
-     * 
-     */
-    public ConsumerEventResource getConsumerEvent() {
-        return new ConsumerEventResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /consumer/app/$app_id&lt;[0-9]+&gt;
-     *
-     * 
-     */
-    public ConsumerAppByAppIdResource getConsumerAppByAppId(String appId) {
-        return new ConsumerAppByAppIdResource(
-            appId,
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
-
-    /**
-     * Endpoint: /consumer/app
-     *
-     * 
-     */
-    public ConsumerAppResource getConsumerApp() {
-        return new ConsumerAppResource(
-            this.baseUrl,
-            this.newHttpClient(),
-            this.objectMapper
-        );
-    }
 
 }
