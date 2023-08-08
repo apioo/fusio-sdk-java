@@ -31,11 +31,25 @@ public class StatisticTag extends TagAbstract {
     }
 
 
-    public StatisticChart getUsedPoints() throws ClientException {
+    public StatisticChart getUsedPoints(int startIndex, int count, String search, LocalDateTime from, LocalDateTime to, int operationId, int appId, int userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
             Map<String, Object> queryParams = new HashMap<>();
+            queryParams.put("startIndex", startIndex);
+            queryParams.put("count", count);
+            queryParams.put("search", search);
+            queryParams.put("from", from);
+            queryParams.put("to", to);
+            queryParams.put("operationId", operationId);
+            queryParams.put("appId", appId);
+            queryParams.put("userId", userId);
+            queryParams.put("ip", ip);
+            queryParams.put("userAgent", userAgent);
+            queryParams.put("method", method);
+            queryParams.put("path", path);
+            queryParams.put("header", header);
+            queryParams.put("body", body);
 
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/used_points", pathParams));
             this.parser.query(builder, queryParams);
@@ -50,6 +64,10 @@ public class StatisticTag extends TagAbstract {
             }
 
             switch (statusCode) {
+                case 401:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
+                case 500:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -58,13 +76,27 @@ public class StatisticTag extends TagAbstract {
         }
     }
 
-    public StatisticChart getTimePerRoute() throws ClientException {
+    public StatisticChart getTimePerOperation(int startIndex, int count, String search, LocalDateTime from, LocalDateTime to, int operationId, int appId, int userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
             Map<String, Object> queryParams = new HashMap<>();
+            queryParams.put("startIndex", startIndex);
+            queryParams.put("count", count);
+            queryParams.put("search", search);
+            queryParams.put("from", from);
+            queryParams.put("to", to);
+            queryParams.put("operationId", operationId);
+            queryParams.put("appId", appId);
+            queryParams.put("userId", userId);
+            queryParams.put("ip", ip);
+            queryParams.put("userAgent", userAgent);
+            queryParams.put("method", method);
+            queryParams.put("path", path);
+            queryParams.put("header", header);
+            queryParams.put("body", body);
 
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/time_per_route", pathParams));
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/time_per_operation", pathParams));
             this.parser.query(builder, queryParams);
 
             HttpGet request = new HttpGet(builder.build());
@@ -77,6 +109,10 @@ public class StatisticTag extends TagAbstract {
             }
 
             switch (statusCode) {
+                case 401:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
+                case 500:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -85,11 +121,25 @@ public class StatisticTag extends TagAbstract {
         }
     }
 
-    public StatisticChart getTimeAverage() throws ClientException {
+    public StatisticChart getTimeAverage(int startIndex, int count, String search, LocalDateTime from, LocalDateTime to, int operationId, int appId, int userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
             Map<String, Object> queryParams = new HashMap<>();
+            queryParams.put("startIndex", startIndex);
+            queryParams.put("count", count);
+            queryParams.put("search", search);
+            queryParams.put("from", from);
+            queryParams.put("to", to);
+            queryParams.put("operationId", operationId);
+            queryParams.put("appId", appId);
+            queryParams.put("userId", userId);
+            queryParams.put("ip", ip);
+            queryParams.put("userAgent", userAgent);
+            queryParams.put("method", method);
+            queryParams.put("path", path);
+            queryParams.put("header", header);
+            queryParams.put("body", body);
 
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/time_average", pathParams));
             this.parser.query(builder, queryParams);
@@ -104,6 +154,10 @@ public class StatisticTag extends TagAbstract {
             }
 
             switch (statusCode) {
+                case 401:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
+                case 500:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -112,13 +166,27 @@ public class StatisticTag extends TagAbstract {
         }
     }
 
-    public StatisticChart getMostUsedRoutes() throws ClientException {
+    public StatisticChart getMostUsedOperations(int startIndex, int count, String search, LocalDateTime from, LocalDateTime to, int operationId, int appId, int userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
             Map<String, Object> queryParams = new HashMap<>();
+            queryParams.put("startIndex", startIndex);
+            queryParams.put("count", count);
+            queryParams.put("search", search);
+            queryParams.put("from", from);
+            queryParams.put("to", to);
+            queryParams.put("operationId", operationId);
+            queryParams.put("appId", appId);
+            queryParams.put("userId", userId);
+            queryParams.put("ip", ip);
+            queryParams.put("userAgent", userAgent);
+            queryParams.put("method", method);
+            queryParams.put("path", path);
+            queryParams.put("header", header);
+            queryParams.put("body", body);
 
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/most_used_routes", pathParams));
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/most_used_operations", pathParams));
             this.parser.query(builder, queryParams);
 
             HttpGet request = new HttpGet(builder.build());
@@ -131,6 +199,10 @@ public class StatisticTag extends TagAbstract {
             }
 
             switch (statusCode) {
+                case 401:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
+                case 500:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -139,11 +211,25 @@ public class StatisticTag extends TagAbstract {
         }
     }
 
-    public StatisticChart getMostUsedApps() throws ClientException {
+    public StatisticChart getMostUsedApps(int startIndex, int count, String search, LocalDateTime from, LocalDateTime to, int operationId, int appId, int userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
             Map<String, Object> queryParams = new HashMap<>();
+            queryParams.put("startIndex", startIndex);
+            queryParams.put("count", count);
+            queryParams.put("search", search);
+            queryParams.put("from", from);
+            queryParams.put("to", to);
+            queryParams.put("operationId", operationId);
+            queryParams.put("appId", appId);
+            queryParams.put("userId", userId);
+            queryParams.put("ip", ip);
+            queryParams.put("userAgent", userAgent);
+            queryParams.put("method", method);
+            queryParams.put("path", path);
+            queryParams.put("header", header);
+            queryParams.put("body", body);
 
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/most_used_apps", pathParams));
             this.parser.query(builder, queryParams);
@@ -158,6 +244,10 @@ public class StatisticTag extends TagAbstract {
             }
 
             switch (statusCode) {
+                case 401:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
+                case 500:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -166,11 +256,25 @@ public class StatisticTag extends TagAbstract {
         }
     }
 
-    public StatisticChart getIssuedTokens() throws ClientException {
+    public StatisticChart getIssuedTokens(int startIndex, int count, String search, LocalDateTime from, LocalDateTime to, int operationId, int appId, int userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
             Map<String, Object> queryParams = new HashMap<>();
+            queryParams.put("startIndex", startIndex);
+            queryParams.put("count", count);
+            queryParams.put("search", search);
+            queryParams.put("from", from);
+            queryParams.put("to", to);
+            queryParams.put("operationId", operationId);
+            queryParams.put("appId", appId);
+            queryParams.put("userId", userId);
+            queryParams.put("ip", ip);
+            queryParams.put("userAgent", userAgent);
+            queryParams.put("method", method);
+            queryParams.put("path", path);
+            queryParams.put("header", header);
+            queryParams.put("body", body);
 
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/issued_tokens", pathParams));
             this.parser.query(builder, queryParams);
@@ -185,6 +289,10 @@ public class StatisticTag extends TagAbstract {
             }
 
             switch (statusCode) {
+                case 401:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
+                case 500:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -193,11 +301,25 @@ public class StatisticTag extends TagAbstract {
         }
     }
 
-    public StatisticChart getIncomingTransactions() throws ClientException {
+    public StatisticChart getIncomingTransactions(int startIndex, int count, String search, LocalDateTime from, LocalDateTime to, int operationId, int appId, int userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
             Map<String, Object> queryParams = new HashMap<>();
+            queryParams.put("startIndex", startIndex);
+            queryParams.put("count", count);
+            queryParams.put("search", search);
+            queryParams.put("from", from);
+            queryParams.put("to", to);
+            queryParams.put("operationId", operationId);
+            queryParams.put("appId", appId);
+            queryParams.put("userId", userId);
+            queryParams.put("ip", ip);
+            queryParams.put("userAgent", userAgent);
+            queryParams.put("method", method);
+            queryParams.put("path", path);
+            queryParams.put("header", header);
+            queryParams.put("body", body);
 
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/incoming_transactions", pathParams));
             this.parser.query(builder, queryParams);
@@ -212,6 +334,10 @@ public class StatisticTag extends TagAbstract {
             }
 
             switch (statusCode) {
+                case 401:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
+                case 500:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -220,11 +346,25 @@ public class StatisticTag extends TagAbstract {
         }
     }
 
-    public StatisticChart getIncomingRequests() throws ClientException {
+    public StatisticChart getIncomingRequests(int startIndex, int count, String search, LocalDateTime from, LocalDateTime to, int operationId, int appId, int userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
             Map<String, Object> queryParams = new HashMap<>();
+            queryParams.put("startIndex", startIndex);
+            queryParams.put("count", count);
+            queryParams.put("search", search);
+            queryParams.put("from", from);
+            queryParams.put("to", to);
+            queryParams.put("operationId", operationId);
+            queryParams.put("appId", appId);
+            queryParams.put("userId", userId);
+            queryParams.put("ip", ip);
+            queryParams.put("userAgent", userAgent);
+            queryParams.put("method", method);
+            queryParams.put("path", path);
+            queryParams.put("header", header);
+            queryParams.put("body", body);
 
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/incoming_requests", pathParams));
             this.parser.query(builder, queryParams);
@@ -239,6 +379,10 @@ public class StatisticTag extends TagAbstract {
             }
 
             switch (statusCode) {
+                case 401:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
+                case 500:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -247,13 +391,27 @@ public class StatisticTag extends TagAbstract {
         }
     }
 
-    public StatisticChart getErrorsPerRoute() throws ClientException {
+    public StatisticChart getErrorsPerOperation(int startIndex, int count, String search, LocalDateTime from, LocalDateTime to, int operationId, int appId, int userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
             Map<String, Object> queryParams = new HashMap<>();
+            queryParams.put("startIndex", startIndex);
+            queryParams.put("count", count);
+            queryParams.put("search", search);
+            queryParams.put("from", from);
+            queryParams.put("to", to);
+            queryParams.put("operationId", operationId);
+            queryParams.put("appId", appId);
+            queryParams.put("userId", userId);
+            queryParams.put("ip", ip);
+            queryParams.put("userAgent", userAgent);
+            queryParams.put("method", method);
+            queryParams.put("path", path);
+            queryParams.put("header", header);
+            queryParams.put("body", body);
 
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/errors_per_route", pathParams));
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/errors_per_operation", pathParams));
             this.parser.query(builder, queryParams);
 
             HttpGet request = new HttpGet(builder.build());
@@ -266,6 +424,10 @@ public class StatisticTag extends TagAbstract {
             }
 
             switch (statusCode) {
+                case 401:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
+                case 500:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -274,11 +436,25 @@ public class StatisticTag extends TagAbstract {
         }
     }
 
-    public StatisticCount getCountRequests() throws ClientException {
+    public StatisticCount getCountRequests(int startIndex, int count, String search, LocalDateTime from, LocalDateTime to, int operationId, int appId, int userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
             Map<String, Object> queryParams = new HashMap<>();
+            queryParams.put("startIndex", startIndex);
+            queryParams.put("count", count);
+            queryParams.put("search", search);
+            queryParams.put("from", from);
+            queryParams.put("to", to);
+            queryParams.put("operationId", operationId);
+            queryParams.put("appId", appId);
+            queryParams.put("userId", userId);
+            queryParams.put("ip", ip);
+            queryParams.put("userAgent", userAgent);
+            queryParams.put("method", method);
+            queryParams.put("path", path);
+            queryParams.put("header", header);
+            queryParams.put("body", body);
 
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/count_requests", pathParams));
             this.parser.query(builder, queryParams);
@@ -293,6 +469,10 @@ public class StatisticTag extends TagAbstract {
             }
 
             switch (statusCode) {
+                case 401:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
+                case 500:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }

@@ -52,6 +52,12 @@ public class AccountTag extends TagAbstract {
             }
 
             switch (statusCode) {
+                case 400:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
+                case 401:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
+                case 500:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -81,6 +87,12 @@ public class AccountTag extends TagAbstract {
             }
 
             switch (statusCode) {
+                case 400:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
+                case 401:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
+                case 500:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -108,6 +120,10 @@ public class AccountTag extends TagAbstract {
             }
 
             switch (statusCode) {
+                case 401:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
+                case 500:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }

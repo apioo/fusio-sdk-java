@@ -38,7 +38,7 @@ public class LogTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
-            URIBuilder builder = new URIBuilder(this.parser.url("/consumer/log/$log_id&lt;[0-9]+&gt;", pathParams));
+            URIBuilder builder = new URIBuilder(this.parser.url("/consumer/log/$log_id<[0-9]+>", pathParams));
             this.parser.query(builder, queryParams);
 
             HttpGet request = new HttpGet(builder.build());
@@ -51,6 +51,14 @@ public class LogTag extends TagAbstract {
             }
 
             switch (statusCode) {
+                case 401:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
+                case 404:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
+                case 410:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
+                case 500:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -59,11 +67,14 @@ public class LogTag extends TagAbstract {
         }
     }
 
-    public LogCollection getAll() throws ClientException {
+    public LogCollection getAll(int startIndex, int count, String search) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
             Map<String, Object> queryParams = new HashMap<>();
+            queryParams.put("startIndex", startIndex);
+            queryParams.put("count", count);
+            queryParams.put("search", search);
 
             URIBuilder builder = new URIBuilder(this.parser.url("/consumer/log", pathParams));
             this.parser.query(builder, queryParams);
@@ -78,6 +89,10 @@ public class LogTag extends TagAbstract {
             }
 
             switch (statusCode) {
+                case 401:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
+                case 500:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }

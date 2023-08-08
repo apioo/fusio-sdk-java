@@ -53,6 +53,10 @@ public class GeneratorTag extends TagAbstract {
             }
 
             switch (statusCode) {
+                case 401:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
+                case 500:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -83,6 +87,10 @@ public class GeneratorTag extends TagAbstract {
             }
 
             switch (statusCode) {
+                case 401:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
+                case 500:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -91,7 +99,7 @@ public class GeneratorTag extends TagAbstract {
         }
     }
 
-    public FormContainer getProviderForm(String provider) throws ClientException {
+    public FormContainer getForm(String provider) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
             pathParams.put("provider", provider);
@@ -111,6 +119,10 @@ public class GeneratorTag extends TagAbstract {
             }
 
             switch (statusCode) {
+                case 401:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
+                case 500:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -119,7 +131,7 @@ public class GeneratorTag extends TagAbstract {
         }
     }
 
-    public GeneratorIndexProviders getProviders() throws ClientException {
+    public GeneratorIndexProviders getClasses() throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
@@ -138,6 +150,10 @@ public class GeneratorTag extends TagAbstract {
             }
 
             switch (statusCode) {
+                case 401:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
+                case 500:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }

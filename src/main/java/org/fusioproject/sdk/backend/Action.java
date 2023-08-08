@@ -13,7 +13,6 @@ public class Action {
     private String name;
     private String _class;
     private boolean async;
-    private String engine;
     private ActionConfig config;
     private Metadata metadata;
     @JsonSetter("id")
@@ -55,14 +54,6 @@ public class Action {
     @JsonGetter("async")
     public boolean getAsync() {
         return this.async;
-    }
-    @JsonSetter("engine")
-    public void setEngine(String engine) {
-        this.engine = engine;
-    }
-    @JsonGetter("engine")
-    public String getEngine() {
-        return this.engine;
     }
     @JsonSetter("config")
     public void setConfig(ActionConfig config) {

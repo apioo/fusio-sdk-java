@@ -53,6 +53,12 @@ public class TrashTag extends TagAbstract {
             }
 
             switch (statusCode) {
+                case 400:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
+                case 401:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
+                case 500:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -61,12 +67,15 @@ public class TrashTag extends TagAbstract {
         }
     }
 
-    public TrashDataCollection getAllByType(String type) throws ClientException {
+    public TrashDataCollection getAllByType(String type, int startIndex, int count, String search) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
             pathParams.put("type", type);
 
             Map<String, Object> queryParams = new HashMap<>();
+            queryParams.put("startIndex", startIndex);
+            queryParams.put("count", count);
+            queryParams.put("search", search);
 
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/trash/:type", pathParams));
             this.parser.query(builder, queryParams);
@@ -81,6 +90,10 @@ public class TrashTag extends TagAbstract {
             }
 
             switch (statusCode) {
+                case 401:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
+                case 500:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -108,6 +121,10 @@ public class TrashTag extends TagAbstract {
             }
 
             switch (statusCode) {
+                case 401:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
+                case 500:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }

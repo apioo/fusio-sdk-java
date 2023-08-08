@@ -38,7 +38,7 @@ public class ActionTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/action/$action_id&lt;[0-9]+|^~&gt;", pathParams));
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/action/$action_id<[0-9]+|^~>", pathParams));
             this.parser.query(builder, queryParams);
 
             HttpDelete request = new HttpDelete(builder.build());
@@ -51,6 +51,14 @@ public class ActionTag extends TagAbstract {
             }
 
             switch (statusCode) {
+                case 404:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
+                case 401:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
+                case 410:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
+                case 500:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -66,7 +74,7 @@ public class ActionTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/action/$action_id&lt;[0-9]+|^~&gt;", pathParams));
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/action/$action_id<[0-9]+|^~>", pathParams));
             this.parser.query(builder, queryParams);
 
             HttpPut request = new HttpPut(builder.build());
@@ -81,6 +89,16 @@ public class ActionTag extends TagAbstract {
             }
 
             switch (statusCode) {
+                case 400:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
+                case 401:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
+                case 404:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
+                case 410:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
+                case 500:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -96,7 +114,7 @@ public class ActionTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/action/$action_id&lt;[0-9]+|^~&gt;", pathParams));
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/action/$action_id<[0-9]+|^~>", pathParams));
             this.parser.query(builder, queryParams);
 
             HttpGet request = new HttpGet(builder.build());
@@ -109,6 +127,14 @@ public class ActionTag extends TagAbstract {
             }
 
             switch (statusCode) {
+                case 401:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
+                case 404:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
+                case 410:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
+                case 500:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -139,6 +165,10 @@ public class ActionTag extends TagAbstract {
             }
 
             switch (statusCode) {
+                case 401:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
+                case 500:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -147,11 +177,12 @@ public class ActionTag extends TagAbstract {
         }
     }
 
-    public FormContainer getForm() throws ClientException {
+    public FormContainer getForm(String _class) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
             Map<String, Object> queryParams = new HashMap<>();
+            queryParams.put("class", _class);
 
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/action/form", pathParams));
             this.parser.query(builder, queryParams);
@@ -166,6 +197,10 @@ public class ActionTag extends TagAbstract {
             }
 
             switch (statusCode) {
+                case 401:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
+                case 500:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -193,6 +228,10 @@ public class ActionTag extends TagAbstract {
             }
 
             switch (statusCode) {
+                case 401:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
+                case 500:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -222,6 +261,12 @@ public class ActionTag extends TagAbstract {
             }
 
             switch (statusCode) {
+                case 400:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
+                case 401:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
+                case 500:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -230,11 +275,14 @@ public class ActionTag extends TagAbstract {
         }
     }
 
-    public ActionCollection getAll() throws ClientException {
+    public ActionCollection getAll(int startIndex, int count, String search) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
             Map<String, Object> queryParams = new HashMap<>();
+            queryParams.put("startIndex", startIndex);
+            queryParams.put("count", count);
+            queryParams.put("search", search);
 
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/action", pathParams));
             this.parser.query(builder, queryParams);
@@ -249,6 +297,10 @@ public class ActionTag extends TagAbstract {
             }
 
             switch (statusCode) {
+                case 401:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
+                case 500:
+                    throw new MessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), Message.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }

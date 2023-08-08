@@ -10,7 +10,6 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 public class ScopeOperation {
     private int operationId;
     private boolean allow;
-    private String methods;
     @JsonSetter("operationId")
     public void setOperationId(int operationId) {
         this.operationId = operationId;
@@ -26,13 +25,5 @@ public class ScopeOperation {
     @JsonGetter("allow")
     public boolean getAllow() {
         return this.allow;
-    }
-    @JsonSetter("methods")
-    public void setMethods(String methods) {
-        this.methods = methods;
-    }
-    @JsonGetter("methods")
-    public String getMethods() {
-        return this.methods;
     }
 }

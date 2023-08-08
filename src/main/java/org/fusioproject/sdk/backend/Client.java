@@ -156,6 +156,15 @@ public class Client extends ClientAbstract {
         );
     }
 
+    public IdentityTag identity()
+    {
+        return new IdentityTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
     public GeneratorTag generator()
     {
         return new GeneratorTag(

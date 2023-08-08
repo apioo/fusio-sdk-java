@@ -30,6 +30,15 @@ public class Client extends ClientAbstract {
         super(baseUrl, credentials);
     }
 
+    public IdentityTag identity()
+    {
+        return new IdentityTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
     public AccountTag account()
     {
         return new AccountTag(
