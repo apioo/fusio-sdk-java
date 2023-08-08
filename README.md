@@ -17,7 +17,6 @@ import app.sdkgen.client.Exception.ClientException;
 import app.sdkgen.client.TokenStore.MemoryTokenStore;
 import app.sdkgen.client.TokenStoreInterface;
 import org.fusioproject.sdk.Client;
-import org.fusioproject.sdk.backend.Operation;
 import org.fusioproject.sdk.backend.OperationCollection;
 
 import java.util.ArrayList;
@@ -32,15 +31,14 @@ public class Main {
 
         Client client = new Client("https://demo.fusio-project.org/", "test", "FRsNh1zKCXlB", scopes, tokenStore);
 
-        OperationCollection collection = client.backend().operation().getAll();
+        OperationCollection operations = client.backend().operation().getAll(0, 16, "");
 
         System.out.println("Operations:");
-        for (int i = 0; i < collection.getEntry().length; i++) {
-            Operation operation = collection.getEntry()[i];
-
-            System.out.println("* " + operation.getHttpMethod() + " " + operation.getHttpPath() + " => " + operation.getName());
+        for (int i = 0; i < operations.getEntry().length; i++) {
+            System.out.println("* " + operations.getEntry()[i].getHttpMethod() + " " + operations.getEntry()[i].getHttpPath());
         }
     }
 
 }
+
 ```
