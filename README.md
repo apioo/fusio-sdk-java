@@ -29,7 +29,7 @@ public class Main {
         scopes.add("backend");
         TokenStoreInterface tokenStore = new MemoryTokenStore();
 
-        Client client = new Client("https://demo.fusio-project.org/", "test", "FRsNh1zKCXlB", scopes, tokenStore);
+        Client client = new Client("https://demo.fusio-project.org/", new OAuth2("test", "FRsNh1zKCXlB", "https://demo.fusio-project.org/authorization/token", "", tokenStore, scopes));
 
         OperationCollection operations = client.backend().operation().getAll(0, 16, "");
 
