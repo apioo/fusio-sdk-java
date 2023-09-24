@@ -30,5 +30,113 @@ public class ConsumerTag extends TagAbstract {
         super(httpClient, objectMapper, parser);
     }
 
+    public ConsumerIdentityTag identity()
+    {
+        return new ConsumerIdentityTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
+    public ConsumerAccountTag account()
+    {
+        return new ConsumerAccountTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
+    public ConsumerTransactionTag transaction()
+    {
+        return new ConsumerTransactionTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
+    public ConsumerSubscriptionTag subscription()
+    {
+        return new ConsumerSubscriptionTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
+    public ConsumerScopeTag scope()
+    {
+        return new ConsumerScopeTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
+    public ConsumerPlanTag plan()
+    {
+        return new ConsumerPlanTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
+    public ConsumerPaymentTag payment()
+    {
+        return new ConsumerPaymentTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
+    public ConsumerPageTag page()
+    {
+        return new ConsumerPageTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
+    public ConsumerLogTag log()
+    {
+        return new ConsumerLogTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
+    public ConsumerGrantTag grant()
+    {
+        return new ConsumerGrantTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
+    public ConsumerEventTag event()
+    {
+        return new ConsumerEventTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
+    public ConsumerAppTag app()
+    {
+        return new ConsumerAppTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
 
 }

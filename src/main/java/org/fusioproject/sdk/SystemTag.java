@@ -30,5 +30,32 @@ public class SystemTag extends TagAbstract {
         super(httpClient, objectMapper, parser);
     }
 
+    public SystemPaymentTag payment()
+    {
+        return new SystemPaymentTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
+    public SystemMetaTag meta()
+    {
+        return new SystemMetaTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
+    public SystemConnectionTag connection()
+    {
+        return new SystemConnectionTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
 
 }
