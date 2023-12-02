@@ -7,10 +7,11 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import java.util.List;
 public class BackendConnectionIntrospectionEntity {
     private String name;
-    private String[] headers;
-    private BackendConnectionIntrospectionEntityRow[] rows;
+    private List<String> headers;
+    private List<BackendConnectionIntrospectionEntityRow> rows;
     @JsonSetter("name")
     public void setName(String name) {
         this.name = name;
@@ -20,19 +21,19 @@ public class BackendConnectionIntrospectionEntity {
         return this.name;
     }
     @JsonSetter("headers")
-    public void setHeaders(String[] headers) {
+    public void setHeaders(List<String> headers) {
         this.headers = headers;
     }
     @JsonGetter("headers")
-    public String[] getHeaders() {
+    public List<String> getHeaders() {
         return this.headers;
     }
     @JsonSetter("rows")
-    public void setRows(BackendConnectionIntrospectionEntityRow[] rows) {
+    public void setRows(List<BackendConnectionIntrospectionEntityRow> rows) {
         this.rows = rows;
     }
     @JsonGetter("rows")
-    public BackendConnectionIntrospectionEntityRow[] getRows() {
+    public List<BackendConnectionIntrospectionEntityRow> getRows() {
         return this.rows;
     }
 }

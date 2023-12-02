@@ -7,11 +7,12 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import java.util.List;
 public class BackendScope {
     private int id;
     private String name;
     private String description;
-    private BackendScopeOperation[] operations;
+    private List<BackendScopeOperation> operations;
     private CommonMetadata metadata;
     @JsonSetter("id")
     public void setId(int id) {
@@ -38,11 +39,11 @@ public class BackendScope {
         return this.description;
     }
     @JsonSetter("operations")
-    public void setOperations(BackendScopeOperation[] operations) {
+    public void setOperations(List<BackendScopeOperation> operations) {
         this.operations = operations;
     }
     @JsonGetter("operations")
-    public BackendScopeOperation[] getOperations() {
+    public List<BackendScopeOperation> getOperations() {
         return this.operations;
     }
     @JsonSetter("metadata")

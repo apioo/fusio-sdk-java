@@ -7,10 +7,11 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import java.util.List;
 public class ConsumerAuthorizeMeta {
     private String name;
     private String url;
-    private ConsumerScope[] scopes;
+    private List<ConsumerScope> scopes;
     @JsonSetter("name")
     public void setName(String name) {
         this.name = name;
@@ -28,11 +29,11 @@ public class ConsumerAuthorizeMeta {
         return this.url;
     }
     @JsonSetter("scopes")
-    public void setScopes(ConsumerScope[] scopes) {
+    public void setScopes(List<ConsumerScope> scopes) {
         this.scopes = scopes;
     }
     @JsonGetter("scopes")
-    public ConsumerScope[] getScopes() {
+    public List<ConsumerScope> getScopes() {
         return this.scopes;
     }
 }

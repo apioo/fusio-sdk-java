@@ -10,13 +10,12 @@ import app.sdkgen.client.Exception.UnknownStatusCodeException;
 import app.sdkgen.client.Parser;
 import app.sdkgen.client.TagAbstract;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.*;
-import org.apache.http.client.utils.URIBuilder;
-import org.apache.http.entity.ContentType;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.util.EntityUtils;
+import org.apache.hc.client5.http.classic.HttpClient;
+import org.apache.hc.client5.http.classic.methods.*;
+import org.apache.hc.core5.http.ContentType;
+import org.apache.hc.core5.http.io.entity.EntityUtils;
+import org.apache.hc.core5.http.io.entity.StringEntity;
+import org.apache.hc.core5.net.URIBuilder;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -31,7 +30,7 @@ public class BackendStatisticTag extends TagAbstract {
     }
 
 
-    public BackendStatisticChart getUsedPoints(int startIndex, int count, String search, LocalDateTime from, LocalDateTime to, int operationId, int appId, int userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
+    public BackendStatisticChart getUsedPoints(int startIndex, int count, String search, String from, String to, int operationId, int appId, int userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
@@ -56,18 +55,19 @@ public class BackendStatisticTag extends TagAbstract {
 
             HttpGet request = new HttpGet(builder.build());
 
-            HttpResponse response = this.httpClient.execute(request);
-            int statusCode = response.getStatusLine().getStatusCode();
+            final Parser.HttpReturn resp = this.httpClient.execute(request, response -> {
+                return this.parser.handle(response.getCode(), EntityUtils.toString(response.getEntity()));
+            });
 
-            if (statusCode >= 200 && statusCode < 300) {
-                return this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), BackendStatisticChart.class);
+            if (resp.code >= 200 && resp.code < 300) {
+                return this.parser.parse(resp.payload, BackendStatisticChart.class);
             }
 
-            switch (statusCode) {
+            switch (resp.code) {
                 case 401:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 case 500:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -76,7 +76,7 @@ public class BackendStatisticTag extends TagAbstract {
         }
     }
 
-    public BackendStatisticChart getTimePerOperation(int startIndex, int count, String search, LocalDateTime from, LocalDateTime to, int operationId, int appId, int userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
+    public BackendStatisticChart getTimePerOperation(int startIndex, int count, String search, String from, String to, int operationId, int appId, int userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
@@ -101,18 +101,19 @@ public class BackendStatisticTag extends TagAbstract {
 
             HttpGet request = new HttpGet(builder.build());
 
-            HttpResponse response = this.httpClient.execute(request);
-            int statusCode = response.getStatusLine().getStatusCode();
+            final Parser.HttpReturn resp = this.httpClient.execute(request, response -> {
+                return this.parser.handle(response.getCode(), EntityUtils.toString(response.getEntity()));
+            });
 
-            if (statusCode >= 200 && statusCode < 300) {
-                return this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), BackendStatisticChart.class);
+            if (resp.code >= 200 && resp.code < 300) {
+                return this.parser.parse(resp.payload, BackendStatisticChart.class);
             }
 
-            switch (statusCode) {
+            switch (resp.code) {
                 case 401:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 case 500:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -121,7 +122,7 @@ public class BackendStatisticTag extends TagAbstract {
         }
     }
 
-    public BackendStatisticChart getTimeAverage(int startIndex, int count, String search, LocalDateTime from, LocalDateTime to, int operationId, int appId, int userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
+    public BackendStatisticChart getTimeAverage(int startIndex, int count, String search, String from, String to, int operationId, int appId, int userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
@@ -146,18 +147,19 @@ public class BackendStatisticTag extends TagAbstract {
 
             HttpGet request = new HttpGet(builder.build());
 
-            HttpResponse response = this.httpClient.execute(request);
-            int statusCode = response.getStatusLine().getStatusCode();
+            final Parser.HttpReturn resp = this.httpClient.execute(request, response -> {
+                return this.parser.handle(response.getCode(), EntityUtils.toString(response.getEntity()));
+            });
 
-            if (statusCode >= 200 && statusCode < 300) {
-                return this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), BackendStatisticChart.class);
+            if (resp.code >= 200 && resp.code < 300) {
+                return this.parser.parse(resp.payload, BackendStatisticChart.class);
             }
 
-            switch (statusCode) {
+            switch (resp.code) {
                 case 401:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 case 500:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -166,7 +168,7 @@ public class BackendStatisticTag extends TagAbstract {
         }
     }
 
-    public BackendStatisticChart getMostUsedOperations(int startIndex, int count, String search, LocalDateTime from, LocalDateTime to, int operationId, int appId, int userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
+    public BackendStatisticChart getMostUsedOperations(int startIndex, int count, String search, String from, String to, int operationId, int appId, int userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
@@ -191,18 +193,19 @@ public class BackendStatisticTag extends TagAbstract {
 
             HttpGet request = new HttpGet(builder.build());
 
-            HttpResponse response = this.httpClient.execute(request);
-            int statusCode = response.getStatusLine().getStatusCode();
+            final Parser.HttpReturn resp = this.httpClient.execute(request, response -> {
+                return this.parser.handle(response.getCode(), EntityUtils.toString(response.getEntity()));
+            });
 
-            if (statusCode >= 200 && statusCode < 300) {
-                return this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), BackendStatisticChart.class);
+            if (resp.code >= 200 && resp.code < 300) {
+                return this.parser.parse(resp.payload, BackendStatisticChart.class);
             }
 
-            switch (statusCode) {
+            switch (resp.code) {
                 case 401:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 case 500:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -211,7 +214,7 @@ public class BackendStatisticTag extends TagAbstract {
         }
     }
 
-    public BackendStatisticChart getMostUsedApps(int startIndex, int count, String search, LocalDateTime from, LocalDateTime to, int operationId, int appId, int userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
+    public BackendStatisticChart getMostUsedApps(int startIndex, int count, String search, String from, String to, int operationId, int appId, int userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
@@ -236,18 +239,19 @@ public class BackendStatisticTag extends TagAbstract {
 
             HttpGet request = new HttpGet(builder.build());
 
-            HttpResponse response = this.httpClient.execute(request);
-            int statusCode = response.getStatusLine().getStatusCode();
+            final Parser.HttpReturn resp = this.httpClient.execute(request, response -> {
+                return this.parser.handle(response.getCode(), EntityUtils.toString(response.getEntity()));
+            });
 
-            if (statusCode >= 200 && statusCode < 300) {
-                return this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), BackendStatisticChart.class);
+            if (resp.code >= 200 && resp.code < 300) {
+                return this.parser.parse(resp.payload, BackendStatisticChart.class);
             }
 
-            switch (statusCode) {
+            switch (resp.code) {
                 case 401:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 case 500:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -256,7 +260,7 @@ public class BackendStatisticTag extends TagAbstract {
         }
     }
 
-    public BackendStatisticChart getIssuedTokens(int startIndex, int count, String search, LocalDateTime from, LocalDateTime to, int operationId, int appId, int userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
+    public BackendStatisticChart getIssuedTokens(int startIndex, int count, String search, String from, String to, int operationId, int appId, int userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
@@ -281,18 +285,19 @@ public class BackendStatisticTag extends TagAbstract {
 
             HttpGet request = new HttpGet(builder.build());
 
-            HttpResponse response = this.httpClient.execute(request);
-            int statusCode = response.getStatusLine().getStatusCode();
+            final Parser.HttpReturn resp = this.httpClient.execute(request, response -> {
+                return this.parser.handle(response.getCode(), EntityUtils.toString(response.getEntity()));
+            });
 
-            if (statusCode >= 200 && statusCode < 300) {
-                return this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), BackendStatisticChart.class);
+            if (resp.code >= 200 && resp.code < 300) {
+                return this.parser.parse(resp.payload, BackendStatisticChart.class);
             }
 
-            switch (statusCode) {
+            switch (resp.code) {
                 case 401:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 case 500:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -301,7 +306,7 @@ public class BackendStatisticTag extends TagAbstract {
         }
     }
 
-    public BackendStatisticChart getIncomingTransactions(int startIndex, int count, String search, LocalDateTime from, LocalDateTime to, int operationId, int appId, int userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
+    public BackendStatisticChart getIncomingTransactions(int startIndex, int count, String search, String from, String to, int operationId, int appId, int userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
@@ -326,18 +331,19 @@ public class BackendStatisticTag extends TagAbstract {
 
             HttpGet request = new HttpGet(builder.build());
 
-            HttpResponse response = this.httpClient.execute(request);
-            int statusCode = response.getStatusLine().getStatusCode();
+            final Parser.HttpReturn resp = this.httpClient.execute(request, response -> {
+                return this.parser.handle(response.getCode(), EntityUtils.toString(response.getEntity()));
+            });
 
-            if (statusCode >= 200 && statusCode < 300) {
-                return this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), BackendStatisticChart.class);
+            if (resp.code >= 200 && resp.code < 300) {
+                return this.parser.parse(resp.payload, BackendStatisticChart.class);
             }
 
-            switch (statusCode) {
+            switch (resp.code) {
                 case 401:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 case 500:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -346,7 +352,7 @@ public class BackendStatisticTag extends TagAbstract {
         }
     }
 
-    public BackendStatisticChart getIncomingRequests(int startIndex, int count, String search, LocalDateTime from, LocalDateTime to, int operationId, int appId, int userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
+    public BackendStatisticChart getIncomingRequests(int startIndex, int count, String search, String from, String to, int operationId, int appId, int userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
@@ -371,18 +377,19 @@ public class BackendStatisticTag extends TagAbstract {
 
             HttpGet request = new HttpGet(builder.build());
 
-            HttpResponse response = this.httpClient.execute(request);
-            int statusCode = response.getStatusLine().getStatusCode();
+            final Parser.HttpReturn resp = this.httpClient.execute(request, response -> {
+                return this.parser.handle(response.getCode(), EntityUtils.toString(response.getEntity()));
+            });
 
-            if (statusCode >= 200 && statusCode < 300) {
-                return this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), BackendStatisticChart.class);
+            if (resp.code >= 200 && resp.code < 300) {
+                return this.parser.parse(resp.payload, BackendStatisticChart.class);
             }
 
-            switch (statusCode) {
+            switch (resp.code) {
                 case 401:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 case 500:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -391,7 +398,7 @@ public class BackendStatisticTag extends TagAbstract {
         }
     }
 
-    public BackendStatisticChart getErrorsPerOperation(int startIndex, int count, String search, LocalDateTime from, LocalDateTime to, int operationId, int appId, int userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
+    public BackendStatisticChart getErrorsPerOperation(int startIndex, int count, String search, String from, String to, int operationId, int appId, int userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
@@ -416,18 +423,19 @@ public class BackendStatisticTag extends TagAbstract {
 
             HttpGet request = new HttpGet(builder.build());
 
-            HttpResponse response = this.httpClient.execute(request);
-            int statusCode = response.getStatusLine().getStatusCode();
+            final Parser.HttpReturn resp = this.httpClient.execute(request, response -> {
+                return this.parser.handle(response.getCode(), EntityUtils.toString(response.getEntity()));
+            });
 
-            if (statusCode >= 200 && statusCode < 300) {
-                return this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), BackendStatisticChart.class);
+            if (resp.code >= 200 && resp.code < 300) {
+                return this.parser.parse(resp.payload, BackendStatisticChart.class);
             }
 
-            switch (statusCode) {
+            switch (resp.code) {
                 case 401:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 case 500:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -436,7 +444,7 @@ public class BackendStatisticTag extends TagAbstract {
         }
     }
 
-    public BackendStatisticCount getCountRequests(int startIndex, int count, String search, LocalDateTime from, LocalDateTime to, int operationId, int appId, int userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
+    public BackendStatisticCount getCountRequests(int startIndex, int count, String search, String from, String to, int operationId, int appId, int userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
@@ -461,18 +469,19 @@ public class BackendStatisticTag extends TagAbstract {
 
             HttpGet request = new HttpGet(builder.build());
 
-            HttpResponse response = this.httpClient.execute(request);
-            int statusCode = response.getStatusLine().getStatusCode();
+            final Parser.HttpReturn resp = this.httpClient.execute(request, response -> {
+                return this.parser.handle(response.getCode(), EntityUtils.toString(response.getEntity()));
+            });
 
-            if (statusCode >= 200 && statusCode < 300) {
-                return this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), BackendStatisticCount.class);
+            if (resp.code >= 200 && resp.code < 300) {
+                return this.parser.parse(resp.payload, BackendStatisticCount.class);
             }
 
-            switch (statusCode) {
+            switch (resp.code) {
                 case 401:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 case 500:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }

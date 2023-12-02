@@ -7,10 +7,11 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import java.util.List;
 public class ConsumerAppUpdate {
     private String name;
     private String url;
-    private String[] scopes;
+    private List<String> scopes;
     @JsonSetter("name")
     public void setName(String name) {
         this.name = name;
@@ -28,11 +29,11 @@ public class ConsumerAppUpdate {
         return this.url;
     }
     @JsonSetter("scopes")
-    public void setScopes(String[] scopes) {
+    public void setScopes(List<String> scopes) {
         this.scopes = scopes;
     }
     @JsonGetter("scopes")
-    public String[] getScopes() {
+    public List<String> getScopes() {
         return this.scopes;
     }
 }

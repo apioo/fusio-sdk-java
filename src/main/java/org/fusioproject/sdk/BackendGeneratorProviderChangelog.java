@@ -7,32 +7,33 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import java.util.List;
 public class BackendGeneratorProviderChangelog {
-    private BackendSchema[] schemas;
-    private BackendAction[] actions;
-    private BackendOperation[] operations;
+    private List<BackendSchema> schemas;
+    private List<BackendAction> actions;
+    private List<BackendOperation> operations;
     @JsonSetter("schemas")
-    public void setSchemas(BackendSchema[] schemas) {
+    public void setSchemas(List<BackendSchema> schemas) {
         this.schemas = schemas;
     }
     @JsonGetter("schemas")
-    public BackendSchema[] getSchemas() {
+    public List<BackendSchema> getSchemas() {
         return this.schemas;
     }
     @JsonSetter("actions")
-    public void setActions(BackendAction[] actions) {
+    public void setActions(List<BackendAction> actions) {
         this.actions = actions;
     }
     @JsonGetter("actions")
-    public BackendAction[] getActions() {
+    public List<BackendAction> getActions() {
         return this.actions;
     }
     @JsonSetter("operations")
-    public void setOperations(BackendOperation[] operations) {
+    public void setOperations(List<BackendOperation> operations) {
         this.operations = operations;
     }
     @JsonGetter("operations")
-    public BackendOperation[] getOperations() {
+    public List<BackendOperation> getOperations() {
         return this.operations;
     }
 }

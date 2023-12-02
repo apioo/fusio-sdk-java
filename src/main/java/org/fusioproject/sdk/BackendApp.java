@@ -7,6 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import java.util.List;
 import java.time.LocalDateTime;
 public class BackendApp {
     private int id;
@@ -19,8 +20,8 @@ public class BackendApp {
     private String appSecret;
     private CommonMetadata metadata;
     private LocalDateTime date;
-    private String[] scopes;
-    private BackendAppToken[] tokens;
+    private List<String> scopes;
+    private List<BackendAppToken> tokens;
     @JsonSetter("id")
     public void setId(int id) {
         this.id = id;
@@ -102,19 +103,19 @@ public class BackendApp {
         return this.date;
     }
     @JsonSetter("scopes")
-    public void setScopes(String[] scopes) {
+    public void setScopes(List<String> scopes) {
         this.scopes = scopes;
     }
     @JsonGetter("scopes")
-    public String[] getScopes() {
+    public List<String> getScopes() {
         return this.scopes;
     }
     @JsonSetter("tokens")
-    public void setTokens(BackendAppToken[] tokens) {
+    public void setTokens(List<BackendAppToken> tokens) {
         this.tokens = tokens;
     }
     @JsonGetter("tokens")
-    public BackendAppToken[] getTokens() {
+    public List<BackendAppToken> getTokens() {
         return this.tokens;
     }
 }

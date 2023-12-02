@@ -7,6 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import java.util.List;
 import java.time.Duration;
 public class BackendRate {
     private int id;
@@ -14,7 +15,7 @@ public class BackendRate {
     private String name;
     private int rateLimit;
     private Duration timespan;
-    private BackendRateAllocation[] allocation;
+    private List<BackendRateAllocation> allocation;
     private CommonMetadata metadata;
     @JsonSetter("id")
     public void setId(int id) {
@@ -57,11 +58,11 @@ public class BackendRate {
         return this.timespan;
     }
     @JsonSetter("allocation")
-    public void setAllocation(BackendRateAllocation[] allocation) {
+    public void setAllocation(List<BackendRateAllocation> allocation) {
         this.allocation = allocation;
     }
     @JsonGetter("allocation")
-    public BackendRateAllocation[] getAllocation() {
+    public List<BackendRateAllocation> getAllocation() {
         return this.allocation;
     }
     @JsonSetter("metadata")

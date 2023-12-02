@@ -7,6 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import java.util.List;
 import java.time.LocalDateTime;
 public class ConsumerUserAccount {
     private int id;
@@ -15,8 +16,8 @@ public class ConsumerUserAccount {
     private String name;
     private String email;
     private int points;
-    private String[] scopes;
-    private ConsumerUserPlan[] plans;
+    private List<String> scopes;
+    private List<ConsumerUserPlan> plans;
     private CommonMetadata metadata;
     private LocalDateTime date;
     @JsonSetter("id")
@@ -68,19 +69,19 @@ public class ConsumerUserAccount {
         return this.points;
     }
     @JsonSetter("scopes")
-    public void setScopes(String[] scopes) {
+    public void setScopes(List<String> scopes) {
         this.scopes = scopes;
     }
     @JsonGetter("scopes")
-    public String[] getScopes() {
+    public List<String> getScopes() {
         return this.scopes;
     }
     @JsonSetter("plans")
-    public void setPlans(ConsumerUserPlan[] plans) {
+    public void setPlans(List<ConsumerUserPlan> plans) {
         this.plans = plans;
     }
     @JsonGetter("plans")
-    public ConsumerUserPlan[] getPlans() {
+    public List<ConsumerUserPlan> getPlans() {
         return this.plans;
     }
     @JsonSetter("metadata")

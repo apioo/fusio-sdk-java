@@ -7,6 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import java.util.List;
 import java.time.LocalDateTime;
 public class BackendLog {
     private int id;
@@ -17,7 +18,7 @@ public class BackendLog {
     private String header;
     private String body;
     private LocalDateTime date;
-    private BackendLogError[] errors;
+    private List<BackendLogError> errors;
     @JsonSetter("id")
     public void setId(int id) {
         this.id = id;
@@ -83,11 +84,11 @@ public class BackendLog {
         return this.date;
     }
     @JsonSetter("errors")
-    public void setErrors(BackendLogError[] errors) {
+    public void setErrors(List<BackendLogError> errors) {
         this.errors = errors;
     }
     @JsonGetter("errors")
-    public BackendLogError[] getErrors() {
+    public List<BackendLogError> getErrors() {
         return this.errors;
     }
 }

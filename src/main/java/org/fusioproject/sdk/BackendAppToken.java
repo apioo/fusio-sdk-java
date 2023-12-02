@@ -7,12 +7,13 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import java.util.List;
 import java.time.LocalDateTime;
 public class BackendAppToken {
     private int id;
     private int status;
     private String token;
-    private String[] scope;
+    private List<String> scope;
     private String ip;
     private LocalDateTime expire;
     private LocalDateTime date;
@@ -41,11 +42,11 @@ public class BackendAppToken {
         return this.token;
     }
     @JsonSetter("scope")
-    public void setScope(String[] scope) {
+    public void setScope(List<String> scope) {
         this.scope = scope;
     }
     @JsonGetter("scope")
-    public String[] getScope() {
+    public List<String> getScope() {
         return this.scope;
     }
     @JsonSetter("ip")

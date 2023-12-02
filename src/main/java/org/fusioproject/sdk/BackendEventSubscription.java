@@ -7,12 +7,13 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import java.util.List;
 public class BackendEventSubscription {
     private int id;
     private int eventId;
     private int userId;
     private String endpoint;
-    private BackendEventSubscriptionResponse[] responses;
+    private List<BackendEventSubscriptionResponse> responses;
     @JsonSetter("id")
     public void setId(int id) {
         this.id = id;
@@ -46,11 +47,11 @@ public class BackendEventSubscription {
         return this.endpoint;
     }
     @JsonSetter("responses")
-    public void setResponses(BackendEventSubscriptionResponse[] responses) {
+    public void setResponses(List<BackendEventSubscriptionResponse> responses) {
         this.responses = responses;
     }
     @JsonGetter("responses")
-    public BackendEventSubscriptionResponse[] getResponses() {
+    public List<BackendEventSubscriptionResponse> getResponses() {
         return this.responses;
     }
 }

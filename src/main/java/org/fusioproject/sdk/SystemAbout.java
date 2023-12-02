@@ -7,6 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import java.util.List;
 public class SystemAbout {
     private String apiVersion;
     private String title;
@@ -18,10 +19,10 @@ public class SystemAbout {
     private String licenseName;
     private String licenseUrl;
     private String paymentCurrency;
-    private String[] categories;
-    private String[] scopes;
+    private List<String> categories;
+    private List<String> scopes;
     private SystemAboutApps apps;
-    private SystemAboutLink[] links;
+    private List<SystemAboutLink> links;
     @JsonSetter("apiVersion")
     public void setApiVersion(String apiVersion) {
         this.apiVersion = apiVersion;
@@ -103,19 +104,19 @@ public class SystemAbout {
         return this.paymentCurrency;
     }
     @JsonSetter("categories")
-    public void setCategories(String[] categories) {
+    public void setCategories(List<String> categories) {
         this.categories = categories;
     }
     @JsonGetter("categories")
-    public String[] getCategories() {
+    public List<String> getCategories() {
         return this.categories;
     }
     @JsonSetter("scopes")
-    public void setScopes(String[] scopes) {
+    public void setScopes(List<String> scopes) {
         this.scopes = scopes;
     }
     @JsonGetter("scopes")
-    public String[] getScopes() {
+    public List<String> getScopes() {
         return this.scopes;
     }
     @JsonSetter("apps")
@@ -127,11 +128,11 @@ public class SystemAbout {
         return this.apps;
     }
     @JsonSetter("links")
-    public void setLinks(SystemAboutLink[] links) {
+    public void setLinks(List<SystemAboutLink> links) {
         this.links = links;
     }
     @JsonGetter("links")
-    public SystemAboutLink[] getLinks() {
+    public List<SystemAboutLink> getLinks() {
         return this.links;
     }
 }

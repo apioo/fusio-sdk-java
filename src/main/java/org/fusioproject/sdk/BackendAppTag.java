@@ -10,13 +10,12 @@ import app.sdkgen.client.Exception.UnknownStatusCodeException;
 import app.sdkgen.client.Parser;
 import app.sdkgen.client.TagAbstract;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.*;
-import org.apache.http.client.utils.URIBuilder;
-import org.apache.http.entity.ContentType;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.util.EntityUtils;
+import org.apache.hc.client5.http.classic.HttpClient;
+import org.apache.hc.client5.http.classic.methods.*;
+import org.apache.hc.core5.http.ContentType;
+import org.apache.hc.core5.http.io.entity.EntityUtils;
+import org.apache.hc.core5.http.io.entity.StringEntity;
+import org.apache.hc.core5.net.URIBuilder;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -44,22 +43,23 @@ public class BackendAppTag extends TagAbstract {
 
             HttpDelete request = new HttpDelete(builder.build());
 
-            HttpResponse response = this.httpClient.execute(request);
-            int statusCode = response.getStatusLine().getStatusCode();
+            final Parser.HttpReturn resp = this.httpClient.execute(request, response -> {
+                return this.parser.handle(response.getCode(), EntityUtils.toString(response.getEntity()));
+            });
 
-            if (statusCode >= 200 && statusCode < 300) {
-                return this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class);
+            if (resp.code >= 200 && resp.code < 300) {
+                return this.parser.parse(resp.payload, CommonMessage.class);
             }
 
-            switch (statusCode) {
+            switch (resp.code) {
                 case 401:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 case 404:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 case 410:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 case 500:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -80,22 +80,23 @@ public class BackendAppTag extends TagAbstract {
 
             HttpDelete request = new HttpDelete(builder.build());
 
-            HttpResponse response = this.httpClient.execute(request);
-            int statusCode = response.getStatusLine().getStatusCode();
+            final Parser.HttpReturn resp = this.httpClient.execute(request, response -> {
+                return this.parser.handle(response.getCode(), EntityUtils.toString(response.getEntity()));
+            });
 
-            if (statusCode >= 200 && statusCode < 300) {
-                return this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class);
+            if (resp.code >= 200 && resp.code < 300) {
+                return this.parser.parse(resp.payload, CommonMessage.class);
             }
 
-            switch (statusCode) {
+            switch (resp.code) {
                 case 401:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 case 404:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 case 410:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 case 500:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -118,24 +119,25 @@ public class BackendAppTag extends TagAbstract {
             request.addHeader("Content-Type", "application/json");
             request.setEntity(new StringEntity(this.objectMapper.writeValueAsString(payload), ContentType.APPLICATION_JSON));
 
-            HttpResponse response = this.httpClient.execute(request);
-            int statusCode = response.getStatusLine().getStatusCode();
+            final Parser.HttpReturn resp = this.httpClient.execute(request, response -> {
+                return this.parser.handle(response.getCode(), EntityUtils.toString(response.getEntity()));
+            });
 
-            if (statusCode >= 200 && statusCode < 300) {
-                return this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class);
+            if (resp.code >= 200 && resp.code < 300) {
+                return this.parser.parse(resp.payload, CommonMessage.class);
             }
 
-            switch (statusCode) {
+            switch (resp.code) {
                 case 400:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 case 401:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 case 404:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 case 410:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 case 500:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -156,22 +158,23 @@ public class BackendAppTag extends TagAbstract {
 
             HttpGet request = new HttpGet(builder.build());
 
-            HttpResponse response = this.httpClient.execute(request);
-            int statusCode = response.getStatusLine().getStatusCode();
+            final Parser.HttpReturn resp = this.httpClient.execute(request, response -> {
+                return this.parser.handle(response.getCode(), EntityUtils.toString(response.getEntity()));
+            });
 
-            if (statusCode >= 200 && statusCode < 300) {
-                return this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), BackendApp.class);
+            if (resp.code >= 200 && resp.code < 300) {
+                return this.parser.parse(resp.payload, BackendApp.class);
             }
 
-            switch (statusCode) {
+            switch (resp.code) {
                 case 404:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 case 401:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 case 410:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 case 500:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -193,20 +196,21 @@ public class BackendAppTag extends TagAbstract {
             request.addHeader("Content-Type", "application/json");
             request.setEntity(new StringEntity(this.objectMapper.writeValueAsString(payload), ContentType.APPLICATION_JSON));
 
-            HttpResponse response = this.httpClient.execute(request);
-            int statusCode = response.getStatusLine().getStatusCode();
+            final Parser.HttpReturn resp = this.httpClient.execute(request, response -> {
+                return this.parser.handle(response.getCode(), EntityUtils.toString(response.getEntity()));
+            });
 
-            if (statusCode >= 200 && statusCode < 300) {
-                return this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class);
+            if (resp.code >= 200 && resp.code < 300) {
+                return this.parser.parse(resp.payload, CommonMessage.class);
             }
 
-            switch (statusCode) {
+            switch (resp.code) {
                 case 400:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 case 401:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 case 500:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -229,18 +233,19 @@ public class BackendAppTag extends TagAbstract {
 
             HttpGet request = new HttpGet(builder.build());
 
-            HttpResponse response = this.httpClient.execute(request);
-            int statusCode = response.getStatusLine().getStatusCode();
+            final Parser.HttpReturn resp = this.httpClient.execute(request, response -> {
+                return this.parser.handle(response.getCode(), EntityUtils.toString(response.getEntity()));
+            });
 
-            if (statusCode >= 200 && statusCode < 300) {
-                return this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), BackendAppCollection.class);
+            if (resp.code >= 200 && resp.code < 300) {
+                return this.parser.parse(resp.payload, BackendAppCollection.class);
             }
 
-            switch (statusCode) {
+            switch (resp.code) {
                 case 401:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 case 500:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -261,20 +266,21 @@ public class BackendAppTag extends TagAbstract {
 
             HttpGet request = new HttpGet(builder.build());
 
-            HttpResponse response = this.httpClient.execute(request);
-            int statusCode = response.getStatusLine().getStatusCode();
+            final Parser.HttpReturn resp = this.httpClient.execute(request, response -> {
+                return this.parser.handle(response.getCode(), EntityUtils.toString(response.getEntity()));
+            });
 
-            if (statusCode >= 200 && statusCode < 300) {
-                return this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), BackendAppToken.class);
+            if (resp.code >= 200 && resp.code < 300) {
+                return this.parser.parse(resp.payload, BackendAppToken.class);
             }
 
-            switch (statusCode) {
+            switch (resp.code) {
                 case 401:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 case 404:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 case 500:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -283,7 +289,7 @@ public class BackendAppTag extends TagAbstract {
         }
     }
 
-    public BackendAppTokenCollection getAllTokens(int startIndex, int count, String search, LocalDateTime from, LocalDateTime to, int appId, int userId, int status, String scope, String ip) throws ClientException {
+    public BackendAppTokenCollection getAllTokens(int startIndex, int count, String search, String from, String to, int appId, int userId, int status, String scope, String ip) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
@@ -304,18 +310,19 @@ public class BackendAppTag extends TagAbstract {
 
             HttpGet request = new HttpGet(builder.build());
 
-            HttpResponse response = this.httpClient.execute(request);
-            int statusCode = response.getStatusLine().getStatusCode();
+            final Parser.HttpReturn resp = this.httpClient.execute(request, response -> {
+                return this.parser.handle(response.getCode(), EntityUtils.toString(response.getEntity()));
+            });
 
-            if (statusCode >= 200 && statusCode < 300) {
-                return this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), BackendAppTokenCollection.class);
+            if (resp.code >= 200 && resp.code < 300) {
+                return this.parser.parse(resp.payload, BackendAppTokenCollection.class);
             }
 
-            switch (statusCode) {
+            switch (resp.code) {
                 case 401:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 case 500:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }

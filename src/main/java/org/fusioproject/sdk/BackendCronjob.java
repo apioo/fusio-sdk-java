@@ -7,6 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import java.util.List;
 import java.time.LocalDateTime;
 public class BackendCronjob {
     private int id;
@@ -16,7 +17,7 @@ public class BackendCronjob {
     private LocalDateTime executeDate;
     private int exitCode;
     private CommonMetadata metadata;
-    private BackendCronjobError[] errors;
+    private List<BackendCronjobError> errors;
     @JsonSetter("id")
     public void setId(int id) {
         this.id = id;
@@ -74,11 +75,11 @@ public class BackendCronjob {
         return this.metadata;
     }
     @JsonSetter("errors")
-    public void setErrors(BackendCronjobError[] errors) {
+    public void setErrors(List<BackendCronjobError> errors) {
         this.errors = errors;
     }
     @JsonGetter("errors")
-    public BackendCronjobError[] getErrors() {
+    public List<BackendCronjobError> getErrors() {
         return this.errors;
     }
 }

@@ -7,6 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import java.util.List;
 public class BackendDashboard {
     private BackendStatisticChart errorsPerOperation;
     private BackendStatisticChart incomingRequests;

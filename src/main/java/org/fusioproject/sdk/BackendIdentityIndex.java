@@ -7,14 +7,15 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import java.util.List;
 public class BackendIdentityIndex {
-    private BackendIdentityIndexEntry[] providers;
+    private List<BackendIdentityIndexEntry> providers;
     @JsonSetter("providers")
-    public void setProviders(BackendIdentityIndexEntry[] providers) {
+    public void setProviders(List<BackendIdentityIndexEntry> providers) {
         this.providers = providers;
     }
     @JsonGetter("providers")
-    public BackendIdentityIndexEntry[] getProviders() {
+    public List<BackendIdentityIndexEntry> getProviders() {
         return this.providers;
     }
 }

@@ -7,32 +7,33 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import java.util.List;
 public class BackendStatisticChart {
-    private String[] labels;
-    private BackendStatisticChartData[] data;
-    private String[] series;
+    private List<String> labels;
+    private List<BackendStatisticChartData> data;
+    private List<String> series;
     @JsonSetter("labels")
-    public void setLabels(String[] labels) {
+    public void setLabels(List<String> labels) {
         this.labels = labels;
     }
     @JsonGetter("labels")
-    public String[] getLabels() {
+    public List<String> getLabels() {
         return this.labels;
     }
     @JsonSetter("data")
-    public void setData(BackendStatisticChartData[] data) {
+    public void setData(List<BackendStatisticChartData> data) {
         this.data = data;
     }
     @JsonGetter("data")
-    public BackendStatisticChartData[] getData() {
+    public List<BackendStatisticChartData> getData() {
         return this.data;
     }
     @JsonSetter("series")
-    public void setSeries(String[] series) {
+    public void setSeries(List<String> series) {
         this.series = series;
     }
     @JsonGetter("series")
-    public String[] getSeries() {
+    public List<String> getSeries() {
         return this.series;
     }
 }

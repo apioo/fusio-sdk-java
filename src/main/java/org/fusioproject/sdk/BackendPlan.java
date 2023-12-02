@@ -7,6 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import java.util.List;
 public class BackendPlan {
     private int id;
     private String name;
@@ -15,7 +16,7 @@ public class BackendPlan {
     private int points;
     private int period;
     private String externalId;
-    private String[] scopes;
+    private List<String> scopes;
     private CommonMetadata metadata;
     @JsonSetter("id")
     public void setId(int id) {
@@ -74,11 +75,11 @@ public class BackendPlan {
         return this.externalId;
     }
     @JsonSetter("scopes")
-    public void setScopes(String[] scopes) {
+    public void setScopes(List<String> scopes) {
         this.scopes = scopes;
     }
     @JsonGetter("scopes")
-    public String[] getScopes() {
+    public List<String> getScopes() {
         return this.scopes;
     }
     @JsonSetter("metadata")

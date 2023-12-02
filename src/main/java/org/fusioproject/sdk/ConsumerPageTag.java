@@ -10,13 +10,12 @@ import app.sdkgen.client.Exception.UnknownStatusCodeException;
 import app.sdkgen.client.Parser;
 import app.sdkgen.client.TagAbstract;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.*;
-import org.apache.http.client.utils.URIBuilder;
-import org.apache.http.entity.ContentType;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.util.EntityUtils;
+import org.apache.hc.client5.http.classic.HttpClient;
+import org.apache.hc.client5.http.classic.methods.*;
+import org.apache.hc.core5.http.ContentType;
+import org.apache.hc.core5.http.io.entity.EntityUtils;
+import org.apache.hc.core5.http.io.entity.StringEntity;
+import org.apache.hc.core5.net.URIBuilder;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -43,22 +42,23 @@ public class ConsumerPageTag extends TagAbstract {
 
             HttpGet request = new HttpGet(builder.build());
 
-            HttpResponse response = this.httpClient.execute(request);
-            int statusCode = response.getStatusLine().getStatusCode();
+            final Parser.HttpReturn resp = this.httpClient.execute(request, response -> {
+                return this.parser.handle(response.getCode(), EntityUtils.toString(response.getEntity()));
+            });
 
-            if (statusCode >= 200 && statusCode < 300) {
-                return this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), ConsumerPage.class);
+            if (resp.code >= 200 && resp.code < 300) {
+                return this.parser.parse(resp.payload, ConsumerPage.class);
             }
 
-            switch (statusCode) {
+            switch (resp.code) {
                 case 401:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 case 404:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 case 410:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 case 500:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -81,18 +81,19 @@ public class ConsumerPageTag extends TagAbstract {
 
             HttpGet request = new HttpGet(builder.build());
 
-            HttpResponse response = this.httpClient.execute(request);
-            int statusCode = response.getStatusLine().getStatusCode();
+            final Parser.HttpReturn resp = this.httpClient.execute(request, response -> {
+                return this.parser.handle(response.getCode(), EntityUtils.toString(response.getEntity()));
+            });
 
-            if (statusCode >= 200 && statusCode < 300) {
-                return this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), ConsumerPageCollection.class);
+            if (resp.code >= 200 && resp.code < 300) {
+                return this.parser.parse(resp.payload, ConsumerPageCollection.class);
             }
 
-            switch (statusCode) {
+            switch (resp.code) {
                 case 401:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 case 500:
-                    throw new CommonMessageException(this.parser.parse(EntityUtils.toString(response.getEntity(), "UTF-8"), CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }

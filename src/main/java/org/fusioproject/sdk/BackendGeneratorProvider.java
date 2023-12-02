@@ -7,9 +7,10 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import java.util.List;
 public class BackendGeneratorProvider {
     private String path;
-    private String[] scopes;
+    private List<String> scopes;
     private boolean _public;
     private BackendGeneratorProviderConfig config;
     @JsonSetter("path")
@@ -21,11 +22,11 @@ public class BackendGeneratorProvider {
         return this.path;
     }
     @JsonSetter("scopes")
-    public void setScopes(String[] scopes) {
+    public void setScopes(List<String> scopes) {
         this.scopes = scopes;
     }
     @JsonGetter("scopes")
-    public String[] getScopes() {
+    public List<String> getScopes() {
         return this.scopes;
     }
     @JsonSetter("public")

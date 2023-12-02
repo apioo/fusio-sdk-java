@@ -7,12 +7,13 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import java.util.List;
 public class ConsumerEventSubscription {
     private int id;
     private int status;
     private String event;
     private String endpoint;
-    private ConsumerEventSubscriptionResponse[] responses;
+    private List<ConsumerEventSubscriptionResponse> responses;
     @JsonSetter("id")
     public void setId(int id) {
         this.id = id;
@@ -46,11 +47,11 @@ public class ConsumerEventSubscription {
         return this.endpoint;
     }
     @JsonSetter("responses")
-    public void setResponses(ConsumerEventSubscriptionResponse[] responses) {
+    public void setResponses(List<ConsumerEventSubscriptionResponse> responses) {
         this.responses = responses;
     }
     @JsonGetter("responses")
-    public ConsumerEventSubscriptionResponse[] getResponses() {
+    public List<ConsumerEventSubscriptionResponse> getResponses() {
         return this.responses;
     }
 }

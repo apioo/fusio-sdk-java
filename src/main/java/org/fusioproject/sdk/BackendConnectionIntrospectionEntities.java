@@ -7,14 +7,15 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import java.util.List;
 public class BackendConnectionIntrospectionEntities {
-    private String[] entities;
+    private List<String> entities;
     @JsonSetter("entities")
-    public void setEntities(String[] entities) {
+    public void setEntities(List<String> entities) {
         this.entities = entities;
     }
     @JsonGetter("entities")
-    public String[] getEntities() {
+    public List<String> getEntities() {
         return this.entities;
     }
 }

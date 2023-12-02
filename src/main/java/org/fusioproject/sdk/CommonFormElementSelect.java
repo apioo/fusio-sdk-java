@@ -7,14 +7,15 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import java.util.List;
 public class CommonFormElementSelect extends CommonFormElement {
-    private CommonFormElementSelectOption[] options;
+    private List<CommonFormElementSelectOption> options;
     @JsonSetter("options")
-    public void setOptions(CommonFormElementSelectOption[] options) {
+    public void setOptions(List<CommonFormElementSelectOption> options) {
         this.options = options;
     }
     @JsonGetter("options")
-    public CommonFormElementSelectOption[] getOptions() {
+    public List<CommonFormElementSelectOption> getOptions() {
         return this.options;
     }
 }

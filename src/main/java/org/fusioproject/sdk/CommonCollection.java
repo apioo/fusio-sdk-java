@@ -7,11 +7,12 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import java.util.List;
 public class CommonCollection<T> {
     private int totalResults;
     private int startIndex;
     private int itemsPerPage;
-    private T[] entry;
+    private List<T> entry;
     @JsonSetter("totalResults")
     public void setTotalResults(int totalResults) {
         this.totalResults = totalResults;
@@ -37,11 +38,11 @@ public class CommonCollection<T> {
         return this.itemsPerPage;
     }
     @JsonSetter("entry")
-    public void setEntry(T[] entry) {
+    public void setEntry(List<T> entry) {
         this.entry = entry;
     }
     @JsonGetter("entry")
-    public T[] getEntry() {
+    public List<T> getEntry() {
         return this.entry;
     }
 }
