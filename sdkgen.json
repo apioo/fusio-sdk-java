@@ -1,0 +1,9 @@
+{
+  "type": "client-java",
+  "require": {
+    "fusio/sdk": {
+      "target": "./src/main/java/org/fusioproject/sdk",
+      "namespace": "org.fusioproject.sdk"
+    }
+  }
+}
