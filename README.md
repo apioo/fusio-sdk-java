@@ -13,11 +13,13 @@ A working example is also available at: https://github.com/apioo/fusio-sample-ja
 ```java
 package org.fusioproject.sample;
 
+import app.sdkgen.client.Credentials.OAuth2;
+import app.sdkgen.client.CredentialsInterface;
 import app.sdkgen.client.Exception.ClientException;
 import app.sdkgen.client.TokenStore.MemoryTokenStore;
 import app.sdkgen.client.TokenStoreInterface;
+import org.fusioproject.sdk.BackendOperationCollection;
 import org.fusioproject.sdk.Client;
-import org.fusioproject.sdk.backend.OperationCollection;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,13 +31,14 @@ public class Main {
         scopes.add("backend");
         TokenStoreInterface tokenStore = new MemoryTokenStore();
 
-        Client client = new Client("https://demo.fusio-project.org/", new OAuth2("test", "FRsNh1zKCXlB", "https://demo.fusio-project.org/authorization/token", "", tokenStore, scopes));
+        CredentialsInterface credentials = new OAuth2("test", "FRsNh1zKCXlB", "https://demo.fusio-project.org/authorization/token", "", tokenStore, scopes);
+        Client client = new Client("https://demo.fusio-project.org/", credentials);
 
-        OperationCollection operations = client.backend().operation().getAll(0, 16, "");
+        BackendOperationCollection operations = client.backend().operation().getAll(0, 16, "");
 
         System.out.println("Operations:");
-        for (int i = 0; i < operations.getEntry().length; i++) {
-            System.out.println("* " + operations.getEntry()[i].getHttpMethod() + " " + operations.getEntry()[i].getHttpPath());
+        for (int i = 0; i < operations.getEntry().size(); i++) {
+            System.out.println("* " + operations.getEntry().get(i).getHttpMethod() + " " + operations.getEntry().get(i).getHttpPath());
         }
     }
 
