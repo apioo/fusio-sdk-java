@@ -68,4 +68,8 @@ public class Client extends ClientAbstract {
 
 
 
+    public static Client build(String clientId, String clientSecret, TokenStoreInterface tokenStore, List<String> scopes) throws InvalidCredentialsException
+    {
+        return new Client("https://api.typehub.cloud/", new OAuth2(clientId, clientSecret, "https://api.typehub.cloud/authorization/token", "", tokenStore, scopes));
+    }
 }
