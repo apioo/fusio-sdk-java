@@ -56,6 +56,15 @@ public class BackendTag extends TagAbstract {
         );
     }
 
+    public BackendTenantTag tenant()
+    {
+        return new BackendTenantTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
     public BackendStatisticTag statistic()
     {
         return new BackendStatisticTag(
