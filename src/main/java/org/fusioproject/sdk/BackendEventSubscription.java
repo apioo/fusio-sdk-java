@@ -9,33 +9,33 @@ import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import java.util.List;
 public class BackendEventSubscription {
-    private int id;
-    private int eventId;
-    private int userId;
+    private Integer id;
+    private Integer eventId;
+    private Integer userId;
     private String endpoint;
     private List<BackendEventSubscriptionResponse> responses;
     @JsonSetter("id")
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     @JsonGetter("id")
-    public int getId() {
+    public Integer getId() {
         return this.id;
     }
     @JsonSetter("eventId")
-    public void setEventId(int eventId) {
+    public void setEventId(Integer eventId) {
         this.eventId = eventId;
     }
     @JsonGetter("eventId")
-    public int getEventId() {
+    public Integer getEventId() {
         return this.eventId;
     }
     @JsonSetter("userId")
-    public void setUserId(int userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
     @JsonGetter("userId")
-    public int getUserId() {
+    public Integer getUserId() {
         return this.userId;
     }
     @JsonSetter("endpoint")

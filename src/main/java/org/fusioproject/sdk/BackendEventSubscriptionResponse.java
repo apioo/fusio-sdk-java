@@ -10,42 +10,42 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 import java.util.List;
 import java.time.LocalDateTime;
 public class BackendEventSubscriptionResponse {
-    private int id;
-    private int status;
-    private int code;
-    private int attempts;
+    private Integer id;
+    private Integer status;
+    private Integer code;
+    private Integer attempts;
     private String error;
     private LocalDateTime executeDate;
     @JsonSetter("id")
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     @JsonGetter("id")
-    public int getId() {
+    public Integer getId() {
         return this.id;
     }
     @JsonSetter("status")
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
     @JsonGetter("status")
-    public int getStatus() {
+    public Integer getStatus() {
         return this.status;
     }
     @JsonSetter("code")
-    public void setCode(int code) {
+    public void setCode(Integer code) {
         this.code = code;
     }
     @JsonGetter("code")
-    public int getCode() {
+    public Integer getCode() {
         return this.code;
     }
     @JsonSetter("attempts")
-    public void setAttempts(int attempts) {
+    public void setAttempts(Integer attempts) {
         this.attempts = attempts;
     }
     @JsonGetter("attempts")
-    public int getAttempts() {
+    public Integer getAttempts() {
         return this.attempts;
     }
     @JsonSetter("error")

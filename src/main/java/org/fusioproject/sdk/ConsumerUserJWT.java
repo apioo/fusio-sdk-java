@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 import java.util.List;
 public class ConsumerUserJWT {
     private String token;
-    private int expiresIn;
+    private Integer expiresIn;
     private String refreshToken;
     private String scope;
     @JsonSetter("token")
@@ -22,11 +22,11 @@ public class ConsumerUserJWT {
         return this.token;
     }
     @JsonSetter("expires_in")
-    public void setExpiresIn(int expiresIn) {
+    public void setExpiresIn(Integer expiresIn) {
         this.expiresIn = expiresIn;
     }
     @JsonGetter("expires_in")
-    public int getExpiresIn() {
+    public Integer getExpiresIn() {
         return this.expiresIn;
     }
     @JsonSetter("refresh_token")

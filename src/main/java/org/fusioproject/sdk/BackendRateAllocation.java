@@ -9,58 +9,58 @@ import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import java.util.List;
 public class BackendRateAllocation {
-    private int id;
-    private int operationId;
-    private int userId;
-    private int planId;
-    private int appId;
-    private boolean authenticated;
+    private Integer id;
+    private Integer operationId;
+    private Integer userId;
+    private Integer planId;
+    private Integer appId;
+    private Boolean authenticated;
     @JsonSetter("id")
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     @JsonGetter("id")
-    public int getId() {
+    public Integer getId() {
         return this.id;
     }
     @JsonSetter("operationId")
-    public void setOperationId(int operationId) {
+    public void setOperationId(Integer operationId) {
         this.operationId = operationId;
     }
     @JsonGetter("operationId")
-    public int getOperationId() {
+    public Integer getOperationId() {
         return this.operationId;
     }
     @JsonSetter("userId")
-    public void setUserId(int userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
     @JsonGetter("userId")
-    public int getUserId() {
+    public Integer getUserId() {
         return this.userId;
     }
     @JsonSetter("planId")
-    public void setPlanId(int planId) {
+    public void setPlanId(Integer planId) {
         this.planId = planId;
     }
     @JsonGetter("planId")
-    public int getPlanId() {
+    public Integer getPlanId() {
         return this.planId;
     }
     @JsonSetter("appId")
-    public void setAppId(int appId) {
+    public void setAppId(Integer appId) {
         this.appId = appId;
     }
     @JsonGetter("appId")
-    public int getAppId() {
+    public Integer getAppId() {
         return this.appId;
     }
     @JsonSetter("authenticated")
-    public void setAuthenticated(boolean authenticated) {
+    public void setAuthenticated(Boolean authenticated) {
         this.authenticated = authenticated;
     }
     @JsonGetter("authenticated")
-    public boolean getAuthenticated() {
+    public Boolean getAuthenticated() {
         return this.authenticated;
     }
 }

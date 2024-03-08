@@ -37,8 +37,10 @@ public class SystemMetaTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/system/schema/:name", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
 
@@ -71,8 +73,10 @@ public class SystemMetaTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/system/route", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
 
@@ -99,8 +103,10 @@ public class SystemMetaTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/system/health", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
 
@@ -127,8 +133,10 @@ public class SystemMetaTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/system/debug", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpPost request = new HttpPost(builder.build());
             request.addHeader("Content-Type", "application/json");
@@ -157,8 +165,10 @@ public class SystemMetaTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/system/about", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
 

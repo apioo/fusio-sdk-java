@@ -9,32 +9,32 @@ import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import java.util.List;
 public class CommonCollection<T> {
-    private int totalResults;
-    private int startIndex;
-    private int itemsPerPage;
+    private Integer totalResults;
+    private Integer startIndex;
+    private Integer itemsPerPage;
     private List<T> entry;
     @JsonSetter("totalResults")
-    public void setTotalResults(int totalResults) {
+    public void setTotalResults(Integer totalResults) {
         this.totalResults = totalResults;
     }
     @JsonGetter("totalResults")
-    public int getTotalResults() {
+    public Integer getTotalResults() {
         return this.totalResults;
     }
     @JsonSetter("startIndex")
-    public void setStartIndex(int startIndex) {
+    public void setStartIndex(Integer startIndex) {
         this.startIndex = startIndex;
     }
     @JsonGetter("startIndex")
-    public int getStartIndex() {
+    public Integer getStartIndex() {
         return this.startIndex;
     }
     @JsonSetter("itemsPerPage")
-    public void setItemsPerPage(int itemsPerPage) {
+    public void setItemsPerPage(Integer itemsPerPage) {
         this.itemsPerPage = itemsPerPage;
     }
     @JsonGetter("itemsPerPage")
-    public int getItemsPerPage() {
+    public Integer getItemsPerPage() {
         return this.itemsPerPage;
     }
     @JsonSetter("entry")

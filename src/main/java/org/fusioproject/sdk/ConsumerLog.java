@@ -10,8 +10,8 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 import java.util.List;
 import java.time.LocalDateTime;
 public class ConsumerLog {
-    private int id;
-    private int appId;
+    private Integer id;
+    private Integer appId;
     private String ip;
     private String userAgent;
     private String method;
@@ -20,19 +20,19 @@ public class ConsumerLog {
     private String body;
     private LocalDateTime date;
     @JsonSetter("id")
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     @JsonGetter("id")
-    public int getId() {
+    public Integer getId() {
         return this.id;
     }
     @JsonSetter("appId")
-    public void setAppId(int appId) {
+    public void setAppId(Integer appId) {
         this.appId = appId;
     }
     @JsonGetter("appId")
-    public int getAppId() {
+    public Integer getAppId() {
         return this.appId;
     }
     @JsonSetter("ip")

@@ -9,25 +9,25 @@ import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import java.util.List;
 public class BackendLogError {
-    private int id;
-    private int message;
+    private Integer id;
+    private Integer message;
     private String trace;
     private String file;
-    private int line;
+    private Integer line;
     @JsonSetter("id")
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     @JsonGetter("id")
-    public int getId() {
+    public Integer getId() {
         return this.id;
     }
     @JsonSetter("message")
-    public void setMessage(int message) {
+    public void setMessage(Integer message) {
         this.message = message;
     }
     @JsonGetter("message")
-    public int getMessage() {
+    public Integer getMessage() {
         return this.message;
     }
     @JsonSetter("trace")
@@ -47,11 +47,11 @@ public class BackendLogError {
         return this.file;
     }
     @JsonSetter("line")
-    public void setLine(int line) {
+    public void setLine(Integer line) {
         this.line = line;
     }
     @JsonGetter("line")
-    public int getLine() {
+    public Integer getLine() {
         return this.line;
     }
 }

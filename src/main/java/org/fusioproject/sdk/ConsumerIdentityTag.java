@@ -37,8 +37,10 @@ public class ConsumerIdentityTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/consumer/identity/:identity/redirect", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
 
@@ -70,8 +72,10 @@ public class ConsumerIdentityTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/consumer/identity/:identity/exchange", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
 
@@ -96,15 +100,17 @@ public class ConsumerIdentityTag extends TagAbstract {
         }
     }
 
-    public ConsumerIdentityCollection getAll(int appId) throws ClientException {
+    public ConsumerIdentityCollection getAll(Integer appId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
             Map<String, Object> queryParams = new HashMap<>();
             queryParams.put("appId", appId);
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/consumer/identity", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
 

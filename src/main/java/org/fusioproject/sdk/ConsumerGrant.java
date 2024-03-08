@@ -10,15 +10,15 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 import java.util.List;
 import java.time.LocalDateTime;
 public class ConsumerGrant {
-    private int id;
+    private Integer id;
     private ConsumerApp app;
     private LocalDateTime createDate;
     @JsonSetter("id")
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     @JsonGetter("id")
-    public int getId() {
+    public Integer getId() {
         return this.id;
     }
     @JsonSetter("app")

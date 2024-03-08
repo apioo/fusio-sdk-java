@@ -9,24 +9,24 @@ import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import java.util.List;
 public class ConsumerEventSubscriptionResponse {
-    private int status;
-    private int code;
+    private Integer status;
+    private Integer code;
     private String attempts;
     private String executeDate;
     @JsonSetter("status")
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
     @JsonGetter("status")
-    public int getStatus() {
+    public Integer getStatus() {
         return this.status;
     }
     @JsonSetter("code")
-    public void setCode(int code) {
+    public void setCode(Integer code) {
         this.code = code;
     }
     @JsonGetter("code")
-    public int getCode() {
+    public Integer getCode() {
         return this.code;
     }
     @JsonSetter("attempts")

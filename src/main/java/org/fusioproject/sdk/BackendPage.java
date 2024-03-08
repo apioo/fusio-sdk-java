@@ -9,26 +9,26 @@ import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import java.util.List;
 public class BackendPage {
-    private int id;
-    private int status;
+    private Integer id;
+    private Integer status;
     private String title;
     private String slug;
     private String content;
     private CommonMetadata metadata;
     @JsonSetter("id")
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     @JsonGetter("id")
-    public int getId() {
+    public Integer getId() {
         return this.id;
     }
     @JsonSetter("status")
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
     @JsonGetter("status")
-    public int getStatus() {
+    public Integer getStatus() {
         return this.status;
     }
     @JsonSetter("title")

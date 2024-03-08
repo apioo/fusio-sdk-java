@@ -9,62 +9,62 @@ import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import java.util.List;
 public class BackendOperation {
-    private int id;
-    private int status;
-    private boolean active;
-    private boolean _public;
-    private int stability;
+    private Integer id;
+    private Integer status;
+    private Boolean active;
+    private Boolean _public;
+    private Integer stability;
     private String description;
     private String httpMethod;
     private String httpPath;
-    private int httpCode;
+    private Integer httpCode;
     private String name;
     private BackendOperationParameters parameters;
     private String incoming;
     private String outgoing;
     private BackendOperationThrows _throws;
     private String action;
-    private int costs;
+    private Integer costs;
     private List<String> scopes;
     private CommonMetadata metadata;
     @JsonSetter("id")
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     @JsonGetter("id")
-    public int getId() {
+    public Integer getId() {
         return this.id;
     }
     @JsonSetter("status")
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
     @JsonGetter("status")
-    public int getStatus() {
+    public Integer getStatus() {
         return this.status;
     }
     @JsonSetter("active")
-    public void setActive(boolean active) {
+    public void setActive(Boolean active) {
         this.active = active;
     }
     @JsonGetter("active")
-    public boolean getActive() {
+    public Boolean getActive() {
         return this.active;
     }
     @JsonSetter("public")
-    public void setPublic(boolean _public) {
+    public void setPublic(Boolean _public) {
         this._public = _public;
     }
     @JsonGetter("public")
-    public boolean getPublic() {
+    public Boolean getPublic() {
         return this._public;
     }
     @JsonSetter("stability")
-    public void setStability(int stability) {
+    public void setStability(Integer stability) {
         this.stability = stability;
     }
     @JsonGetter("stability")
-    public int getStability() {
+    public Integer getStability() {
         return this.stability;
     }
     @JsonSetter("description")
@@ -92,11 +92,11 @@ public class BackendOperation {
         return this.httpPath;
     }
     @JsonSetter("httpCode")
-    public void setHttpCode(int httpCode) {
+    public void setHttpCode(Integer httpCode) {
         this.httpCode = httpCode;
     }
     @JsonGetter("httpCode")
-    public int getHttpCode() {
+    public Integer getHttpCode() {
         return this.httpCode;
     }
     @JsonSetter("name")
@@ -148,11 +148,11 @@ public class BackendOperation {
         return this.action;
     }
     @JsonSetter("costs")
-    public void setCosts(int costs) {
+    public void setCosts(Integer costs) {
         this.costs = costs;
     }
     @JsonGetter("costs")
-    public int getCosts() {
+    public Integer getCosts() {
         return this.costs;
     }
     @JsonSetter("scopes")

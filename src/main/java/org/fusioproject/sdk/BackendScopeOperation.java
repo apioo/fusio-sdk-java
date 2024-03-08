@@ -9,22 +9,22 @@ import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import java.util.List;
 public class BackendScopeOperation {
-    private int operationId;
-    private boolean allow;
+    private Integer operationId;
+    private Boolean allow;
     @JsonSetter("operationId")
-    public void setOperationId(int operationId) {
+    public void setOperationId(Integer operationId) {
         this.operationId = operationId;
     }
     @JsonGetter("operationId")
-    public int getOperationId() {
+    public Integer getOperationId() {
         return this.operationId;
     }
     @JsonSetter("allow")
-    public void setAllow(boolean allow) {
+    public void setAllow(Boolean allow) {
         this.allow = allow;
     }
     @JsonGetter("allow")
-    public boolean getAllow() {
+    public Boolean getAllow() {
         return this.allow;
     }
 }

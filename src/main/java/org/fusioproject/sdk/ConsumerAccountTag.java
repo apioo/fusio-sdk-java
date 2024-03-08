@@ -36,8 +36,10 @@ public class ConsumerAccountTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/consumer/password_reset", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpPut request = new HttpPut(builder.build());
             request.addHeader("Content-Type", "application/json");
@@ -72,8 +74,10 @@ public class ConsumerAccountTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/consumer/password_reset", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpPost request = new HttpPost(builder.build());
             request.addHeader("Content-Type", "application/json");
@@ -108,8 +112,10 @@ public class ConsumerAccountTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/consumer/register", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpPost request = new HttpPost(builder.build());
             request.addHeader("Content-Type", "application/json");
@@ -142,8 +148,10 @@ public class ConsumerAccountTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/consumer/login", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpPut request = new HttpPut(builder.build());
             request.addHeader("Content-Type", "application/json");
@@ -176,8 +184,10 @@ public class ConsumerAccountTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/consumer/login", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpPost request = new HttpPost(builder.build());
             request.addHeader("Content-Type", "application/json");
@@ -212,8 +222,10 @@ public class ConsumerAccountTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/consumer/authorize", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpPost request = new HttpPost(builder.build());
             request.addHeader("Content-Type", "application/json");
@@ -248,8 +260,10 @@ public class ConsumerAccountTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/consumer/authorize", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
 
@@ -282,8 +296,10 @@ public class ConsumerAccountTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/consumer/activate", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpPost request = new HttpPost(builder.build());
             request.addHeader("Content-Type", "application/json");
@@ -316,8 +332,10 @@ public class ConsumerAccountTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/consumer/account/change_password", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpPut request = new HttpPut(builder.build());
             request.addHeader("Content-Type", "application/json");
@@ -352,8 +370,10 @@ public class ConsumerAccountTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/consumer/account", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpPut request = new HttpPut(builder.build());
             request.addHeader("Content-Type", "application/json");
@@ -392,8 +412,10 @@ public class ConsumerAccountTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/consumer/account", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
 

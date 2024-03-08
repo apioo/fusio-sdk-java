@@ -10,15 +10,15 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 import java.util.List;
 import java.time.LocalDateTime;
 public class BackendStatisticCount {
-    private int count;
+    private Integer count;
     private LocalDateTime from;
     private LocalDateTime to;
     @JsonSetter("count")
-    public void setCount(int count) {
+    public void setCount(Integer count) {
         this.count = count;
     }
     @JsonGetter("count")
-    public int getCount() {
+    public Integer getCount() {
         return this.count;
     }
     @JsonSetter("from")

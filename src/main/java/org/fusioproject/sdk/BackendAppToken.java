@@ -10,27 +10,27 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 import java.util.List;
 import java.time.LocalDateTime;
 public class BackendAppToken {
-    private int id;
-    private int status;
+    private Integer id;
+    private Integer status;
     private String token;
     private List<String> scope;
     private String ip;
     private LocalDateTime expire;
     private LocalDateTime date;
     @JsonSetter("id")
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     @JsonGetter("id")
-    public int getId() {
+    public Integer getId() {
         return this.id;
     }
     @JsonSetter("status")
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
     @JsonGetter("status")
-    public int getStatus() {
+    public Integer getStatus() {
         return this.status;
     }
     @JsonSetter("token")

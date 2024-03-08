@@ -10,47 +10,47 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 import java.util.List;
 import java.time.LocalDateTime;
 public class BackendUser {
-    private int id;
-    private int roleId;
-    private int planId;
-    private int status;
+    private Integer id;
+    private Integer roleId;
+    private Integer planId;
+    private Integer status;
     private String name;
     private String email;
-    private int points;
+    private Integer points;
     private List<String> scopes;
     private List<BackendApp> apps;
     private CommonMetadata metadata;
     private LocalDateTime date;
     @JsonSetter("id")
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     @JsonGetter("id")
-    public int getId() {
+    public Integer getId() {
         return this.id;
     }
     @JsonSetter("roleId")
-    public void setRoleId(int roleId) {
+    public void setRoleId(Integer roleId) {
         this.roleId = roleId;
     }
     @JsonGetter("roleId")
-    public int getRoleId() {
+    public Integer getRoleId() {
         return this.roleId;
     }
     @JsonSetter("planId")
-    public void setPlanId(int planId) {
+    public void setPlanId(Integer planId) {
         this.planId = planId;
     }
     @JsonGetter("planId")
-    public int getPlanId() {
+    public Integer getPlanId() {
         return this.planId;
     }
     @JsonSetter("status")
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
     @JsonGetter("status")
-    public int getStatus() {
+    public Integer getStatus() {
         return this.status;
     }
     @JsonSetter("name")
@@ -70,11 +70,11 @@ public class BackendUser {
         return this.email;
     }
     @JsonSetter("points")
-    public void setPoints(int points) {
+    public void setPoints(Integer points) {
         this.points = points;
     }
     @JsonGetter("points")
-    public int getPoints() {
+    public Integer getPoints() {
         return this.points;
     }
     @JsonSetter("scopes")

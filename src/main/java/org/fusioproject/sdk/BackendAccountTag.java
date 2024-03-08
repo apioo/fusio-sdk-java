@@ -36,8 +36,10 @@ public class BackendAccountTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/account/change_password", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpPut request = new HttpPut(builder.build());
             request.addHeader("Content-Type", "application/json");
@@ -72,8 +74,10 @@ public class BackendAccountTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/account", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpPut request = new HttpPut(builder.build());
             request.addHeader("Content-Type", "application/json");
@@ -108,8 +112,10 @@ public class BackendAccountTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/account", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
 

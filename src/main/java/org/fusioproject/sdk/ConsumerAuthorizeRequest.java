@@ -14,7 +14,7 @@ public class ConsumerAuthorizeRequest {
     private String redirectUri;
     private String scope;
     private String state;
-    private boolean allow;
+    private Boolean allow;
     @JsonSetter("responseType")
     public void setResponseType(String responseType) {
         this.responseType = responseType;
@@ -56,11 +56,11 @@ public class ConsumerAuthorizeRequest {
         return this.state;
     }
     @JsonSetter("allow")
-    public void setAllow(boolean allow) {
+    public void setAllow(Boolean allow) {
         this.allow = allow;
     }
     @JsonGetter("allow")
-    public boolean getAllow() {
+    public Boolean getAllow() {
         return this.allow;
     }
 }

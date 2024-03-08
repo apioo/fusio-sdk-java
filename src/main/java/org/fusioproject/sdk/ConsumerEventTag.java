@@ -30,7 +30,7 @@ public class ConsumerEventTag extends TagAbstract {
     }
 
 
-    public ConsumerEventCollection getAll(int startIndex, int count, String search) throws ClientException {
+    public ConsumerEventCollection getAll(Integer startIndex, Integer count, String search) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
@@ -39,8 +39,10 @@ public class ConsumerEventTag extends TagAbstract {
             queryParams.put("count", count);
             queryParams.put("search", search);
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/consumer/event", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
 

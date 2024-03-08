@@ -9,17 +9,17 @@ import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import java.util.List;
 public class ConsumerUserPlan {
-    private int id;
+    private Integer id;
     private String name;
-    private int price;
-    private int points;
-    private int period;
+    private Integer price;
+    private Integer points;
+    private Integer period;
     @JsonSetter("id")
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     @JsonGetter("id")
-    public int getId() {
+    public Integer getId() {
         return this.id;
     }
     @JsonSetter("name")
@@ -31,27 +31,27 @@ public class ConsumerUserPlan {
         return this.name;
     }
     @JsonSetter("price")
-    public void setPrice(int price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
     @JsonGetter("price")
-    public int getPrice() {
+    public Integer getPrice() {
         return this.price;
     }
     @JsonSetter("points")
-    public void setPoints(int points) {
+    public void setPoints(Integer points) {
         this.points = points;
     }
     @JsonGetter("points")
-    public int getPoints() {
+    public Integer getPoints() {
         return this.points;
     }
     @JsonSetter("period")
-    public void setPeriod(int period) {
+    public void setPeriod(Integer period) {
         this.period = period;
     }
     @JsonGetter("period")
-    public int getPeriod() {
+    public Integer getPeriod() {
         return this.period;
     }
 }

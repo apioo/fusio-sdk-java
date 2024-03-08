@@ -38,8 +38,10 @@ public class BackendConnectionTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/connection/$connection_id<[0-9]+|^~>/introspection/:entity", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
 
@@ -73,8 +75,10 @@ public class BackendConnectionTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/connection/$connection_id<[0-9]+|^~>/introspection", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
 
@@ -108,8 +112,10 @@ public class BackendConnectionTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/connection/$connection_id<[0-9]+|^~>/redirect", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
 
@@ -141,8 +147,10 @@ public class BackendConnectionTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/connection/$connection_id<[0-9]+|^~>", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpDelete request = new HttpDelete(builder.build());
 
@@ -178,8 +186,10 @@ public class BackendConnectionTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/connection/$connection_id<[0-9]+|^~>", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpPut request = new HttpPut(builder.build());
             request.addHeader("Content-Type", "application/json");
@@ -219,8 +229,10 @@ public class BackendConnectionTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/connection/$connection_id<[0-9]+|^~>", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
 
@@ -256,8 +268,10 @@ public class BackendConnectionTag extends TagAbstract {
             Map<String, Object> queryParams = new HashMap<>();
             queryParams.put("class", _class);
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/connection/form", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
 
@@ -288,8 +302,10 @@ public class BackendConnectionTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/connection/list", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
 
@@ -320,8 +336,10 @@ public class BackendConnectionTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/connection", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpPost request = new HttpPost(builder.build());
             request.addHeader("Content-Type", "application/json");
@@ -350,7 +368,7 @@ public class BackendConnectionTag extends TagAbstract {
         }
     }
 
-    public BackendConnectionCollection getAll(int startIndex, int count, String search) throws ClientException {
+    public BackendConnectionCollection getAll(Integer startIndex, Integer count, String search) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
@@ -359,8 +377,10 @@ public class BackendConnectionTag extends TagAbstract {
             queryParams.put("count", count);
             queryParams.put("search", search);
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/connection", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
 

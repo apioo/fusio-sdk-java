@@ -10,20 +10,20 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 import java.util.List;
 import java.time.LocalDateTime;
 public class BackendCronjob {
-    private int id;
+    private Integer id;
     private String name;
     private String cron;
     private String action;
     private LocalDateTime executeDate;
-    private int exitCode;
+    private Integer exitCode;
     private CommonMetadata metadata;
     private List<BackendCronjobError> errors;
     @JsonSetter("id")
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     @JsonGetter("id")
-    public int getId() {
+    public Integer getId() {
         return this.id;
     }
     @JsonSetter("name")
@@ -59,11 +59,11 @@ public class BackendCronjob {
         return this.executeDate;
     }
     @JsonSetter("exitCode")
-    public void setExitCode(int exitCode) {
+    public void setExitCode(Integer exitCode) {
         this.exitCode = exitCode;
     }
     @JsonGetter("exitCode")
-    public int getExitCode() {
+    public Integer getExitCode() {
         return this.exitCode;
     }
     @JsonSetter("metadata")

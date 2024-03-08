@@ -10,27 +10,27 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 import java.util.List;
 import java.time.Duration;
 public class BackendRate {
-    private int id;
-    private int priority;
+    private Integer id;
+    private Integer priority;
     private String name;
-    private int rateLimit;
+    private Integer rateLimit;
     private Duration timespan;
     private List<BackendRateAllocation> allocation;
     private CommonMetadata metadata;
     @JsonSetter("id")
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     @JsonGetter("id")
-    public int getId() {
+    public Integer getId() {
         return this.id;
     }
     @JsonSetter("priority")
-    public void setPriority(int priority) {
+    public void setPriority(Integer priority) {
         this.priority = priority;
     }
     @JsonGetter("priority")
-    public int getPriority() {
+    public Integer getPriority() {
         return this.priority;
     }
     @JsonSetter("name")
@@ -42,11 +42,11 @@ public class BackendRate {
         return this.name;
     }
     @JsonSetter("rateLimit")
-    public void setRateLimit(int rateLimit) {
+    public void setRateLimit(Integer rateLimit) {
         this.rateLimit = rateLimit;
     }
     @JsonGetter("rateLimit")
-    public int getRateLimit() {
+    public Integer getRateLimit() {
         return this.rateLimit;
     }
     @JsonSetter("timespan")
