@@ -29,6 +29,15 @@ public class BackendTag extends TagAbstract {
         super(httpClient, objectMapper, parser);
     }
 
+    public BackendWebhookTag webhook()
+    {
+        return new BackendWebhookTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
     public BackendUserTag user()
     {
         return new BackendUserTag(

@@ -56,9 +56,9 @@ public class ConsumerTag extends TagAbstract {
         );
     }
 
-    public ConsumerSubscriptionTag subscription()
+    public ConsumerWebhookTag webhook()
     {
-        return new ConsumerSubscriptionTag(
+        return new ConsumerWebhookTag(
             this.httpClient,
             this.objectMapper,
             this.parser
