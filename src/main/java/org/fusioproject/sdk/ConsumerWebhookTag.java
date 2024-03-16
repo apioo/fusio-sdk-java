@@ -39,7 +39,7 @@ public class ConsumerWebhookTag extends TagAbstract {
 
             List<String> queryStructNames = new ArrayList<String>();
 
-            URIBuilder builder = new URIBuilder(this.parser.url("/consumer/webhook/$webhook_id<[0-9]+>", pathParams));
+            URIBuilder builder = new URIBuilder(this.parser.url("/consumer/webhook/$webhook_id<[0-9]+|^~>", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
 
             HttpDelete request = new HttpDelete(builder.build());
@@ -78,7 +78,7 @@ public class ConsumerWebhookTag extends TagAbstract {
 
             List<String> queryStructNames = new ArrayList<String>();
 
-            URIBuilder builder = new URIBuilder(this.parser.url("/consumer/webhook/$webhook_id<[0-9]+>", pathParams));
+            URIBuilder builder = new URIBuilder(this.parser.url("/consumer/webhook/$webhook_id<[0-9]+|^~>", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
 
             HttpPut request = new HttpPut(builder.build());
@@ -121,7 +121,7 @@ public class ConsumerWebhookTag extends TagAbstract {
 
             List<String> queryStructNames = new ArrayList<String>();
 
-            URIBuilder builder = new URIBuilder(this.parser.url("/consumer/webhook/$webhook_id<[0-9]+>", pathParams));
+            URIBuilder builder = new URIBuilder(this.parser.url("/consumer/webhook/$webhook_id<[0-9]+|^~>", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
