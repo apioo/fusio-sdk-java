@@ -21,7 +21,7 @@ public class BackendApp {
     private CommonMetadata metadata;
     private LocalDateTime date;
     private List<String> scopes;
-    private List<BackendAppToken> tokens;
+    private List<BackendToken> tokens;
     @JsonSetter("id")
     public void setId(Integer id) {
         this.id = id;
@@ -111,11 +111,11 @@ public class BackendApp {
         return this.scopes;
     }
     @JsonSetter("tokens")
-    public void setTokens(List<BackendAppToken> tokens) {
+    public void setTokens(List<BackendToken> tokens) {
         this.tokens = tokens;
     }
     @JsonGetter("tokens")
-    public List<BackendAppToken> getTokens() {
+    public List<BackendToken> getTokens() {
         return this.tokens;
     }
 }

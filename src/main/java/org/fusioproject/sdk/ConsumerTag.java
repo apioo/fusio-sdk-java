@@ -65,6 +65,15 @@ public class ConsumerTag extends TagAbstract {
         );
     }
 
+    public ConsumerTokenTag token()
+    {
+        return new ConsumerTokenTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
     public ConsumerScopeTag scope()
     {
         return new ConsumerScopeTag(
