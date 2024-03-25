@@ -37,8 +37,10 @@ public class BackendTrashTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/trash/:type", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpPost request = new HttpPost(builder.build());
             request.addHeader("Content-Type", "application/json");
@@ -67,7 +69,7 @@ public class BackendTrashTag extends TagAbstract {
         }
     }
 
-    public BackendTrashDataCollection getAllByType(String type, int startIndex, int count, String search) throws ClientException {
+    public BackendTrashDataCollection getAllByType(String type, Integer startIndex, Integer count, String search) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
             pathParams.put("type", type);
@@ -77,8 +79,10 @@ public class BackendTrashTag extends TagAbstract {
             queryParams.put("count", count);
             queryParams.put("search", search);
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/trash/:type", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
 
@@ -109,8 +113,10 @@ public class BackendTrashTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/trash", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
 

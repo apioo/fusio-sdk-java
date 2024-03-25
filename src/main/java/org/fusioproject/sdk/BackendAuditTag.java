@@ -37,8 +37,10 @@ public class BackendAuditTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/audit/$audit_id<[0-9]+>", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
 
@@ -67,7 +69,7 @@ public class BackendAuditTag extends TagAbstract {
         }
     }
 
-    public BackendAuditCollection getAll(int startIndex, int count, String search, String from, String to, int appId, int userId, String event, String ip, String message) throws ClientException {
+    public BackendAuditCollection getAll(Integer startIndex, Integer count, String search, String from, String to, Integer appId, Integer userId, String event, String ip, String message) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
@@ -83,8 +85,10 @@ public class BackendAuditTag extends TagAbstract {
             queryParams.put("ip", ip);
             queryParams.put("message", message);
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/audit", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
 

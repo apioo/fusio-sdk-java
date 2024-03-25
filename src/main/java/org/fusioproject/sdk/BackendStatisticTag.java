@@ -30,7 +30,7 @@ public class BackendStatisticTag extends TagAbstract {
     }
 
 
-    public BackendStatisticChart getUsedPoints(int startIndex, int count, String search, String from, String to, int operationId, int appId, int userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
+    public BackendStatisticChart getUsedPoints(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
@@ -49,9 +49,11 @@ public class BackendStatisticTag extends TagAbstract {
             queryParams.put("path", path);
             queryParams.put("header", header);
             queryParams.put("body", body);
+
+            List<String> queryStructNames = new ArrayList<String>();
 
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/used_points", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
 
@@ -76,7 +78,7 @@ public class BackendStatisticTag extends TagAbstract {
         }
     }
 
-    public BackendStatisticChart getTimePerOperation(int startIndex, int count, String search, String from, String to, int operationId, int appId, int userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
+    public BackendStatisticChart getTimePerOperation(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
@@ -95,9 +97,11 @@ public class BackendStatisticTag extends TagAbstract {
             queryParams.put("path", path);
             queryParams.put("header", header);
             queryParams.put("body", body);
+
+            List<String> queryStructNames = new ArrayList<String>();
 
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/time_per_operation", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
 
@@ -122,7 +126,7 @@ public class BackendStatisticTag extends TagAbstract {
         }
     }
 
-    public BackendStatisticChart getTimeAverage(int startIndex, int count, String search, String from, String to, int operationId, int appId, int userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
+    public BackendStatisticChart getTimeAverage(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
@@ -141,9 +145,11 @@ public class BackendStatisticTag extends TagAbstract {
             queryParams.put("path", path);
             queryParams.put("header", header);
             queryParams.put("body", body);
+
+            List<String> queryStructNames = new ArrayList<String>();
 
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/time_average", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
 
@@ -168,7 +174,7 @@ public class BackendStatisticTag extends TagAbstract {
         }
     }
 
-    public BackendStatisticChart getMostUsedOperations(int startIndex, int count, String search, String from, String to, int operationId, int appId, int userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
+    public BackendStatisticChart getMostUsedOperations(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
@@ -187,9 +193,11 @@ public class BackendStatisticTag extends TagAbstract {
             queryParams.put("path", path);
             queryParams.put("header", header);
             queryParams.put("body", body);
+
+            List<String> queryStructNames = new ArrayList<String>();
 
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/most_used_operations", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
 
@@ -214,7 +222,7 @@ public class BackendStatisticTag extends TagAbstract {
         }
     }
 
-    public BackendStatisticChart getMostUsedApps(int startIndex, int count, String search, String from, String to, int operationId, int appId, int userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
+    public BackendStatisticChart getMostUsedApps(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
@@ -233,9 +241,11 @@ public class BackendStatisticTag extends TagAbstract {
             queryParams.put("path", path);
             queryParams.put("header", header);
             queryParams.put("body", body);
+
+            List<String> queryStructNames = new ArrayList<String>();
 
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/most_used_apps", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
 
@@ -260,7 +270,7 @@ public class BackendStatisticTag extends TagAbstract {
         }
     }
 
-    public BackendStatisticChart getIssuedTokens(int startIndex, int count, String search, String from, String to, int operationId, int appId, int userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
+    public BackendStatisticChart getIssuedTokens(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
@@ -279,9 +289,11 @@ public class BackendStatisticTag extends TagAbstract {
             queryParams.put("path", path);
             queryParams.put("header", header);
             queryParams.put("body", body);
+
+            List<String> queryStructNames = new ArrayList<String>();
 
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/issued_tokens", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
 
@@ -306,7 +318,7 @@ public class BackendStatisticTag extends TagAbstract {
         }
     }
 
-    public BackendStatisticChart getIncomingTransactions(int startIndex, int count, String search, String from, String to, int operationId, int appId, int userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
+    public BackendStatisticChart getIncomingTransactions(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
@@ -325,9 +337,11 @@ public class BackendStatisticTag extends TagAbstract {
             queryParams.put("path", path);
             queryParams.put("header", header);
             queryParams.put("body", body);
+
+            List<String> queryStructNames = new ArrayList<String>();
 
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/incoming_transactions", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
 
@@ -352,7 +366,7 @@ public class BackendStatisticTag extends TagAbstract {
         }
     }
 
-    public BackendStatisticChart getIncomingRequests(int startIndex, int count, String search, String from, String to, int operationId, int appId, int userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
+    public BackendStatisticChart getIncomingRequests(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
@@ -371,9 +385,11 @@ public class BackendStatisticTag extends TagAbstract {
             queryParams.put("path", path);
             queryParams.put("header", header);
             queryParams.put("body", body);
+
+            List<String> queryStructNames = new ArrayList<String>();
 
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/incoming_requests", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
 
@@ -398,7 +414,7 @@ public class BackendStatisticTag extends TagAbstract {
         }
     }
 
-    public BackendStatisticChart getErrorsPerOperation(int startIndex, int count, String search, String from, String to, int operationId, int appId, int userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
+    public BackendStatisticChart getErrorsPerOperation(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
@@ -417,9 +433,11 @@ public class BackendStatisticTag extends TagAbstract {
             queryParams.put("path", path);
             queryParams.put("header", header);
             queryParams.put("body", body);
+
+            List<String> queryStructNames = new ArrayList<String>();
 
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/errors_per_operation", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
 
@@ -444,7 +462,7 @@ public class BackendStatisticTag extends TagAbstract {
         }
     }
 
-    public BackendStatisticCount getCountRequests(int startIndex, int count, String search, String from, String to, int operationId, int appId, int userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
+    public BackendStatisticCount getCountRequests(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
@@ -464,8 +482,10 @@ public class BackendStatisticTag extends TagAbstract {
             queryParams.put("header", header);
             queryParams.put("body", body);
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/count_requests", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
 

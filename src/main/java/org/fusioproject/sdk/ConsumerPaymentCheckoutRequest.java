@@ -9,14 +9,14 @@ import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import java.util.List;
 public class ConsumerPaymentCheckoutRequest {
-    private int planId;
+    private Integer planId;
     private String returnUrl;
     @JsonSetter("planId")
-    public void setPlanId(int planId) {
+    public void setPlanId(Integer planId) {
         this.planId = planId;
     }
     @JsonGetter("planId")
-    public int getPlanId() {
+    public Integer getPlanId() {
         return this.planId;
     }
     @JsonSetter("returnUrl")

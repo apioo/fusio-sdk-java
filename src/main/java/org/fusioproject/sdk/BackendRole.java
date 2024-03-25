@@ -9,24 +9,24 @@ import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import java.util.List;
 public class BackendRole {
-    private int id;
-    private int categoryId;
+    private Integer id;
+    private Integer categoryId;
     private String name;
     private List<String> scopes;
     @JsonSetter("id")
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     @JsonGetter("id")
-    public int getId() {
+    public Integer getId() {
         return this.id;
     }
     @JsonSetter("categoryId")
-    public void setCategoryId(int categoryId) {
+    public void setCategoryId(Integer categoryId) {
         this.categoryId = categoryId;
     }
     @JsonGetter("categoryId")
-    public int getCategoryId() {
+    public Integer getCategoryId() {
         return this.categoryId;
     }
     @JsonSetter("name")

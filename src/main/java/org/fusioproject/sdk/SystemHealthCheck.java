@@ -9,14 +9,14 @@ import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import java.util.List;
 public class SystemHealthCheck {
-    private boolean healthy;
+    private Boolean healthy;
     private String error;
     @JsonSetter("healthy")
-    public void setHealthy(boolean healthy) {
+    public void setHealthy(Boolean healthy) {
         this.healthy = healthy;
     }
     @JsonGetter("healthy")
-    public boolean getHealthy() {
+    public Boolean getHealthy() {
         return this.healthy;
     }
     @JsonSetter("error")

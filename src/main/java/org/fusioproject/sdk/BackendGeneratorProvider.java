@@ -11,7 +11,7 @@ import java.util.List;
 public class BackendGeneratorProvider {
     private String path;
     private List<String> scopes;
-    private boolean _public;
+    private Boolean _public;
     private BackendGeneratorProviderConfig config;
     @JsonSetter("path")
     public void setPath(String path) {
@@ -30,11 +30,11 @@ public class BackendGeneratorProvider {
         return this.scopes;
     }
     @JsonSetter("public")
-    public void setPublic(boolean _public) {
+    public void setPublic(Boolean _public) {
         this._public = _public;
     }
     @JsonGetter("public")
-    public boolean getPublic() {
+    public Boolean getPublic() {
         return this._public;
     }
     @JsonSetter("config")

@@ -9,15 +9,15 @@ import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import java.util.List;
 public class BackendActionExecuteResponse {
-    private int statusCode;
+    private Integer statusCode;
     private BackendActionExecuteResponseHeaders headers;
     private BackendActionExecuteResponseBody body;
     @JsonSetter("statusCode")
-    public void setStatusCode(int statusCode) {
+    public void setStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
     }
     @JsonGetter("statusCode")
-    public int getStatusCode() {
+    public Integer getStatusCode() {
         return this.statusCode;
     }
     @JsonSetter("headers")

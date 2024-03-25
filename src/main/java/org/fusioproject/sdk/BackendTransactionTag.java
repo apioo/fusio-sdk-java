@@ -37,8 +37,10 @@ public class BackendTransactionTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/transaction/$transaction_id<[0-9]+>", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
 
@@ -67,7 +69,7 @@ public class BackendTransactionTag extends TagAbstract {
         }
     }
 
-    public BackendTransactionCollection getAll(int startIndex, int count, String search, String from, String to, int planId, int userId, int appId, String status, String provider) throws ClientException {
+    public BackendTransactionCollection getAll(Integer startIndex, Integer count, String search, String from, String to, Integer planId, Integer userId, Integer appId, String status, String provider) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
@@ -83,8 +85,10 @@ public class BackendTransactionTag extends TagAbstract {
             queryParams.put("status", status);
             queryParams.put("provider", provider);
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/transaction", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
 

@@ -37,8 +37,10 @@ public class BackendEventTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/event/$event_id<[0-9]+|^~>", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpDelete request = new HttpDelete(builder.build());
 
@@ -74,8 +76,10 @@ public class BackendEventTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/event/$event_id<[0-9]+|^~>", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpPut request = new HttpPut(builder.build());
             request.addHeader("Content-Type", "application/json");
@@ -115,8 +119,10 @@ public class BackendEventTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/event/$event_id<[0-9]+|^~>", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
 
@@ -151,8 +157,10 @@ public class BackendEventTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/event", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpPost request = new HttpPost(builder.build());
             request.addHeader("Content-Type", "application/json");
@@ -181,7 +189,7 @@ public class BackendEventTag extends TagAbstract {
         }
     }
 
-    public BackendEventCollection getAll(int startIndex, int count, String search) throws ClientException {
+    public BackendEventCollection getAll(Integer startIndex, Integer count, String search) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
@@ -190,8 +198,10 @@ public class BackendEventTag extends TagAbstract {
             queryParams.put("count", count);
             queryParams.put("search", search);
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/event", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
 
@@ -201,190 +211,6 @@ public class BackendEventTag extends TagAbstract {
 
             if (resp.code >= 200 && resp.code < 300) {
                 return this.parser.parse(resp.payload, BackendEventCollection.class);
-            }
-
-            switch (resp.code) {
-                case 401:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
-                case 500:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
-                default:
-                    throw new UnknownStatusCodeException("The server returned an unknown status code");
-            }
-        } catch (URISyntaxException | IOException e) {
-            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
-        }
-    }
-
-    public CommonMessage deleteSubscription(String subscriptionId) throws ClientException {
-        try {
-            Map<String, Object> pathParams = new HashMap<>();
-            pathParams.put("subscription_id", subscriptionId);
-
-            Map<String, Object> queryParams = new HashMap<>();
-
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/event/subscription/$subscription_id<[0-9]+>", pathParams));
-            this.parser.query(builder, queryParams);
-
-            HttpDelete request = new HttpDelete(builder.build());
-
-            final Parser.HttpReturn resp = this.httpClient.execute(request, response -> {
-                return this.parser.handle(response.getCode(), EntityUtils.toString(response.getEntity()));
-            });
-
-            if (resp.code >= 200 && resp.code < 300) {
-                return this.parser.parse(resp.payload, CommonMessage.class);
-            }
-
-            switch (resp.code) {
-                case 401:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
-                case 404:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
-                case 410:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
-                case 500:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
-                default:
-                    throw new UnknownStatusCodeException("The server returned an unknown status code");
-            }
-        } catch (URISyntaxException | IOException e) {
-            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
-        }
-    }
-
-    public CommonMessage updateSubscription(String subscriptionId, BackendEventSubscriptionUpdate payload) throws ClientException {
-        try {
-            Map<String, Object> pathParams = new HashMap<>();
-            pathParams.put("subscription_id", subscriptionId);
-
-            Map<String, Object> queryParams = new HashMap<>();
-
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/event/subscription/$subscription_id<[0-9]+>", pathParams));
-            this.parser.query(builder, queryParams);
-
-            HttpPut request = new HttpPut(builder.build());
-            request.addHeader("Content-Type", "application/json");
-            request.setEntity(new StringEntity(this.objectMapper.writeValueAsString(payload), ContentType.APPLICATION_JSON));
-
-            final Parser.HttpReturn resp = this.httpClient.execute(request, response -> {
-                return this.parser.handle(response.getCode(), EntityUtils.toString(response.getEntity()));
-            });
-
-            if (resp.code >= 200 && resp.code < 300) {
-                return this.parser.parse(resp.payload, CommonMessage.class);
-            }
-
-            switch (resp.code) {
-                case 400:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
-                case 401:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
-                case 404:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
-                case 410:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
-                case 500:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
-                default:
-                    throw new UnknownStatusCodeException("The server returned an unknown status code");
-            }
-        } catch (URISyntaxException | IOException e) {
-            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
-        }
-    }
-
-    public BackendEventSubscription getSubscription(String subscriptionId) throws ClientException {
-        try {
-            Map<String, Object> pathParams = new HashMap<>();
-            pathParams.put("subscription_id", subscriptionId);
-
-            Map<String, Object> queryParams = new HashMap<>();
-
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/event/subscription/$subscription_id<[0-9]+>", pathParams));
-            this.parser.query(builder, queryParams);
-
-            HttpGet request = new HttpGet(builder.build());
-
-            final Parser.HttpReturn resp = this.httpClient.execute(request, response -> {
-                return this.parser.handle(response.getCode(), EntityUtils.toString(response.getEntity()));
-            });
-
-            if (resp.code >= 200 && resp.code < 300) {
-                return this.parser.parse(resp.payload, BackendEventSubscription.class);
-            }
-
-            switch (resp.code) {
-                case 401:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
-                case 404:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
-                case 500:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
-                default:
-                    throw new UnknownStatusCodeException("The server returned an unknown status code");
-            }
-        } catch (URISyntaxException | IOException e) {
-            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
-        }
-    }
-
-    public CommonMessage createSubscription(BackendEventSubscriptionCreate payload) throws ClientException {
-        try {
-            Map<String, Object> pathParams = new HashMap<>();
-
-            Map<String, Object> queryParams = new HashMap<>();
-
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/event/subscription", pathParams));
-            this.parser.query(builder, queryParams);
-
-            HttpPost request = new HttpPost(builder.build());
-            request.addHeader("Content-Type", "application/json");
-            request.setEntity(new StringEntity(this.objectMapper.writeValueAsString(payload), ContentType.APPLICATION_JSON));
-
-            final Parser.HttpReturn resp = this.httpClient.execute(request, response -> {
-                return this.parser.handle(response.getCode(), EntityUtils.toString(response.getEntity()));
-            });
-
-            if (resp.code >= 200 && resp.code < 300) {
-                return this.parser.parse(resp.payload, CommonMessage.class);
-            }
-
-            switch (resp.code) {
-                case 400:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
-                case 401:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
-                case 500:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
-                default:
-                    throw new UnknownStatusCodeException("The server returned an unknown status code");
-            }
-        } catch (URISyntaxException | IOException e) {
-            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
-        }
-    }
-
-    public BackendEventSubscriptionCollection getAllSubscriptions(int startIndex, int count, String search) throws ClientException {
-        try {
-            Map<String, Object> pathParams = new HashMap<>();
-
-            Map<String, Object> queryParams = new HashMap<>();
-            queryParams.put("startIndex", startIndex);
-            queryParams.put("count", count);
-            queryParams.put("search", search);
-
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/event/subscription", pathParams));
-            this.parser.query(builder, queryParams);
-
-            HttpGet request = new HttpGet(builder.build());
-
-            final Parser.HttpReturn resp = this.httpClient.execute(request, response -> {
-                return this.parser.handle(response.getCode(), EntityUtils.toString(response.getEntity()));
-            });
-
-            if (resp.code >= 200 && resp.code < 300) {
-                return this.parser.parse(resp.payload, BackendEventSubscriptionCollection.class);
             }
 
             switch (resp.code) {

@@ -9,27 +9,27 @@ import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import java.util.List;
 public class BackendAction {
-    private int id;
-    private int status;
+    private Integer id;
+    private Integer status;
     private String name;
     private String _class;
-    private boolean async;
+    private Boolean async;
     private BackendActionConfig config;
     private CommonMetadata metadata;
     @JsonSetter("id")
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     @JsonGetter("id")
-    public int getId() {
+    public Integer getId() {
         return this.id;
     }
     @JsonSetter("status")
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
     @JsonGetter("status")
-    public int getStatus() {
+    public Integer getStatus() {
         return this.status;
     }
     @JsonSetter("name")
@@ -49,11 +49,11 @@ public class BackendAction {
         return this._class;
     }
     @JsonSetter("async")
-    public void setAsync(boolean async) {
+    public void setAsync(Boolean async) {
         this.async = async;
     }
     @JsonGetter("async")
-    public boolean getAsync() {
+    public Boolean getAsync() {
         return this.async;
     }
     @JsonSetter("config")

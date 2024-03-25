@@ -10,9 +10,9 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 import java.util.List;
 import java.time.LocalDateTime;
 public class BackendApp {
-    private int id;
-    private int userId;
-    private int status;
+    private Integer id;
+    private Integer userId;
+    private Integer status;
     private String name;
     private String url;
     private String parameters;
@@ -21,29 +21,29 @@ public class BackendApp {
     private CommonMetadata metadata;
     private LocalDateTime date;
     private List<String> scopes;
-    private List<BackendAppToken> tokens;
+    private List<BackendToken> tokens;
     @JsonSetter("id")
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     @JsonGetter("id")
-    public int getId() {
+    public Integer getId() {
         return this.id;
     }
     @JsonSetter("userId")
-    public void setUserId(int userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
     @JsonGetter("userId")
-    public int getUserId() {
+    public Integer getUserId() {
         return this.userId;
     }
     @JsonSetter("status")
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
     @JsonGetter("status")
-    public int getStatus() {
+    public Integer getStatus() {
         return this.status;
     }
     @JsonSetter("name")
@@ -111,11 +111,11 @@ public class BackendApp {
         return this.scopes;
     }
     @JsonSetter("tokens")
-    public void setTokens(List<BackendAppToken> tokens) {
+    public void setTokens(List<BackendToken> tokens) {
         this.tokens = tokens;
     }
     @JsonGetter("tokens")
-    public List<BackendAppToken> getTokens() {
+    public List<BackendToken> getTokens() {
         return this.tokens;
     }
 }

@@ -12,7 +12,7 @@ public class BackendCronjobError {
     private String message;
     private String trace;
     private String file;
-    private int line;
+    private Integer line;
     @JsonSetter("message")
     public void setMessage(String message) {
         this.message = message;
@@ -38,11 +38,11 @@ public class BackendCronjobError {
         return this.file;
     }
     @JsonSetter("line")
-    public void setLine(int line) {
+    public void setLine(Integer line) {
         this.line = line;
     }
     @JsonGetter("line")
-    public int getLine() {
+    public Integer getLine() {
         return this.line;
     }
 }

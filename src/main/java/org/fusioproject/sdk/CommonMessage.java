@@ -9,15 +9,15 @@ import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import java.util.List;
 public class CommonMessage {
-    private boolean success;
+    private Boolean success;
     private String message;
     private String id;
     @JsonSetter("success")
-    public void setSuccess(boolean success) {
+    public void setSuccess(Boolean success) {
         this.success = success;
     }
     @JsonGetter("success")
-    public boolean getSuccess() {
+    public Boolean getSuccess() {
         return this.success;
     }
     @JsonSetter("message")

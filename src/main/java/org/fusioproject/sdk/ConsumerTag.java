@@ -56,9 +56,18 @@ public class ConsumerTag extends TagAbstract {
         );
     }
 
-    public ConsumerSubscriptionTag subscription()
+    public ConsumerWebhookTag webhook()
     {
-        return new ConsumerSubscriptionTag(
+        return new ConsumerWebhookTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
+    public ConsumerTokenTag token()
+    {
+        return new ConsumerTokenTag(
             this.httpClient,
             this.objectMapper,
             this.parser

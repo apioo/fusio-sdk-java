@@ -9,25 +9,25 @@ import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import java.util.List;
 public class BackendConfig {
-    private int id;
-    private int type;
+    private Integer id;
+    private Integer type;
     private String name;
     private String description;
     private Object value;
     @JsonSetter("id")
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     @JsonGetter("id")
-    public int getId() {
+    public Integer getId() {
         return this.id;
     }
     @JsonSetter("type")
-    public void setType(int type) {
+    public void setType(Integer type) {
         this.type = type;
     }
     @JsonGetter("type")
-    public int getType() {
+    public Integer getType() {
         return this.type;
     }
     @JsonSetter("name")

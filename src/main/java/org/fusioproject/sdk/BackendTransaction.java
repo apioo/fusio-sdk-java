@@ -10,37 +10,37 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 import java.util.List;
 import java.time.LocalDateTime;
 public class BackendTransaction {
-    private int id;
-    private int userId;
-    private int planId;
+    private Integer id;
+    private Integer userId;
+    private Integer planId;
     private String transactionId;
-    private double amount;
-    private double points;
+    private Double amount;
+    private Double points;
     private LocalDateTime periodStart;
     private LocalDateTime periodEnd;
     private LocalDateTime insertDate;
     @JsonSetter("id")
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     @JsonGetter("id")
-    public int getId() {
+    public Integer getId() {
         return this.id;
     }
     @JsonSetter("userId")
-    public void setUserId(int userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
     @JsonGetter("userId")
-    public int getUserId() {
+    public Integer getUserId() {
         return this.userId;
     }
     @JsonSetter("planId")
-    public void setPlanId(int planId) {
+    public void setPlanId(Integer planId) {
         this.planId = planId;
     }
     @JsonGetter("planId")
-    public int getPlanId() {
+    public Integer getPlanId() {
         return this.planId;
     }
     @JsonSetter("transactionId")
@@ -52,19 +52,19 @@ public class BackendTransaction {
         return this.transactionId;
     }
     @JsonSetter("amount")
-    public void setAmount(double amount) {
+    public void setAmount(Double amount) {
         this.amount = amount;
     }
     @JsonGetter("amount")
-    public double getAmount() {
+    public Double getAmount() {
         return this.amount;
     }
     @JsonSetter("points")
-    public void setPoints(double points) {
+    public void setPoints(Double points) {
         this.points = points;
     }
     @JsonGetter("points")
-    public double getPoints() {
+    public Double getPoints() {
         return this.points;
     }
     @JsonSetter("periodStart")

@@ -9,18 +9,18 @@ import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import java.util.List;
 public class ConsumerPlan {
-    private int id;
+    private Integer id;
     private String name;
     private String description;
-    private double price;
-    private int points;
+    private Double price;
+    private Integer points;
     private CommonMetadata metadata;
     @JsonSetter("id")
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     @JsonGetter("id")
-    public int getId() {
+    public Integer getId() {
         return this.id;
     }
     @JsonSetter("name")
@@ -40,19 +40,19 @@ public class ConsumerPlan {
         return this.description;
     }
     @JsonSetter("price")
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
     @JsonGetter("price")
-    public double getPrice() {
+    public Double getPrice() {
         return this.price;
     }
     @JsonSetter("points")
-    public void setPoints(int points) {
+    public void setPoints(Integer points) {
         this.points = points;
     }
     @JsonGetter("points")
-    public int getPoints() {
+    public Integer getPoints() {
         return this.points;
     }
     @JsonSetter("metadata")

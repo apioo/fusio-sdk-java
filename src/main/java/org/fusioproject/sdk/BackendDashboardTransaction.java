@@ -10,18 +10,18 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 import java.util.List;
 import java.time.LocalDateTime;
 public class BackendDashboardTransaction {
-    private int id;
+    private Integer id;
     private String status;
     private String provider;
     private String transactionId;
-    private double amount;
+    private Double amount;
     private LocalDateTime date;
     @JsonSetter("id")
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     @JsonGetter("id")
-    public int getId() {
+    public Integer getId() {
         return this.id;
     }
     @JsonSetter("status")
@@ -49,11 +49,11 @@ public class BackendDashboardTransaction {
         return this.transactionId;
     }
     @JsonSetter("amount")
-    public void setAmount(double amount) {
+    public void setAmount(Double amount) {
         this.amount = amount;
     }
     @JsonGetter("amount")
-    public double getAmount() {
+    public Double getAmount() {
         return this.amount;
     }
     @JsonSetter("date")

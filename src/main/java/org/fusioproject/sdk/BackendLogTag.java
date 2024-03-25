@@ -37,8 +37,10 @@ public class BackendLogTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/log/$log_id<[0-9]+>", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
 
@@ -67,7 +69,7 @@ public class BackendLogTag extends TagAbstract {
         }
     }
 
-    public BackendLogCollection getAll(int startIndex, int count, String search, String from, String to, int routeId, int appId, int userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
+    public BackendLogCollection getAll(Integer startIndex, Integer count, String search, String from, String to, Integer routeId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
@@ -87,8 +89,10 @@ public class BackendLogTag extends TagAbstract {
             queryParams.put("header", header);
             queryParams.put("body", body);
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/log", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
 
@@ -120,8 +124,10 @@ public class BackendLogTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/log/error/$error_id<[0-9]+>", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
 
@@ -146,7 +152,7 @@ public class BackendLogTag extends TagAbstract {
         }
     }
 
-    public BackendLogErrorCollection getAllErrors(int startIndex, int count, String search) throws ClientException {
+    public BackendLogErrorCollection getAllErrors(Integer startIndex, Integer count, String search) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
@@ -155,8 +161,10 @@ public class BackendLogTag extends TagAbstract {
             queryParams.put("count", count);
             queryParams.put("search", search);
 
+            List<String> queryStructNames = new ArrayList<String>();
+
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/log/error", pathParams));
-            this.parser.query(builder, queryParams);
+            this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
 
