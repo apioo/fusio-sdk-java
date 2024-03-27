@@ -13,7 +13,7 @@ public class ConsumerToken {
     private Integer id;
     private Integer status;
     private String name;
-    private List<String> scope;
+    private List<String> scopes;
     private String ip;
     private LocalDateTime expire;
     private LocalDateTime date;
@@ -41,13 +41,13 @@ public class ConsumerToken {
     public String getName() {
         return this.name;
     }
-    @JsonSetter("scope")
-    public void setScope(List<String> scope) {
-        this.scope = scope;
+    @JsonSetter("scopes")
+    public void setScopes(List<String> scopes) {
+        this.scopes = scopes;
     }
-    @JsonGetter("scope")
-    public List<String> getScope() {
-        return this.scope;
+    @JsonGetter("scopes")
+    public List<String> getScopes() {
+        return this.scopes;
     }
     @JsonSetter("ip")
     public void setIp(String ip) {
