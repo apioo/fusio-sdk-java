@@ -11,7 +11,7 @@ import java.util.List;
 import java.time.LocalDateTime;
 public class ConsumerTokenCreate {
     private String name;
-    private List<String> scope;
+    private List<String> scopes;
     private LocalDateTime expire;
     @JsonSetter("name")
     public void setName(String name) {
@@ -21,13 +21,13 @@ public class ConsumerTokenCreate {
     public String getName() {
         return this.name;
     }
-    @JsonSetter("scope")
-    public void setScope(List<String> scope) {
-        this.scope = scope;
+    @JsonSetter("scopes")
+    public void setScopes(List<String> scopes) {
+        this.scopes = scopes;
     }
-    @JsonGetter("scope")
-    public List<String> getScope() {
-        return this.scope;
+    @JsonGetter("scopes")
+    public List<String> getScopes() {
+        return this.scopes;
     }
     @JsonSetter("expire")
     public void setExpire(LocalDateTime expire) {
