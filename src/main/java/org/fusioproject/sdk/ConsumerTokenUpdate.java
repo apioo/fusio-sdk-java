@@ -8,10 +8,10 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import java.util.List;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 public class ConsumerTokenUpdate {
     private String name;
-    private LocalDateTime expire;
+    private LocalDate expire;
     @JsonSetter("name")
     public void setName(String name) {
         this.name = name;
@@ -21,11 +21,11 @@ public class ConsumerTokenUpdate {
         return this.name;
     }
     @JsonSetter("expire")
-    public void setExpire(LocalDateTime expire) {
+    public void setExpire(LocalDate expire) {
         this.expire = expire;
     }
     @JsonGetter("expire")
-    public LocalDateTime getExpire() {
+    public LocalDate getExpire() {
         return this.expire;
     }
 }

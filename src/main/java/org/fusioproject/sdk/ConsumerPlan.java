@@ -14,6 +14,7 @@ public class ConsumerPlan {
     private String description;
     private Double price;
     private Integer points;
+    private Integer period;
     private CommonMetadata metadata;
     @JsonSetter("id")
     public void setId(Integer id) {
@@ -54,6 +55,14 @@ public class ConsumerPlan {
     @JsonGetter("points")
     public Integer getPoints() {
         return this.points;
+    }
+    @JsonSetter("period")
+    public void setPeriod(Integer period) {
+        this.period = period;
+    }
+    @JsonGetter("period")
+    public Integer getPeriod() {
+        return this.period;
     }
     @JsonSetter("metadata")
     public void setMetadata(CommonMetadata metadata) {
