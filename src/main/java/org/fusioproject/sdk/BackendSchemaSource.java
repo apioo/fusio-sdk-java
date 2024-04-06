@@ -7,8 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
-import java.util.List;
-import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Contains the TypeSchema specification

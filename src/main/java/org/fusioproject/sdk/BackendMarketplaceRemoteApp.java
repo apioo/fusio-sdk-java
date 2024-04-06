@@ -7,7 +7,6 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
-import java.util.List;
 public class BackendMarketplaceRemoteApp extends BackendMarketplaceApp {
     private BackendMarketplaceApp local;
     @JsonSetter("local")

@@ -7,8 +7,8 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
-import java.util.List;
 import java.time.Duration;
+import java.util.List;
 public class BackendRate {
     private Integer id;
     private Integer priority;

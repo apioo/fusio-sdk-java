@@ -7,9 +7,9 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
-import java.util.List;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 public class ConsumerToken {
     private Integer id;
     private Integer status;

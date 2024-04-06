@@ -7,8 +7,8 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
-import java.util.List;
 import java.time.LocalDateTime;
+import java.util.List;
 public class BackendToken {
     private Integer id;
     private Integer status;
