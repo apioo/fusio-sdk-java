@@ -57,6 +57,8 @@ public class BackendGeneratorTag extends TagAbstract {
             }
 
             switch (resp.code) {
+                case 400:
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 case 401:
                     throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 case 500:
@@ -94,6 +96,8 @@ public class BackendGeneratorTag extends TagAbstract {
             }
 
             switch (resp.code) {
+                case 400:
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 case 401:
                     throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 case 500:
@@ -129,6 +133,8 @@ public class BackendGeneratorTag extends TagAbstract {
             }
 
             switch (resp.code) {
+                case 400:
+                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 case 401:
                     throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
                 case 500:
