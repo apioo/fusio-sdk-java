@@ -102,12 +102,13 @@ public class ConsumerIdentityTag extends TagAbstract {
         }
     }
 
-    public ConsumerIdentityCollection getAll(Integer appId) throws ClientException {
+    public ConsumerIdentityCollection getAll(Integer appId, String appKey) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
             Map<String, Object> queryParams = new HashMap<>();
             queryParams.put("appId", appId);
+            queryParams.put("appKey", appKey);
 
             List<String> queryStructNames = new ArrayList<String>();
 
