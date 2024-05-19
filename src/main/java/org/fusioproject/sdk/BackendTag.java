@@ -202,6 +202,15 @@ public class BackendTag extends TagAbstract {
         );
     }
 
+    public BackendBackupTag backup()
+    {
+        return new BackendBackupTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
     public BackendEventTag event()
     {
         return new BackendEventTag(
