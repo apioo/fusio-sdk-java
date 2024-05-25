@@ -13,6 +13,7 @@ import app.sdkgen.client.Exception.ClientException;
 import app.sdkgen.client.Exception.UnknownStatusCodeException;
 import app.sdkgen.client.Parser;
 import app.sdkgen.client.TokenStoreInterface;
+import com.fasterxml.jackson.core.type.TypeReference;
 import org.apache.hc.client5.http.classic.methods.*;
 import org.apache.hc.core5.http.ContentType;
 import org.apache.hc.core5.http.io.entity.EntityUtils;
@@ -71,8 +72,8 @@ public class Client extends ClientAbstract {
 
 
 
-    public static Client build(String clientId, String clientSecret, TokenStoreInterface tokenStore, List<String> scopes) throws InvalidCredentialsException
+    public static Client build() throws InvalidCredentialsException
     {
-        return new Client("https://api.typehub.cloud/", new OAuth2(clientId, clientSecret, "https://api.typehub.cloud/authorization/token", "", tokenStore, scopes));
+        return new Client("https://api.sdkgen.app/", new Anonymous());
     }
 }
