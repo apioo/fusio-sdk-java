@@ -221,6 +221,15 @@ public class BackendTag extends TagAbstract {
         );
     }
 
+    public BackendDatabaseTag database()
+    {
+        return new BackendDatabaseTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
     public BackendDashboardTag dashboard()
     {
         return new BackendDashboardTag(
