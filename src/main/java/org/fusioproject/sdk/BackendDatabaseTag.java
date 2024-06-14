@@ -184,13 +184,21 @@ public class BackendDatabaseTag extends TagAbstract {
         }
     }
 
-    public BackendDatabaseRows getRows(String connectionId, String tableName) throws ClientException {
+    public BackendDatabaseRows getRows(String connectionId, String tableName, Integer startIndex, Integer count, String filterBy, String filterOp, String filterValue, String sortBy, String sortOrder, String columns) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
             pathParams.put("connection_id", connectionId);
             pathParams.put("table_name", tableName);
 
             Map<String, Object> queryParams = new HashMap<>();
+            queryParams.put("startIndex", startIndex);
+            queryParams.put("count", count);
+            queryParams.put("filterBy", filterBy);
+            queryParams.put("filterOp", filterOp);
+            queryParams.put("filterValue", filterValue);
+            queryParams.put("sortBy", sortBy);
+            queryParams.put("sortOrder", sortOrder);
+            queryParams.put("columns", columns);
 
             List<String> queryStructNames = new ArrayList<>();
 
