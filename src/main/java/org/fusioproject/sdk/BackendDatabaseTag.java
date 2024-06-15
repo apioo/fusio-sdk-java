@@ -58,7 +58,11 @@ public class BackendDatabaseTag extends TagAbstract {
             }
 
             switch (resp.code) {
+                case 400:
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 401:
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
+                case 404:
                     throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 500:
                     throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
@@ -97,7 +101,11 @@ public class BackendDatabaseTag extends TagAbstract {
             }
 
             switch (resp.code) {
+                case 400:
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 401:
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
+                case 404:
                     throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 500:
                     throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
@@ -135,7 +143,11 @@ public class BackendDatabaseTag extends TagAbstract {
             }
 
             switch (resp.code) {
+                case 400:
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 401:
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
+                case 404:
                     throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 500:
                     throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
@@ -173,6 +185,8 @@ public class BackendDatabaseTag extends TagAbstract {
 
             switch (resp.code) {
                 case 401:
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
+                case 404:
                     throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 500:
                     throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
@@ -218,6 +232,8 @@ public class BackendDatabaseTag extends TagAbstract {
             switch (resp.code) {
                 case 401:
                     throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
+                case 404:
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 500:
                     throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 default:
@@ -252,7 +268,11 @@ public class BackendDatabaseTag extends TagAbstract {
             }
 
             switch (resp.code) {
+                case 400:
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 401:
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
+                case 404:
                     throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 500:
                     throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
@@ -290,7 +310,11 @@ public class BackendDatabaseTag extends TagAbstract {
             }
 
             switch (resp.code) {
+                case 400:
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 401:
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
+                case 404:
                     throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 500:
                     throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
@@ -327,7 +351,11 @@ public class BackendDatabaseTag extends TagAbstract {
             }
 
             switch (resp.code) {
+                case 400:
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 401:
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
+                case 404:
                     throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 500:
                     throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
@@ -365,6 +393,8 @@ public class BackendDatabaseTag extends TagAbstract {
             switch (resp.code) {
                 case 401:
                     throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
+                case 404:
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 500:
                     throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 default:
@@ -399,6 +429,8 @@ public class BackendDatabaseTag extends TagAbstract {
 
             switch (resp.code) {
                 case 401:
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
+                case 404:
                     throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 500:
                     throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
