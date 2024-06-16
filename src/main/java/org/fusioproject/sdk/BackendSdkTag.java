@@ -33,7 +33,7 @@ public class BackendSdkTag extends TagAbstract {
     }
 
 
-    public CommonMessage generate(BackendSdkGenerate payload) throws ClientException {
+    public BackendSdkMessage generate(BackendSdkGenerate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
@@ -53,10 +53,12 @@ public class BackendSdkTag extends TagAbstract {
             });
 
             if (resp.code >= 200 && resp.code < 300) {
-                return this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){});
+                return this.parser.parse(resp.payload, new TypeReference<BackendSdkMessage>(){});
             }
 
             switch (resp.code) {
+                case 400:
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 401:
                     throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 500:
