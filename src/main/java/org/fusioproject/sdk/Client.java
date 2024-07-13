@@ -72,8 +72,8 @@ public class Client extends ClientAbstract {
 
 
 
-    public static Client build(String clientId, String clientSecret, TokenStoreInterface tokenStore, List<String> scopes) throws InvalidCredentialsException
+    public static Client build(String baseUrl) throws InvalidCredentialsException
     {
-        return new Client("http://127.0.0.1/", new OAuth2(clientId, clientSecret, "http://127.0.0.1/authorization/token", "", tokenStore, scopes));
+        return new Client(baseUrl, new Anonymous());
     }
 }
