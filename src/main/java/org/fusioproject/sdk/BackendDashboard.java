@@ -13,10 +13,10 @@ public class BackendDashboard {
     private BackendStatisticChart incomingTransactions;
     private BackendStatisticChart mostUsedOperations;
     private BackendStatisticChart timePerOperation;
+    private BackendStatisticChart testCoverage;
     private BackendDashboardApps latestApps;
     private BackendDashboardRequests latestRequests;
     private BackendDashboardUsers latestUsers;
-    private BackendDashboardTransactions latestTransactions;
     @JsonSetter("errorsPerOperation")
     public void setErrorsPerOperation(BackendStatisticChart errorsPerOperation) {
         this.errorsPerOperation = errorsPerOperation;
@@ -57,6 +57,14 @@ public class BackendDashboard {
     public BackendStatisticChart getTimePerOperation() {
         return this.timePerOperation;
     }
+    @JsonSetter("testCoverage")
+    public void setTestCoverage(BackendStatisticChart testCoverage) {
+        this.testCoverage = testCoverage;
+    }
+    @JsonGetter("testCoverage")
+    public BackendStatisticChart getTestCoverage() {
+        return this.testCoverage;
+    }
     @JsonSetter("latestApps")
     public void setLatestApps(BackendDashboardApps latestApps) {
         this.latestApps = latestApps;
@@ -80,13 +88,5 @@ public class BackendDashboard {
     @JsonGetter("latestUsers")
     public BackendDashboardUsers getLatestUsers() {
         return this.latestUsers;
-    }
-    @JsonSetter("latestTransactions")
-    public void setLatestTransactions(BackendDashboardTransactions latestTransactions) {
-        this.latestTransactions = latestTransactions;
-    }
-    @JsonGetter("latestTransactions")
-    public BackendDashboardTransactions getLatestTransactions() {
-        return this.latestTransactions;
     }
 }
