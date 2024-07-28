@@ -643,7 +643,7 @@ public class BackendStatisticTag extends TagAbstract {
         }
     }
 
-    public BackendStatisticCount getActivitiesPerUser(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
+    public BackendStatisticChart getActivitiesPerUser(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
@@ -675,7 +675,7 @@ public class BackendStatisticTag extends TagAbstract {
             });
 
             if (resp.code >= 200 && resp.code < 300) {
-                return this.parser.parse(resp.payload, new TypeReference<BackendStatisticCount>(){});
+                return this.parser.parse(resp.payload, new TypeReference<BackendStatisticChart>(){});
             }
 
             switch (resp.code) {
