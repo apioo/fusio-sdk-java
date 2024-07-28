@@ -14,9 +14,9 @@ public class BackendDashboard {
     private BackendStatisticChart mostUsedOperations;
     private BackendStatisticChart timePerOperation;
     private BackendStatisticChart testCoverage;
-    private BackendDashboardApps latestApps;
-    private BackendDashboardRequests latestRequests;
-    private BackendDashboardUsers latestUsers;
+    private BackendStatisticChart mostUsedActivities;
+    private BackendStatisticChart activitiesPerUser;
+    private BackendStatisticChart userRegistrations;
     @JsonSetter("errorsPerOperation")
     public void setErrorsPerOperation(BackendStatisticChart errorsPerOperation) {
         this.errorsPerOperation = errorsPerOperation;
@@ -65,28 +65,28 @@ public class BackendDashboard {
     public BackendStatisticChart getTestCoverage() {
         return this.testCoverage;
     }
-    @JsonSetter("latestApps")
-    public void setLatestApps(BackendDashboardApps latestApps) {
-        this.latestApps = latestApps;
+    @JsonSetter("mostUsedActivities")
+    public void setMostUsedActivities(BackendStatisticChart mostUsedActivities) {
+        this.mostUsedActivities = mostUsedActivities;
     }
-    @JsonGetter("latestApps")
-    public BackendDashboardApps getLatestApps() {
-        return this.latestApps;
+    @JsonGetter("mostUsedActivities")
+    public BackendStatisticChart getMostUsedActivities() {
+        return this.mostUsedActivities;
     }
-    @JsonSetter("latestRequests")
-    public void setLatestRequests(BackendDashboardRequests latestRequests) {
-        this.latestRequests = latestRequests;
+    @JsonSetter("activitiesPerUser")
+    public void setActivitiesPerUser(BackendStatisticChart activitiesPerUser) {
+        this.activitiesPerUser = activitiesPerUser;
     }
-    @JsonGetter("latestRequests")
-    public BackendDashboardRequests getLatestRequests() {
-        return this.latestRequests;
+    @JsonGetter("activitiesPerUser")
+    public BackendStatisticChart getActivitiesPerUser() {
+        return this.activitiesPerUser;
     }
-    @JsonSetter("latestUsers")
-    public void setLatestUsers(BackendDashboardUsers latestUsers) {
-        this.latestUsers = latestUsers;
+    @JsonSetter("userRegistrations")
+    public void setUserRegistrations(BackendStatisticChart userRegistrations) {
+        this.userRegistrations = userRegistrations;
     }
-    @JsonGetter("latestUsers")
-    public BackendDashboardUsers getLatestUsers() {
-        return this.latestUsers;
+    @JsonGetter("userRegistrations")
+    public BackendStatisticChart getUserRegistrations() {
+        return this.userRegistrations;
     }
 }
