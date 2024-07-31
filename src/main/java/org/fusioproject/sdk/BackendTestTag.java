@@ -33,7 +33,7 @@ public class BackendTestTag extends TagAbstract {
     }
 
 
-    public CommonMessage update(String testId, BackendTestConfig payload) throws ClientException {
+    public CommonMessage update(String testId, BackendTest payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
             pathParams.put("test_id", testId);
