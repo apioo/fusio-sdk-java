@@ -9,6 +9,7 @@ import app.sdkgen.client.Exception.ClientException;
 import app.sdkgen.client.Exception.UnknownStatusCodeException;
 import app.sdkgen.client.Parser;
 import app.sdkgen.client.TagAbstract;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.hc.client5.http.classic.HttpClient;
 import org.apache.hc.client5.http.classic.methods.*;
@@ -39,7 +40,7 @@ public class BackendAuditTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
-            List<String> queryStructNames = new ArrayList<String>();
+            List<String> queryStructNames = new ArrayList<>();
 
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/audit/$audit_id<[0-9]+>", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
@@ -51,18 +52,18 @@ public class BackendAuditTag extends TagAbstract {
             });
 
             if (resp.code >= 200 && resp.code < 300) {
-                return this.parser.parse(resp.payload, BackendAudit.class);
+                return this.parser.parse(resp.payload, new TypeReference<BackendAudit>(){});
             }
 
             switch (resp.code) {
                 case 401:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 404:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 410:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 500:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -87,7 +88,7 @@ public class BackendAuditTag extends TagAbstract {
             queryParams.put("ip", ip);
             queryParams.put("message", message);
 
-            List<String> queryStructNames = new ArrayList<String>();
+            List<String> queryStructNames = new ArrayList<>();
 
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/audit", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
@@ -99,14 +100,14 @@ public class BackendAuditTag extends TagAbstract {
             });
 
             if (resp.code >= 200 && resp.code < 300) {
-                return this.parser.parse(resp.payload, BackendAuditCollection.class);
+                return this.parser.parse(resp.payload, new TypeReference<BackendAuditCollection>(){});
             }
 
             switch (resp.code) {
                 case 401:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 500:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }

@@ -9,6 +9,7 @@ import app.sdkgen.client.Exception.ClientException;
 import app.sdkgen.client.Exception.UnknownStatusCodeException;
 import app.sdkgen.client.Parser;
 import app.sdkgen.client.TagAbstract;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.hc.client5.http.classic.HttpClient;
 import org.apache.hc.client5.http.classic.methods.*;
@@ -40,7 +41,7 @@ public class BackendConnectionTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
-            List<String> queryStructNames = new ArrayList<String>();
+            List<String> queryStructNames = new ArrayList<>();
 
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/connection/$connection_id<[0-9]+|^~>/introspection/:entity", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
@@ -52,16 +53,16 @@ public class BackendConnectionTag extends TagAbstract {
             });
 
             if (resp.code >= 200 && resp.code < 300) {
-                return this.parser.parse(resp.payload, BackendConnectionIntrospectionEntity.class);
+                return this.parser.parse(resp.payload, new TypeReference<BackendConnectionIntrospectionEntity>(){});
             }
 
             switch (resp.code) {
                 case 401:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 404:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 500:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -77,7 +78,7 @@ public class BackendConnectionTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
-            List<String> queryStructNames = new ArrayList<String>();
+            List<String> queryStructNames = new ArrayList<>();
 
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/connection/$connection_id<[0-9]+|^~>/introspection", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
@@ -89,16 +90,16 @@ public class BackendConnectionTag extends TagAbstract {
             });
 
             if (resp.code >= 200 && resp.code < 300) {
-                return this.parser.parse(resp.payload, BackendConnectionIntrospectionEntities.class);
+                return this.parser.parse(resp.payload, new TypeReference<BackendConnectionIntrospectionEntities>(){});
             }
 
             switch (resp.code) {
                 case 401:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 404:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 500:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -107,14 +108,14 @@ public class BackendConnectionTag extends TagAbstract {
         }
     }
 
-    public CommonMessage getRedirect(String connectionId) throws ClientException {
+    public BackendConnectionRedirectResponse getRedirect(String connectionId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
             pathParams.put("connection_id", connectionId);
 
             Map<String, Object> queryParams = new HashMap<>();
 
-            List<String> queryStructNames = new ArrayList<String>();
+            List<String> queryStructNames = new ArrayList<>();
 
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/connection/$connection_id<[0-9]+|^~>/redirect", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
@@ -126,14 +127,14 @@ public class BackendConnectionTag extends TagAbstract {
             });
 
             if (resp.code >= 200 && resp.code < 300) {
-                return this.parser.parse(resp.payload, CommonMessage.class);
+                return this.parser.parse(resp.payload, new TypeReference<BackendConnectionRedirectResponse>(){});
             }
 
             switch (resp.code) {
                 case 401:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 500:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -149,7 +150,7 @@ public class BackendConnectionTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
-            List<String> queryStructNames = new ArrayList<String>();
+            List<String> queryStructNames = new ArrayList<>();
 
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/connection/$connection_id<[0-9]+|^~>", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
@@ -161,18 +162,18 @@ public class BackendConnectionTag extends TagAbstract {
             });
 
             if (resp.code >= 200 && resp.code < 300) {
-                return this.parser.parse(resp.payload, CommonMessage.class);
+                return this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){});
             }
 
             switch (resp.code) {
                 case 401:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 404:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 410:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 500:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -188,7 +189,7 @@ public class BackendConnectionTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
-            List<String> queryStructNames = new ArrayList<String>();
+            List<String> queryStructNames = new ArrayList<>();
 
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/connection/$connection_id<[0-9]+|^~>", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
@@ -202,20 +203,20 @@ public class BackendConnectionTag extends TagAbstract {
             });
 
             if (resp.code >= 200 && resp.code < 300) {
-                return this.parser.parse(resp.payload, CommonMessage.class);
+                return this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){});
             }
 
             switch (resp.code) {
                 case 400:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 401:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 404:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 410:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 500:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -231,7 +232,7 @@ public class BackendConnectionTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
-            List<String> queryStructNames = new ArrayList<String>();
+            List<String> queryStructNames = new ArrayList<>();
 
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/connection/$connection_id<[0-9]+|^~>", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
@@ -243,18 +244,18 @@ public class BackendConnectionTag extends TagAbstract {
             });
 
             if (resp.code >= 200 && resp.code < 300) {
-                return this.parser.parse(resp.payload, BackendConnection.class);
+                return this.parser.parse(resp.payload, new TypeReference<BackendConnection>(){});
             }
 
             switch (resp.code) {
                 case 404:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 401:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 410:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 500:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -270,7 +271,7 @@ public class BackendConnectionTag extends TagAbstract {
             Map<String, Object> queryParams = new HashMap<>();
             queryParams.put("class", _class);
 
-            List<String> queryStructNames = new ArrayList<String>();
+            List<String> queryStructNames = new ArrayList<>();
 
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/connection/form", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
@@ -282,14 +283,14 @@ public class BackendConnectionTag extends TagAbstract {
             });
 
             if (resp.code >= 200 && resp.code < 300) {
-                return this.parser.parse(resp.payload, CommonFormContainer.class);
+                return this.parser.parse(resp.payload, new TypeReference<CommonFormContainer>(){});
             }
 
             switch (resp.code) {
                 case 401:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 500:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -304,7 +305,7 @@ public class BackendConnectionTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
-            List<String> queryStructNames = new ArrayList<String>();
+            List<String> queryStructNames = new ArrayList<>();
 
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/connection/list", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
@@ -316,14 +317,14 @@ public class BackendConnectionTag extends TagAbstract {
             });
 
             if (resp.code >= 200 && resp.code < 300) {
-                return this.parser.parse(resp.payload, BackendConnectionIndex.class);
+                return this.parser.parse(resp.payload, new TypeReference<BackendConnectionIndex>(){});
             }
 
             switch (resp.code) {
                 case 401:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 500:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -338,7 +339,7 @@ public class BackendConnectionTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
-            List<String> queryStructNames = new ArrayList<String>();
+            List<String> queryStructNames = new ArrayList<>();
 
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/connection", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
@@ -352,16 +353,16 @@ public class BackendConnectionTag extends TagAbstract {
             });
 
             if (resp.code >= 200 && resp.code < 300) {
-                return this.parser.parse(resp.payload, CommonMessage.class);
+                return this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){});
             }
 
             switch (resp.code) {
                 case 400:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 401:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 500:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -379,7 +380,7 @@ public class BackendConnectionTag extends TagAbstract {
             queryParams.put("count", count);
             queryParams.put("search", search);
 
-            List<String> queryStructNames = new ArrayList<String>();
+            List<String> queryStructNames = new ArrayList<>();
 
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/connection", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
@@ -391,14 +392,14 @@ public class BackendConnectionTag extends TagAbstract {
             });
 
             if (resp.code >= 200 && resp.code < 300) {
-                return this.parser.parse(resp.payload, BackendConnectionCollection.class);
+                return this.parser.parse(resp.payload, new TypeReference<BackendConnectionCollection>(){});
             }
 
             switch (resp.code) {
                 case 401:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 500:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }

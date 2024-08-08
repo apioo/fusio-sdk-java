@@ -9,6 +9,7 @@ import app.sdkgen.client.Exception.ClientException;
 import app.sdkgen.client.Exception.UnknownStatusCodeException;
 import app.sdkgen.client.Parser;
 import app.sdkgen.client.TagAbstract;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.hc.client5.http.classic.HttpClient;
 import org.apache.hc.client5.http.classic.methods.*;
@@ -39,7 +40,7 @@ public class SystemMetaTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
-            List<String> queryStructNames = new ArrayList<String>();
+            List<String> queryStructNames = new ArrayList<>();
 
             URIBuilder builder = new URIBuilder(this.parser.url("/system/schema/:name", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
@@ -51,16 +52,16 @@ public class SystemMetaTag extends TagAbstract {
             });
 
             if (resp.code >= 200 && resp.code < 300) {
-                return this.parser.parse(resp.payload, SystemSchema.class);
+                return this.parser.parse(resp.payload, new TypeReference<SystemSchema>(){});
             }
 
             switch (resp.code) {
                 case 404:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 410:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 500:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -75,7 +76,7 @@ public class SystemMetaTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
-            List<String> queryStructNames = new ArrayList<String>();
+            List<String> queryStructNames = new ArrayList<>();
 
             URIBuilder builder = new URIBuilder(this.parser.url("/system/route", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
@@ -87,7 +88,7 @@ public class SystemMetaTag extends TagAbstract {
             });
 
             if (resp.code >= 200 && resp.code < 300) {
-                return this.parser.parse(resp.payload, SystemRoute.class);
+                return this.parser.parse(resp.payload, new TypeReference<SystemRoute>(){});
             }
 
             switch (resp.code) {
@@ -105,7 +106,7 @@ public class SystemMetaTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
-            List<String> queryStructNames = new ArrayList<String>();
+            List<String> queryStructNames = new ArrayList<>();
 
             URIBuilder builder = new URIBuilder(this.parser.url("/system/oauth-authorization-server", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
@@ -117,7 +118,7 @@ public class SystemMetaTag extends TagAbstract {
             });
 
             if (resp.code >= 200 && resp.code < 300) {
-                return this.parser.parse(resp.payload, SystemOAuthConfiguration.class);
+                return this.parser.parse(resp.payload, new TypeReference<SystemOAuthConfiguration>(){});
             }
 
             switch (resp.code) {
@@ -135,7 +136,7 @@ public class SystemMetaTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
-            List<String> queryStructNames = new ArrayList<String>();
+            List<String> queryStructNames = new ArrayList<>();
 
             URIBuilder builder = new URIBuilder(this.parser.url("/system/health", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
@@ -147,7 +148,7 @@ public class SystemMetaTag extends TagAbstract {
             });
 
             if (resp.code >= 200 && resp.code < 300) {
-                return this.parser.parse(resp.payload, SystemHealthCheck.class);
+                return this.parser.parse(resp.payload, new TypeReference<SystemHealthCheck>(){});
             }
 
             switch (resp.code) {
@@ -165,7 +166,7 @@ public class SystemMetaTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
-            List<String> queryStructNames = new ArrayList<String>();
+            List<String> queryStructNames = new ArrayList<>();
 
             URIBuilder builder = new URIBuilder(this.parser.url("/system/debug", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
@@ -179,7 +180,7 @@ public class SystemMetaTag extends TagAbstract {
             });
 
             if (resp.code >= 200 && resp.code < 300) {
-                return this.parser.parse(resp.payload, Passthru.class);
+                return this.parser.parse(resp.payload, new TypeReference<Passthru>(){});
             }
 
             switch (resp.code) {
@@ -197,7 +198,7 @@ public class SystemMetaTag extends TagAbstract {
 
             Map<String, Object> queryParams = new HashMap<>();
 
-            List<String> queryStructNames = new ArrayList<String>();
+            List<String> queryStructNames = new ArrayList<>();
 
             URIBuilder builder = new URIBuilder(this.parser.url("/system/about", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
@@ -209,7 +210,7 @@ public class SystemMetaTag extends TagAbstract {
             });
 
             if (resp.code >= 200 && resp.code < 300) {
-                return this.parser.parse(resp.payload, SystemAbout.class);
+                return this.parser.parse(resp.payload, new TypeReference<SystemAbout>(){});
             }
 
             switch (resp.code) {

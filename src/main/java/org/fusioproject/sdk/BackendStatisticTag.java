@@ -9,6 +9,7 @@ import app.sdkgen.client.Exception.ClientException;
 import app.sdkgen.client.Exception.UnknownStatusCodeException;
 import app.sdkgen.client.Parser;
 import app.sdkgen.client.TagAbstract;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.hc.client5.http.classic.HttpClient;
 import org.apache.hc.client5.http.classic.methods.*;
@@ -32,6 +33,54 @@ public class BackendStatisticTag extends TagAbstract {
     }
 
 
+    public BackendStatisticChart getUserRegistrations(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
+        try {
+            Map<String, Object> pathParams = new HashMap<>();
+
+            Map<String, Object> queryParams = new HashMap<>();
+            queryParams.put("startIndex", startIndex);
+            queryParams.put("count", count);
+            queryParams.put("search", search);
+            queryParams.put("from", from);
+            queryParams.put("to", to);
+            queryParams.put("operationId", operationId);
+            queryParams.put("appId", appId);
+            queryParams.put("userId", userId);
+            queryParams.put("ip", ip);
+            queryParams.put("userAgent", userAgent);
+            queryParams.put("method", method);
+            queryParams.put("path", path);
+            queryParams.put("header", header);
+            queryParams.put("body", body);
+
+            List<String> queryStructNames = new ArrayList<>();
+
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/user_registrations", pathParams));
+            this.parser.query(builder, queryParams, queryStructNames);
+
+            HttpGet request = new HttpGet(builder.build());
+
+            final Parser.HttpReturn resp = this.httpClient.execute(request, response -> {
+                return this.parser.handle(response.getCode(), EntityUtils.toString(response.getEntity()));
+            });
+
+            if (resp.code >= 200 && resp.code < 300) {
+                return this.parser.parse(resp.payload, new TypeReference<BackendStatisticChart>(){});
+            }
+
+            switch (resp.code) {
+                case 401:
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
+                case 500:
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
+                default:
+                    throw new UnknownStatusCodeException("The server returned an unknown status code");
+            }
+        } catch (URISyntaxException | IOException e) {
+            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
+        }
+    }
+
     public BackendStatisticChart getUsedPoints(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -52,7 +101,7 @@ public class BackendStatisticTag extends TagAbstract {
             queryParams.put("header", header);
             queryParams.put("body", body);
 
-            List<String> queryStructNames = new ArrayList<String>();
+            List<String> queryStructNames = new ArrayList<>();
 
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/used_points", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
@@ -64,14 +113,14 @@ public class BackendStatisticTag extends TagAbstract {
             });
 
             if (resp.code >= 200 && resp.code < 300) {
-                return this.parser.parse(resp.payload, BackendStatisticChart.class);
+                return this.parser.parse(resp.payload, new TypeReference<BackendStatisticChart>(){});
             }
 
             switch (resp.code) {
                 case 401:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 500:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -100,7 +149,7 @@ public class BackendStatisticTag extends TagAbstract {
             queryParams.put("header", header);
             queryParams.put("body", body);
 
-            List<String> queryStructNames = new ArrayList<String>();
+            List<String> queryStructNames = new ArrayList<>();
 
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/time_per_operation", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
@@ -112,14 +161,14 @@ public class BackendStatisticTag extends TagAbstract {
             });
 
             if (resp.code >= 200 && resp.code < 300) {
-                return this.parser.parse(resp.payload, BackendStatisticChart.class);
+                return this.parser.parse(resp.payload, new TypeReference<BackendStatisticChart>(){});
             }
 
             switch (resp.code) {
                 case 401:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 500:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -148,7 +197,7 @@ public class BackendStatisticTag extends TagAbstract {
             queryParams.put("header", header);
             queryParams.put("body", body);
 
-            List<String> queryStructNames = new ArrayList<String>();
+            List<String> queryStructNames = new ArrayList<>();
 
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/time_average", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
@@ -160,14 +209,48 @@ public class BackendStatisticTag extends TagAbstract {
             });
 
             if (resp.code >= 200 && resp.code < 300) {
-                return this.parser.parse(resp.payload, BackendStatisticChart.class);
+                return this.parser.parse(resp.payload, new TypeReference<BackendStatisticChart>(){});
             }
 
             switch (resp.code) {
                 case 401:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 500:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
+                default:
+                    throw new UnknownStatusCodeException("The server returned an unknown status code");
+            }
+        } catch (URISyntaxException | IOException e) {
+            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
+        }
+    }
+
+    public BackendStatisticChart getTestCoverage() throws ClientException {
+        try {
+            Map<String, Object> pathParams = new HashMap<>();
+
+            Map<String, Object> queryParams = new HashMap<>();
+
+            List<String> queryStructNames = new ArrayList<>();
+
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/test_coverage", pathParams));
+            this.parser.query(builder, queryParams, queryStructNames);
+
+            HttpGet request = new HttpGet(builder.build());
+
+            final Parser.HttpReturn resp = this.httpClient.execute(request, response -> {
+                return this.parser.handle(response.getCode(), EntityUtils.toString(response.getEntity()));
+            });
+
+            if (resp.code >= 200 && resp.code < 300) {
+                return this.parser.parse(resp.payload, new TypeReference<BackendStatisticChart>(){});
+            }
+
+            switch (resp.code) {
+                case 401:
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
+                case 500:
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -196,7 +279,7 @@ public class BackendStatisticTag extends TagAbstract {
             queryParams.put("header", header);
             queryParams.put("body", body);
 
-            List<String> queryStructNames = new ArrayList<String>();
+            List<String> queryStructNames = new ArrayList<>();
 
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/most_used_operations", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
@@ -208,14 +291,14 @@ public class BackendStatisticTag extends TagAbstract {
             });
 
             if (resp.code >= 200 && resp.code < 300) {
-                return this.parser.parse(resp.payload, BackendStatisticChart.class);
+                return this.parser.parse(resp.payload, new TypeReference<BackendStatisticChart>(){});
             }
 
             switch (resp.code) {
                 case 401:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 500:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -244,7 +327,7 @@ public class BackendStatisticTag extends TagAbstract {
             queryParams.put("header", header);
             queryParams.put("body", body);
 
-            List<String> queryStructNames = new ArrayList<String>();
+            List<String> queryStructNames = new ArrayList<>();
 
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/most_used_apps", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
@@ -256,14 +339,62 @@ public class BackendStatisticTag extends TagAbstract {
             });
 
             if (resp.code >= 200 && resp.code < 300) {
-                return this.parser.parse(resp.payload, BackendStatisticChart.class);
+                return this.parser.parse(resp.payload, new TypeReference<BackendStatisticChart>(){});
             }
 
             switch (resp.code) {
                 case 401:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 500:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
+                default:
+                    throw new UnknownStatusCodeException("The server returned an unknown status code");
+            }
+        } catch (URISyntaxException | IOException e) {
+            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
+        }
+    }
+
+    public BackendStatisticChart getMostUsedActivities(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
+        try {
+            Map<String, Object> pathParams = new HashMap<>();
+
+            Map<String, Object> queryParams = new HashMap<>();
+            queryParams.put("startIndex", startIndex);
+            queryParams.put("count", count);
+            queryParams.put("search", search);
+            queryParams.put("from", from);
+            queryParams.put("to", to);
+            queryParams.put("operationId", operationId);
+            queryParams.put("appId", appId);
+            queryParams.put("userId", userId);
+            queryParams.put("ip", ip);
+            queryParams.put("userAgent", userAgent);
+            queryParams.put("method", method);
+            queryParams.put("path", path);
+            queryParams.put("header", header);
+            queryParams.put("body", body);
+
+            List<String> queryStructNames = new ArrayList<>();
+
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/most_used_activities", pathParams));
+            this.parser.query(builder, queryParams, queryStructNames);
+
+            HttpGet request = new HttpGet(builder.build());
+
+            final Parser.HttpReturn resp = this.httpClient.execute(request, response -> {
+                return this.parser.handle(response.getCode(), EntityUtils.toString(response.getEntity()));
+            });
+
+            if (resp.code >= 200 && resp.code < 300) {
+                return this.parser.parse(resp.payload, new TypeReference<BackendStatisticChart>(){});
+            }
+
+            switch (resp.code) {
+                case 401:
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
+                case 500:
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -292,7 +423,7 @@ public class BackendStatisticTag extends TagAbstract {
             queryParams.put("header", header);
             queryParams.put("body", body);
 
-            List<String> queryStructNames = new ArrayList<String>();
+            List<String> queryStructNames = new ArrayList<>();
 
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/issued_tokens", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
@@ -304,14 +435,14 @@ public class BackendStatisticTag extends TagAbstract {
             });
 
             if (resp.code >= 200 && resp.code < 300) {
-                return this.parser.parse(resp.payload, BackendStatisticChart.class);
+                return this.parser.parse(resp.payload, new TypeReference<BackendStatisticChart>(){});
             }
 
             switch (resp.code) {
                 case 401:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 500:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -340,7 +471,7 @@ public class BackendStatisticTag extends TagAbstract {
             queryParams.put("header", header);
             queryParams.put("body", body);
 
-            List<String> queryStructNames = new ArrayList<String>();
+            List<String> queryStructNames = new ArrayList<>();
 
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/incoming_transactions", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
@@ -352,14 +483,14 @@ public class BackendStatisticTag extends TagAbstract {
             });
 
             if (resp.code >= 200 && resp.code < 300) {
-                return this.parser.parse(resp.payload, BackendStatisticChart.class);
+                return this.parser.parse(resp.payload, new TypeReference<BackendStatisticChart>(){});
             }
 
             switch (resp.code) {
                 case 401:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 500:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -388,7 +519,7 @@ public class BackendStatisticTag extends TagAbstract {
             queryParams.put("header", header);
             queryParams.put("body", body);
 
-            List<String> queryStructNames = new ArrayList<String>();
+            List<String> queryStructNames = new ArrayList<>();
 
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/incoming_requests", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
@@ -400,14 +531,14 @@ public class BackendStatisticTag extends TagAbstract {
             });
 
             if (resp.code >= 200 && resp.code < 300) {
-                return this.parser.parse(resp.payload, BackendStatisticChart.class);
+                return this.parser.parse(resp.payload, new TypeReference<BackendStatisticChart>(){});
             }
 
             switch (resp.code) {
                 case 401:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 500:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -436,7 +567,7 @@ public class BackendStatisticTag extends TagAbstract {
             queryParams.put("header", header);
             queryParams.put("body", body);
 
-            List<String> queryStructNames = new ArrayList<String>();
+            List<String> queryStructNames = new ArrayList<>();
 
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/errors_per_operation", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
@@ -448,14 +579,14 @@ public class BackendStatisticTag extends TagAbstract {
             });
 
             if (resp.code >= 200 && resp.code < 300) {
-                return this.parser.parse(resp.payload, BackendStatisticChart.class);
+                return this.parser.parse(resp.payload, new TypeReference<BackendStatisticChart>(){});
             }
 
             switch (resp.code) {
                 case 401:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 500:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }
@@ -484,7 +615,7 @@ public class BackendStatisticTag extends TagAbstract {
             queryParams.put("header", header);
             queryParams.put("body", body);
 
-            List<String> queryStructNames = new ArrayList<String>();
+            List<String> queryStructNames = new ArrayList<>();
 
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/count_requests", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
@@ -496,14 +627,62 @@ public class BackendStatisticTag extends TagAbstract {
             });
 
             if (resp.code >= 200 && resp.code < 300) {
-                return this.parser.parse(resp.payload, BackendStatisticCount.class);
+                return this.parser.parse(resp.payload, new TypeReference<BackendStatisticCount>(){});
             }
 
             switch (resp.code) {
                 case 401:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 case 500:
-                    throw new CommonMessageException(this.parser.parse(resp.payload, CommonMessage.class));
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
+                default:
+                    throw new UnknownStatusCodeException("The server returned an unknown status code");
+            }
+        } catch (URISyntaxException | IOException e) {
+            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
+        }
+    }
+
+    public BackendStatisticChart getActivitiesPerUser(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
+        try {
+            Map<String, Object> pathParams = new HashMap<>();
+
+            Map<String, Object> queryParams = new HashMap<>();
+            queryParams.put("startIndex", startIndex);
+            queryParams.put("count", count);
+            queryParams.put("search", search);
+            queryParams.put("from", from);
+            queryParams.put("to", to);
+            queryParams.put("operationId", operationId);
+            queryParams.put("appId", appId);
+            queryParams.put("userId", userId);
+            queryParams.put("ip", ip);
+            queryParams.put("userAgent", userAgent);
+            queryParams.put("method", method);
+            queryParams.put("path", path);
+            queryParams.put("header", header);
+            queryParams.put("body", body);
+
+            List<String> queryStructNames = new ArrayList<>();
+
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/activities_per_user", pathParams));
+            this.parser.query(builder, queryParams, queryStructNames);
+
+            HttpGet request = new HttpGet(builder.build());
+
+            final Parser.HttpReturn resp = this.httpClient.execute(request, response -> {
+                return this.parser.handle(response.getCode(), EntityUtils.toString(response.getEntity()));
+            });
+
+            if (resp.code >= 200 && resp.code < 300) {
+                return this.parser.parse(resp.payload, new TypeReference<BackendStatisticChart>(){});
+            }
+
+            switch (resp.code) {
+                case 401:
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
+                case 500:
+                    throw new CommonMessageException(this.parser.parse(resp.payload, new TypeReference<CommonMessage>(){}));
                 default:
                     throw new UnknownStatusCodeException("The server returned an unknown status code");
             }

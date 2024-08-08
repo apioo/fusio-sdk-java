@@ -11,6 +11,7 @@ public class BackendConnection {
     private Integer id;
     private String name;
     private String _class;
+    private Boolean oauth;
     private BackendConnectionConfig config;
     private CommonMetadata metadata;
     @JsonSetter("id")
@@ -36,6 +37,14 @@ public class BackendConnection {
     @JsonGetter("class")
     public String get_Class() {
         return this._class;
+    }
+    @JsonSetter("oauth2")
+    public void setOauth(Boolean oauth) {
+        this.oauth = oauth;
+    }
+    @JsonGetter("oauth2")
+    public Boolean getOauth() {
+        return this.oauth;
     }
     @JsonSetter("config")
     public void setConfig(BackendConnectionConfig config) {

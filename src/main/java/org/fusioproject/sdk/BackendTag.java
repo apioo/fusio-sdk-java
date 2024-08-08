@@ -9,6 +9,7 @@ import app.sdkgen.client.Exception.ClientException;
 import app.sdkgen.client.Exception.UnknownStatusCodeException;
 import app.sdkgen.client.Parser;
 import app.sdkgen.client.TagAbstract;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.hc.client5.http.classic.HttpClient;
 import org.apache.hc.client5.http.classic.methods.*;
@@ -70,6 +71,15 @@ public class BackendTag extends TagAbstract {
     public BackendTokenTag token()
     {
         return new BackendTokenTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
+    public BackendTestTag test()
+    {
+        return new BackendTestTag(
             this.httpClient,
             this.objectMapper,
             this.parser
@@ -214,6 +224,15 @@ public class BackendTag extends TagAbstract {
     public BackendEventTag event()
     {
         return new BackendEventTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
+    public BackendDatabaseTag database()
+    {
+        return new BackendDatabaseTag(
             this.httpClient,
             this.objectMapper,
             this.parser
