@@ -7,41 +7,51 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+
 public class ConsumerWebhookResponse {
     private Integer status;
     private Integer code;
     private String attempts;
     private String executeDate;
+
     @JsonSetter("status")
     public void setStatus(Integer status) {
         this.status = status;
     }
+
     @JsonGetter("status")
     public Integer getStatus() {
         return this.status;
     }
+
     @JsonSetter("code")
     public void setCode(Integer code) {
         this.code = code;
     }
+
     @JsonGetter("code")
     public Integer getCode() {
         return this.code;
     }
+
     @JsonSetter("attempts")
     public void setAttempts(String attempts) {
         this.attempts = attempts;
     }
+
     @JsonGetter("attempts")
     public String getAttempts() {
         return this.attempts;
     }
+
     @JsonSetter("executeDate")
     public void setExecuteDate(String executeDate) {
         this.executeDate = executeDate;
     }
+
     @JsonGetter("executeDate")
     public String getExecuteDate() {
         return this.executeDate;
     }
 }
+

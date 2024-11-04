@@ -7,23 +7,29 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+
 public class SystemHealthCheck {
     private Boolean healthy;
     private String error;
+
     @JsonSetter("healthy")
     public void setHealthy(Boolean healthy) {
         this.healthy = healthy;
     }
+
     @JsonGetter("healthy")
     public Boolean getHealthy() {
         return this.healthy;
     }
+
     @JsonSetter("error")
     public void setError(String error) {
         this.error = error;
     }
+
     @JsonGetter("error")
     public String getError() {
         return this.error;
     }
 }
+

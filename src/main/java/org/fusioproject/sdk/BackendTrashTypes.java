@@ -7,15 +7,18 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
-import java.util.List;
+
 public class BackendTrashTypes {
-    private List<String> types;
+    private java.util.List<String> types;
+
     @JsonSetter("types")
-    public void setTypes(List<String> types) {
+    public void setTypes(java.util.List<String> types) {
         this.types = types;
     }
+
     @JsonGetter("types")
-    public List<String> getTypes() {
+    public java.util.List<String> getTypes() {
         return this.types;
     }
 }
+

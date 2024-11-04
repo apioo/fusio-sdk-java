@@ -7,15 +7,18 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
-import java.util.List;
+
 public class BackendActionIndex {
-    private List<BackendActionIndexEntry> actions;
+    private java.util.List<BackendActionIndexEntry> actions;
+
     @JsonSetter("actions")
-    public void setActions(List<BackendActionIndexEntry> actions) {
+    public void setActions(java.util.List<BackendActionIndexEntry> actions) {
         this.actions = actions;
     }
+
     @JsonGetter("actions")
-    public List<BackendActionIndexEntry> getActions() {
+    public java.util.List<BackendActionIndexEntry> getActions() {
         return this.actions;
     }
 }
+

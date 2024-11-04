@@ -7,60 +7,73 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
-import java.util.List;
+
 public class ConsumerWebhook {
     private Integer id;
     private Integer status;
     private String event;
     private String name;
     private String endpoint;
-    private List<ConsumerWebhookResponse> responses;
+    private java.util.List<ConsumerWebhookResponse> responses;
+
     @JsonSetter("id")
     public void setId(Integer id) {
         this.id = id;
     }
+
     @JsonGetter("id")
     public Integer getId() {
         return this.id;
     }
+
     @JsonSetter("status")
     public void setStatus(Integer status) {
         this.status = status;
     }
+
     @JsonGetter("status")
     public Integer getStatus() {
         return this.status;
     }
+
     @JsonSetter("event")
     public void setEvent(String event) {
         this.event = event;
     }
+
     @JsonGetter("event")
     public String getEvent() {
         return this.event;
     }
+
     @JsonSetter("name")
     public void setName(String name) {
         this.name = name;
     }
+
     @JsonGetter("name")
     public String getName() {
         return this.name;
     }
+
     @JsonSetter("endpoint")
     public void setEndpoint(String endpoint) {
         this.endpoint = endpoint;
     }
+
     @JsonGetter("endpoint")
     public String getEndpoint() {
         return this.endpoint;
     }
+
     @JsonSetter("responses")
-    public void setResponses(List<ConsumerWebhookResponse> responses) {
+    public void setResponses(java.util.List<ConsumerWebhookResponse> responses) {
         this.responses = responses;
     }
+
     @JsonGetter("responses")
-    public List<ConsumerWebhookResponse> getResponses() {
+    public java.util.List<ConsumerWebhookResponse> getResponses() {
         return this.responses;
     }
 }
+

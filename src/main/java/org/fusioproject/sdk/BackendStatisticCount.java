@@ -7,33 +7,40 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
-import java.time.LocalDateTime;
+
 public class BackendStatisticCount {
     private Integer count;
-    private LocalDateTime from;
-    private LocalDateTime to;
+    private java.time.LocalDateTime from;
+    private java.time.LocalDateTime to;
+
     @JsonSetter("count")
     public void setCount(Integer count) {
         this.count = count;
     }
+
     @JsonGetter("count")
     public Integer getCount() {
         return this.count;
     }
+
     @JsonSetter("from")
-    public void setFrom(LocalDateTime from) {
+    public void setFrom(java.time.LocalDateTime from) {
         this.from = from;
     }
+
     @JsonGetter("from")
-    public LocalDateTime getFrom() {
+    public java.time.LocalDateTime getFrom() {
         return this.from;
     }
+
     @JsonSetter("to")
-    public void setTo(LocalDateTime to) {
+    public void setTo(java.time.LocalDateTime to) {
         this.to = to;
     }
+
     @JsonGetter("to")
-    public LocalDateTime getTo() {
+    public java.time.LocalDateTime getTo() {
         return this.to;
     }
 }
+

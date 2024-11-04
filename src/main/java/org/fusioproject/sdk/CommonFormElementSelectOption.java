@@ -7,23 +7,29 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+
 public class CommonFormElementSelectOption {
     private String key;
     private String value;
+
     @JsonSetter("key")
     public void setKey(String key) {
         this.key = key;
     }
+
     @JsonGetter("key")
     public String getKey() {
         return this.key;
     }
+
     @JsonSetter("value")
     public void setValue(String value) {
         this.value = value;
     }
+
     @JsonGetter("value")
     public String getValue() {
         return this.value;
     }
 }
+

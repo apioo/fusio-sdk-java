@@ -7,15 +7,18 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
-import java.util.List;
+
 public class BackendDatabaseTables {
-    private List<String> tables;
+    private java.util.List<String> tables;
+
     @JsonSetter("tables")
-    public void setTables(List<String> tables) {
+    public void setTables(java.util.List<String> tables) {
         this.tables = tables;
     }
+
     @JsonGetter("tables")
-    public List<String> getTables() {
+    public java.util.List<String> getTables() {
         return this.tables;
     }
 }
+

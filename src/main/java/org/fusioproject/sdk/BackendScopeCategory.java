@@ -7,33 +7,40 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
-import java.util.List;
+
 public class BackendScopeCategory {
     private Integer id;
     private String name;
-    private List<BackendScopeCategoryScope> scopes;
+    private java.util.List<BackendScopeCategoryScope> scopes;
+
     @JsonSetter("id")
     public void setId(Integer id) {
         this.id = id;
     }
+
     @JsonGetter("id")
     public Integer getId() {
         return this.id;
     }
+
     @JsonSetter("name")
     public void setName(String name) {
         this.name = name;
     }
+
     @JsonGetter("name")
     public String getName() {
         return this.name;
     }
+
     @JsonSetter("scopes")
-    public void setScopes(List<BackendScopeCategoryScope> scopes) {
+    public void setScopes(java.util.List<BackendScopeCategoryScope> scopes) {
         this.scopes = scopes;
     }
+
     @JsonGetter("scopes")
-    public List<BackendScopeCategoryScope> getScopes() {
+    public java.util.List<BackendScopeCategoryScope> getScopes() {
         return this.scopes;
     }
 }
+

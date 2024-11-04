@@ -7,23 +7,29 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+
 public class SystemSchema {
     private SystemSchemaTypeSchema schema;
     private SystemSchemaForm form;
+
     @JsonSetter("schema")
     public void setSchema(SystemSchemaTypeSchema schema) {
         this.schema = schema;
     }
+
     @JsonGetter("schema")
     public SystemSchemaTypeSchema getSchema() {
         return this.schema;
     }
+
     @JsonSetter("form")
     public void setForm(SystemSchemaForm form) {
         this.form = form;
     }
+
     @JsonGetter("form")
     public SystemSchemaForm getForm() {
         return this.form;
     }
 }
+

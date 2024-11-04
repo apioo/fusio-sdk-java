@@ -7,8 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
-import java.time.LocalDateTime;
-import java.util.List;
+
 public class BackendApp {
     private Integer id;
     private Integer userId;
@@ -19,103 +18,128 @@ public class BackendApp {
     private String appKey;
     private String appSecret;
     private CommonMetadata metadata;
-    private LocalDateTime date;
-    private List<String> scopes;
-    private List<BackendToken> tokens;
+    private java.time.LocalDateTime date;
+    private java.util.List<String> scopes;
+    private java.util.List<BackendToken> tokens;
+
     @JsonSetter("id")
     public void setId(Integer id) {
         this.id = id;
     }
+
     @JsonGetter("id")
     public Integer getId() {
         return this.id;
     }
+
     @JsonSetter("userId")
     public void setUserId(Integer userId) {
         this.userId = userId;
     }
+
     @JsonGetter("userId")
     public Integer getUserId() {
         return this.userId;
     }
+
     @JsonSetter("status")
     public void setStatus(Integer status) {
         this.status = status;
     }
+
     @JsonGetter("status")
     public Integer getStatus() {
         return this.status;
     }
+
     @JsonSetter("name")
     public void setName(String name) {
         this.name = name;
     }
+
     @JsonGetter("name")
     public String getName() {
         return this.name;
     }
+
     @JsonSetter("url")
     public void setUrl(String url) {
         this.url = url;
     }
+
     @JsonGetter("url")
     public String getUrl() {
         return this.url;
     }
+
     @JsonSetter("parameters")
     public void setParameters(String parameters) {
         this.parameters = parameters;
     }
+
     @JsonGetter("parameters")
     public String getParameters() {
         return this.parameters;
     }
+
     @JsonSetter("appKey")
     public void setAppKey(String appKey) {
         this.appKey = appKey;
     }
+
     @JsonGetter("appKey")
     public String getAppKey() {
         return this.appKey;
     }
+
     @JsonSetter("appSecret")
     public void setAppSecret(String appSecret) {
         this.appSecret = appSecret;
     }
+
     @JsonGetter("appSecret")
     public String getAppSecret() {
         return this.appSecret;
     }
+
     @JsonSetter("metadata")
     public void setMetadata(CommonMetadata metadata) {
         this.metadata = metadata;
     }
+
     @JsonGetter("metadata")
     public CommonMetadata getMetadata() {
         return this.metadata;
     }
+
     @JsonSetter("date")
-    public void setDate(LocalDateTime date) {
+    public void setDate(java.time.LocalDateTime date) {
         this.date = date;
     }
+
     @JsonGetter("date")
-    public LocalDateTime getDate() {
+    public java.time.LocalDateTime getDate() {
         return this.date;
     }
+
     @JsonSetter("scopes")
-    public void setScopes(List<String> scopes) {
+    public void setScopes(java.util.List<String> scopes) {
         this.scopes = scopes;
     }
+
     @JsonGetter("scopes")
-    public List<String> getScopes() {
+    public java.util.List<String> getScopes() {
         return this.scopes;
     }
+
     @JsonSetter("tokens")
-    public void setTokens(List<BackendToken> tokens) {
+    public void setTokens(java.util.List<BackendToken> tokens) {
         this.tokens = tokens;
     }
+
     @JsonGetter("tokens")
-    public List<BackendToken> getTokens() {
+    public java.util.List<BackendToken> getTokens() {
         return this.tokens;
     }
 }
+

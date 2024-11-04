@@ -7,41 +7,51 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+
 public class ConsumerAuthorizeResponse {
     private String type;
     private ConsumerAuthorizeResponseToken token;
     private String code;
     private String redirectUri;
+
     @JsonSetter("type")
     public void setType(String type) {
         this.type = type;
     }
+
     @JsonGetter("type")
     public String getType() {
         return this.type;
     }
+
     @JsonSetter("token")
     public void setToken(ConsumerAuthorizeResponseToken token) {
         this.token = token;
     }
+
     @JsonGetter("token")
     public ConsumerAuthorizeResponseToken getToken() {
         return this.token;
     }
+
     @JsonSetter("code")
     public void setCode(String code) {
         this.code = code;
     }
+
     @JsonGetter("code")
     public String getCode() {
         return this.code;
     }
+
     @JsonSetter("redirectUri")
     public void setRedirectUri(String redirectUri) {
         this.redirectUri = redirectUri;
     }
+
     @JsonGetter("redirectUri")
     public String getRedirectUri() {
         return this.redirectUri;
     }
 }
+

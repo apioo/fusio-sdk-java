@@ -7,6 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+
 public class BackendDashboard {
     private BackendStatisticChart errorsPerOperation;
     private BackendStatisticChart incomingRequests;
@@ -17,76 +18,95 @@ public class BackendDashboard {
     private BackendStatisticChart mostUsedActivities;
     private BackendStatisticChart activitiesPerUser;
     private BackendStatisticChart userRegistrations;
+
     @JsonSetter("errorsPerOperation")
     public void setErrorsPerOperation(BackendStatisticChart errorsPerOperation) {
         this.errorsPerOperation = errorsPerOperation;
     }
+
     @JsonGetter("errorsPerOperation")
     public BackendStatisticChart getErrorsPerOperation() {
         return this.errorsPerOperation;
     }
+
     @JsonSetter("incomingRequests")
     public void setIncomingRequests(BackendStatisticChart incomingRequests) {
         this.incomingRequests = incomingRequests;
     }
+
     @JsonGetter("incomingRequests")
     public BackendStatisticChart getIncomingRequests() {
         return this.incomingRequests;
     }
+
     @JsonSetter("incomingTransactions")
     public void setIncomingTransactions(BackendStatisticChart incomingTransactions) {
         this.incomingTransactions = incomingTransactions;
     }
+
     @JsonGetter("incomingTransactions")
     public BackendStatisticChart getIncomingTransactions() {
         return this.incomingTransactions;
     }
+
     @JsonSetter("mostUsedOperations")
     public void setMostUsedOperations(BackendStatisticChart mostUsedOperations) {
         this.mostUsedOperations = mostUsedOperations;
     }
+
     @JsonGetter("mostUsedOperations")
     public BackendStatisticChart getMostUsedOperations() {
         return this.mostUsedOperations;
     }
+
     @JsonSetter("timePerOperation")
     public void setTimePerOperation(BackendStatisticChart timePerOperation) {
         this.timePerOperation = timePerOperation;
     }
+
     @JsonGetter("timePerOperation")
     public BackendStatisticChart getTimePerOperation() {
         return this.timePerOperation;
     }
+
     @JsonSetter("testCoverage")
     public void setTestCoverage(BackendStatisticChart testCoverage) {
         this.testCoverage = testCoverage;
     }
+
     @JsonGetter("testCoverage")
     public BackendStatisticChart getTestCoverage() {
         return this.testCoverage;
     }
+
     @JsonSetter("mostUsedActivities")
     public void setMostUsedActivities(BackendStatisticChart mostUsedActivities) {
         this.mostUsedActivities = mostUsedActivities;
     }
+
     @JsonGetter("mostUsedActivities")
     public BackendStatisticChart getMostUsedActivities() {
         return this.mostUsedActivities;
     }
+
     @JsonSetter("activitiesPerUser")
     public void setActivitiesPerUser(BackendStatisticChart activitiesPerUser) {
         this.activitiesPerUser = activitiesPerUser;
     }
+
     @JsonGetter("activitiesPerUser")
     public BackendStatisticChart getActivitiesPerUser() {
         return this.activitiesPerUser;
     }
+
     @JsonSetter("userRegistrations")
     public void setUserRegistrations(BackendStatisticChart userRegistrations) {
         this.userRegistrations = userRegistrations;
     }
+
     @JsonGetter("userRegistrations")
     public BackendStatisticChart getUserRegistrations() {
         return this.userRegistrations;
     }
 }
+

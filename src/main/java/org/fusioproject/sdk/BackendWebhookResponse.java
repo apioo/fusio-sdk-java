@@ -7,60 +7,73 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
-import java.time.LocalDateTime;
+
 public class BackendWebhookResponse {
     private Integer id;
     private Integer status;
     private Integer code;
     private Integer attempts;
     private String error;
-    private LocalDateTime executeDate;
+    private java.time.LocalDateTime executeDate;
+
     @JsonSetter("id")
     public void setId(Integer id) {
         this.id = id;
     }
+
     @JsonGetter("id")
     public Integer getId() {
         return this.id;
     }
+
     @JsonSetter("status")
     public void setStatus(Integer status) {
         this.status = status;
     }
+
     @JsonGetter("status")
     public Integer getStatus() {
         return this.status;
     }
+
     @JsonSetter("code")
     public void setCode(Integer code) {
         this.code = code;
     }
+
     @JsonGetter("code")
     public Integer getCode() {
         return this.code;
     }
+
     @JsonSetter("attempts")
     public void setAttempts(Integer attempts) {
         this.attempts = attempts;
     }
+
     @JsonGetter("attempts")
     public Integer getAttempts() {
         return this.attempts;
     }
+
     @JsonSetter("error")
     public void setError(String error) {
         this.error = error;
     }
+
     @JsonGetter("error")
     public String getError() {
         return this.error;
     }
+
     @JsonSetter("executeDate")
-    public void setExecuteDate(LocalDateTime executeDate) {
+    public void setExecuteDate(java.time.LocalDateTime executeDate) {
         this.executeDate = executeDate;
     }
+
     @JsonGetter("executeDate")
-    public LocalDateTime getExecuteDate() {
+    public java.time.LocalDateTime getExecuteDate() {
         return this.executeDate;
     }
 }
+

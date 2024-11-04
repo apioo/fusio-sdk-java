@@ -7,14 +7,18 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+
 public class ConsumerPaymentCheckoutResponse {
     private String approvalUrl;
+
     @JsonSetter("approvalUrl")
     public void setApprovalUrl(String approvalUrl) {
         this.approvalUrl = approvalUrl;
     }
+
     @JsonGetter("approvalUrl")
     public String getApprovalUrl() {
         return this.approvalUrl;
     }
 }
+

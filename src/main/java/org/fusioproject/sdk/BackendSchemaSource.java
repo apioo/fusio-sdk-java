@@ -7,11 +7,10 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
-import java.util.Map;
-import java.util.HashMap;
 
 /**
  * Contains the TypeSchema specification
  */
-public class BackendSchemaSource extends HashMap<String, Object> {
+public class BackendSchemaSource {
 }
+

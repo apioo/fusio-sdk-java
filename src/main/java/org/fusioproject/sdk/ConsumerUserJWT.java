@@ -7,41 +7,51 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+
 public class ConsumerUserJWT {
     private String token;
     private Integer expiresIn;
     private String refreshToken;
     private String scope;
+
     @JsonSetter("token")
     public void setToken(String token) {
         this.token = token;
     }
+
     @JsonGetter("token")
     public String getToken() {
         return this.token;
     }
+
     @JsonSetter("expires_in")
     public void setExpiresIn(Integer expiresIn) {
         this.expiresIn = expiresIn;
     }
+
     @JsonGetter("expires_in")
     public Integer getExpiresIn() {
         return this.expiresIn;
     }
+
     @JsonSetter("refresh_token")
     public void setRefreshToken(String refreshToken) {
         this.refreshToken = refreshToken;
     }
+
     @JsonGetter("refresh_token")
     public String getRefreshToken() {
         return this.refreshToken;
     }
+
     @JsonSetter("scope")
     public void setScope(String scope) {
         this.scope = scope;
     }
+
     @JsonGetter("scope")
     public String getScope() {
         return this.scope;
     }
 }
+

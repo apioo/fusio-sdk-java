@@ -7,41 +7,51 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+
 public class ConsumerIdentity {
     private Integer id;
     private String name;
     private String icon;
     private String redirect;
+
     @JsonSetter("id")
     public void setId(Integer id) {
         this.id = id;
     }
+
     @JsonGetter("id")
     public Integer getId() {
         return this.id;
     }
+
     @JsonSetter("name")
     public void setName(String name) {
         this.name = name;
     }
+
     @JsonGetter("name")
     public String getName() {
         return this.name;
     }
+
     @JsonSetter("icon")
     public void setIcon(String icon) {
         this.icon = icon;
     }
+
     @JsonGetter("icon")
     public String getIcon() {
         return this.icon;
     }
+
     @JsonSetter("redirect")
     public void setRedirect(String redirect) {
         this.redirect = redirect;
     }
+
     @JsonGetter("redirect")
     public String getRedirect() {
         return this.redirect;
     }
 }
+

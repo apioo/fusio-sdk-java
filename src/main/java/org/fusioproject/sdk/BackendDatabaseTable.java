@@ -7,51 +7,62 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
-import java.util.List;
+
 public class BackendDatabaseTable {
     private String name;
-    private List<BackendDatabaseTableColumn> columns;
+    private java.util.List<BackendDatabaseTableColumn> columns;
     private String primaryKey;
-    private List<BackendDatabaseTableIndex> indexes;
-    private List<BackendDatabaseTableForeignKeyConstraint> foreignKeys;
+    private java.util.List<BackendDatabaseTableIndex> indexes;
+    private java.util.List<BackendDatabaseTableForeignKeyConstraint> foreignKeys;
+
     @JsonSetter("name")
     public void setName(String name) {
         this.name = name;
     }
+
     @JsonGetter("name")
     public String getName() {
         return this.name;
     }
+
     @JsonSetter("columns")
-    public void setColumns(List<BackendDatabaseTableColumn> columns) {
+    public void setColumns(java.util.List<BackendDatabaseTableColumn> columns) {
         this.columns = columns;
     }
+
     @JsonGetter("columns")
-    public List<BackendDatabaseTableColumn> getColumns() {
+    public java.util.List<BackendDatabaseTableColumn> getColumns() {
         return this.columns;
     }
+
     @JsonSetter("primaryKey")
     public void setPrimaryKey(String primaryKey) {
         this.primaryKey = primaryKey;
     }
+
     @JsonGetter("primaryKey")
     public String getPrimaryKey() {
         return this.primaryKey;
     }
+
     @JsonSetter("indexes")
-    public void setIndexes(List<BackendDatabaseTableIndex> indexes) {
+    public void setIndexes(java.util.List<BackendDatabaseTableIndex> indexes) {
         this.indexes = indexes;
     }
+
     @JsonGetter("indexes")
-    public List<BackendDatabaseTableIndex> getIndexes() {
+    public java.util.List<BackendDatabaseTableIndex> getIndexes() {
         return this.indexes;
     }
+
     @JsonSetter("foreignKeys")
-    public void setForeignKeys(List<BackendDatabaseTableForeignKeyConstraint> foreignKeys) {
+    public void setForeignKeys(java.util.List<BackendDatabaseTableForeignKeyConstraint> foreignKeys) {
         this.foreignKeys = foreignKeys;
     }
+
     @JsonGetter("foreignKeys")
-    public List<BackendDatabaseTableForeignKeyConstraint> getForeignKeys() {
+    public java.util.List<BackendDatabaseTableForeignKeyConstraint> getForeignKeys() {
         return this.foreignKeys;
     }
 }
+

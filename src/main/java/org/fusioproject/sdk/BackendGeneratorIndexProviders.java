@@ -7,15 +7,18 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
-import java.util.List;
+
 public class BackendGeneratorIndexProviders {
-    private List<BackendGeneratorIndexProvider> providers;
+    private java.util.List<BackendGeneratorIndexProvider> providers;
+
     @JsonSetter("providers")
-    public void setProviders(List<BackendGeneratorIndexProvider> providers) {
+    public void setProviders(java.util.List<BackendGeneratorIndexProvider> providers) {
         this.providers = providers;
     }
+
     @JsonGetter("providers")
-    public List<BackendGeneratorIndexProvider> getProviders() {
+    public java.util.List<BackendGeneratorIndexProvider> getProviders() {
         return this.providers;
     }
 }
+
