@@ -7,33 +7,40 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
-import java.util.List;
+
 public class BackendConnectionIntrospectionEntity {
     private String name;
-    private List<String> headers;
-    private List<BackendConnectionIntrospectionEntityRow> rows;
+    private java.util.List<String> headers;
+    private java.util.List<BackendConnectionIntrospectionEntityRow> rows;
+
     @JsonSetter("name")
     public void setName(String name) {
         this.name = name;
     }
+
     @JsonGetter("name")
     public String getName() {
         return this.name;
     }
+
     @JsonSetter("headers")
-    public void setHeaders(List<String> headers) {
+    public void setHeaders(java.util.List<String> headers) {
         this.headers = headers;
     }
+
     @JsonGetter("headers")
-    public List<String> getHeaders() {
+    public java.util.List<String> getHeaders() {
         return this.headers;
     }
+
     @JsonSetter("rows")
-    public void setRows(List<BackendConnectionIntrospectionEntityRow> rows) {
+    public void setRows(java.util.List<BackendConnectionIntrospectionEntityRow> rows) {
         this.rows = rows;
     }
+
     @JsonGetter("rows")
-    public List<BackendConnectionIntrospectionEntityRow> getRows() {
+    public java.util.List<BackendConnectionIntrospectionEntityRow> getRows() {
         return this.rows;
     }
 }
+

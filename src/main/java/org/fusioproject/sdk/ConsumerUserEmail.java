@@ -7,23 +7,29 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+
 public class ConsumerUserEmail {
     private String email;
     private String captcha;
+
     @JsonSetter("email")
     public void setEmail(String email) {
         this.email = email;
     }
+
     @JsonGetter("email")
     public String getEmail() {
         return this.email;
     }
+
     @JsonSetter("captcha")
     public void setCaptcha(String captcha) {
         this.captcha = captcha;
     }
+
     @JsonGetter("captcha")
     public String getCaptcha() {
         return this.captcha;
     }
 }
+

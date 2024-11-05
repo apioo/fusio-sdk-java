@@ -7,15 +7,18 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
-import java.util.List;
+
 public class BackendScopeCategories {
-    private List<BackendScopeCategory> categories;
+    private java.util.List<BackendScopeCategory> categories;
+
     @JsonSetter("categories")
-    public void setCategories(List<BackendScopeCategory> categories) {
+    public void setCategories(java.util.List<BackendScopeCategory> categories) {
         this.categories = categories;
     }
+
     @JsonGetter("categories")
-    public List<BackendScopeCategory> getCategories() {
+    public java.util.List<BackendScopeCategory> getCategories() {
         return this.categories;
     }
 }
+

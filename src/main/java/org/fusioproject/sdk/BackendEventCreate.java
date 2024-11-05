@@ -7,5 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+
 public class BackendEventCreate extends BackendEvent {
 }
+

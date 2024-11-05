@@ -7,14 +7,18 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+
 public class ConsumerUserActivate {
     private String token;
+
     @JsonSetter("token")
     public void setToken(String token) {
         this.token = token;
     }
+
     @JsonGetter("token")
     public String getToken() {
         return this.token;
     }
 }
+

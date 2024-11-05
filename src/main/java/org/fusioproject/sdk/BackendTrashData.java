@@ -7,32 +7,40 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+
 public class BackendTrashData {
     private Integer id;
     private Integer status;
     private String name;
+
     @JsonSetter("id")
     public void setId(Integer id) {
         this.id = id;
     }
+
     @JsonGetter("id")
     public Integer getId() {
         return this.id;
     }
+
     @JsonSetter("status")
     public void setStatus(Integer status) {
         this.status = status;
     }
+
     @JsonGetter("status")
     public Integer getStatus() {
         return this.status;
     }
+
     @JsonSetter("name")
     public void setName(String name) {
         this.name = name;
     }
+
     @JsonGetter("name")
     public String getName() {
         return this.name;
     }
 }
+

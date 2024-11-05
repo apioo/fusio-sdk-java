@@ -7,6 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+
 public class BackendPage {
     private Integer id;
     private Integer status;
@@ -14,52 +15,65 @@ public class BackendPage {
     private String slug;
     private String content;
     private CommonMetadata metadata;
+
     @JsonSetter("id")
     public void setId(Integer id) {
         this.id = id;
     }
+
     @JsonGetter("id")
     public Integer getId() {
         return this.id;
     }
+
     @JsonSetter("status")
     public void setStatus(Integer status) {
         this.status = status;
     }
+
     @JsonGetter("status")
     public Integer getStatus() {
         return this.status;
     }
+
     @JsonSetter("title")
     public void setTitle(String title) {
         this.title = title;
     }
+
     @JsonGetter("title")
     public String getTitle() {
         return this.title;
     }
+
     @JsonSetter("slug")
     public void setSlug(String slug) {
         this.slug = slug;
     }
+
     @JsonGetter("slug")
     public String getSlug() {
         return this.slug;
     }
+
     @JsonSetter("content")
     public void setContent(String content) {
         this.content = content;
     }
+
     @JsonGetter("content")
     public String getContent() {
         return this.content;
     }
+
     @JsonSetter("metadata")
     public void setMetadata(CommonMetadata metadata) {
         this.metadata = metadata;
     }
+
     @JsonGetter("metadata")
     public CommonMetadata getMetadata() {
         return this.metadata;
     }
 }
+

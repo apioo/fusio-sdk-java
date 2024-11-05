@@ -7,50 +7,62 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+
 public class BackendConfig {
     private Integer id;
     private Integer type;
     private String name;
     private String description;
     private Object value;
+
     @JsonSetter("id")
     public void setId(Integer id) {
         this.id = id;
     }
+
     @JsonGetter("id")
     public Integer getId() {
         return this.id;
     }
+
     @JsonSetter("type")
     public void setType(Integer type) {
         this.type = type;
     }
+
     @JsonGetter("type")
     public Integer getType() {
         return this.type;
     }
+
     @JsonSetter("name")
     public void setName(String name) {
         this.name = name;
     }
+
     @JsonGetter("name")
     public String getName() {
         return this.name;
     }
+
     @JsonSetter("description")
     public void setDescription(String description) {
         this.description = description;
     }
+
     @JsonGetter("description")
     public String getDescription() {
         return this.description;
     }
+
     @JsonSetter("value")
     public void setValue(Object value) {
         this.value = value;
     }
+
     @JsonGetter("value")
     public Object getValue() {
         return this.value;
     }
 }
+

@@ -7,7 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
-import java.util.List;
+
 public class SystemAbout {
     private String apiVersion;
     private String title;
@@ -19,120 +19,149 @@ public class SystemAbout {
     private String licenseName;
     private String licenseUrl;
     private String paymentCurrency;
-    private List<String> categories;
-    private List<String> scopes;
+    private java.util.List<String> categories;
+    private java.util.List<String> scopes;
     private SystemAboutApps apps;
-    private List<SystemAboutLink> links;
+    private java.util.List<SystemAboutLink> links;
+
     @JsonSetter("apiVersion")
     public void setApiVersion(String apiVersion) {
         this.apiVersion = apiVersion;
     }
+
     @JsonGetter("apiVersion")
     public String getApiVersion() {
         return this.apiVersion;
     }
+
     @JsonSetter("title")
     public void setTitle(String title) {
         this.title = title;
     }
+
     @JsonGetter("title")
     public String getTitle() {
         return this.title;
     }
+
     @JsonSetter("description")
     public void setDescription(String description) {
         this.description = description;
     }
+
     @JsonGetter("description")
     public String getDescription() {
         return this.description;
     }
+
     @JsonSetter("termsOfService")
     public void setTermsOfService(String termsOfService) {
         this.termsOfService = termsOfService;
     }
+
     @JsonGetter("termsOfService")
     public String getTermsOfService() {
         return this.termsOfService;
     }
+
     @JsonSetter("contactName")
     public void setContactName(String contactName) {
         this.contactName = contactName;
     }
+
     @JsonGetter("contactName")
     public String getContactName() {
         return this.contactName;
     }
+
     @JsonSetter("contactUrl")
     public void setContactUrl(String contactUrl) {
         this.contactUrl = contactUrl;
     }
+
     @JsonGetter("contactUrl")
     public String getContactUrl() {
         return this.contactUrl;
     }
+
     @JsonSetter("contactEmail")
     public void setContactEmail(String contactEmail) {
         this.contactEmail = contactEmail;
     }
+
     @JsonGetter("contactEmail")
     public String getContactEmail() {
         return this.contactEmail;
     }
+
     @JsonSetter("licenseName")
     public void setLicenseName(String licenseName) {
         this.licenseName = licenseName;
     }
+
     @JsonGetter("licenseName")
     public String getLicenseName() {
         return this.licenseName;
     }
+
     @JsonSetter("licenseUrl")
     public void setLicenseUrl(String licenseUrl) {
         this.licenseUrl = licenseUrl;
     }
+
     @JsonGetter("licenseUrl")
     public String getLicenseUrl() {
         return this.licenseUrl;
     }
+
     @JsonSetter("paymentCurrency")
     public void setPaymentCurrency(String paymentCurrency) {
         this.paymentCurrency = paymentCurrency;
     }
+
     @JsonGetter("paymentCurrency")
     public String getPaymentCurrency() {
         return this.paymentCurrency;
     }
+
     @JsonSetter("categories")
-    public void setCategories(List<String> categories) {
+    public void setCategories(java.util.List<String> categories) {
         this.categories = categories;
     }
+
     @JsonGetter("categories")
-    public List<String> getCategories() {
+    public java.util.List<String> getCategories() {
         return this.categories;
     }
+
     @JsonSetter("scopes")
-    public void setScopes(List<String> scopes) {
+    public void setScopes(java.util.List<String> scopes) {
         this.scopes = scopes;
     }
+
     @JsonGetter("scopes")
-    public List<String> getScopes() {
+    public java.util.List<String> getScopes() {
         return this.scopes;
     }
+
     @JsonSetter("apps")
     public void setApps(SystemAboutApps apps) {
         this.apps = apps;
     }
+
     @JsonGetter("apps")
     public SystemAboutApps getApps() {
         return this.apps;
     }
+
     @JsonSetter("links")
-    public void setLinks(List<SystemAboutLink> links) {
+    public void setLinks(java.util.List<SystemAboutLink> links) {
         this.links = links;
     }
+
     @JsonGetter("links")
-    public List<SystemAboutLink> getLinks() {
+    public java.util.List<SystemAboutLink> getLinks() {
         return this.links;
     }
 }
+

@@ -7,7 +7,10 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
-import java.time.LocalDateTime;
+
+/**
+ * Base class of all objects on the marketplace
+ */
 public class MarketplaceObject {
     private Integer id;
     private String name;
@@ -17,86 +20,107 @@ public class MarketplaceObject {
     private String summary;
     private String description;
     private Integer cost;
-    private LocalDateTime updateDate;
-    private LocalDateTime insertDate;
+    private java.time.LocalDateTime updateDate;
+    private java.time.LocalDateTime insertDate;
+
     @JsonSetter("id")
     public void setId(Integer id) {
         this.id = id;
     }
+
     @JsonGetter("id")
     public Integer getId() {
         return this.id;
     }
+
     @JsonSetter("name")
     public void setName(String name) {
         this.name = name;
     }
+
     @JsonGetter("name")
     public String getName() {
         return this.name;
     }
+
     @JsonSetter("author")
     public void setAuthor(MarketplaceUser author) {
         this.author = author;
     }
+
     @JsonGetter("author")
     public MarketplaceUser getAuthor() {
         return this.author;
     }
+
     @JsonSetter("version")
     public void setVersion(String version) {
         this.version = version;
     }
+
     @JsonGetter("version")
     public String getVersion() {
         return this.version;
     }
+
     @JsonSetter("icon")
     public void setIcon(String icon) {
         this.icon = icon;
     }
+
     @JsonGetter("icon")
     public String getIcon() {
         return this.icon;
     }
+
     @JsonSetter("summary")
     public void setSummary(String summary) {
         this.summary = summary;
     }
+
     @JsonGetter("summary")
     public String getSummary() {
         return this.summary;
     }
+
     @JsonSetter("description")
     public void setDescription(String description) {
         this.description = description;
     }
+
     @JsonGetter("description")
     public String getDescription() {
         return this.description;
     }
+
     @JsonSetter("cost")
     public void setCost(Integer cost) {
         this.cost = cost;
     }
+
     @JsonGetter("cost")
     public Integer getCost() {
         return this.cost;
     }
+
     @JsonSetter("updateDate")
-    public void setUpdateDate(LocalDateTime updateDate) {
+    public void setUpdateDate(java.time.LocalDateTime updateDate) {
         this.updateDate = updateDate;
     }
+
     @JsonGetter("updateDate")
-    public LocalDateTime getUpdateDate() {
+    public java.time.LocalDateTime getUpdateDate() {
         return this.updateDate;
     }
+
     @JsonSetter("insertDate")
-    public void setInsertDate(LocalDateTime insertDate) {
+    public void setInsertDate(java.time.LocalDateTime insertDate) {
         this.insertDate = insertDate;
     }
+
     @JsonGetter("insertDate")
-    public LocalDateTime getInsertDate() {
+    public java.time.LocalDateTime getInsertDate() {
         return this.insertDate;
     }
 }
+

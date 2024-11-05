@@ -7,32 +7,40 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+
 public class BackendActionExecuteResponse {
     private Integer statusCode;
     private BackendActionExecuteResponseHeaders headers;
     private BackendActionExecuteResponseBody body;
+
     @JsonSetter("statusCode")
     public void setStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
     }
+
     @JsonGetter("statusCode")
     public Integer getStatusCode() {
         return this.statusCode;
     }
+
     @JsonSetter("headers")
     public void setHeaders(BackendActionExecuteResponseHeaders headers) {
         this.headers = headers;
     }
+
     @JsonGetter("headers")
     public BackendActionExecuteResponseHeaders getHeaders() {
         return this.headers;
     }
+
     @JsonSetter("body")
     public void setBody(BackendActionExecuteResponseBody body) {
         this.body = body;
     }
+
     @JsonGetter("body")
     public BackendActionExecuteResponseBody getBody() {
         return this.body;
     }
 }
+

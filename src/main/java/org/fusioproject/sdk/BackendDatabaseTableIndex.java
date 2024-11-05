@@ -7,33 +7,40 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
-import java.util.List;
+
 public class BackendDatabaseTableIndex {
     private String name;
     private Boolean unique;
-    private List<String> columns;
+    private java.util.List<String> columns;
+
     @JsonSetter("name")
     public void setName(String name) {
         this.name = name;
     }
+
     @JsonGetter("name")
     public String getName() {
         return this.name;
     }
+
     @JsonSetter("unique")
     public void setUnique(Boolean unique) {
         this.unique = unique;
     }
+
     @JsonGetter("unique")
     public Boolean getUnique() {
         return this.unique;
     }
+
     @JsonSetter("columns")
-    public void setColumns(List<String> columns) {
+    public void setColumns(java.util.List<String> columns) {
         this.columns = columns;
     }
+
     @JsonGetter("columns")
-    public List<String> getColumns() {
+    public java.util.List<String> getColumns() {
         return this.columns;
     }
 }
+

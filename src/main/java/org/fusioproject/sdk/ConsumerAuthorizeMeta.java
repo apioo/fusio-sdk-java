@@ -7,33 +7,40 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
-import java.util.List;
+
 public class ConsumerAuthorizeMeta {
     private String name;
     private String url;
-    private List<ConsumerScope> scopes;
+    private java.util.List<ConsumerScope> scopes;
+
     @JsonSetter("name")
     public void setName(String name) {
         this.name = name;
     }
+
     @JsonGetter("name")
     public String getName() {
         return this.name;
     }
+
     @JsonSetter("url")
     public void setUrl(String url) {
         this.url = url;
     }
+
     @JsonGetter("url")
     public String getUrl() {
         return this.url;
     }
+
     @JsonSetter("scopes")
-    public void setScopes(List<ConsumerScope> scopes) {
+    public void setScopes(java.util.List<ConsumerScope> scopes) {
         this.scopes = scopes;
     }
+
     @JsonGetter("scopes")
-    public List<ConsumerScope> getScopes() {
+    public java.util.List<ConsumerScope> getScopes() {
         return this.scopes;
     }
 }
+

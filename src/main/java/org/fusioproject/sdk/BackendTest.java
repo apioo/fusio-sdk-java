@@ -7,6 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+
 public class BackendTest {
     private Integer id;
     private Integer status;
@@ -14,52 +15,65 @@ public class BackendTest {
     private String message;
     private String response;
     private BackendTestConfig config;
+
     @JsonSetter("id")
     public void setId(Integer id) {
         this.id = id;
     }
+
     @JsonGetter("id")
     public Integer getId() {
         return this.id;
     }
+
     @JsonSetter("status")
     public void setStatus(Integer status) {
         this.status = status;
     }
+
     @JsonGetter("status")
     public Integer getStatus() {
         return this.status;
     }
+
     @JsonSetter("operationName")
     public void setOperationName(String operationName) {
         this.operationName = operationName;
     }
+
     @JsonGetter("operationName")
     public String getOperationName() {
         return this.operationName;
     }
+
     @JsonSetter("message")
     public void setMessage(String message) {
         this.message = message;
     }
+
     @JsonGetter("message")
     public String getMessage() {
         return this.message;
     }
+
     @JsonSetter("response")
     public void setResponse(String response) {
         this.response = response;
     }
+
     @JsonGetter("response")
     public String getResponse() {
         return this.response;
     }
+
     @JsonSetter("config")
     public void setConfig(BackendTestConfig config) {
         this.config = config;
     }
+
     @JsonGetter("config")
     public BackendTestConfig getConfig() {
         return this.config;
     }
 }
+

@@ -7,15 +7,18 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
-import java.util.List;
+
 public class CommonFormContainer {
-    private List<Object> element;
+    private java.util.List<CommonFormElement> element;
+
     @JsonSetter("element")
-    public void setElement(List<Object> element) {
+    public void setElement(java.util.List<CommonFormElement> element) {
         this.element = element;
     }
+
     @JsonGetter("element")
-    public List<Object> getElement() {
+    public java.util.List<CommonFormElement> getElement() {
         return this.element;
     }
 }
+

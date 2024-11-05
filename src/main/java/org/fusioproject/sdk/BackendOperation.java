@@ -7,7 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
-import java.util.List;
+
 public class BackendOperation {
     private Integer id;
     private Integer status;
@@ -25,150 +25,187 @@ public class BackendOperation {
     private BackendOperationThrows _throws;
     private String action;
     private Integer costs;
-    private List<String> scopes;
+    private java.util.List<String> scopes;
     private CommonMetadata metadata;
+
     @JsonSetter("id")
     public void setId(Integer id) {
         this.id = id;
     }
+
     @JsonGetter("id")
     public Integer getId() {
         return this.id;
     }
+
     @JsonSetter("status")
     public void setStatus(Integer status) {
         this.status = status;
     }
+
     @JsonGetter("status")
     public Integer getStatus() {
         return this.status;
     }
+
     @JsonSetter("active")
     public void setActive(Boolean active) {
         this.active = active;
     }
+
     @JsonGetter("active")
     public Boolean getActive() {
         return this.active;
     }
+
     @JsonSetter("public")
     public void setPublic(Boolean _public) {
         this._public = _public;
     }
+
     @JsonGetter("public")
     public Boolean getPublic() {
         return this._public;
     }
+
     @JsonSetter("stability")
     public void setStability(Integer stability) {
         this.stability = stability;
     }
+
     @JsonGetter("stability")
     public Integer getStability() {
         return this.stability;
     }
+
     @JsonSetter("description")
     public void setDescription(String description) {
         this.description = description;
     }
+
     @JsonGetter("description")
     public String getDescription() {
         return this.description;
     }
+
     @JsonSetter("httpMethod")
     public void setHttpMethod(String httpMethod) {
         this.httpMethod = httpMethod;
     }
+
     @JsonGetter("httpMethod")
     public String getHttpMethod() {
         return this.httpMethod;
     }
+
     @JsonSetter("httpPath")
     public void setHttpPath(String httpPath) {
         this.httpPath = httpPath;
     }
+
     @JsonGetter("httpPath")
     public String getHttpPath() {
         return this.httpPath;
     }
+
     @JsonSetter("httpCode")
     public void setHttpCode(Integer httpCode) {
         this.httpCode = httpCode;
     }
+
     @JsonGetter("httpCode")
     public Integer getHttpCode() {
         return this.httpCode;
     }
+
     @JsonSetter("name")
     public void setName(String name) {
         this.name = name;
     }
+
     @JsonGetter("name")
     public String getName() {
         return this.name;
     }
+
     @JsonSetter("parameters")
     public void setParameters(BackendOperationParameters parameters) {
         this.parameters = parameters;
     }
+
     @JsonGetter("parameters")
     public BackendOperationParameters getParameters() {
         return this.parameters;
     }
+
     @JsonSetter("incoming")
     public void setIncoming(String incoming) {
         this.incoming = incoming;
     }
+
     @JsonGetter("incoming")
     public String getIncoming() {
         return this.incoming;
     }
+
     @JsonSetter("outgoing")
     public void setOutgoing(String outgoing) {
         this.outgoing = outgoing;
     }
+
     @JsonGetter("outgoing")
     public String getOutgoing() {
         return this.outgoing;
     }
+
     @JsonSetter("throws")
     public void setThrows(BackendOperationThrows _throws) {
         this._throws = _throws;
     }
+
     @JsonGetter("throws")
     public BackendOperationThrows getThrows() {
         return this._throws;
     }
+
     @JsonSetter("action")
     public void setAction(String action) {
         this.action = action;
     }
+
     @JsonGetter("action")
     public String getAction() {
         return this.action;
     }
+
     @JsonSetter("costs")
     public void setCosts(Integer costs) {
         this.costs = costs;
     }
+
     @JsonGetter("costs")
     public Integer getCosts() {
         return this.costs;
     }
+
     @JsonSetter("scopes")
-    public void setScopes(List<String> scopes) {
+    public void setScopes(java.util.List<String> scopes) {
         this.scopes = scopes;
     }
+
     @JsonGetter("scopes")
-    public List<String> getScopes() {
+    public java.util.List<String> getScopes() {
         return this.scopes;
     }
+
     @JsonSetter("metadata")
     public void setMetadata(CommonMetadata metadata) {
         this.metadata = metadata;
     }
+
     @JsonGetter("metadata")
     public CommonMetadata getMetadata() {
         return this.metadata;
     }
 }
+

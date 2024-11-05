@@ -7,6 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+
 public class BackendAction {
     private Integer id;
     private Integer status;
@@ -15,60 +16,75 @@ public class BackendAction {
     private Boolean async;
     private BackendActionConfig config;
     private CommonMetadata metadata;
+
     @JsonSetter("id")
     public void setId(Integer id) {
         this.id = id;
     }
+
     @JsonGetter("id")
     public Integer getId() {
         return this.id;
     }
+
     @JsonSetter("status")
     public void setStatus(Integer status) {
         this.status = status;
     }
+
     @JsonGetter("status")
     public Integer getStatus() {
         return this.status;
     }
+
     @JsonSetter("name")
     public void setName(String name) {
         this.name = name;
     }
+
     @JsonGetter("name")
     public String getName() {
         return this.name;
     }
+
     @JsonSetter("class")
     public void setClass(String _class) {
         this._class = _class;
     }
+
     @JsonGetter("class")
     public String get_Class() {
         return this._class;
     }
+
     @JsonSetter("async")
     public void setAsync(Boolean async) {
         this.async = async;
     }
+
     @JsonGetter("async")
     public Boolean getAsync() {
         return this.async;
     }
+
     @JsonSetter("config")
     public void setConfig(BackendActionConfig config) {
         this.config = config;
     }
+
     @JsonGetter("config")
     public BackendActionConfig getConfig() {
         return this.config;
     }
+
     @JsonSetter("metadata")
     public void setMetadata(CommonMetadata metadata) {
         this.metadata = metadata;
     }
+
     @JsonGetter("metadata")
     public CommonMetadata getMetadata() {
         return this.metadata;
     }
 }
+

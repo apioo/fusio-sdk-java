@@ -7,33 +7,40 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
-import java.util.List;
+
 public class ConsumerUserLogin {
     private String username;
     private String password;
-    private List<String> scopes;
+    private java.util.List<String> scopes;
+
     @JsonSetter("username")
     public void setUsername(String username) {
         this.username = username;
     }
+
     @JsonGetter("username")
     public String getUsername() {
         return this.username;
     }
+
     @JsonSetter("password")
     public void setPassword(String password) {
         this.password = password;
     }
+
     @JsonGetter("password")
     public String getPassword() {
         return this.password;
     }
+
     @JsonSetter("scopes")
-    public void setScopes(List<String> scopes) {
+    public void setScopes(java.util.List<String> scopes) {
         this.scopes = scopes;
     }
+
     @JsonGetter("scopes")
-    public List<String> getScopes() {
+    public java.util.List<String> getScopes() {
         return this.scopes;
     }
 }
+

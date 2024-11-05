@@ -7,7 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
-import java.util.List;
+
 public class ConsumerApp {
     private Integer id;
     private Integer userId;
@@ -17,86 +17,107 @@ public class ConsumerApp {
     private String appKey;
     private String appSecret;
     private String date;
-    private List<String> scopes;
+    private java.util.List<String> scopes;
     private CommonMetadata metadata;
+
     @JsonSetter("id")
     public void setId(Integer id) {
         this.id = id;
     }
+
     @JsonGetter("id")
     public Integer getId() {
         return this.id;
     }
+
     @JsonSetter("userId")
     public void setUserId(Integer userId) {
         this.userId = userId;
     }
+
     @JsonGetter("userId")
     public Integer getUserId() {
         return this.userId;
     }
+
     @JsonSetter("status")
     public void setStatus(Integer status) {
         this.status = status;
     }
+
     @JsonGetter("status")
     public Integer getStatus() {
         return this.status;
     }
+
     @JsonSetter("name")
     public void setName(String name) {
         this.name = name;
     }
+
     @JsonGetter("name")
     public String getName() {
         return this.name;
     }
+
     @JsonSetter("url")
     public void setUrl(String url) {
         this.url = url;
     }
+
     @JsonGetter("url")
     public String getUrl() {
         return this.url;
     }
+
     @JsonSetter("appKey")
     public void setAppKey(String appKey) {
         this.appKey = appKey;
     }
+
     @JsonGetter("appKey")
     public String getAppKey() {
         return this.appKey;
     }
+
     @JsonSetter("appSecret")
     public void setAppSecret(String appSecret) {
         this.appSecret = appSecret;
     }
+
     @JsonGetter("appSecret")
     public String getAppSecret() {
         return this.appSecret;
     }
+
     @JsonSetter("date")
     public void setDate(String date) {
         this.date = date;
     }
+
     @JsonGetter("date")
     public String getDate() {
         return this.date;
     }
+
     @JsonSetter("scopes")
-    public void setScopes(List<String> scopes) {
+    public void setScopes(java.util.List<String> scopes) {
         this.scopes = scopes;
     }
+
     @JsonGetter("scopes")
-    public List<String> getScopes() {
+    public java.util.List<String> getScopes() {
         return this.scopes;
     }
+
     @JsonSetter("metadata")
     public void setMetadata(CommonMetadata metadata) {
         this.metadata = metadata;
     }
+
     @JsonGetter("metadata")
     public CommonMetadata getMetadata() {
         return this.metadata;
     }
 }
+

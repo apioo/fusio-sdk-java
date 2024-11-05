@@ -7,33 +7,40 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
-import java.time.LocalDateTime;
+
 public class ConsumerGrant {
     private Integer id;
     private ConsumerApp app;
-    private LocalDateTime createDate;
+    private java.time.LocalDateTime createDate;
+
     @JsonSetter("id")
     public void setId(Integer id) {
         this.id = id;
     }
+
     @JsonGetter("id")
     public Integer getId() {
         return this.id;
     }
+
     @JsonSetter("app")
     public void setApp(ConsumerApp app) {
         this.app = app;
     }
+
     @JsonGetter("app")
     public ConsumerApp getApp() {
         return this.app;
     }
+
     @JsonSetter("createDate")
-    public void setCreateDate(LocalDateTime createDate) {
+    public void setCreateDate(java.time.LocalDateTime createDate) {
         this.createDate = createDate;
     }
+
     @JsonGetter("createDate")
-    public LocalDateTime getCreateDate() {
+    public java.time.LocalDateTime getCreateDate() {
         return this.createDate;
     }
 }
+

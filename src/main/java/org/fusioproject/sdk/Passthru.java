@@ -7,11 +7,10 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
-import java.util.Map;
-import java.util.HashMap;
 
 /**
  * No schema information available
  */
-public class Passthru extends HashMap<String, Object> {
+public class Passthru {
 }
+

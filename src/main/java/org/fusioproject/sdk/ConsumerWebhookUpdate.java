@@ -7,32 +7,40 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+
 public class ConsumerWebhookUpdate {
     private String event;
     private String name;
     private String endpoint;
+
     @JsonSetter("event")
     public void setEvent(String event) {
         this.event = event;
     }
+
     @JsonGetter("event")
     public String getEvent() {
         return this.event;
     }
+
     @JsonSetter("name")
     public void setName(String name) {
         this.name = name;
     }
+
     @JsonGetter("name")
     public String getName() {
         return this.name;
     }
+
     @JsonSetter("endpoint")
     public void setEndpoint(String endpoint) {
         this.endpoint = endpoint;
     }
+
     @JsonGetter("endpoint")
     public String getEndpoint() {
         return this.endpoint;
     }
 }
+

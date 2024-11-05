@@ -7,41 +7,51 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+
 public class BackendCronjobError {
     private String message;
     private String trace;
     private String file;
     private Integer line;
+
     @JsonSetter("message")
     public void setMessage(String message) {
         this.message = message;
     }
+
     @JsonGetter("message")
     public String getMessage() {
         return this.message;
     }
+
     @JsonSetter("trace")
     public void setTrace(String trace) {
         this.trace = trace;
     }
+
     @JsonGetter("trace")
     public String getTrace() {
         return this.trace;
     }
+
     @JsonSetter("file")
     public void setFile(String file) {
         this.file = file;
     }
+
     @JsonGetter("file")
     public String getFile() {
         return this.file;
     }
+
     @JsonSetter("line")
     public void setLine(Integer line) {
         this.line = line;
     }
+
     @JsonGetter("line")
     public Integer getLine() {
         return this.line;
     }
 }
+

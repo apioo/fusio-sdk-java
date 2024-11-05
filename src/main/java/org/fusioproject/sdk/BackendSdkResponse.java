@@ -7,14 +7,18 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+
 public class BackendSdkResponse {
     private BackendSdkTypes types;
+
     @JsonSetter("types")
     public void setTypes(BackendSdkTypes types) {
         this.types = types;
     }
+
     @JsonGetter("types")
     public BackendSdkTypes getTypes() {
         return this.types;
     }
 }
+

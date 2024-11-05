@@ -7,23 +7,29 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+
 public class BackendActionIndexEntry {
     private String name;
     private String _class;
+
     @JsonSetter("name")
     public void setName(String name) {
         this.name = name;
     }
+
     @JsonGetter("name")
     public String getName() {
         return this.name;
     }
+
     @JsonSetter("class")
     public void setClass(String _class) {
         this._class = _class;
     }
+
     @JsonGetter("class")
     public String get_Class() {
         return this._class;
     }
 }
+

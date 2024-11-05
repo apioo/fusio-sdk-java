@@ -7,14 +7,18 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+
 public class CommonFormElementTextArea extends CommonFormElement {
     private String mode;
+
     @JsonSetter("mode")
     public void setMode(String mode) {
         this.mode = mode;
     }
+
     @JsonGetter("mode")
     public String getMode() {
         return this.mode;
     }
 }
+

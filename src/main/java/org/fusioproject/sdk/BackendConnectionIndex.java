@@ -7,15 +7,18 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
-import java.util.List;
+
 public class BackendConnectionIndex {
-    private List<BackendConnectionIndexEntry> connections;
+    private java.util.List<BackendConnectionIndexEntry> connections;
+
     @JsonSetter("connections")
-    public void setConnections(List<BackendConnectionIndexEntry> connections) {
+    public void setConnections(java.util.List<BackendConnectionIndexEntry> connections) {
         this.connections = connections;
     }
+
     @JsonGetter("connections")
-    public List<BackendConnectionIndexEntry> getConnections() {
+    public java.util.List<BackendConnectionIndexEntry> getConnections() {
         return this.connections;
     }
 }
+

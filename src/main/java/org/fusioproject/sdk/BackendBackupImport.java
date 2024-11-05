@@ -7,14 +7,18 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+
 public class BackendBackupImport {
     private String _import;
+
     @JsonSetter("import")
     public void setImport(String _import) {
         this._import = _import;
     }
+
     @JsonGetter("import")
     public String getImport() {
         return this._import;
     }
 }
+

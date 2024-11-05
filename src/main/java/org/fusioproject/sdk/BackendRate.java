@@ -7,70 +7,84 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
-import java.time.Duration;
-import java.util.List;
+
 public class BackendRate {
     private Integer id;
     private Integer priority;
     private String name;
     private Integer rateLimit;
-    private Duration timespan;
-    private List<BackendRateAllocation> allocation;
+    private String timespan;
+    private java.util.List<BackendRateAllocation> allocation;
     private CommonMetadata metadata;
+
     @JsonSetter("id")
     public void setId(Integer id) {
         this.id = id;
     }
+
     @JsonGetter("id")
     public Integer getId() {
         return this.id;
     }
+
     @JsonSetter("priority")
     public void setPriority(Integer priority) {
         this.priority = priority;
     }
+
     @JsonGetter("priority")
     public Integer getPriority() {
         return this.priority;
     }
+
     @JsonSetter("name")
     public void setName(String name) {
         this.name = name;
     }
+
     @JsonGetter("name")
     public String getName() {
         return this.name;
     }
+
     @JsonSetter("rateLimit")
     public void setRateLimit(Integer rateLimit) {
         this.rateLimit = rateLimit;
     }
+
     @JsonGetter("rateLimit")
     public Integer getRateLimit() {
         return this.rateLimit;
     }
+
     @JsonSetter("timespan")
-    public void setTimespan(Duration timespan) {
+    public void setTimespan(String timespan) {
         this.timespan = timespan;
     }
+
     @JsonGetter("timespan")
-    public Duration getTimespan() {
+    public String getTimespan() {
         return this.timespan;
     }
+
     @JsonSetter("allocation")
-    public void setAllocation(List<BackendRateAllocation> allocation) {
+    public void setAllocation(java.util.List<BackendRateAllocation> allocation) {
         this.allocation = allocation;
     }
+
     @JsonGetter("allocation")
-    public List<BackendRateAllocation> getAllocation() {
+    public java.util.List<BackendRateAllocation> getAllocation() {
         return this.allocation;
     }
+
     @JsonSetter("metadata")
     public void setMetadata(CommonMetadata metadata) {
         this.metadata = metadata;
     }
+
     @JsonGetter("metadata")
     public CommonMetadata getMetadata() {
         return this.metadata;
     }
 }
+

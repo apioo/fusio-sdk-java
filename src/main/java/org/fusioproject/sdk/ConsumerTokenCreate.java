@@ -7,34 +7,40 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
-import java.time.LocalDate;
-import java.util.List;
+
 public class ConsumerTokenCreate {
     private String name;
-    private List<String> scopes;
-    private LocalDate expire;
+    private java.util.List<String> scopes;
+    private java.time.LocalDate expire;
+
     @JsonSetter("name")
     public void setName(String name) {
         this.name = name;
     }
+
     @JsonGetter("name")
     public String getName() {
         return this.name;
     }
+
     @JsonSetter("scopes")
-    public void setScopes(List<String> scopes) {
+    public void setScopes(java.util.List<String> scopes) {
         this.scopes = scopes;
     }
+
     @JsonGetter("scopes")
-    public List<String> getScopes() {
+    public java.util.List<String> getScopes() {
         return this.scopes;
     }
+
     @JsonSetter("expire")
-    public void setExpire(LocalDate expire) {
+    public void setExpire(java.time.LocalDate expire) {
         this.expire = expire;
     }
+
     @JsonGetter("expire")
-    public LocalDate getExpire() {
+    public java.time.LocalDate getExpire() {
         return this.expire;
     }
 }
+

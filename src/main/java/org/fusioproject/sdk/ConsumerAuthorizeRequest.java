@@ -7,6 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+
 public class ConsumerAuthorizeRequest {
     private String responseType;
     private String clientId;
@@ -14,52 +15,65 @@ public class ConsumerAuthorizeRequest {
     private String scope;
     private String state;
     private Boolean allow;
+
     @JsonSetter("responseType")
     public void setResponseType(String responseType) {
         this.responseType = responseType;
     }
+
     @JsonGetter("responseType")
     public String getResponseType() {
         return this.responseType;
     }
+
     @JsonSetter("clientId")
     public void setClientId(String clientId) {
         this.clientId = clientId;
     }
+
     @JsonGetter("clientId")
     public String getClientId() {
         return this.clientId;
     }
+
     @JsonSetter("redirectUri")
     public void setRedirectUri(String redirectUri) {
         this.redirectUri = redirectUri;
     }
+
     @JsonGetter("redirectUri")
     public String getRedirectUri() {
         return this.redirectUri;
     }
+
     @JsonSetter("scope")
     public void setScope(String scope) {
         this.scope = scope;
     }
+
     @JsonGetter("scope")
     public String getScope() {
         return this.scope;
     }
+
     @JsonSetter("state")
     public void setState(String state) {
         this.state = state;
     }
+
     @JsonGetter("state")
     public String getState() {
         return this.state;
     }
+
     @JsonSetter("allow")
     public void setAllow(Boolean allow) {
         this.allow = allow;
     }
+
     @JsonGetter("allow")
     public Boolean getAllow() {
         return this.allow;
     }
 }
+
