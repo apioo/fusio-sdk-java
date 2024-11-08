@@ -8,6 +8,6 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
-public class SystemRoutePath {
+public class SystemRoutePath extends java.util.HashMap<String, SystemRouteMethod> {
 }
 

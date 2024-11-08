@@ -11,6 +11,6 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 /**
  * No schema information available
  */
-public class Passthru {
+public class Passthru extends java.util.HashMap<String, Object> {
 }
 

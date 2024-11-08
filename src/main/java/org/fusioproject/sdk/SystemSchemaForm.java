@@ -8,6 +8,6 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
-public class SystemSchemaForm {
+public class SystemSchemaForm extends java.util.HashMap<String, Object> {
 }
 

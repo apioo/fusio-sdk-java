@@ -11,6 +11,6 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 /**
  * Contains a UI vocabulary to describe the UI of the schema
  */
-public class BackendSchemaForm {
+public class BackendSchemaForm extends java.util.HashMap<String, Object> {
 }
 

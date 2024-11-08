@@ -11,6 +11,6 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 /**
  * Contains the TypeSchema specification
  */
-public class BackendSchemaSource {
+public class BackendSchemaSource extends java.util.HashMap<String, Object> {
 }
 
