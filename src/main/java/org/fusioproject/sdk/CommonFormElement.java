@@ -5,10 +5,9 @@
 
 package org.fusioproject.sdk;
 
-import com.fasterxml.jackson.annotation.JsonGetter;
-import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.annotation.*;
 
-@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type")
 @JsonSubTypes({
     @JsonSubTypes.Type(value = CommonFormElementInput.class, name = "http://fusio-project.org/ns/2015/form/input"),
     @JsonSubTypes.Type(value = CommonFormElementSelect.class, name = "http://fusio-project.org/ns/2015/form/select"),
