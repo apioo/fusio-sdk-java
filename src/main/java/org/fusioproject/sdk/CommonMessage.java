@@ -8,6 +8,9 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
+/**
+ * Common error message
+ */
 public class CommonMessage {
     private Boolean success;
     private String message;

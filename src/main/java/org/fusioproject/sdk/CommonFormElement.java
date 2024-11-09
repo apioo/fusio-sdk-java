@@ -8,7 +8,14 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
-public class CommonFormElement {
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
+@JsonSubTypes({
+    @JsonSubTypes.Type(value = CommonFormElementInput.class, name = "http://fusio-project.org/ns/2015/form/input"),
+    @JsonSubTypes.Type(value = CommonFormElementSelect.class, name = "http://fusio-project.org/ns/2015/form/select"),
+    @JsonSubTypes.Type(value = CommonFormElementTag.class, name = "http://fusio-project.org/ns/2015/form/tag"),
+    @JsonSubTypes.Type(value = CommonFormElementTextArea.class, name = "http://fusio-project.org/ns/2015/form/textarea"),
+})
+public abstract class CommonFormElement {
     private String type;
     private String element;
     private String name;

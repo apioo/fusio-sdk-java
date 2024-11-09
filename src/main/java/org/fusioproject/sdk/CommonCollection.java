@@ -8,6 +8,9 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
+/**
+ * Base collection
+ */
 public class CommonCollection<T> {
     private Integer totalResults;
     private Integer startIndex;
