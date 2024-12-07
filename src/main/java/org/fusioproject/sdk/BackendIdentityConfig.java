@@ -5,8 +5,6 @@
 
 package org.fusioproject.sdk;
 
-import com.fasterxml.jackson.annotation.*;
-
 public class BackendIdentityConfig extends java.util.HashMap<String, Object> {
 }
 

@@ -33,120 +33,6 @@ public class BackendDatabaseTag extends TagAbstract {
     }
 
 
-    public CommonMessage deleteRow(String connectionId, String tableName, String id) throws ClientException {
-        try {
-            Map<String, Object> pathParams = new HashMap<>();
-            pathParams.put("connection_id", connectionId);
-            pathParams.put("table_name", tableName);
-            pathParams.put("id", id);
-
-            Map<String, Object> queryParams = new HashMap<>();
-
-            List<String> queryStructNames = new ArrayList<>();
-
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/database/:connection_id/:table_name/rows/:id", pathParams));
-            this.parser.query(builder, queryParams, queryStructNames);
-
-            HttpDelete request = new HttpDelete(builder.build());
-
-
-            return this.httpClient.execute(request, response -> {
-                if (response.getCode() >= 200 && response.getCode() <= 299) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    return data;
-                }
-
-                var statusCode = response.getCode();
-                if (statusCode == 400) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 401) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 404) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 500) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
-            });
-        } catch (URISyntaxException | IOException e) {
-            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
-        }
-    }
-
-    public CommonMessage updateRow(String connectionId, String tableName, String id, BackendDatabaseRow payload) throws ClientException {
-        try {
-            Map<String, Object> pathParams = new HashMap<>();
-            pathParams.put("connection_id", connectionId);
-            pathParams.put("table_name", tableName);
-            pathParams.put("id", id);
-
-            Map<String, Object> queryParams = new HashMap<>();
-
-            List<String> queryStructNames = new ArrayList<>();
-
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/database/:connection_id/:table_name/rows/:id", pathParams));
-            this.parser.query(builder, queryParams, queryStructNames);
-
-            HttpPut request = new HttpPut(builder.build());
-            request.setEntity(new StringEntity(this.objectMapper.writeValueAsString(payload), ContentType.APPLICATION_JSON));
-
-            request.setHeader("Content-Type", "application/json");
-
-            return this.httpClient.execute(request, response -> {
-                if (response.getCode() >= 200 && response.getCode() <= 299) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    return data;
-                }
-
-                var statusCode = response.getCode();
-                if (statusCode == 400) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 401) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 404) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 500) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
-            });
-        } catch (URISyntaxException | IOException e) {
-            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
-        }
-    }
-
     public CommonMessage createRow(String connectionId, String tableName, BackendDatabaseRow payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -173,25 +59,155 @@ public class BackendDatabaseTag extends TagAbstract {
                 }
 
                 var statusCode = response.getCode();
-                if (statusCode == 400) {
+                if (statusCode >= 0 && statusCode <= 999) {
                     var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
 
                     throw new CommonMessageException(data);
                 }
 
-                if (statusCode == 401) {
+                throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+            });
+        } catch (URISyntaxException | IOException e) {
+            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
+        }
+    }
+
+    public CommonMessage createTable(String connectionId, BackendDatabaseTable payload) throws ClientException {
+        try {
+            Map<String, Object> pathParams = new HashMap<>();
+            pathParams.put("connection_id", connectionId);
+
+            Map<String, Object> queryParams = new HashMap<>();
+
+            List<String> queryStructNames = new ArrayList<>();
+
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/database/:connection_id", pathParams));
+            this.parser.query(builder, queryParams, queryStructNames);
+
+            HttpPost request = new HttpPost(builder.build());
+            request.setEntity(new StringEntity(this.objectMapper.writeValueAsString(payload), ContentType.APPLICATION_JSON));
+
+            request.setHeader("Content-Type", "application/json");
+
+            return this.httpClient.execute(request, response -> {
+                if (response.getCode() >= 200 && response.getCode() <= 299) {
+                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
+
+                    return data;
+                }
+
+                var statusCode = response.getCode();
+                if (statusCode >= 0 && statusCode <= 999) {
                     var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
 
                     throw new CommonMessageException(data);
                 }
 
-                if (statusCode == 404) {
+                throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+            });
+        } catch (URISyntaxException | IOException e) {
+            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
+        }
+    }
+
+    public CommonMessage deleteRow(String connectionId, String tableName, String id) throws ClientException {
+        try {
+            Map<String, Object> pathParams = new HashMap<>();
+            pathParams.put("connection_id", connectionId);
+            pathParams.put("table_name", tableName);
+            pathParams.put("id", id);
+
+            Map<String, Object> queryParams = new HashMap<>();
+
+            List<String> queryStructNames = new ArrayList<>();
+
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/database/:connection_id/:table_name/rows/:id", pathParams));
+            this.parser.query(builder, queryParams, queryStructNames);
+
+            HttpDelete request = new HttpDelete(builder.build());
+
+
+            return this.httpClient.execute(request, response -> {
+                if (response.getCode() >= 200 && response.getCode() <= 299) {
+                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
+
+                    return data;
+                }
+
+                var statusCode = response.getCode();
+                if (statusCode >= 0 && statusCode <= 999) {
                     var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
 
                     throw new CommonMessageException(data);
                 }
 
-                if (statusCode == 500) {
+                throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+            });
+        } catch (URISyntaxException | IOException e) {
+            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
+        }
+    }
+
+    public CommonMessage deleteTable(String connectionId, String tableName) throws ClientException {
+        try {
+            Map<String, Object> pathParams = new HashMap<>();
+            pathParams.put("connection_id", connectionId);
+            pathParams.put("table_name", tableName);
+
+            Map<String, Object> queryParams = new HashMap<>();
+
+            List<String> queryStructNames = new ArrayList<>();
+
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/database/:connection_id/:table_name", pathParams));
+            this.parser.query(builder, queryParams, queryStructNames);
+
+            HttpDelete request = new HttpDelete(builder.build());
+
+
+            return this.httpClient.execute(request, response -> {
+                if (response.getCode() >= 200 && response.getCode() <= 299) {
+                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
+
+                    return data;
+                }
+
+                var statusCode = response.getCode();
+                if (statusCode >= 0 && statusCode <= 999) {
+                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
+
+                    throw new CommonMessageException(data);
+                }
+
+                throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+            });
+        } catch (URISyntaxException | IOException e) {
+            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
+        }
+    }
+
+    public BackendDatabaseConnections getConnections() throws ClientException {
+        try {
+            Map<String, Object> pathParams = new HashMap<>();
+
+            Map<String, Object> queryParams = new HashMap<>();
+
+            List<String> queryStructNames = new ArrayList<>();
+
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/database", pathParams));
+            this.parser.query(builder, queryParams, queryStructNames);
+
+            HttpGet request = new HttpGet(builder.build());
+
+
+            return this.httpClient.execute(request, response -> {
+                if (response.getCode() >= 200 && response.getCode() <= 299) {
+                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<BackendDatabaseConnections>(){});
+
+                    return data;
+                }
+
+                var statusCode = response.getCode();
+                if (statusCode >= 0 && statusCode <= 999) {
                     var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
 
                     throw new CommonMessageException(data);
@@ -229,19 +245,7 @@ public class BackendDatabaseTag extends TagAbstract {
                 }
 
                 var statusCode = response.getCode();
-                if (statusCode == 401) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 404) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 500) {
+                if (statusCode >= 0 && statusCode <= 999) {
                     var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
 
                     throw new CommonMessageException(data);
@@ -286,19 +290,7 @@ public class BackendDatabaseTag extends TagAbstract {
                 }
 
                 var statusCode = response.getCode();
-                if (statusCode == 401) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 404) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 500) {
+                if (statusCode >= 0 && statusCode <= 999) {
                     var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
 
                     throw new CommonMessageException(data);
@@ -311,7 +303,7 @@ public class BackendDatabaseTag extends TagAbstract {
         }
     }
 
-    public CommonMessage deleteTable(String connectionId, String tableName) throws ClientException {
+    public BackendDatabaseTable getTable(String connectionId, String tableName) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
             pathParams.put("connection_id", connectionId);
@@ -324,8 +316,84 @@ public class BackendDatabaseTag extends TagAbstract {
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/database/:connection_id/:table_name", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
 
-            HttpDelete request = new HttpDelete(builder.build());
+            HttpGet request = new HttpGet(builder.build());
 
+
+            return this.httpClient.execute(request, response -> {
+                if (response.getCode() >= 200 && response.getCode() <= 299) {
+                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<BackendDatabaseTable>(){});
+
+                    return data;
+                }
+
+                var statusCode = response.getCode();
+                if (statusCode >= 0 && statusCode <= 999) {
+                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
+
+                    throw new CommonMessageException(data);
+                }
+
+                throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+            });
+        } catch (URISyntaxException | IOException e) {
+            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
+        }
+    }
+
+    public BackendDatabaseTables getTables(String connectionId) throws ClientException {
+        try {
+            Map<String, Object> pathParams = new HashMap<>();
+            pathParams.put("connection_id", connectionId);
+
+            Map<String, Object> queryParams = new HashMap<>();
+
+            List<String> queryStructNames = new ArrayList<>();
+
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/database/:connection_id", pathParams));
+            this.parser.query(builder, queryParams, queryStructNames);
+
+            HttpGet request = new HttpGet(builder.build());
+
+
+            return this.httpClient.execute(request, response -> {
+                if (response.getCode() >= 200 && response.getCode() <= 299) {
+                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<BackendDatabaseTables>(){});
+
+                    return data;
+                }
+
+                var statusCode = response.getCode();
+                if (statusCode >= 0 && statusCode <= 999) {
+                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
+
+                    throw new CommonMessageException(data);
+                }
+
+                throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+            });
+        } catch (URISyntaxException | IOException e) {
+            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
+        }
+    }
+
+    public CommonMessage updateRow(String connectionId, String tableName, String id, BackendDatabaseRow payload) throws ClientException {
+        try {
+            Map<String, Object> pathParams = new HashMap<>();
+            pathParams.put("connection_id", connectionId);
+            pathParams.put("table_name", tableName);
+            pathParams.put("id", id);
+
+            Map<String, Object> queryParams = new HashMap<>();
+
+            List<String> queryStructNames = new ArrayList<>();
+
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/database/:connection_id/:table_name/rows/:id", pathParams));
+            this.parser.query(builder, queryParams, queryStructNames);
+
+            HttpPut request = new HttpPut(builder.build());
+            request.setEntity(new StringEntity(this.objectMapper.writeValueAsString(payload), ContentType.APPLICATION_JSON));
+
+            request.setHeader("Content-Type", "application/json");
 
             return this.httpClient.execute(request, response -> {
                 if (response.getCode() >= 200 && response.getCode() <= 299) {
@@ -335,25 +403,7 @@ public class BackendDatabaseTag extends TagAbstract {
                 }
 
                 var statusCode = response.getCode();
-                if (statusCode == 400) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 401) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 404) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 500) {
+                if (statusCode >= 0 && statusCode <= 999) {
                     var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
 
                     throw new CommonMessageException(data);
@@ -392,219 +442,7 @@ public class BackendDatabaseTag extends TagAbstract {
                 }
 
                 var statusCode = response.getCode();
-                if (statusCode == 400) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 401) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 404) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 500) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
-            });
-        } catch (URISyntaxException | IOException e) {
-            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
-        }
-    }
-
-    public CommonMessage createTable(String connectionId, BackendDatabaseTable payload) throws ClientException {
-        try {
-            Map<String, Object> pathParams = new HashMap<>();
-            pathParams.put("connection_id", connectionId);
-
-            Map<String, Object> queryParams = new HashMap<>();
-
-            List<String> queryStructNames = new ArrayList<>();
-
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/database/:connection_id", pathParams));
-            this.parser.query(builder, queryParams, queryStructNames);
-
-            HttpPost request = new HttpPost(builder.build());
-            request.setEntity(new StringEntity(this.objectMapper.writeValueAsString(payload), ContentType.APPLICATION_JSON));
-
-            request.setHeader("Content-Type", "application/json");
-
-            return this.httpClient.execute(request, response -> {
-                if (response.getCode() >= 200 && response.getCode() <= 299) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    return data;
-                }
-
-                var statusCode = response.getCode();
-                if (statusCode == 400) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 401) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 404) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 500) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
-            });
-        } catch (URISyntaxException | IOException e) {
-            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
-        }
-    }
-
-    public BackendDatabaseTable getTable(String connectionId, String tableName) throws ClientException {
-        try {
-            Map<String, Object> pathParams = new HashMap<>();
-            pathParams.put("connection_id", connectionId);
-            pathParams.put("table_name", tableName);
-
-            Map<String, Object> queryParams = new HashMap<>();
-
-            List<String> queryStructNames = new ArrayList<>();
-
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/database/:connection_id/:table_name", pathParams));
-            this.parser.query(builder, queryParams, queryStructNames);
-
-            HttpGet request = new HttpGet(builder.build());
-
-
-            return this.httpClient.execute(request, response -> {
-                if (response.getCode() >= 200 && response.getCode() <= 299) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<BackendDatabaseTable>(){});
-
-                    return data;
-                }
-
-                var statusCode = response.getCode();
-                if (statusCode == 401) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 404) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 500) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
-            });
-        } catch (URISyntaxException | IOException e) {
-            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
-        }
-    }
-
-    public BackendDatabaseTables getTables(String connectionId) throws ClientException {
-        try {
-            Map<String, Object> pathParams = new HashMap<>();
-            pathParams.put("connection_id", connectionId);
-
-            Map<String, Object> queryParams = new HashMap<>();
-
-            List<String> queryStructNames = new ArrayList<>();
-
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/database/:connection_id", pathParams));
-            this.parser.query(builder, queryParams, queryStructNames);
-
-            HttpGet request = new HttpGet(builder.build());
-
-
-            return this.httpClient.execute(request, response -> {
-                if (response.getCode() >= 200 && response.getCode() <= 299) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<BackendDatabaseTables>(){});
-
-                    return data;
-                }
-
-                var statusCode = response.getCode();
-                if (statusCode == 401) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 404) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 500) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
-            });
-        } catch (URISyntaxException | IOException e) {
-            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
-        }
-    }
-
-    public BackendDatabaseConnections getConnections() throws ClientException {
-        try {
-            Map<String, Object> pathParams = new HashMap<>();
-
-            Map<String, Object> queryParams = new HashMap<>();
-
-            List<String> queryStructNames = new ArrayList<>();
-
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/database", pathParams));
-            this.parser.query(builder, queryParams, queryStructNames);
-
-            HttpGet request = new HttpGet(builder.build());
-
-
-            return this.httpClient.execute(request, response -> {
-                if (response.getCode() >= 200 && response.getCode() <= 299) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<BackendDatabaseConnections>(){});
-
-                    return data;
-                }
-
-                var statusCode = response.getCode();
-                if (statusCode == 401) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 500) {
+                if (statusCode >= 0 && statusCode <= 999) {
                     var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
 
                     throw new CommonMessageException(data);

@@ -33,21 +33,21 @@ public class BackendAppTag extends TagAbstract {
     }
 
 
-    public CommonMessage deleteToken(String appId, String tokenId) throws ClientException {
+    public CommonMessage create(BackendAppCreate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
-            pathParams.put("app_id", appId);
-            pathParams.put("token_id", tokenId);
 
             Map<String, Object> queryParams = new HashMap<>();
 
             List<String> queryStructNames = new ArrayList<>();
 
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/app/$app_id<[0-9]+>/token/:token_id", pathParams));
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/app", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
 
-            HttpDelete request = new HttpDelete(builder.build());
+            HttpPost request = new HttpPost(builder.build());
+            request.setEntity(new StringEntity(this.objectMapper.writeValueAsString(payload), ContentType.APPLICATION_JSON));
 
+            request.setHeader("Content-Type", "application/json");
 
             return this.httpClient.execute(request, response -> {
                 if (response.getCode() >= 200 && response.getCode() <= 299) {
@@ -57,25 +57,7 @@ public class BackendAppTag extends TagAbstract {
                 }
 
                 var statusCode = response.getCode();
-                if (statusCode == 401) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 404) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 410) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 500) {
+                if (statusCode >= 0 && statusCode <= 999) {
                     var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
 
                     throw new CommonMessageException(data);
@@ -111,25 +93,7 @@ public class BackendAppTag extends TagAbstract {
                 }
 
                 var statusCode = response.getCode();
-                if (statusCode == 401) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 404) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 410) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 500) {
+                if (statusCode >= 0 && statusCode <= 999) {
                     var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
 
                     throw new CommonMessageException(data);
@@ -142,22 +106,21 @@ public class BackendAppTag extends TagAbstract {
         }
     }
 
-    public CommonMessage update(String appId, BackendAppUpdate payload) throws ClientException {
+    public CommonMessage deleteToken(String appId, String tokenId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
             pathParams.put("app_id", appId);
+            pathParams.put("token_id", tokenId);
 
             Map<String, Object> queryParams = new HashMap<>();
 
             List<String> queryStructNames = new ArrayList<>();
 
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/app/$app_id<[0-9]+|^~>", pathParams));
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/app/$app_id<[0-9]+>/token/:token_id", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
 
-            HttpPut request = new HttpPut(builder.build());
-            request.setEntity(new StringEntity(this.objectMapper.writeValueAsString(payload), ContentType.APPLICATION_JSON));
+            HttpDelete request = new HttpDelete(builder.build());
 
-            request.setHeader("Content-Type", "application/json");
 
             return this.httpClient.execute(request, response -> {
                 if (response.getCode() >= 200 && response.getCode() <= 299) {
@@ -167,31 +130,7 @@ public class BackendAppTag extends TagAbstract {
                 }
 
                 var statusCode = response.getCode();
-                if (statusCode == 400) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 401) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 404) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 410) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 500) {
+                if (statusCode >= 0 && statusCode <= 999) {
                     var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
 
                     throw new CommonMessageException(data);
@@ -227,74 +166,7 @@ public class BackendAppTag extends TagAbstract {
                 }
 
                 var statusCode = response.getCode();
-                if (statusCode == 404) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 401) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 410) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 500) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
-            });
-        } catch (URISyntaxException | IOException e) {
-            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
-        }
-    }
-
-    public CommonMessage create(BackendAppCreate payload) throws ClientException {
-        try {
-            Map<String, Object> pathParams = new HashMap<>();
-
-            Map<String, Object> queryParams = new HashMap<>();
-
-            List<String> queryStructNames = new ArrayList<>();
-
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/app", pathParams));
-            this.parser.query(builder, queryParams, queryStructNames);
-
-            HttpPost request = new HttpPost(builder.build());
-            request.setEntity(new StringEntity(this.objectMapper.writeValueAsString(payload), ContentType.APPLICATION_JSON));
-
-            request.setHeader("Content-Type", "application/json");
-
-            return this.httpClient.execute(request, response -> {
-                if (response.getCode() >= 200 && response.getCode() <= 299) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    return data;
-                }
-
-                var statusCode = response.getCode();
-                if (statusCode == 400) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 401) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 500) {
+                if (statusCode >= 0 && statusCode <= 999) {
                     var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
 
                     throw new CommonMessageException(data);
@@ -332,13 +204,45 @@ public class BackendAppTag extends TagAbstract {
                 }
 
                 var statusCode = response.getCode();
-                if (statusCode == 401) {
+                if (statusCode >= 0 && statusCode <= 999) {
                     var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
 
                     throw new CommonMessageException(data);
                 }
 
-                if (statusCode == 500) {
+                throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+            });
+        } catch (URISyntaxException | IOException e) {
+            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
+        }
+    }
+
+    public CommonMessage update(String appId, BackendAppUpdate payload) throws ClientException {
+        try {
+            Map<String, Object> pathParams = new HashMap<>();
+            pathParams.put("app_id", appId);
+
+            Map<String, Object> queryParams = new HashMap<>();
+
+            List<String> queryStructNames = new ArrayList<>();
+
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/app/$app_id<[0-9]+|^~>", pathParams));
+            this.parser.query(builder, queryParams, queryStructNames);
+
+            HttpPut request = new HttpPut(builder.build());
+            request.setEntity(new StringEntity(this.objectMapper.writeValueAsString(payload), ContentType.APPLICATION_JSON));
+
+            request.setHeader("Content-Type", "application/json");
+
+            return this.httpClient.execute(request, response -> {
+                if (response.getCode() >= 200 && response.getCode() <= 299) {
+                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
+
+                    return data;
+                }
+
+                var statusCode = response.getCode();
+                if (statusCode >= 0 && statusCode <= 999) {
                     var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
 
                     throw new CommonMessageException(data);

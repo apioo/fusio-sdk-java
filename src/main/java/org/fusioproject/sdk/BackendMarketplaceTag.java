@@ -32,18 +32,18 @@ public class BackendMarketplaceTag extends TagAbstract {
         super(httpClient, objectMapper, parser);
     }
 
-    public BackendMarketplaceAppTag app()
+    public BackendMarketplaceActionTag action()
     {
-        return new BackendMarketplaceAppTag(
+        return new BackendMarketplaceActionTag(
             this.httpClient,
             this.objectMapper,
             this.parser
         );
     }
 
-    public BackendMarketplaceActionTag action()
+    public BackendMarketplaceAppTag app()
     {
-        return new BackendMarketplaceActionTag(
+        return new BackendMarketplaceAppTag(
             this.httpClient,
             this.objectMapper,
             this.parser

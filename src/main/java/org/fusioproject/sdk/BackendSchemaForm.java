@@ -5,8 +5,6 @@
 
 package org.fusioproject.sdk;
 
-import com.fasterxml.jackson.annotation.*;
-
 /**
  * Contains a UI vocabulary to describe the UI of the schema
  */

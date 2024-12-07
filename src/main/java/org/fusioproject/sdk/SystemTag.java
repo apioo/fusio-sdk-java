@@ -32,9 +32,9 @@ public class SystemTag extends TagAbstract {
         super(httpClient, objectMapper, parser);
     }
 
-    public SystemPaymentTag payment()
+    public SystemConnectionTag connection()
     {
-        return new SystemPaymentTag(
+        return new SystemConnectionTag(
             this.httpClient,
             this.objectMapper,
             this.parser
@@ -50,9 +50,9 @@ public class SystemTag extends TagAbstract {
         );
     }
 
-    public SystemConnectionTag connection()
+    public SystemPaymentTag payment()
     {
-        return new SystemConnectionTag(
+        return new SystemPaymentTag(
             this.httpClient,
             this.objectMapper,
             this.parser

@@ -33,7 +33,7 @@ public class BackendStatisticTag extends TagAbstract {
     }
 
 
-    public BackendStatisticChart getUserRegistrations(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
+    public BackendStatisticChart getActivitiesPerUser(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
@@ -55,7 +55,7 @@ public class BackendStatisticTag extends TagAbstract {
 
             List<String> queryStructNames = new ArrayList<>();
 
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/user_registrations", pathParams));
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/activities_per_user", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
@@ -69,604 +69,7 @@ public class BackendStatisticTag extends TagAbstract {
                 }
 
                 var statusCode = response.getCode();
-                if (statusCode == 401) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 500) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
-            });
-        } catch (URISyntaxException | IOException e) {
-            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
-        }
-    }
-
-    public BackendStatisticChart getUsedPoints(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
-        try {
-            Map<String, Object> pathParams = new HashMap<>();
-
-            Map<String, Object> queryParams = new HashMap<>();
-            queryParams.put("startIndex", startIndex);
-            queryParams.put("count", count);
-            queryParams.put("search", search);
-            queryParams.put("from", from);
-            queryParams.put("to", to);
-            queryParams.put("operationId", operationId);
-            queryParams.put("appId", appId);
-            queryParams.put("userId", userId);
-            queryParams.put("ip", ip);
-            queryParams.put("userAgent", userAgent);
-            queryParams.put("method", method);
-            queryParams.put("path", path);
-            queryParams.put("header", header);
-            queryParams.put("body", body);
-
-            List<String> queryStructNames = new ArrayList<>();
-
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/used_points", pathParams));
-            this.parser.query(builder, queryParams, queryStructNames);
-
-            HttpGet request = new HttpGet(builder.build());
-
-
-            return this.httpClient.execute(request, response -> {
-                if (response.getCode() >= 200 && response.getCode() <= 299) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<BackendStatisticChart>(){});
-
-                    return data;
-                }
-
-                var statusCode = response.getCode();
-                if (statusCode == 401) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 500) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
-            });
-        } catch (URISyntaxException | IOException e) {
-            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
-        }
-    }
-
-    public BackendStatisticChart getTimePerOperation(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
-        try {
-            Map<String, Object> pathParams = new HashMap<>();
-
-            Map<String, Object> queryParams = new HashMap<>();
-            queryParams.put("startIndex", startIndex);
-            queryParams.put("count", count);
-            queryParams.put("search", search);
-            queryParams.put("from", from);
-            queryParams.put("to", to);
-            queryParams.put("operationId", operationId);
-            queryParams.put("appId", appId);
-            queryParams.put("userId", userId);
-            queryParams.put("ip", ip);
-            queryParams.put("userAgent", userAgent);
-            queryParams.put("method", method);
-            queryParams.put("path", path);
-            queryParams.put("header", header);
-            queryParams.put("body", body);
-
-            List<String> queryStructNames = new ArrayList<>();
-
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/time_per_operation", pathParams));
-            this.parser.query(builder, queryParams, queryStructNames);
-
-            HttpGet request = new HttpGet(builder.build());
-
-
-            return this.httpClient.execute(request, response -> {
-                if (response.getCode() >= 200 && response.getCode() <= 299) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<BackendStatisticChart>(){});
-
-                    return data;
-                }
-
-                var statusCode = response.getCode();
-                if (statusCode == 401) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 500) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
-            });
-        } catch (URISyntaxException | IOException e) {
-            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
-        }
-    }
-
-    public BackendStatisticChart getTimeAverage(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
-        try {
-            Map<String, Object> pathParams = new HashMap<>();
-
-            Map<String, Object> queryParams = new HashMap<>();
-            queryParams.put("startIndex", startIndex);
-            queryParams.put("count", count);
-            queryParams.put("search", search);
-            queryParams.put("from", from);
-            queryParams.put("to", to);
-            queryParams.put("operationId", operationId);
-            queryParams.put("appId", appId);
-            queryParams.put("userId", userId);
-            queryParams.put("ip", ip);
-            queryParams.put("userAgent", userAgent);
-            queryParams.put("method", method);
-            queryParams.put("path", path);
-            queryParams.put("header", header);
-            queryParams.put("body", body);
-
-            List<String> queryStructNames = new ArrayList<>();
-
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/time_average", pathParams));
-            this.parser.query(builder, queryParams, queryStructNames);
-
-            HttpGet request = new HttpGet(builder.build());
-
-
-            return this.httpClient.execute(request, response -> {
-                if (response.getCode() >= 200 && response.getCode() <= 299) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<BackendStatisticChart>(){});
-
-                    return data;
-                }
-
-                var statusCode = response.getCode();
-                if (statusCode == 401) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 500) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
-            });
-        } catch (URISyntaxException | IOException e) {
-            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
-        }
-    }
-
-    public BackendStatisticChart getTestCoverage() throws ClientException {
-        try {
-            Map<String, Object> pathParams = new HashMap<>();
-
-            Map<String, Object> queryParams = new HashMap<>();
-
-            List<String> queryStructNames = new ArrayList<>();
-
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/test_coverage", pathParams));
-            this.parser.query(builder, queryParams, queryStructNames);
-
-            HttpGet request = new HttpGet(builder.build());
-
-
-            return this.httpClient.execute(request, response -> {
-                if (response.getCode() >= 200 && response.getCode() <= 299) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<BackendStatisticChart>(){});
-
-                    return data;
-                }
-
-                var statusCode = response.getCode();
-                if (statusCode == 401) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 500) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
-            });
-        } catch (URISyntaxException | IOException e) {
-            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
-        }
-    }
-
-    public BackendStatisticChart getMostUsedOperations(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
-        try {
-            Map<String, Object> pathParams = new HashMap<>();
-
-            Map<String, Object> queryParams = new HashMap<>();
-            queryParams.put("startIndex", startIndex);
-            queryParams.put("count", count);
-            queryParams.put("search", search);
-            queryParams.put("from", from);
-            queryParams.put("to", to);
-            queryParams.put("operationId", operationId);
-            queryParams.put("appId", appId);
-            queryParams.put("userId", userId);
-            queryParams.put("ip", ip);
-            queryParams.put("userAgent", userAgent);
-            queryParams.put("method", method);
-            queryParams.put("path", path);
-            queryParams.put("header", header);
-            queryParams.put("body", body);
-
-            List<String> queryStructNames = new ArrayList<>();
-
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/most_used_operations", pathParams));
-            this.parser.query(builder, queryParams, queryStructNames);
-
-            HttpGet request = new HttpGet(builder.build());
-
-
-            return this.httpClient.execute(request, response -> {
-                if (response.getCode() >= 200 && response.getCode() <= 299) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<BackendStatisticChart>(){});
-
-                    return data;
-                }
-
-                var statusCode = response.getCode();
-                if (statusCode == 401) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 500) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
-            });
-        } catch (URISyntaxException | IOException e) {
-            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
-        }
-    }
-
-    public BackendStatisticChart getMostUsedApps(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
-        try {
-            Map<String, Object> pathParams = new HashMap<>();
-
-            Map<String, Object> queryParams = new HashMap<>();
-            queryParams.put("startIndex", startIndex);
-            queryParams.put("count", count);
-            queryParams.put("search", search);
-            queryParams.put("from", from);
-            queryParams.put("to", to);
-            queryParams.put("operationId", operationId);
-            queryParams.put("appId", appId);
-            queryParams.put("userId", userId);
-            queryParams.put("ip", ip);
-            queryParams.put("userAgent", userAgent);
-            queryParams.put("method", method);
-            queryParams.put("path", path);
-            queryParams.put("header", header);
-            queryParams.put("body", body);
-
-            List<String> queryStructNames = new ArrayList<>();
-
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/most_used_apps", pathParams));
-            this.parser.query(builder, queryParams, queryStructNames);
-
-            HttpGet request = new HttpGet(builder.build());
-
-
-            return this.httpClient.execute(request, response -> {
-                if (response.getCode() >= 200 && response.getCode() <= 299) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<BackendStatisticChart>(){});
-
-                    return data;
-                }
-
-                var statusCode = response.getCode();
-                if (statusCode == 401) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 500) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
-            });
-        } catch (URISyntaxException | IOException e) {
-            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
-        }
-    }
-
-    public BackendStatisticChart getMostUsedActivities(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
-        try {
-            Map<String, Object> pathParams = new HashMap<>();
-
-            Map<String, Object> queryParams = new HashMap<>();
-            queryParams.put("startIndex", startIndex);
-            queryParams.put("count", count);
-            queryParams.put("search", search);
-            queryParams.put("from", from);
-            queryParams.put("to", to);
-            queryParams.put("operationId", operationId);
-            queryParams.put("appId", appId);
-            queryParams.put("userId", userId);
-            queryParams.put("ip", ip);
-            queryParams.put("userAgent", userAgent);
-            queryParams.put("method", method);
-            queryParams.put("path", path);
-            queryParams.put("header", header);
-            queryParams.put("body", body);
-
-            List<String> queryStructNames = new ArrayList<>();
-
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/most_used_activities", pathParams));
-            this.parser.query(builder, queryParams, queryStructNames);
-
-            HttpGet request = new HttpGet(builder.build());
-
-
-            return this.httpClient.execute(request, response -> {
-                if (response.getCode() >= 200 && response.getCode() <= 299) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<BackendStatisticChart>(){});
-
-                    return data;
-                }
-
-                var statusCode = response.getCode();
-                if (statusCode == 401) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 500) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
-            });
-        } catch (URISyntaxException | IOException e) {
-            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
-        }
-    }
-
-    public BackendStatisticChart getIssuedTokens(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
-        try {
-            Map<String, Object> pathParams = new HashMap<>();
-
-            Map<String, Object> queryParams = new HashMap<>();
-            queryParams.put("startIndex", startIndex);
-            queryParams.put("count", count);
-            queryParams.put("search", search);
-            queryParams.put("from", from);
-            queryParams.put("to", to);
-            queryParams.put("operationId", operationId);
-            queryParams.put("appId", appId);
-            queryParams.put("userId", userId);
-            queryParams.put("ip", ip);
-            queryParams.put("userAgent", userAgent);
-            queryParams.put("method", method);
-            queryParams.put("path", path);
-            queryParams.put("header", header);
-            queryParams.put("body", body);
-
-            List<String> queryStructNames = new ArrayList<>();
-
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/issued_tokens", pathParams));
-            this.parser.query(builder, queryParams, queryStructNames);
-
-            HttpGet request = new HttpGet(builder.build());
-
-
-            return this.httpClient.execute(request, response -> {
-                if (response.getCode() >= 200 && response.getCode() <= 299) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<BackendStatisticChart>(){});
-
-                    return data;
-                }
-
-                var statusCode = response.getCode();
-                if (statusCode == 401) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 500) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
-            });
-        } catch (URISyntaxException | IOException e) {
-            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
-        }
-    }
-
-    public BackendStatisticChart getIncomingTransactions(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
-        try {
-            Map<String, Object> pathParams = new HashMap<>();
-
-            Map<String, Object> queryParams = new HashMap<>();
-            queryParams.put("startIndex", startIndex);
-            queryParams.put("count", count);
-            queryParams.put("search", search);
-            queryParams.put("from", from);
-            queryParams.put("to", to);
-            queryParams.put("operationId", operationId);
-            queryParams.put("appId", appId);
-            queryParams.put("userId", userId);
-            queryParams.put("ip", ip);
-            queryParams.put("userAgent", userAgent);
-            queryParams.put("method", method);
-            queryParams.put("path", path);
-            queryParams.put("header", header);
-            queryParams.put("body", body);
-
-            List<String> queryStructNames = new ArrayList<>();
-
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/incoming_transactions", pathParams));
-            this.parser.query(builder, queryParams, queryStructNames);
-
-            HttpGet request = new HttpGet(builder.build());
-
-
-            return this.httpClient.execute(request, response -> {
-                if (response.getCode() >= 200 && response.getCode() <= 299) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<BackendStatisticChart>(){});
-
-                    return data;
-                }
-
-                var statusCode = response.getCode();
-                if (statusCode == 401) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 500) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
-            });
-        } catch (URISyntaxException | IOException e) {
-            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
-        }
-    }
-
-    public BackendStatisticChart getIncomingRequests(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
-        try {
-            Map<String, Object> pathParams = new HashMap<>();
-
-            Map<String, Object> queryParams = new HashMap<>();
-            queryParams.put("startIndex", startIndex);
-            queryParams.put("count", count);
-            queryParams.put("search", search);
-            queryParams.put("from", from);
-            queryParams.put("to", to);
-            queryParams.put("operationId", operationId);
-            queryParams.put("appId", appId);
-            queryParams.put("userId", userId);
-            queryParams.put("ip", ip);
-            queryParams.put("userAgent", userAgent);
-            queryParams.put("method", method);
-            queryParams.put("path", path);
-            queryParams.put("header", header);
-            queryParams.put("body", body);
-
-            List<String> queryStructNames = new ArrayList<>();
-
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/incoming_requests", pathParams));
-            this.parser.query(builder, queryParams, queryStructNames);
-
-            HttpGet request = new HttpGet(builder.build());
-
-
-            return this.httpClient.execute(request, response -> {
-                if (response.getCode() >= 200 && response.getCode() <= 299) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<BackendStatisticChart>(){});
-
-                    return data;
-                }
-
-                var statusCode = response.getCode();
-                if (statusCode == 401) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 500) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
-            });
-        } catch (URISyntaxException | IOException e) {
-            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
-        }
-    }
-
-    public BackendStatisticChart getErrorsPerOperation(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
-        try {
-            Map<String, Object> pathParams = new HashMap<>();
-
-            Map<String, Object> queryParams = new HashMap<>();
-            queryParams.put("startIndex", startIndex);
-            queryParams.put("count", count);
-            queryParams.put("search", search);
-            queryParams.put("from", from);
-            queryParams.put("to", to);
-            queryParams.put("operationId", operationId);
-            queryParams.put("appId", appId);
-            queryParams.put("userId", userId);
-            queryParams.put("ip", ip);
-            queryParams.put("userAgent", userAgent);
-            queryParams.put("method", method);
-            queryParams.put("path", path);
-            queryParams.put("header", header);
-            queryParams.put("body", body);
-
-            List<String> queryStructNames = new ArrayList<>();
-
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/errors_per_operation", pathParams));
-            this.parser.query(builder, queryParams, queryStructNames);
-
-            HttpGet request = new HttpGet(builder.build());
-
-
-            return this.httpClient.execute(request, response -> {
-                if (response.getCode() >= 200 && response.getCode() <= 299) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<BackendStatisticChart>(){});
-
-                    return data;
-                }
-
-                var statusCode = response.getCode();
-                if (statusCode == 401) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 500) {
+                if (statusCode >= 0 && statusCode <= 999) {
                     var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
 
                     throw new CommonMessageException(data);
@@ -715,13 +118,7 @@ public class BackendStatisticTag extends TagAbstract {
                 }
 
                 var statusCode = response.getCode();
-                if (statusCode == 401) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                if (statusCode == 500) {
+                if (statusCode >= 0 && statusCode <= 999) {
                     var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
 
                     throw new CommonMessageException(data);
@@ -734,7 +131,7 @@ public class BackendStatisticTag extends TagAbstract {
         }
     }
 
-    public BackendStatisticChart getActivitiesPerUser(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
+    public BackendStatisticChart getErrorsPerOperation(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
@@ -756,7 +153,7 @@ public class BackendStatisticTag extends TagAbstract {
 
             List<String> queryStructNames = new ArrayList<>();
 
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/activities_per_user", pathParams));
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/errors_per_operation", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
@@ -770,13 +167,532 @@ public class BackendStatisticTag extends TagAbstract {
                 }
 
                 var statusCode = response.getCode();
-                if (statusCode == 401) {
+                if (statusCode >= 0 && statusCode <= 999) {
                     var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
 
                     throw new CommonMessageException(data);
                 }
 
-                if (statusCode == 500) {
+                throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+            });
+        } catch (URISyntaxException | IOException e) {
+            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
+        }
+    }
+
+    public BackendStatisticChart getIncomingRequests(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
+        try {
+            Map<String, Object> pathParams = new HashMap<>();
+
+            Map<String, Object> queryParams = new HashMap<>();
+            queryParams.put("startIndex", startIndex);
+            queryParams.put("count", count);
+            queryParams.put("search", search);
+            queryParams.put("from", from);
+            queryParams.put("to", to);
+            queryParams.put("operationId", operationId);
+            queryParams.put("appId", appId);
+            queryParams.put("userId", userId);
+            queryParams.put("ip", ip);
+            queryParams.put("userAgent", userAgent);
+            queryParams.put("method", method);
+            queryParams.put("path", path);
+            queryParams.put("header", header);
+            queryParams.put("body", body);
+
+            List<String> queryStructNames = new ArrayList<>();
+
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/incoming_requests", pathParams));
+            this.parser.query(builder, queryParams, queryStructNames);
+
+            HttpGet request = new HttpGet(builder.build());
+
+
+            return this.httpClient.execute(request, response -> {
+                if (response.getCode() >= 200 && response.getCode() <= 299) {
+                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<BackendStatisticChart>(){});
+
+                    return data;
+                }
+
+                var statusCode = response.getCode();
+                if (statusCode >= 0 && statusCode <= 999) {
+                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
+
+                    throw new CommonMessageException(data);
+                }
+
+                throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+            });
+        } catch (URISyntaxException | IOException e) {
+            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
+        }
+    }
+
+    public BackendStatisticChart getIncomingTransactions(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
+        try {
+            Map<String, Object> pathParams = new HashMap<>();
+
+            Map<String, Object> queryParams = new HashMap<>();
+            queryParams.put("startIndex", startIndex);
+            queryParams.put("count", count);
+            queryParams.put("search", search);
+            queryParams.put("from", from);
+            queryParams.put("to", to);
+            queryParams.put("operationId", operationId);
+            queryParams.put("appId", appId);
+            queryParams.put("userId", userId);
+            queryParams.put("ip", ip);
+            queryParams.put("userAgent", userAgent);
+            queryParams.put("method", method);
+            queryParams.put("path", path);
+            queryParams.put("header", header);
+            queryParams.put("body", body);
+
+            List<String> queryStructNames = new ArrayList<>();
+
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/incoming_transactions", pathParams));
+            this.parser.query(builder, queryParams, queryStructNames);
+
+            HttpGet request = new HttpGet(builder.build());
+
+
+            return this.httpClient.execute(request, response -> {
+                if (response.getCode() >= 200 && response.getCode() <= 299) {
+                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<BackendStatisticChart>(){});
+
+                    return data;
+                }
+
+                var statusCode = response.getCode();
+                if (statusCode >= 0 && statusCode <= 999) {
+                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
+
+                    throw new CommonMessageException(data);
+                }
+
+                throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+            });
+        } catch (URISyntaxException | IOException e) {
+            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
+        }
+    }
+
+    public BackendStatisticChart getIssuedTokens(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
+        try {
+            Map<String, Object> pathParams = new HashMap<>();
+
+            Map<String, Object> queryParams = new HashMap<>();
+            queryParams.put("startIndex", startIndex);
+            queryParams.put("count", count);
+            queryParams.put("search", search);
+            queryParams.put("from", from);
+            queryParams.put("to", to);
+            queryParams.put("operationId", operationId);
+            queryParams.put("appId", appId);
+            queryParams.put("userId", userId);
+            queryParams.put("ip", ip);
+            queryParams.put("userAgent", userAgent);
+            queryParams.put("method", method);
+            queryParams.put("path", path);
+            queryParams.put("header", header);
+            queryParams.put("body", body);
+
+            List<String> queryStructNames = new ArrayList<>();
+
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/issued_tokens", pathParams));
+            this.parser.query(builder, queryParams, queryStructNames);
+
+            HttpGet request = new HttpGet(builder.build());
+
+
+            return this.httpClient.execute(request, response -> {
+                if (response.getCode() >= 200 && response.getCode() <= 299) {
+                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<BackendStatisticChart>(){});
+
+                    return data;
+                }
+
+                var statusCode = response.getCode();
+                if (statusCode >= 0 && statusCode <= 999) {
+                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
+
+                    throw new CommonMessageException(data);
+                }
+
+                throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+            });
+        } catch (URISyntaxException | IOException e) {
+            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
+        }
+    }
+
+    public BackendStatisticChart getMostUsedActivities(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
+        try {
+            Map<String, Object> pathParams = new HashMap<>();
+
+            Map<String, Object> queryParams = new HashMap<>();
+            queryParams.put("startIndex", startIndex);
+            queryParams.put("count", count);
+            queryParams.put("search", search);
+            queryParams.put("from", from);
+            queryParams.put("to", to);
+            queryParams.put("operationId", operationId);
+            queryParams.put("appId", appId);
+            queryParams.put("userId", userId);
+            queryParams.put("ip", ip);
+            queryParams.put("userAgent", userAgent);
+            queryParams.put("method", method);
+            queryParams.put("path", path);
+            queryParams.put("header", header);
+            queryParams.put("body", body);
+
+            List<String> queryStructNames = new ArrayList<>();
+
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/most_used_activities", pathParams));
+            this.parser.query(builder, queryParams, queryStructNames);
+
+            HttpGet request = new HttpGet(builder.build());
+
+
+            return this.httpClient.execute(request, response -> {
+                if (response.getCode() >= 200 && response.getCode() <= 299) {
+                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<BackendStatisticChart>(){});
+
+                    return data;
+                }
+
+                var statusCode = response.getCode();
+                if (statusCode >= 0 && statusCode <= 999) {
+                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
+
+                    throw new CommonMessageException(data);
+                }
+
+                throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+            });
+        } catch (URISyntaxException | IOException e) {
+            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
+        }
+    }
+
+    public BackendStatisticChart getMostUsedApps(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
+        try {
+            Map<String, Object> pathParams = new HashMap<>();
+
+            Map<String, Object> queryParams = new HashMap<>();
+            queryParams.put("startIndex", startIndex);
+            queryParams.put("count", count);
+            queryParams.put("search", search);
+            queryParams.put("from", from);
+            queryParams.put("to", to);
+            queryParams.put("operationId", operationId);
+            queryParams.put("appId", appId);
+            queryParams.put("userId", userId);
+            queryParams.put("ip", ip);
+            queryParams.put("userAgent", userAgent);
+            queryParams.put("method", method);
+            queryParams.put("path", path);
+            queryParams.put("header", header);
+            queryParams.put("body", body);
+
+            List<String> queryStructNames = new ArrayList<>();
+
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/most_used_apps", pathParams));
+            this.parser.query(builder, queryParams, queryStructNames);
+
+            HttpGet request = new HttpGet(builder.build());
+
+
+            return this.httpClient.execute(request, response -> {
+                if (response.getCode() >= 200 && response.getCode() <= 299) {
+                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<BackendStatisticChart>(){});
+
+                    return data;
+                }
+
+                var statusCode = response.getCode();
+                if (statusCode >= 0 && statusCode <= 999) {
+                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
+
+                    throw new CommonMessageException(data);
+                }
+
+                throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+            });
+        } catch (URISyntaxException | IOException e) {
+            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
+        }
+    }
+
+    public BackendStatisticChart getMostUsedOperations(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
+        try {
+            Map<String, Object> pathParams = new HashMap<>();
+
+            Map<String, Object> queryParams = new HashMap<>();
+            queryParams.put("startIndex", startIndex);
+            queryParams.put("count", count);
+            queryParams.put("search", search);
+            queryParams.put("from", from);
+            queryParams.put("to", to);
+            queryParams.put("operationId", operationId);
+            queryParams.put("appId", appId);
+            queryParams.put("userId", userId);
+            queryParams.put("ip", ip);
+            queryParams.put("userAgent", userAgent);
+            queryParams.put("method", method);
+            queryParams.put("path", path);
+            queryParams.put("header", header);
+            queryParams.put("body", body);
+
+            List<String> queryStructNames = new ArrayList<>();
+
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/most_used_operations", pathParams));
+            this.parser.query(builder, queryParams, queryStructNames);
+
+            HttpGet request = new HttpGet(builder.build());
+
+
+            return this.httpClient.execute(request, response -> {
+                if (response.getCode() >= 200 && response.getCode() <= 299) {
+                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<BackendStatisticChart>(){});
+
+                    return data;
+                }
+
+                var statusCode = response.getCode();
+                if (statusCode >= 0 && statusCode <= 999) {
+                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
+
+                    throw new CommonMessageException(data);
+                }
+
+                throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+            });
+        } catch (URISyntaxException | IOException e) {
+            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
+        }
+    }
+
+    public BackendStatisticChart getTestCoverage() throws ClientException {
+        try {
+            Map<String, Object> pathParams = new HashMap<>();
+
+            Map<String, Object> queryParams = new HashMap<>();
+
+            List<String> queryStructNames = new ArrayList<>();
+
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/test_coverage", pathParams));
+            this.parser.query(builder, queryParams, queryStructNames);
+
+            HttpGet request = new HttpGet(builder.build());
+
+
+            return this.httpClient.execute(request, response -> {
+                if (response.getCode() >= 200 && response.getCode() <= 299) {
+                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<BackendStatisticChart>(){});
+
+                    return data;
+                }
+
+                var statusCode = response.getCode();
+                if (statusCode >= 0 && statusCode <= 999) {
+                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
+
+                    throw new CommonMessageException(data);
+                }
+
+                throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+            });
+        } catch (URISyntaxException | IOException e) {
+            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
+        }
+    }
+
+    public BackendStatisticChart getTimeAverage(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
+        try {
+            Map<String, Object> pathParams = new HashMap<>();
+
+            Map<String, Object> queryParams = new HashMap<>();
+            queryParams.put("startIndex", startIndex);
+            queryParams.put("count", count);
+            queryParams.put("search", search);
+            queryParams.put("from", from);
+            queryParams.put("to", to);
+            queryParams.put("operationId", operationId);
+            queryParams.put("appId", appId);
+            queryParams.put("userId", userId);
+            queryParams.put("ip", ip);
+            queryParams.put("userAgent", userAgent);
+            queryParams.put("method", method);
+            queryParams.put("path", path);
+            queryParams.put("header", header);
+            queryParams.put("body", body);
+
+            List<String> queryStructNames = new ArrayList<>();
+
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/time_average", pathParams));
+            this.parser.query(builder, queryParams, queryStructNames);
+
+            HttpGet request = new HttpGet(builder.build());
+
+
+            return this.httpClient.execute(request, response -> {
+                if (response.getCode() >= 200 && response.getCode() <= 299) {
+                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<BackendStatisticChart>(){});
+
+                    return data;
+                }
+
+                var statusCode = response.getCode();
+                if (statusCode >= 0 && statusCode <= 999) {
+                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
+
+                    throw new CommonMessageException(data);
+                }
+
+                throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+            });
+        } catch (URISyntaxException | IOException e) {
+            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
+        }
+    }
+
+    public BackendStatisticChart getTimePerOperation(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
+        try {
+            Map<String, Object> pathParams = new HashMap<>();
+
+            Map<String, Object> queryParams = new HashMap<>();
+            queryParams.put("startIndex", startIndex);
+            queryParams.put("count", count);
+            queryParams.put("search", search);
+            queryParams.put("from", from);
+            queryParams.put("to", to);
+            queryParams.put("operationId", operationId);
+            queryParams.put("appId", appId);
+            queryParams.put("userId", userId);
+            queryParams.put("ip", ip);
+            queryParams.put("userAgent", userAgent);
+            queryParams.put("method", method);
+            queryParams.put("path", path);
+            queryParams.put("header", header);
+            queryParams.put("body", body);
+
+            List<String> queryStructNames = new ArrayList<>();
+
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/time_per_operation", pathParams));
+            this.parser.query(builder, queryParams, queryStructNames);
+
+            HttpGet request = new HttpGet(builder.build());
+
+
+            return this.httpClient.execute(request, response -> {
+                if (response.getCode() >= 200 && response.getCode() <= 299) {
+                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<BackendStatisticChart>(){});
+
+                    return data;
+                }
+
+                var statusCode = response.getCode();
+                if (statusCode >= 0 && statusCode <= 999) {
+                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
+
+                    throw new CommonMessageException(data);
+                }
+
+                throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+            });
+        } catch (URISyntaxException | IOException e) {
+            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
+        }
+    }
+
+    public BackendStatisticChart getUsedPoints(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
+        try {
+            Map<String, Object> pathParams = new HashMap<>();
+
+            Map<String, Object> queryParams = new HashMap<>();
+            queryParams.put("startIndex", startIndex);
+            queryParams.put("count", count);
+            queryParams.put("search", search);
+            queryParams.put("from", from);
+            queryParams.put("to", to);
+            queryParams.put("operationId", operationId);
+            queryParams.put("appId", appId);
+            queryParams.put("userId", userId);
+            queryParams.put("ip", ip);
+            queryParams.put("userAgent", userAgent);
+            queryParams.put("method", method);
+            queryParams.put("path", path);
+            queryParams.put("header", header);
+            queryParams.put("body", body);
+
+            List<String> queryStructNames = new ArrayList<>();
+
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/used_points", pathParams));
+            this.parser.query(builder, queryParams, queryStructNames);
+
+            HttpGet request = new HttpGet(builder.build());
+
+
+            return this.httpClient.execute(request, response -> {
+                if (response.getCode() >= 200 && response.getCode() <= 299) {
+                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<BackendStatisticChart>(){});
+
+                    return data;
+                }
+
+                var statusCode = response.getCode();
+                if (statusCode >= 0 && statusCode <= 999) {
+                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
+
+                    throw new CommonMessageException(data);
+                }
+
+                throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+            });
+        } catch (URISyntaxException | IOException e) {
+            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
+        }
+    }
+
+    public BackendStatisticChart getUserRegistrations(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
+        try {
+            Map<String, Object> pathParams = new HashMap<>();
+
+            Map<String, Object> queryParams = new HashMap<>();
+            queryParams.put("startIndex", startIndex);
+            queryParams.put("count", count);
+            queryParams.put("search", search);
+            queryParams.put("from", from);
+            queryParams.put("to", to);
+            queryParams.put("operationId", operationId);
+            queryParams.put("appId", appId);
+            queryParams.put("userId", userId);
+            queryParams.put("ip", ip);
+            queryParams.put("userAgent", userAgent);
+            queryParams.put("method", method);
+            queryParams.put("path", path);
+            queryParams.put("header", header);
+            queryParams.put("body", body);
+
+            List<String> queryStructNames = new ArrayList<>();
+
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/statistic/user_registrations", pathParams));
+            this.parser.query(builder, queryParams, queryStructNames);
+
+            HttpGet request = new HttpGet(builder.build());
+
+
+            return this.httpClient.execute(request, response -> {
+                if (response.getCode() >= 200 && response.getCode() <= 299) {
+                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<BackendStatisticChart>(){});
+
+                    return data;
+                }
+
+                var statusCode = response.getCode();
+                if (statusCode >= 0 && statusCode <= 999) {
                     var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
 
                     throw new CommonMessageException(data);

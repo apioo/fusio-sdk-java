@@ -56,6 +56,12 @@ public class SystemConnectionTag extends TagAbstract {
                 }
 
                 var statusCode = response.getCode();
+                if (statusCode >= 0 && statusCode <= 999) {
+                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
+
+                    throw new CommonMessageException(data);
+                }
+
                 throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
             });
         } catch (URISyntaxException | IOException e) {

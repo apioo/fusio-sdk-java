@@ -32,6 +32,42 @@ public class ConsumerTag extends TagAbstract {
         super(httpClient, objectMapper, parser);
     }
 
+    public ConsumerAccountTag account()
+    {
+        return new ConsumerAccountTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
+    public ConsumerAppTag app()
+    {
+        return new ConsumerAppTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
+    public ConsumerEventTag event()
+    {
+        return new ConsumerEventTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
+    public ConsumerGrantTag grant()
+    {
+        return new ConsumerGrantTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
     public ConsumerIdentityTag identity()
     {
         return new ConsumerIdentityTag(
@@ -41,9 +77,54 @@ public class ConsumerTag extends TagAbstract {
         );
     }
 
-    public ConsumerAccountTag account()
+    public ConsumerLogTag log()
     {
-        return new ConsumerAccountTag(
+        return new ConsumerLogTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
+    public ConsumerPageTag page()
+    {
+        return new ConsumerPageTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
+    public ConsumerPaymentTag payment()
+    {
+        return new ConsumerPaymentTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
+    public ConsumerPlanTag plan()
+    {
+        return new ConsumerPlanTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
+    public ConsumerScopeTag scope()
+    {
+        return new ConsumerScopeTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
+    public ConsumerTokenTag token()
+    {
+        return new ConsumerTokenTag(
             this.httpClient,
             this.objectMapper,
             this.parser
@@ -62,87 +143,6 @@ public class ConsumerTag extends TagAbstract {
     public ConsumerWebhookTag webhook()
     {
         return new ConsumerWebhookTag(
-            this.httpClient,
-            this.objectMapper,
-            this.parser
-        );
-    }
-
-    public ConsumerTokenTag token()
-    {
-        return new ConsumerTokenTag(
-            this.httpClient,
-            this.objectMapper,
-            this.parser
-        );
-    }
-
-    public ConsumerScopeTag scope()
-    {
-        return new ConsumerScopeTag(
-            this.httpClient,
-            this.objectMapper,
-            this.parser
-        );
-    }
-
-    public ConsumerPlanTag plan()
-    {
-        return new ConsumerPlanTag(
-            this.httpClient,
-            this.objectMapper,
-            this.parser
-        );
-    }
-
-    public ConsumerPaymentTag payment()
-    {
-        return new ConsumerPaymentTag(
-            this.httpClient,
-            this.objectMapper,
-            this.parser
-        );
-    }
-
-    public ConsumerPageTag page()
-    {
-        return new ConsumerPageTag(
-            this.httpClient,
-            this.objectMapper,
-            this.parser
-        );
-    }
-
-    public ConsumerLogTag log()
-    {
-        return new ConsumerLogTag(
-            this.httpClient,
-            this.objectMapper,
-            this.parser
-        );
-    }
-
-    public ConsumerGrantTag grant()
-    {
-        return new ConsumerGrantTag(
-            this.httpClient,
-            this.objectMapper,
-            this.parser
-        );
-    }
-
-    public ConsumerEventTag event()
-    {
-        return new ConsumerEventTag(
-            this.httpClient,
-            this.objectMapper,
-            this.parser
-        );
-    }
-
-    public ConsumerAppTag app()
-    {
-        return new ConsumerAppTag(
             this.httpClient,
             this.objectMapper,
             this.parser
