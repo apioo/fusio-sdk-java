@@ -7,9 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
-/**
- * Installs an object from the marketplace
- */
+@JsonClassDescription("Installs an object from the marketplace")
 public class MarketplaceInstall {
     private String name;
 

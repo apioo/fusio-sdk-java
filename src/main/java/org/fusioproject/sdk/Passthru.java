@@ -5,9 +5,6 @@
 
 package org.fusioproject.sdk;
 
-/**
- * No schema information available
- */
 public class Passthru extends java.util.HashMap<String, Object> {
 }
 

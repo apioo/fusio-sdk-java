@@ -11,6 +11,7 @@ public class BackendConnection {
     private Integer id;
     private String name;
     private String _class;
+    @JsonPropertyDescription("Indicates whether it is possible to start an OAuth2 authorization code flow on this connection")
     private Boolean oauth;
     private BackendConnectionConfig config;
     private CommonMetadata metadata;

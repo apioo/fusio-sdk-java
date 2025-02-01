@@ -5,9 +5,6 @@
 
 package org.fusioproject.sdk;
 
-/**
- * Contains a UI vocabulary to describe the UI of the schema
- */
 public class BackendSchemaForm extends java.util.HashMap<String, Object> {
 }
 

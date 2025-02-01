@@ -5,9 +5,6 @@
 
 package org.fusioproject.sdk;
 
-/**
- * Contains the TypeSchema specification
- */
 public class BackendSchemaSource extends java.util.HashMap<String, Object> {
 }
 

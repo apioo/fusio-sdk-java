@@ -7,9 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
-/**
- * Base class of all objects on the marketplace
- */
+@JsonClassDescription("Base class of all objects on the marketplace")
 public class MarketplaceObject {
     private Integer id;
     private String name;

@@ -7,9 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
-/**
- * Base collection
- */
+@JsonClassDescription("Base collection")
 public class CommonCollection<T> {
     private Integer totalResults;
     private Integer startIndex;

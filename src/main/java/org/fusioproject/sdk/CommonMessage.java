@@ -7,9 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
-/**
- * Common error message
- */
+@JsonClassDescription("Common error message")
 public class CommonMessage {
     private Boolean success;
     private String message;
