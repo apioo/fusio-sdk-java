@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.*;
 
 public class BackendStatisticChart {
     private java.util.List<String> labels;
-    private java.util.List<BackendStatisticChartData> data;
+    private java.util.List<Array> data;
     private java.util.List<String> series;
 
     @JsonSetter("labels")
@@ -23,12 +23,12 @@ public class BackendStatisticChart {
     }
 
     @JsonSetter("data")
-    public void setData(java.util.List<BackendStatisticChartData> data) {
+    public void setData(java.util.List<Array> data) {
         this.data = data;
     }
 
     @JsonGetter("data")
-    public java.util.List<BackendStatisticChartData> getData() {
+    public java.util.List<Array> getData() {
         return this.data;
     }
 

@@ -13,6 +13,7 @@ public class BackendSchema {
     private String name;
     private BackendSchemaSource source;
     private BackendSchemaForm form;
+    private Boolean readonly;
     private CommonMetadata metadata;
 
     @JsonSetter("id")
@@ -63,6 +64,16 @@ public class BackendSchema {
     @JsonGetter("form")
     public BackendSchemaForm getForm() {
         return this.form;
+    }
+
+    @JsonSetter("readonly")
+    public void setReadonly(Boolean readonly) {
+        this.readonly = readonly;
+    }
+
+    @JsonGetter("readonly")
+    public Boolean getReadonly() {
+        return this.readonly;
     }
 
     @JsonSetter("metadata")
