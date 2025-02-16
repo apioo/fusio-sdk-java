@@ -9,8 +9,7 @@ import com.fasterxml.jackson.annotation.*;
 
 public class BackendStatisticChart {
     private java.util.List<String> labels;
-    private java.util.List<Array> data;
-    private java.util.List<String> series;
+    private java.util.List<BackendStatisticChartSeries> series;
 
     @JsonSetter("labels")
     public void setLabels(java.util.List<String> labels) {
@@ -22,23 +21,13 @@ public class BackendStatisticChart {
         return this.labels;
     }
 
-    @JsonSetter("data")
-    public void setData(java.util.List<Array> data) {
-        this.data = data;
-    }
-
-    @JsonGetter("data")
-    public java.util.List<Array> getData() {
-        return this.data;
-    }
-
     @JsonSetter("series")
-    public void setSeries(java.util.List<String> series) {
+    public void setSeries(java.util.List<BackendStatisticChartSeries> series) {
         this.series = series;
     }
 
     @JsonGetter("series")
-    public java.util.List<String> getSeries() {
+    public java.util.List<BackendStatisticChartSeries> getSeries() {
         return this.series;
     }
 }
