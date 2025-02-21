@@ -142,7 +142,7 @@ public class BackendConnectionTag extends TagAbstract {
         }
     }
 
-    public BackendConnectionCollection getAll(Integer startIndex, Integer count, String search) throws ClientException {
+    public BackendConnectionCollection getAll(Integer startIndex, Integer count, String search, String _class) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
@@ -150,6 +150,7 @@ public class BackendConnectionTag extends TagAbstract {
             queryParams.put("startIndex", startIndex);
             queryParams.put("count", count);
             queryParams.put("search", search);
+            queryParams.put("class", _class);
 
             List<String> queryStructNames = new ArrayList<>();
 
@@ -233,79 +234,6 @@ public class BackendConnectionTag extends TagAbstract {
             return this.httpClient.execute(request, response -> {
                 if (response.getCode() >= 200 && response.getCode() <= 299) {
                     var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonFormContainer>(){});
-
-                    return data;
-                }
-
-                var statusCode = response.getCode();
-                if (statusCode >= 0 && statusCode <= 999) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
-            });
-        } catch (URISyntaxException | IOException e) {
-            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
-        }
-    }
-
-    public BackendConnectionIntrospectionEntities getIntrospection(String connectionId) throws ClientException {
-        try {
-            Map<String, Object> pathParams = new HashMap<>();
-            pathParams.put("connection_id", connectionId);
-
-            Map<String, Object> queryParams = new HashMap<>();
-
-            List<String> queryStructNames = new ArrayList<>();
-
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/connection/$connection_id<[0-9]+|^~>/introspection", pathParams));
-            this.parser.query(builder, queryParams, queryStructNames);
-
-            HttpGet request = new HttpGet(builder.build());
-
-
-            return this.httpClient.execute(request, response -> {
-                if (response.getCode() >= 200 && response.getCode() <= 299) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<BackendConnectionIntrospectionEntities>(){});
-
-                    return data;
-                }
-
-                var statusCode = response.getCode();
-                if (statusCode >= 0 && statusCode <= 999) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
-            });
-        } catch (URISyntaxException | IOException e) {
-            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
-        }
-    }
-
-    public BackendConnectionIntrospectionEntity getIntrospectionForEntity(String connectionId, String entity) throws ClientException {
-        try {
-            Map<String, Object> pathParams = new HashMap<>();
-            pathParams.put("connection_id", connectionId);
-            pathParams.put("entity", entity);
-
-            Map<String, Object> queryParams = new HashMap<>();
-
-            List<String> queryStructNames = new ArrayList<>();
-
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/connection/$connection_id<[0-9]+|^~>/introspection/:entity", pathParams));
-            this.parser.query(builder, queryParams, queryStructNames);
-
-            HttpGet request = new HttpGet(builder.build());
-
-
-            return this.httpClient.execute(request, response -> {
-                if (response.getCode() >= 200 && response.getCode() <= 299) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<BackendConnectionIntrospectionEntity>(){});
 
                     return data;
                 }

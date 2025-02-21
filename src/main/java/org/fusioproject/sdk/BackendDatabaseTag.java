@@ -185,41 +185,6 @@ public class BackendDatabaseTag extends TagAbstract {
         }
     }
 
-    public BackendDatabaseConnections getConnections() throws ClientException {
-        try {
-            Map<String, Object> pathParams = new HashMap<>();
-
-            Map<String, Object> queryParams = new HashMap<>();
-
-            List<String> queryStructNames = new ArrayList<>();
-
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/database", pathParams));
-            this.parser.query(builder, queryParams, queryStructNames);
-
-            HttpGet request = new HttpGet(builder.build());
-
-
-            return this.httpClient.execute(request, response -> {
-                if (response.getCode() >= 200 && response.getCode() <= 299) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<BackendDatabaseConnections>(){});
-
-                    return data;
-                }
-
-                var statusCode = response.getCode();
-                if (statusCode >= 0 && statusCode <= 999) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
-            });
-        } catch (URISyntaxException | IOException e) {
-            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
-        }
-    }
-
     public BackendDatabaseRow getRow(String connectionId, String tableName, String id) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -258,7 +223,7 @@ public class BackendDatabaseTag extends TagAbstract {
         }
     }
 
-    public BackendDatabaseRows getRows(String connectionId, String tableName, Integer startIndex, Integer count, String filterBy, String filterOp, String filterValue, String sortBy, String sortOrder, String columns) throws ClientException {
+    public BackendDatabaseRowCollection getRows(String connectionId, String tableName, Integer startIndex, Integer count, String filterBy, String filterOp, String filterValue, String sortBy, String sortOrder, String columns) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
             pathParams.put("connection_id", connectionId);
@@ -284,7 +249,7 @@ public class BackendDatabaseTag extends TagAbstract {
 
             return this.httpClient.execute(request, response -> {
                 if (response.getCode() >= 200 && response.getCode() <= 299) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<BackendDatabaseRows>(){});
+                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<BackendDatabaseRowCollection>(){});
 
                     return data;
                 }
@@ -340,7 +305,7 @@ public class BackendDatabaseTag extends TagAbstract {
         }
     }
 
-    public BackendDatabaseTables getTables(String connectionId) throws ClientException {
+    public BackendDatabaseTableCollection getTables(String connectionId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
             pathParams.put("connection_id", connectionId);
@@ -357,7 +322,7 @@ public class BackendDatabaseTag extends TagAbstract {
 
             return this.httpClient.execute(request, response -> {
                 if (response.getCode() >= 200 && response.getCode() <= 299) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<BackendDatabaseTables>(){});
+                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<BackendDatabaseTableCollection>(){});
 
                     return data;
                 }
