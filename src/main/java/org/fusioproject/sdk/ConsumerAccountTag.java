@@ -65,6 +65,8 @@ public class ConsumerAccountTag extends TagAbstract {
 
                 throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
             });
+        } catch (ClientException e) {
+            throw e;
         } catch (URISyntaxException | IOException e) {
             throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
         }
@@ -102,6 +104,8 @@ public class ConsumerAccountTag extends TagAbstract {
 
                 throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
             });
+        } catch (ClientException e) {
+            throw e;
         } catch (URISyntaxException | IOException e) {
             throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
         }
@@ -139,6 +143,8 @@ public class ConsumerAccountTag extends TagAbstract {
 
                 throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
             });
+        } catch (ClientException e) {
+            throw e;
         } catch (URISyntaxException | IOException e) {
             throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
         }
@@ -176,6 +182,8 @@ public class ConsumerAccountTag extends TagAbstract {
 
                 throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
             });
+        } catch (ClientException e) {
+            throw e;
         } catch (URISyntaxException | IOException e) {
             throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
         }
@@ -211,6 +219,8 @@ public class ConsumerAccountTag extends TagAbstract {
 
                 throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
             });
+        } catch (ClientException e) {
+            throw e;
         } catch (URISyntaxException | IOException e) {
             throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
         }
@@ -246,6 +256,8 @@ public class ConsumerAccountTag extends TagAbstract {
 
                 throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
             });
+        } catch (ClientException e) {
+            throw e;
         } catch (URISyntaxException | IOException e) {
             throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
         }
@@ -283,6 +295,8 @@ public class ConsumerAccountTag extends TagAbstract {
 
                 throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
             });
+        } catch (ClientException e) {
+            throw e;
         } catch (URISyntaxException | IOException e) {
             throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
         }
@@ -320,6 +334,8 @@ public class ConsumerAccountTag extends TagAbstract {
 
                 throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
             });
+        } catch (ClientException e) {
+            throw e;
         } catch (URISyntaxException | IOException e) {
             throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
         }
@@ -357,6 +373,8 @@ public class ConsumerAccountTag extends TagAbstract {
 
                 throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
             });
+        } catch (ClientException e) {
+            throw e;
         } catch (URISyntaxException | IOException e) {
             throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
         }
@@ -394,6 +412,8 @@ public class ConsumerAccountTag extends TagAbstract {
 
                 throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
             });
+        } catch (ClientException e) {
+            throw e;
         } catch (URISyntaxException | IOException e) {
             throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
         }
@@ -431,6 +451,8 @@ public class ConsumerAccountTag extends TagAbstract {
 
                 throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
             });
+        } catch (ClientException e) {
+            throw e;
         } catch (URISyntaxException | IOException e) {
             throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
         }
