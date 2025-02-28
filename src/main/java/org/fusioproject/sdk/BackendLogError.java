@@ -9,10 +9,12 @@ import com.fasterxml.jackson.annotation.*;
 
 public class BackendLogError {
     private Integer id;
-    private Integer message;
+    private Integer logId;
+    private String message;
     private String trace;
     private String file;
     private Integer line;
+    private java.time.LocalDateTime insertDate;
 
     @JsonSetter("id")
     public void setId(Integer id) {
@@ -24,13 +26,23 @@ public class BackendLogError {
         return this.id;
     }
 
+    @JsonSetter("logId")
+    public void setLogId(Integer logId) {
+        this.logId = logId;
+    }
+
+    @JsonGetter("logId")
+    public Integer getLogId() {
+        return this.logId;
+    }
+
     @JsonSetter("message")
-    public void setMessage(Integer message) {
+    public void setMessage(String message) {
         this.message = message;
     }
 
     @JsonGetter("message")
-    public Integer getMessage() {
+    public String getMessage() {
         return this.message;
     }
 
@@ -62,6 +74,16 @@ public class BackendLogError {
     @JsonGetter("line")
     public Integer getLine() {
         return this.line;
+    }
+
+    @JsonSetter("insertDate")
+    public void setInsertDate(java.time.LocalDateTime insertDate) {
+        this.insertDate = insertDate;
+    }
+
+    @JsonGetter("insertDate")
+    public java.time.LocalDateTime getInsertDate() {
+        return this.insertDate;
     }
 }
 
