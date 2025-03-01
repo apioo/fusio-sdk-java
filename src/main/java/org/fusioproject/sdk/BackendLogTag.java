@@ -71,7 +71,7 @@ public class BackendLogTag extends TagAbstract {
         }
     }
 
-    public BackendLogCollection getAll(Integer startIndex, Integer count, String search, String from, String to, Integer routeId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
+    public BackendLogCollection getAll(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
@@ -81,7 +81,7 @@ public class BackendLogTag extends TagAbstract {
             queryParams.put("search", search);
             queryParams.put("from", from);
             queryParams.put("to", to);
-            queryParams.put("routeId", routeId);
+            queryParams.put("operationId", operationId);
             queryParams.put("appId", appId);
             queryParams.put("userId", userId);
             queryParams.put("ip", ip);
