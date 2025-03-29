@@ -140,6 +140,15 @@ public class BackendTag extends TagAbstract {
         );
     }
 
+    public BackendFormTag form()
+    {
+        return new BackendFormTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
     public BackendGeneratorTag generator()
     {
         return new BackendGeneratorTag(

@@ -59,6 +59,15 @@ public class ConsumerTag extends TagAbstract {
         );
     }
 
+    public ConsumerFormTag form()
+    {
+        return new ConsumerFormTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
     public ConsumerGrantTag grant()
     {
         return new ConsumerGrantTag(
