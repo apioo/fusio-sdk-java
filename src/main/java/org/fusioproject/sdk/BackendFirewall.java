@@ -12,7 +12,6 @@ public class BackendFirewall {
     private String name;
     private Integer type;
     private String ip;
-    private Integer mask;
     private java.time.LocalDateTime expire;
     private CommonMetadata metadata;
 
@@ -54,16 +53,6 @@ public class BackendFirewall {
     @JsonGetter("ip")
     public String getIp() {
         return this.ip;
-    }
-
-    @JsonSetter("mask")
-    public void setMask(Integer mask) {
-        this.mask = mask;
-    }
-
-    @JsonGetter("mask")
-    public Integer getMask() {
-        return this.mask;
     }
 
     @JsonSetter("expire")
