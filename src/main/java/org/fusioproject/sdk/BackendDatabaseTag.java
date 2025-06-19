@@ -319,12 +319,14 @@ public class BackendDatabaseTag extends TagAbstract {
         }
     }
 
-    public BackendDatabaseTableCollection getTables(String connectionId) throws ClientException {
+    public BackendDatabaseTableCollection getTables(String connectionId, Integer startIndex, Integer count) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
             pathParams.put("connection_id", connectionId);
 
             Map<String, Object> queryParams = new HashMap<>();
+            queryParams.put("startIndex", startIndex);
+            queryParams.put("count", count);
 
             List<String> queryStructNames = new ArrayList<>();
 
