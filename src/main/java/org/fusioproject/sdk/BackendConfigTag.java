@@ -33,6 +33,9 @@ public class BackendConfigTag extends TagAbstract {
     }
 
 
+    /**
+     * Returns a specific config
+     */
     public BackendConfig get(String configId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -71,6 +74,9 @@ public class BackendConfigTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a paginated list of configuration values
+     */
     public BackendConfigCollection getAll(Integer startIndex, Integer count, String search) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -111,6 +117,9 @@ public class BackendConfigTag extends TagAbstract {
         }
     }
 
+    /**
+     * Updates an existing config value
+     */
     public CommonMessage update(String configId, BackendConfigUpdate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

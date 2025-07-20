@@ -33,6 +33,9 @@ public class BackendFormTag extends TagAbstract {
     }
 
 
+    /**
+     * Creates a new form
+     */
     public CommonMessage create(BackendFormCreate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -72,6 +75,9 @@ public class BackendFormTag extends TagAbstract {
         }
     }
 
+    /**
+     * Deletes an existing form
+     */
     public CommonMessage delete(String formId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -110,6 +116,9 @@ public class BackendFormTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a specific form
+     */
     public BackendForm get(String formId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -148,6 +157,9 @@ public class BackendFormTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a paginated list of forms
+     */
     public BackendFormCollection getAll(Integer startIndex, Integer count, String search) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -188,6 +200,9 @@ public class BackendFormTag extends TagAbstract {
         }
     }
 
+    /**
+     * Updates an existing form
+     */
     public CommonMessage update(String formId, BackendFormUpdate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

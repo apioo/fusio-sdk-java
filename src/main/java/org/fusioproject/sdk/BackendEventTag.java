@@ -33,6 +33,9 @@ public class BackendEventTag extends TagAbstract {
     }
 
 
+    /**
+     * Creates a new event
+     */
     public CommonMessage create(BackendEventCreate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -72,6 +75,9 @@ public class BackendEventTag extends TagAbstract {
         }
     }
 
+    /**
+     * Deletes an existing event
+     */
     public CommonMessage delete(String eventId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -110,6 +116,9 @@ public class BackendEventTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a specific event
+     */
     public BackendEvent get(String eventId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -148,6 +157,9 @@ public class BackendEventTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a paginated list of events
+     */
     public BackendEventCollection getAll(Integer startIndex, Integer count, String search) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -188,6 +200,9 @@ public class BackendEventTag extends TagAbstract {
         }
     }
 
+    /**
+     * Updates an existing event
+     */
     public CommonMessage update(String eventId, BackendEventUpdate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

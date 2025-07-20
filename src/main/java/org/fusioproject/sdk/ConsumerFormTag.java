@@ -33,6 +33,9 @@ public class ConsumerFormTag extends TagAbstract {
     }
 
 
+    /**
+     * Returns a specific form for the authenticated user
+     */
     public ConsumerForm get(String formId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -71,6 +74,9 @@ public class ConsumerFormTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a paginated list of forms which are relevant to the authenticated user
+     */
     public ConsumerFormCollection getAll(Integer startIndex, Integer count, String search) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

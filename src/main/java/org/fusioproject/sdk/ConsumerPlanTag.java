@@ -33,6 +33,9 @@ public class ConsumerPlanTag extends TagAbstract {
     }
 
 
+    /**
+     * Returns a specific plan for the authenticated user
+     */
     public ConsumerPlan get(String planId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -71,6 +74,9 @@ public class ConsumerPlanTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a paginated list of plans which are relevant to the authenticated user
+     */
     public ConsumerPlanCollection getAll(Integer startIndex, Integer count, String search) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

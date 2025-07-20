@@ -33,6 +33,9 @@ public class ConsumerTransactionTag extends TagAbstract {
     }
 
 
+    /**
+     * Returns a specific transaction for the authenticated user
+     */
     public ConsumerTransaction get(String transactionId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -71,6 +74,9 @@ public class ConsumerTransactionTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a paginated list of transactions which are assigned to the authenticated user
+     */
     public ConsumerTransactionCollection getAll(Integer startIndex, Integer count, String search) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

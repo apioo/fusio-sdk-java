@@ -33,6 +33,9 @@ public class BackendTrashTag extends TagAbstract {
     }
 
 
+    /**
+     * Returns all deleted records by trash type
+     */
     public BackendTrashDataCollection getAllByType(String type, Integer startIndex, Integer count, String search) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -74,6 +77,9 @@ public class BackendTrashTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns all trash types
+     */
     public BackendTrashTypes getTypes() throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -111,6 +117,9 @@ public class BackendTrashTag extends TagAbstract {
         }
     }
 
+    /**
+     * Restores a previously deleted record
+     */
     public CommonMessage restore(String type, BackendTrashRestore payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

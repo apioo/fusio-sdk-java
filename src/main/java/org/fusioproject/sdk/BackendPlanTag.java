@@ -33,6 +33,9 @@ public class BackendPlanTag extends TagAbstract {
     }
 
 
+    /**
+     * Creates a new plan
+     */
     public CommonMessage create(BackendPlanCreate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -72,6 +75,9 @@ public class BackendPlanTag extends TagAbstract {
         }
     }
 
+    /**
+     * Deletes an existing plan
+     */
     public CommonMessage delete(String planId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -110,6 +116,9 @@ public class BackendPlanTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a specific plan
+     */
     public BackendPlan get(String planId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -148,6 +157,9 @@ public class BackendPlanTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a paginated list of plans
+     */
     public BackendPlanCollection getAll(Integer startIndex, Integer count, String search) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -188,6 +200,9 @@ public class BackendPlanTag extends TagAbstract {
         }
     }
 
+    /**
+     * Updates an existing plan
+     */
     public CommonMessage update(String planId, BackendPlanUpdate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

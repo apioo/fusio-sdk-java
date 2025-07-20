@@ -7,14 +7,21 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("This object represents an audit which is created every time something was changed at the system")
 public class BackendAudit {
+    @JsonPropertyDescription("Unique identifier for the object")
     private Integer id;
     private BackendApp app;
     private BackendUser user;
+    @JsonPropertyDescription("Trigger event of this audit")
     private String event;
+    @JsonPropertyDescription("IP which as issued the request")
     private String ip;
+    @JsonPropertyDescription("Message of this audit event")
     private String message;
+    @JsonPropertyDescription("Content of this adit event")
     private BackendAuditObject content;
+    @JsonPropertyDescription("Insert date of this audit event")
     private java.time.LocalDateTime date;
 
     @JsonSetter("id")

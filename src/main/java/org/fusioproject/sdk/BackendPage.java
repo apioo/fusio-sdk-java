@@ -7,12 +7,19 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("This object represents a page at the developer portal")
 public class BackendPage {
+    @JsonPropertyDescription("Unique identifier for the object")
     private Integer id;
+    @JsonPropertyDescription("Status of the object either 1 = visible, 2 = invisible or 0 = deleted")
     private Integer status;
+    @JsonPropertyDescription("Title of the page")
     private String title;
+    @JsonPropertyDescription("Slug of the page which gets dynamically generated from the title")
     private String slug;
+    @JsonPropertyDescription("HTML content of this page")
     private String content;
+    @JsonPropertyDescription("Use this parameter to attach key-value data")
     private CommonMetadata metadata;
 
     @JsonSetter("id")

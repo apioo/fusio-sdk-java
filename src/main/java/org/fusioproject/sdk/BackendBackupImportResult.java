@@ -7,6 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Result of a backup import operation")
 public class BackendBackupImportResult {
     private Boolean success;
     private String message;

@@ -7,18 +7,30 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("This object represents an app to access the API on-behalf of a user")
 public class BackendApp {
+    @JsonPropertyDescription("Unique identifier for the object")
     private Integer id;
     private Integer userId;
+    @JsonPropertyDescription("Status of the object either 1 = active, 2 = pending, 3 = deactivated or 4 = deleted")
     private Integer status;
+    @JsonPropertyDescription("Unique name of the object")
     private String name;
+    @JsonPropertyDescription("Url where the app is hosted")
     private String url;
+    @JsonPropertyDescription("Optional URL-encoded parameters of the app i.e. foo=bar&bar=foo")
     private String parameters;
+    @JsonPropertyDescription("The app key also known as client id which is generated on creation")
     private String appKey;
+    @JsonPropertyDescription("The app secret also known as client secret which is generated on creation")
     private String appSecret;
+    @JsonPropertyDescription("Use this parameter to attach key-value data")
     private CommonMetadata metadata;
+    @JsonPropertyDescription("The create date of this object")
     private java.time.LocalDateTime date;
+    @JsonPropertyDescription("A list of assigned scopes for this app")
     private java.util.List<String> scopes;
+    @JsonPropertyDescription("A list of tokens which are assigned to this app")
     private java.util.List<BackendToken> tokens;
 
     @JsonSetter("id")

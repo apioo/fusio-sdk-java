@@ -33,6 +33,9 @@ public class BackendUserTag extends TagAbstract {
     }
 
 
+    /**
+     * Creates a new user
+     */
     public CommonMessage create(BackendUserCreate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -72,6 +75,9 @@ public class BackendUserTag extends TagAbstract {
         }
     }
 
+    /**
+     * Deletes an existing user
+     */
     public CommonMessage delete(String userId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -110,6 +116,9 @@ public class BackendUserTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a specific user
+     */
     public BackendUser get(String userId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -148,6 +157,9 @@ public class BackendUserTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a paginated list of users
+     */
     public BackendUserCollection getAll(Integer startIndex, Integer count, String search) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -188,6 +200,9 @@ public class BackendUserTag extends TagAbstract {
         }
     }
 
+    /**
+     * Updates an existing user
+     */
     public CommonMessage update(String userId, BackendUserUpdate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

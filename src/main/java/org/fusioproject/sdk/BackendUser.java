@@ -7,17 +7,28 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("This object represents a user")
 public class BackendUser {
+    @JsonPropertyDescription("Unique identifier for the object")
     private Integer id;
+    @JsonPropertyDescription("A role which is assigned to the user")
     private Integer roleId;
+    @JsonPropertyDescription("A plan which is assigned to the user")
     private Integer planId;
+    @JsonPropertyDescription("Status of the object either 1 = active, 2 = disabled or 0 = deleted")
     private Integer status;
+    @JsonPropertyDescription("Unique name of the object")
     private String name;
+    @JsonPropertyDescription("The email address of the user")
     private String email;
+    @JsonPropertyDescription("Points assigned to the user")
     private Integer points;
+    @JsonPropertyDescription("List of scopes which are assigned to the user")
     private java.util.List<String> scopes;
     private java.util.List<BackendApp> apps;
+    @JsonPropertyDescription("Use this parameter to attach key-value data")
     private CommonMetadata metadata;
+    @JsonPropertyDescription("The insert date")
     private java.time.LocalDateTime date;
 
     @JsonSetter("id")

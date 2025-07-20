@@ -33,6 +33,9 @@ public class ConsumerGrantTag extends TagAbstract {
     }
 
 
+    /**
+     * Deletes an existing grant for an app which was created by the authenticated user
+     */
     public CommonMessage delete(String grantId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -71,6 +74,9 @@ public class ConsumerGrantTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a paginated list of grants which are assigned to the authenticated user
+     */
     public ConsumerGrantCollection getAll(Integer startIndex, Integer count, String search) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

@@ -7,15 +7,25 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("This object represents a log entry. Every HTTP requests to the system generates such a log entry.")
 public class BackendLog {
+    @JsonPropertyDescription("Unique identifier for the object")
     private Integer id;
+    @JsonPropertyDescription("The remote IP which has initiated the request")
     private String ip;
+    @JsonPropertyDescription("The user agent provided by the HTTP user agent header")
     private String userAgent;
+    @JsonPropertyDescription("The HTTP method i.e. GET or POST")
     private String method;
+    @JsonPropertyDescription("The target path")
     private String path;
+    @JsonPropertyDescription("The provided HTTP headers")
     private String header;
+    @JsonPropertyDescription("The provided HTTP body")
     private String body;
+    @JsonPropertyDescription("Insert date of this request")
     private java.time.LocalDateTime date;
+    @JsonPropertyDescription("An array of errors which occurred through this request")
     private java.util.List<BackendLogError> errors;
 
     @JsonSetter("id")

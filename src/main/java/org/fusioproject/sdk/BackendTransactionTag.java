@@ -33,6 +33,9 @@ public class BackendTransactionTag extends TagAbstract {
     }
 
 
+    /**
+     * Returns a specific transaction
+     */
     public BackendTransaction get(String transactionId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -71,6 +74,9 @@ public class BackendTransactionTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a paginated list of transactions
+     */
     public BackendTransactionCollection getAll(Integer startIndex, Integer count, String search, String from, String to, Integer planId, Integer userId, Integer appId, String status, String provider) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

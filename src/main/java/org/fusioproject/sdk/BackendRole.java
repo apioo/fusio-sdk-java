@@ -7,10 +7,15 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("This object represents a role, every user is assigned to a role and all scopes of the role are automatically attached to the user")
 public class BackendRole {
+    @JsonPropertyDescription("Unique identifier for the object")
     private Integer id;
+    @JsonPropertyDescription("The assigned category id of this role")
     private Integer categoryId;
+    @JsonPropertyDescription("Unique name of the object")
     private String name;
+    @JsonPropertyDescription("All scopes which are assigned to this role")
     private java.util.List<String> scopes;
 
     @JsonSetter("id")

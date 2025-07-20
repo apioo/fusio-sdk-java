@@ -7,8 +7,11 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Represents a concrete identity class")
 public class BackendIdentityIndexEntry {
+    @JsonPropertyDescription("Human-readable name of the identity class")
     private String name;
+    @JsonPropertyDescription("Technical identifier of the identity class")
     private String _class;
 
     @JsonSetter("name")

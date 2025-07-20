@@ -7,11 +7,17 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("This object represents a relational table on a database connection")
 public class BackendDatabaseTable {
+    @JsonPropertyDescription("Name of the table")
     private String name;
+    @JsonPropertyDescription("Available columns on the table")
     private java.util.List<BackendDatabaseTableColumn> columns;
+    @JsonPropertyDescription("The primary key column")
     private String primaryKey;
+    @JsonPropertyDescription("Available indices on the table")
     private java.util.List<BackendDatabaseTableIndex> indexes;
+    @JsonPropertyDescription("Available foreign key constraints")
     private java.util.List<BackendDatabaseTableForeignKeyConstraint> foreignKeys;
 
     @JsonSetter("name")

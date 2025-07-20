@@ -33,6 +33,9 @@ public class BackendPageTag extends TagAbstract {
     }
 
 
+    /**
+     * Creates a new page
+     */
     public CommonMessage create(BackendPageCreate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -72,6 +75,9 @@ public class BackendPageTag extends TagAbstract {
         }
     }
 
+    /**
+     * Deletes an existing page
+     */
     public CommonMessage delete(String pageId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -110,6 +116,9 @@ public class BackendPageTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a specific page
+     */
     public BackendPage get(String pageId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -148,6 +157,9 @@ public class BackendPageTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a paginated list of pages
+     */
     public BackendPageCollection getAll(Integer startIndex, Integer count, String search) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -188,6 +200,9 @@ public class BackendPageTag extends TagAbstract {
         }
     }
 
+    /**
+     * Updates an existing page
+     */
     public CommonMessage update(String pageId, BackendPageUpdate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

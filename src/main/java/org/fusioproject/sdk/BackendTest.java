@@ -7,8 +7,11 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("This object represents a test. A test helps to verify that all operations work as expected")
 public class BackendTest {
+    @JsonPropertyDescription("Unique identifier for the object")
     private Integer id;
+    @JsonPropertyDescription("Status of the object either 1 = pending, 2 = success, 3 = warning, 4 = error, 5 = skipped or 6 = disabled")
     private Integer status;
     private String operationName;
     private String message;

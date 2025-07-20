@@ -7,6 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Redirect response to initiate an OAuth2 flow")
 public class BackendConnectionRedirectResponse {
     private String redirectUri;
 

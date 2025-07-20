@@ -33,6 +33,9 @@ public class ConsumerTokenTag extends TagAbstract {
     }
 
 
+    /**
+     * Creates a new token for the authenticated user
+     */
     public ConsumerTokenAccessToken create(ConsumerTokenCreate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -72,6 +75,9 @@ public class ConsumerTokenTag extends TagAbstract {
         }
     }
 
+    /**
+     * Deletes an existing token for the authenticated user
+     */
     public CommonMessage delete(String tokenId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -110,6 +116,9 @@ public class ConsumerTokenTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a specific token for the authenticated user
+     */
     public ConsumerToken get(String tokenId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -148,6 +157,9 @@ public class ConsumerTokenTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a paginated list of tokens which are assigned to the authenticated user
+     */
     public ConsumerTokenCollection getAll(Integer startIndex, Integer count, String search) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -188,6 +200,9 @@ public class ConsumerTokenTag extends TagAbstract {
         }
     }
 
+    /**
+     * Updates an existing token for the authenticated user
+     */
     public ConsumerTokenAccessToken update(String tokenId, ConsumerTokenUpdate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

@@ -33,6 +33,9 @@ public class BackendMarketplaceAppTag extends TagAbstract {
     }
 
 
+    /**
+     * Returns a specific marketplace app
+     */
     public MarketplaceApp get(String user, String name) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -72,6 +75,9 @@ public class BackendMarketplaceAppTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a paginated list of marketplace apps
+     */
     public MarketplaceAppCollection getAll(Integer startIndex, String query) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

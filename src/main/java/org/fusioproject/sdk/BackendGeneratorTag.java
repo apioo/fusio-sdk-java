@@ -113,6 +113,9 @@ public class BackendGeneratorTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns all available generator classes
+     */
     public BackendGeneratorIndexProviders getClasses() throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -150,6 +153,9 @@ public class BackendGeneratorTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns the generator config form
+     */
     public CommonFormContainer getForm(String provider) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

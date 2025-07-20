@@ -9,8 +9,9 @@ import com.fasterxml.jackson.annotation.*;
 
 public class ConsumerAuthorizeResponse {
     private String type;
-    private ConsumerAuthorizeResponseToken token;
     private String code;
+    private String error;
+    private String state;
     private String redirectUri;
 
     @JsonSetter("type")
@@ -23,16 +24,6 @@ public class ConsumerAuthorizeResponse {
         return this.type;
     }
 
-    @JsonSetter("token")
-    public void setToken(ConsumerAuthorizeResponseToken token) {
-        this.token = token;
-    }
-
-    @JsonGetter("token")
-    public ConsumerAuthorizeResponseToken getToken() {
-        return this.token;
-    }
-
     @JsonSetter("code")
     public void setCode(String code) {
         this.code = code;
@@ -41,6 +32,26 @@ public class ConsumerAuthorizeResponse {
     @JsonGetter("code")
     public String getCode() {
         return this.code;
+    }
+
+    @JsonSetter("error")
+    public void setError(String error) {
+        this.error = error;
+    }
+
+    @JsonGetter("error")
+    public String getError() {
+        return this.error;
+    }
+
+    @JsonSetter("state")
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    @JsonGetter("state")
+    public String getState() {
+        return this.state;
     }
 
     @JsonSetter("redirectUri")

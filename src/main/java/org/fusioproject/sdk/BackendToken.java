@@ -7,8 +7,11 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("This object represents a token, this an access token which was requested by a user")
 public class BackendToken {
+    @JsonPropertyDescription("Unique identifier for the object")
     private Integer id;
+    @JsonPropertyDescription("Status of the object either 1 = active or 2 = deleted")
     private Integer status;
     private String name;
     private java.util.List<String> scopes;

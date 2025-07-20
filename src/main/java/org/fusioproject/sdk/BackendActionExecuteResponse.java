@@ -7,9 +7,13 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Represents an action execution response")
 public class BackendActionExecuteResponse {
+    @JsonPropertyDescription("HTTP status code i.e. 200, 400, etc.")
     private Integer statusCode;
+    @JsonPropertyDescription("The response header returned by the action")
     private BackendActionExecuteResponseHeaders headers;
+    @JsonPropertyDescription("The response body returned by the action")
     private BackendActionExecuteResponseBody body;
 
     @JsonSetter("statusCode")

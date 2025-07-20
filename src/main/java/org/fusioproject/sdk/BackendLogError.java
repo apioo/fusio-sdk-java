@@ -8,6 +8,7 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.*;
 
 public class BackendLogError {
+    @JsonPropertyDescription("Unique identifier for the object")
     private Integer id;
     private Integer logId;
     private String message;

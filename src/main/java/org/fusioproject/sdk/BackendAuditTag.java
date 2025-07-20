@@ -33,6 +33,9 @@ public class BackendAuditTag extends TagAbstract {
     }
 
 
+    /**
+     * Returns a specific audit
+     */
     public BackendAudit get(String auditId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -71,6 +74,9 @@ public class BackendAuditTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a paginated list of audits
+     */
     public BackendAuditCollection getAll(Integer startIndex, Integer count, String search, String from, String to, Integer appId, Integer userId, String event, String ip, String message) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

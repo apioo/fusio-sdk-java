@@ -7,8 +7,11 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Represents a concrete generator class")
 public class BackendGeneratorIndexProvider {
+    @JsonPropertyDescription("Human-readable name of the generator class")
     private String name;
+    @JsonPropertyDescription("Technical identifier of the generator class")
     private String _class;
 
     @JsonSetter("name")

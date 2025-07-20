@@ -33,6 +33,9 @@ public class BackendCronjobTag extends TagAbstract {
     }
 
 
+    /**
+     * Creates a new cronjob
+     */
     public CommonMessage create(BackendCronjobCreate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -72,6 +75,9 @@ public class BackendCronjobTag extends TagAbstract {
         }
     }
 
+    /**
+     * Deletes an existing cronjob
+     */
     public CommonMessage delete(String cronjobId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -110,6 +116,9 @@ public class BackendCronjobTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a specific cronjob
+     */
     public BackendCronjob get(String cronjobId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -148,6 +157,9 @@ public class BackendCronjobTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a paginated list of cronjobs
+     */
     public BackendCronjobCollection getAll(Integer startIndex, Integer count, String search) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -188,6 +200,9 @@ public class BackendCronjobTag extends TagAbstract {
         }
     }
 
+    /**
+     * Updates an existing cronjob
+     */
     public CommonMessage update(String cronjobId, BackendCronjobUpdate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

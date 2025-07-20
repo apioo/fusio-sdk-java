@@ -7,6 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Contains all possible classes which can be used at an identity as class")
 public class BackendIdentityIndex {
     private java.util.List<BackendIdentityIndexEntry> providers;
 

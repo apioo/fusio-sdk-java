@@ -33,6 +33,9 @@ public class BackendLogTag extends TagAbstract {
     }
 
 
+    /**
+     * Returns a specific log
+     */
     public BackendLog get(String logId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -71,6 +74,9 @@ public class BackendLogTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a paginated list of logs
+     */
     public BackendLogCollection getAll(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -122,6 +128,9 @@ public class BackendLogTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a paginated list of log errors
+     */
     public BackendLogErrorCollection getAllErrors(Integer startIndex, Integer count, String search) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

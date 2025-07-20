@@ -33,6 +33,9 @@ public class SystemPaymentTag extends TagAbstract {
     }
 
 
+    /**
+     * Payment webhook endpoint after successful purchase of a plan
+     */
     public CommonMessage webhook(String provider) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

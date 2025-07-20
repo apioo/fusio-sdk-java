@@ -7,11 +7,17 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("This object represents a system configuration")
 public class BackendConfig {
+    @JsonPropertyDescription("Unique identifier for the object")
     private Integer id;
+    @JsonPropertyDescription("The config value type")
     private Integer type;
+    @JsonPropertyDescription("Unique name of the object")
     private String name;
+    @JsonPropertyDescription("A short description fo this configuration value")
     private String description;
+    @JsonPropertyDescription("The actual config value")
     private Object value;
 
     @JsonSetter("id")

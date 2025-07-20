@@ -33,6 +33,9 @@ public class BackendAccountTag extends TagAbstract {
     }
 
 
+    /**
+     * Changes the password of the authenticated user
+     */
     public CommonMessage changePassword(BackendAccountChangePassword payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -72,6 +75,9 @@ public class BackendAccountTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns user data of the authenticated user
+     */
     public BackendUser get() throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -109,6 +115,9 @@ public class BackendAccountTag extends TagAbstract {
         }
     }
 
+    /**
+     * Updates user data of the authenticated user
+     */
     public CommonMessage update(BackendUserUpdate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

@@ -33,6 +33,9 @@ public class AuthorizationTag extends TagAbstract {
     }
 
 
+    /**
+     * Returns user data of the current authenticated user
+     */
     public BackendUser getWhoami() throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -70,6 +73,9 @@ public class AuthorizationTag extends TagAbstract {
         }
     }
 
+    /**
+     * Revoke the access token of the current authenticated user
+     */
     public CommonMessage revoke() throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

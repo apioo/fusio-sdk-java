@@ -7,6 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Import a previously exported system configuration")
 public class BackendBackupImport {
     private String _import;
 

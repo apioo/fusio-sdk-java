@@ -7,7 +7,9 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("This object represents a webhook, a webhook is called in case a specific event was triggered")
 public class BackendWebhook {
+    @JsonPropertyDescription("Unique identifier for the object")
     private Integer id;
     private Integer eventId;
     private Integer userId;

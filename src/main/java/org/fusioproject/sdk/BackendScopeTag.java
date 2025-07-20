@@ -33,6 +33,9 @@ public class BackendScopeTag extends TagAbstract {
     }
 
 
+    /**
+     * Creates a new scope
+     */
     public CommonMessage create(BackendScopeCreate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -72,6 +75,9 @@ public class BackendScopeTag extends TagAbstract {
         }
     }
 
+    /**
+     * Deletes an existing scope
+     */
     public CommonMessage delete(String scopeId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -110,6 +116,9 @@ public class BackendScopeTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a specific scope
+     */
     public BackendScope get(String scopeId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -148,6 +157,9 @@ public class BackendScopeTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a paginated list of scopes
+     */
     public BackendScopeCollection getAll(Integer startIndex, Integer count, String search) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -225,6 +237,9 @@ public class BackendScopeTag extends TagAbstract {
         }
     }
 
+    /**
+     * Updates an existing scope
+     */
     public CommonMessage update(String scopeId, BackendScopeUpdate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

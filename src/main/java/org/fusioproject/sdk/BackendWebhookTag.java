@@ -33,6 +33,9 @@ public class BackendWebhookTag extends TagAbstract {
     }
 
 
+    /**
+     * Creates a new webhook
+     */
     public CommonMessage create(BackendWebhookCreate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -72,6 +75,9 @@ public class BackendWebhookTag extends TagAbstract {
         }
     }
 
+    /**
+     * Deletes an existing webhook
+     */
     public CommonMessage delete(String webhookId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -110,6 +116,9 @@ public class BackendWebhookTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a specific webhook
+     */
     public BackendWebhook get(String webhookId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -148,6 +157,9 @@ public class BackendWebhookTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a paginated list of webhooks
+     */
     public BackendWebhookCollection getAll(Integer startIndex, Integer count, String search) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -188,6 +200,9 @@ public class BackendWebhookTag extends TagAbstract {
         }
     }
 
+    /**
+     * Updates an existing webhook
+     */
     public CommonMessage update(String webhookId, BackendWebhookUpdate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

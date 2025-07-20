@@ -7,6 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Contains all possible classes which can be used at an action as class")
 public class BackendActionIndex {
     private java.util.List<BackendActionIndexEntry> actions;
 

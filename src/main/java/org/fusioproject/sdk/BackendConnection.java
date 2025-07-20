@@ -7,13 +7,19 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("This object represents a connection to an external system like i.e. a database, message-queue or client-sdk")
 public class BackendConnection {
+    @JsonPropertyDescription("Unique identifier for the object")
     private Integer id;
+    @JsonPropertyDescription("Unique name of the object")
     private String name;
+    @JsonPropertyDescription("Underlying class of this connection which returns a configured client connection i.e. database, message-queue or client-sdk")
     private String _class;
     @JsonPropertyDescription("Indicates whether it is possible to start an OAuth2 authorization code flow on this connection")
     private Boolean oauth;
+    @JsonPropertyDescription("Contains the connection specific configuration")
     private BackendConnectionConfig config;
+    @JsonPropertyDescription("Use this parameter to attach key-value data")
     private CommonMetadata metadata;
 
     @JsonSetter("id")

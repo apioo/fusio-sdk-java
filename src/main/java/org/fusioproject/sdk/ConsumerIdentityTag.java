@@ -33,6 +33,9 @@ public class ConsumerIdentityTag extends TagAbstract {
     }
 
 
+    /**
+     * Identity callback endpoint to exchange an access token
+     */
     public Passthru exchange(String identity) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -71,6 +74,9 @@ public class ConsumerIdentityTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a paginated list of identities which are relevant to the authenticated user
+     */
     public ConsumerIdentityCollection getAll(Integer appId, String appKey) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -110,6 +116,9 @@ public class ConsumerIdentityTag extends TagAbstract {
         }
     }
 
+    /**
+     * Redirect the user to the configured identity provider
+     */
     public Passthru redirect(String identity) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

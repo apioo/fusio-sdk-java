@@ -33,6 +33,9 @@ public class ConsumerEventTag extends TagAbstract {
     }
 
 
+    /**
+     * Returns a specific event for the authenticated user
+     */
     public ConsumerEvent get(String eventId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -71,6 +74,9 @@ public class ConsumerEventTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a paginated list of apps which are assigned to the authenticated user
+     */
     public ConsumerEventCollection getAll(Integer startIndex, Integer count, String search) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

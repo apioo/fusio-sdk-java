@@ -33,6 +33,9 @@ public class SystemMetaTag extends TagAbstract {
     }
 
 
+    /**
+     * Returns meta information and links about the current installed Fusio version
+     */
     public SystemAbout getAbout() throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -70,43 +73,9 @@ public class SystemMetaTag extends TagAbstract {
         }
     }
 
-    public SystemAPICatalog getAPICatalog() throws ClientException {
-        try {
-            Map<String, Object> pathParams = new HashMap<>();
-
-            Map<String, Object> queryParams = new HashMap<>();
-
-            List<String> queryStructNames = new ArrayList<>();
-
-            URIBuilder builder = new URIBuilder(this.parser.url("/system/api-catalog", pathParams));
-            this.parser.query(builder, queryParams, queryStructNames);
-
-            HttpGet request = new HttpGet(builder.build());
-
-
-            return this.httpClient.execute(request, response -> {
-                if (response.getCode() >= 200 && response.getCode() <= 299) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<SystemAPICatalog>(){});
-
-                    return data;
-                }
-
-                var statusCode = response.getCode();
-                if (statusCode >= 0 && statusCode <= 999) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
-            });
-        } catch (ClientException e) {
-            throw e;
-        } catch (URISyntaxException | IOException e) {
-            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
-        }
-    }
-
+    /**
+     * Debug endpoint which returns the provided data
+     */
     public Passthru getDebug(Passthru payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -146,6 +115,9 @@ public class SystemMetaTag extends TagAbstract {
         }
     }
 
+    /**
+     * Health check endpoint which returns information about the health status of the system
+     */
     public SystemHealthCheck getHealth() throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -183,43 +155,9 @@ public class SystemMetaTag extends TagAbstract {
         }
     }
 
-    public SystemOAuthConfiguration getOAuthConfiguration() throws ClientException {
-        try {
-            Map<String, Object> pathParams = new HashMap<>();
-
-            Map<String, Object> queryParams = new HashMap<>();
-
-            List<String> queryStructNames = new ArrayList<>();
-
-            URIBuilder builder = new URIBuilder(this.parser.url("/system/oauth-authorization-server", pathParams));
-            this.parser.query(builder, queryParams, queryStructNames);
-
-            HttpGet request = new HttpGet(builder.build());
-
-
-            return this.httpClient.execute(request, response -> {
-                if (response.getCode() >= 200 && response.getCode() <= 299) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<SystemOAuthConfiguration>(){});
-
-                    return data;
-                }
-
-                var statusCode = response.getCode();
-                if (statusCode >= 0 && statusCode <= 999) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
-            });
-        } catch (ClientException e) {
-            throw e;
-        } catch (URISyntaxException | IOException e) {
-            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
-        }
-    }
-
+    /**
+     * Returns all available routes
+     */
     public SystemRoute getRoutes() throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -257,6 +195,9 @@ public class SystemMetaTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns details of a specific schema
+     */
     public SystemSchema getSchema(String name) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

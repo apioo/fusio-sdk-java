@@ -33,6 +33,9 @@ public class BackendDatabaseTag extends TagAbstract {
     }
 
 
+    /**
+     * Creates a new row at a table on a database
+     */
     public CommonMessage createRow(String connectionId, String tableName, BackendDatabaseRow payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -74,6 +77,9 @@ public class BackendDatabaseTag extends TagAbstract {
         }
     }
 
+    /**
+     * Creates a new table on a database
+     */
     public CommonMessage createTable(String connectionId, BackendDatabaseTable payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -114,6 +120,9 @@ public class BackendDatabaseTag extends TagAbstract {
         }
     }
 
+    /**
+     * Deletes an existing row at a table on a database
+     */
     public CommonMessage deleteRow(String connectionId, String tableName, String id) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -154,6 +163,9 @@ public class BackendDatabaseTag extends TagAbstract {
         }
     }
 
+    /**
+     * Deletes an existing table on a database
+     */
     public CommonMessage deleteTable(String connectionId, String tableName) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -193,6 +205,9 @@ public class BackendDatabaseTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a specific row at a table on a database
+     */
     public BackendDatabaseRow getRow(String connectionId, String tableName, String id) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -233,6 +248,9 @@ public class BackendDatabaseTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns paginated rows at a table on a database
+     */
     public BackendDatabaseRowCollection getRows(String connectionId, String tableName, Integer startIndex, Integer count, String filterBy, String filterOp, String filterValue, String sortBy, String sortOrder, String columns) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -280,6 +298,9 @@ public class BackendDatabaseTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns the schema of a specific table on a database
+     */
     public BackendDatabaseTable getTable(String connectionId, String tableName) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -319,6 +340,9 @@ public class BackendDatabaseTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns all available tables on a database
+     */
     public BackendDatabaseTableCollection getTables(String connectionId, Integer startIndex, Integer count) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -359,6 +383,9 @@ public class BackendDatabaseTag extends TagAbstract {
         }
     }
 
+    /**
+     * Updates an existing row at a table on a database
+     */
     public CommonMessage updateRow(String connectionId, String tableName, String id, BackendDatabaseRow payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -401,6 +428,9 @@ public class BackendDatabaseTag extends TagAbstract {
         }
     }
 
+    /**
+     * Updates an existing table on a database
+     */
     public CommonMessage updateTable(String connectionId, String tableName, BackendDatabaseTable payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

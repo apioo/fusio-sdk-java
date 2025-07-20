@@ -33,6 +33,9 @@ public class BackendTokenTag extends TagAbstract {
     }
 
 
+    /**
+     * Returns a specific token
+     */
     public BackendToken get(String tokenId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -71,6 +74,9 @@ public class BackendTokenTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a paginated list of tokens
+     */
     public BackendTokenCollection getAll(Integer startIndex, Integer count, String search, String from, String to, Integer appId, Integer userId, Integer status, String scope, String ip) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

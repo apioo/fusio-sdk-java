@@ -7,14 +7,23 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("This object represents a cronjob which can invoke an action at a specific interval")
 public class BackendCronjob {
+    @JsonPropertyDescription("Unique identifier for the object")
     private Integer id;
+    @JsonPropertyDescription("Unique name of the object")
     private String name;
+    @JsonPropertyDescription("The cron expression i.e. */5 * * * * for every 5 minutes")
     private String cron;
+    @JsonPropertyDescription("The target action which gets invoked")
     private String action;
+    @JsonPropertyDescription("The last execution date")
     private java.time.LocalDateTime executeDate;
+    @JsonPropertyDescription("The last exit code")
     private Integer exitCode;
+    @JsonPropertyDescription("Use this parameter to attach key-value data")
     private CommonMetadata metadata;
+    @JsonPropertyDescription("Contains an array of errors in case the cronjob has failed")
     private java.util.List<BackendCronjobError> errors;
 
     @JsonSetter("id")

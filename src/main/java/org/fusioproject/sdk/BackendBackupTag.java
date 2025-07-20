@@ -33,6 +33,9 @@ public class BackendBackupTag extends TagAbstract {
     }
 
 
+    /**
+     * Generates an backup of the current system
+     */
     public BackendBackupExport export() throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -70,6 +73,9 @@ public class BackendBackupTag extends TagAbstract {
         }
     }
 
+    /**
+     * Imports an backup to the current system
+     */
     public BackendBackupImportResult _import(BackendBackupImport payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

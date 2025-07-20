@@ -33,6 +33,9 @@ public class BackendRateTag extends TagAbstract {
     }
 
 
+    /**
+     * Creates a new rate limitation
+     */
     public CommonMessage create(BackendRateCreate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -72,6 +75,9 @@ public class BackendRateTag extends TagAbstract {
         }
     }
 
+    /**
+     * Deletes an existing rate
+     */
     public CommonMessage delete(String rateId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -110,6 +116,9 @@ public class BackendRateTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a specific rate
+     */
     public BackendRate get(String rateId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -148,6 +157,9 @@ public class BackendRateTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a paginated list of rate limitations
+     */
     public BackendRateCollection getAll(Integer startIndex, Integer count, String search) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -188,6 +200,9 @@ public class BackendRateTag extends TagAbstract {
         }
     }
 
+    /**
+     * Updates an existing rate
+     */
     public CommonMessage update(String rateId, BackendRateUpdate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

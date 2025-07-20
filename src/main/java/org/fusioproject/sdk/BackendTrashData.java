@@ -8,7 +8,9 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.*;
 
 public class BackendTrashData {
+    @JsonPropertyDescription("Unique identifier for the object")
     private Integer id;
+    @JsonPropertyDescription("Status of the object either 1 = active or 0 = deleted")
     private Integer status;
     private String name;
 

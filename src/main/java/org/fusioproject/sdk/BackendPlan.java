@@ -7,15 +7,25 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("This object represents a plan, a plan allows users to obtain points or in general subscribe to your app")
 public class BackendPlan {
+    @JsonPropertyDescription("Unique identifier for the object")
     private Integer id;
+    @JsonPropertyDescription("Name of the plan")
     private String name;
+    @JsonPropertyDescription("Short description of the plan")
     private String description;
+    @JsonPropertyDescription("The price of this plan")
     private Double price;
+    @JsonPropertyDescription("The points which are assigned to the user on purchase")
     private Integer points;
+    @JsonPropertyDescription("Whether the plan is one-time or periodically")
     private Integer period;
+    @JsonPropertyDescription("An external id of a remote payment provider like Stripe")
     private String externalId;
+    @JsonPropertyDescription("Scopes which are assigned dynamically to the user on purchase")
     private java.util.List<String> scopes;
+    @JsonPropertyDescription("Use this parameter to attach key-value data")
     private CommonMetadata metadata;
 
     @JsonSetter("id")

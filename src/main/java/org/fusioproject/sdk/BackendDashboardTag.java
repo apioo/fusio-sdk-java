@@ -33,6 +33,9 @@ public class BackendDashboardTag extends TagAbstract {
     }
 
 
+    /**
+     * Returns all available dashboard widgets
+     */
     public BackendDashboard getAll() throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

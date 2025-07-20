@@ -33,6 +33,9 @@ public class BackendSchemaTag extends TagAbstract {
     }
 
 
+    /**
+     * Creates a new schema
+     */
     public CommonMessage create(BackendSchemaCreate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -72,6 +75,9 @@ public class BackendSchemaTag extends TagAbstract {
         }
     }
 
+    /**
+     * Deletes an existing schema
+     */
     public CommonMessage delete(String schemaId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -110,6 +116,9 @@ public class BackendSchemaTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a specific schema
+     */
     public BackendSchema get(String schemaId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -148,6 +157,9 @@ public class BackendSchemaTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a paginated list of schemas
+     */
     public BackendSchemaCollection getAll(Integer startIndex, Integer count, String search) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -226,6 +238,9 @@ public class BackendSchemaTag extends TagAbstract {
         }
     }
 
+    /**
+     * Updates an existing schema
+     */
     public CommonMessage update(String schemaId, BackendSchemaUpdate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -236,46 +251,6 @@ public class BackendSchemaTag extends TagAbstract {
             List<String> queryStructNames = new ArrayList<>();
 
             URIBuilder builder = new URIBuilder(this.parser.url("/backend/schema/$schema_id<[0-9]+|^~>", pathParams));
-            this.parser.query(builder, queryParams, queryStructNames);
-
-            HttpPut request = new HttpPut(builder.build());
-            request.setEntity(new StringEntity(this.objectMapper.writeValueAsString(payload), ContentType.APPLICATION_JSON));
-
-            request.setHeader("Content-Type", "application/json");
-
-            return this.httpClient.execute(request, response -> {
-                if (response.getCode() >= 200 && response.getCode() <= 299) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    return data;
-                }
-
-                var statusCode = response.getCode();
-                if (statusCode >= 0 && statusCode <= 999) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
-            });
-        } catch (ClientException e) {
-            throw e;
-        } catch (URISyntaxException | IOException e) {
-            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
-        }
-    }
-
-    public CommonMessage updateForm(String schemaId, BackendSchemaForm payload) throws ClientException {
-        try {
-            Map<String, Object> pathParams = new HashMap<>();
-            pathParams.put("schema_id", schemaId);
-
-            Map<String, Object> queryParams = new HashMap<>();
-
-            List<String> queryStructNames = new ArrayList<>();
-
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/schema/form/$schema_id<[0-9]+>", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
 
             HttpPut request = new HttpPut(builder.build());

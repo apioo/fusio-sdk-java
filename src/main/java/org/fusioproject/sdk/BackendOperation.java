@@ -7,24 +7,43 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("This object represents an operation, an operation invokes an action in case a specific HTTP method and path was requested. It defines also schema information about the request and response payload")
 public class BackendOperation {
+    @JsonPropertyDescription("Unique identifier for the object")
     private Integer id;
+    @JsonPropertyDescription("Status of the object either 1 = active or 0 = deleted")
     private Integer status;
+    @JsonPropertyDescription("Indicates whether the operation is active")
     private Boolean active;
+    @JsonPropertyDescription("Indicates whether the operation is public, if false a user must provide an Authorization header with an Bearer access token")
     private Boolean _public;
+    @JsonPropertyDescription("Describes the stability of this operation 0 = deprecated, 1 = experimental, 2 = stable and 3 = legacy")
     private Integer stability;
+    @JsonPropertyDescription("A short description of this operation, it should explain the operation in a simple and precise way")
     private String description;
+    @JsonPropertyDescription("The target HTTP method i.e. GET or POST")
     private String httpMethod;
+    @JsonPropertyDescription("The target HTTP path i.e. /foo or /product/:product_id")
     private String httpPath;
+    @JsonPropertyDescription("The success HTTP code i.e. 200 or 201")
     private Integer httpCode;
+    @JsonPropertyDescription("Unique name of the object. It is recommended to group your operations into logical units by using a dot i.e. product.getAll and product.insert which has also an effect on the automatically generated SDK")
     private String name;
+    @JsonPropertyDescription("Describes available query parameters")
     private BackendOperationParameters parameters;
+    @JsonPropertyDescription("Describes the incoming request payload")
     private String incoming;
+    @JsonPropertyDescription("Describes the outgoing response payload")
     private String outgoing;
+    @JsonPropertyDescription("Describes error responses for i.e. client or server errors")
     private BackendOperationThrows _throws;
+    @JsonPropertyDescription("The target action to invoke")
     private String action;
+    @JsonPropertyDescription("Costs to invoke this operation. A user can only invoke this operation in case he has enough points")
     private Integer costs;
+    @JsonPropertyDescription("Scopes which are required to invoke this operation")
     private java.util.List<String> scopes;
+    @JsonPropertyDescription("Use this parameter to attach key-value data")
     private CommonMetadata metadata;
 
     @JsonSetter("id")

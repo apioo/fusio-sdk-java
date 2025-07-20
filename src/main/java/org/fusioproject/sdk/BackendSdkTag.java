@@ -33,6 +33,9 @@ public class BackendSdkTag extends TagAbstract {
     }
 
 
+    /**
+     * Generates a specific SDK
+     */
     public BackendSdkMessage generate(BackendSdkGenerate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -72,6 +75,9 @@ public class BackendSdkTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a paginated list of SDKs
+     */
     public BackendSdkResponse getAll() throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

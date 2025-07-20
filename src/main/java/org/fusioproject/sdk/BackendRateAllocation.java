@@ -7,12 +7,15 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("This object represents a rate allocation, in case a request matches it gets assigned to the attached rate")
 public class BackendRateAllocation {
+    @JsonPropertyDescription("Unique identifier for the object")
     private Integer id;
     private Integer operationId;
     private Integer userId;
     private Integer planId;
     private Integer appId;
+    @JsonPropertyDescription("Whether the request is authenticated")
     private Boolean authenticated;
 
     @JsonSetter("id")

@@ -7,8 +7,11 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Represents a concrete connection class")
 public class BackendConnectionIndexEntry {
+    @JsonPropertyDescription("Human-readable name of the connection class")
     private String name;
+    @JsonPropertyDescription("Technical identifier of the connection class")
     private String _class;
 
     @JsonSetter("name")

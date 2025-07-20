@@ -33,6 +33,9 @@ public class SystemConnectionTag extends TagAbstract {
     }
 
 
+    /**
+     * Connection OAuth2 callback to authorize a connection
+     */
     public CommonMessage callback(String name) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

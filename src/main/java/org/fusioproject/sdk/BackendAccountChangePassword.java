@@ -8,8 +8,11 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.*;
 
 public class BackendAccountChangePassword {
+    @JsonPropertyDescription("The old password")
     private String oldPassword;
+    @JsonPropertyDescription("The new password")
     private String newPassword;
+    @JsonPropertyDescription("To verify the new password must contain the same value as the new password")
     private String verifyPassword;
 
     @JsonSetter("oldPassword")

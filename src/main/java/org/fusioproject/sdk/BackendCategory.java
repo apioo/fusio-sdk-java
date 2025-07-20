@@ -7,8 +7,11 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("This object represents a category. Every user is assigned to a category and can only view objects which are also assigned to the same category, through this it is possible to build separate areas for external developers")
 public class BackendCategory {
+    @JsonPropertyDescription("Unique identifier for the object")
     private Integer id;
+    @JsonPropertyDescription("Unique name of the object")
     private String name;
 
     @JsonSetter("id")

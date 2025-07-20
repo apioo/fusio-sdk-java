@@ -7,6 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Represents an object containing all widget data for the dashboard")
 public class BackendDashboard {
     private BackendStatisticChart errorsPerOperation;
     private BackendStatisticChart incomingRequests;

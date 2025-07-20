@@ -7,13 +7,21 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("This object represents a rate limitation, which allows to limit the requests which a user can send")
 public class BackendRate {
+    @JsonPropertyDescription("Unique identifier for the object")
     private Integer id;
+    @JsonPropertyDescription("All rates are applied based on the priority, higher priorities are applied first")
     private Integer priority;
+    @JsonPropertyDescription("Unique name of the object")
     private String name;
+    @JsonPropertyDescription("Maximum number of allowed requests")
     private Integer rateLimit;
+    @JsonPropertyDescription("Timespan for the allowed requests")
     private String timespan;
+    @JsonPropertyDescription("Through a rate allocation a user gets assigned to a specific rate")
     private java.util.List<BackendRateAllocation> allocation;
+    @JsonPropertyDescription("Use this parameter to attach key-value data")
     private CommonMetadata metadata;
 
     @JsonSetter("id")

@@ -33,6 +33,9 @@ public class ConsumerAppTag extends TagAbstract {
     }
 
 
+    /**
+     * Creates a new app for the authenticated user
+     */
     public CommonMessage create(ConsumerAppCreate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -72,6 +75,9 @@ public class ConsumerAppTag extends TagAbstract {
         }
     }
 
+    /**
+     * Deletes an existing app for the authenticated user
+     */
     public CommonMessage delete(String appId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -110,6 +116,9 @@ public class ConsumerAppTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a specific app for the authenticated user
+     */
     public ConsumerApp get(String appId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -148,6 +157,9 @@ public class ConsumerAppTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a paginated list of apps which are assigned to the authenticated user
+     */
     public ConsumerAppCollection getAll(Integer startIndex, Integer count, String search) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -188,6 +200,9 @@ public class ConsumerAppTag extends TagAbstract {
         }
     }
 
+    /**
+     * Updates an existing app for the authenticated user
+     */
     public CommonMessage update(String appId, ConsumerAppUpdate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

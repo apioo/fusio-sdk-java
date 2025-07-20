@@ -33,6 +33,9 @@ public class BackendOperationTag extends TagAbstract {
     }
 
 
+    /**
+     * Creates a new operation
+     */
     public CommonMessage create(BackendOperationCreate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -72,6 +75,9 @@ public class BackendOperationTag extends TagAbstract {
         }
     }
 
+    /**
+     * Deletes an existing operation
+     */
     public CommonMessage delete(String operationId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -110,6 +116,9 @@ public class BackendOperationTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a specific operation
+     */
     public BackendOperation get(String operationId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -148,6 +157,9 @@ public class BackendOperationTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a paginated list of operations
+     */
     public BackendOperationCollection getAll(Integer startIndex, Integer count, String search) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -188,6 +200,9 @@ public class BackendOperationTag extends TagAbstract {
         }
     }
 
+    /**
+     * Updates an existing operation
+     */
     public CommonMessage update(String operationId, BackendOperationUpdate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

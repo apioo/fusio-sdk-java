@@ -33,6 +33,9 @@ public class ConsumerWebhookTag extends TagAbstract {
     }
 
 
+    /**
+     * Creates a new webhook for the authenticated user
+     */
     public CommonMessage create(ConsumerWebhookCreate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -72,6 +75,9 @@ public class ConsumerWebhookTag extends TagAbstract {
         }
     }
 
+    /**
+     * Deletes an existing webhook for the authenticated user
+     */
     public CommonMessage delete(String webhookId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -110,6 +116,9 @@ public class ConsumerWebhookTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a specific webhook for the authenticated user
+     */
     public ConsumerWebhook get(String webhookId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -148,6 +157,9 @@ public class ConsumerWebhookTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a paginated list of webhooks which are assigned to the authenticated user
+     */
     public ConsumerWebhookCollection getAll(Integer startIndex, Integer count, String search) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -188,6 +200,9 @@ public class ConsumerWebhookTag extends TagAbstract {
         }
     }
 
+    /**
+     * Updates an existing webhook for the authenticated user
+     */
     public CommonMessage update(String webhookId, ConsumerWebhookUpdate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

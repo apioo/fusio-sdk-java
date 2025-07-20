@@ -7,9 +7,13 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("This object represents a table index on a relational database")
 public class BackendDatabaseTableIndex {
+    @JsonPropertyDescription("Name of the index")
     private String name;
+    @JsonPropertyDescription("Indicates whether the index is unique")
     private Boolean unique;
+    @JsonPropertyDescription("Columns assigned ot the index")
     private java.util.List<String> columns;
 
     @JsonSetter("name")

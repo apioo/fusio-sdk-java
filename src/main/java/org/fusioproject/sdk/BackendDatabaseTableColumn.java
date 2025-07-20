@@ -7,17 +7,29 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("This object represents a column at a relation table")
 public class BackendDatabaseTableColumn {
+    @JsonPropertyDescription("Name of the column")
     private String name;
+    @JsonPropertyDescription("The column type i.e. integer or string")
     private String type;
+    @JsonPropertyDescription("Optional the max length of the column")
     private Integer length;
+    @JsonPropertyDescription("Optional the precision of the column")
     private Integer precision;
+    @JsonPropertyDescription("Optional the scale of the column")
     private Integer scale;
+    @JsonPropertyDescription("Indicates whether the column is unsigned, relevant for integer types")
     private Boolean unsigned;
+    @JsonPropertyDescription("Indicates whether the column has a fixed length")
     private Boolean fixed;
+    @JsonPropertyDescription("Indicates whether the column allows null")
     private Boolean notNull;
+    @JsonPropertyDescription("Indicates whether this column is an auto increment column")
     private Boolean autoIncrement;
+    @JsonPropertyDescription("Optional defines the default value")
     private Object _default;
+    @JsonPropertyDescription("Optional a comment for this column")
     private String comment;
 
     @JsonSetter("name")

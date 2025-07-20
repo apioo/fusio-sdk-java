@@ -33,6 +33,9 @@ public class BackendTenantTag extends TagAbstract {
     }
 
 
+    /**
+     * Removes an existing tenant
+     */
     public CommonMessage remove(String tenantId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -71,6 +74,9 @@ public class BackendTenantTag extends TagAbstract {
         }
     }
 
+    /**
+     * Setup a new tenant
+     */
     public CommonMessage setup(String tenantId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

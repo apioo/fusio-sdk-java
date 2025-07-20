@@ -7,13 +7,17 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("This object represents a schema to describe a JSON payload")
 public class BackendSchema {
+    @JsonPropertyDescription("Unique identifier for the object")
     private Integer id;
+    @JsonPropertyDescription("Status of the object either 1 = active or 0 = deleted")
     private Integer status;
+    @JsonPropertyDescription("Unique name of the object")
     private String name;
+    @JsonPropertyDescription("The TypeSchema specification to describe a JSON payload")
     private BackendSchemaSource source;
-    private BackendSchemaForm form;
-    private Boolean readonly;
+    @JsonPropertyDescription("Use this parameter to attach key-value data")
     private CommonMetadata metadata;
 
     @JsonSetter("id")
@@ -54,26 +58,6 @@ public class BackendSchema {
     @JsonGetter("source")
     public BackendSchemaSource getSource() {
         return this.source;
-    }
-
-    @JsonSetter("form")
-    public void setForm(BackendSchemaForm form) {
-        this.form = form;
-    }
-
-    @JsonGetter("form")
-    public BackendSchemaForm getForm() {
-        return this.form;
-    }
-
-    @JsonSetter("readonly")
-    public void setReadonly(Boolean readonly) {
-        this.readonly = readonly;
-    }
-
-    @JsonGetter("readonly")
-    public Boolean getReadonly() {
-        return this.readonly;
     }
 
     @JsonSetter("metadata")

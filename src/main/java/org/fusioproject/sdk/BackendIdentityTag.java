@@ -33,6 +33,9 @@ public class BackendIdentityTag extends TagAbstract {
     }
 
 
+    /**
+     * Creates a new identity
+     */
     public CommonMessage create(BackendIdentityCreate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -72,6 +75,9 @@ public class BackendIdentityTag extends TagAbstract {
         }
     }
 
+    /**
+     * Deletes an existing identity
+     */
     public CommonMessage delete(String identityId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -110,6 +116,9 @@ public class BackendIdentityTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a specific identity
+     */
     public BackendIdentity get(String identityId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -148,6 +157,9 @@ public class BackendIdentityTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a paginated list of identities
+     */
     public BackendIdentityCollection getAll(Integer startIndex, Integer count, String search) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -188,6 +200,9 @@ public class BackendIdentityTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns all available identity classes
+     */
     public BackendIdentityIndex getClasses() throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -225,6 +240,9 @@ public class BackendIdentityTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns the identity config form
+     */
     public CommonFormContainer getForm(String _class) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -263,6 +281,9 @@ public class BackendIdentityTag extends TagAbstract {
         }
     }
 
+    /**
+     * Updates an existing identity
+     */
     public CommonMessage update(String identityId, BackendIdentityUpdate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

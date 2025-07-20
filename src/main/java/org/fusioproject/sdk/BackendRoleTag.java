@@ -33,6 +33,9 @@ public class BackendRoleTag extends TagAbstract {
     }
 
 
+    /**
+     * Creates a new role
+     */
     public CommonMessage create(BackendRoleCreate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -72,6 +75,9 @@ public class BackendRoleTag extends TagAbstract {
         }
     }
 
+    /**
+     * Deletes an existing role
+     */
     public CommonMessage delete(String roleId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -110,6 +116,9 @@ public class BackendRoleTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a specific role
+     */
     public BackendRole get(String roleId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -148,6 +157,9 @@ public class BackendRoleTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a paginated list of roles
+     */
     public BackendRoleCollection getAll(Integer startIndex, Integer count, String search) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -188,6 +200,9 @@ public class BackendRoleTag extends TagAbstract {
         }
     }
 
+    /**
+     * Updates an existing role
+     */
     public CommonMessage update(String roleId, BackendRoleUpdate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

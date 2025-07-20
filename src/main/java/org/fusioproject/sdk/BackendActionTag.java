@@ -33,6 +33,9 @@ public class BackendActionTag extends TagAbstract {
     }
 
 
+    /**
+     * Creates a new action
+     */
     public CommonMessage create(BackendActionCreate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -72,6 +75,9 @@ public class BackendActionTag extends TagAbstract {
         }
     }
 
+    /**
+     * Deletes an existing action
+     */
     public CommonMessage delete(String actionId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -110,6 +116,9 @@ public class BackendActionTag extends TagAbstract {
         }
     }
 
+    /**
+     * Executes a specific action
+     */
     public BackendActionExecuteResponse execute(String actionId, BackendActionExecuteRequest payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -150,6 +159,9 @@ public class BackendActionTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a specific action
+     */
     public BackendAction get(String actionId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -188,6 +200,9 @@ public class BackendActionTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a paginated list of actions
+     */
     public BackendActionCollection getAll(Integer startIndex, Integer count, String search) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -228,6 +243,9 @@ public class BackendActionTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns all available action classes
+     */
     public BackendActionIndex getClasses() throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -265,6 +283,9 @@ public class BackendActionTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns the action config form
+     */
     public CommonFormContainer getForm(String _class) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -303,6 +324,9 @@ public class BackendActionTag extends TagAbstract {
         }
     }
 
+    /**
+     * Updates an existing action
+     */
     public CommonMessage update(String actionId, BackendActionUpdate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

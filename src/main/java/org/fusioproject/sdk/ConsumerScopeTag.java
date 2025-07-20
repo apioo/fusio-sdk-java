@@ -33,6 +33,9 @@ public class ConsumerScopeTag extends TagAbstract {
     }
 
 
+    /**
+     * Returns a paginated list of scopes which are assigned to the authenticated user
+     */
     public ConsumerScopeCollection getAll(Integer startIndex, Integer count, String search) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -73,6 +76,9 @@ public class ConsumerScopeTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns all scopes by category
+     */
     public ConsumerScopeCategories getCategories() throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

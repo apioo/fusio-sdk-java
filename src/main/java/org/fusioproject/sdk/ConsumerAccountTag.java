@@ -33,6 +33,9 @@ public class ConsumerAccountTag extends TagAbstract {
     }
 
 
+    /**
+     * Activates an previously registered account through a token which was provided to the user via email
+     */
     public CommonMessage activate(ConsumerUserActivate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -72,6 +75,9 @@ public class ConsumerAccountTag extends TagAbstract {
         }
     }
 
+    /**
+     * Authorizes the access of a specific app for the authenticated user
+     */
     public ConsumerAuthorizeResponse authorize(ConsumerAuthorizeRequest payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -111,6 +117,9 @@ public class ConsumerAccountTag extends TagAbstract {
         }
     }
 
+    /**
+     * Change the password for the authenticated user
+     */
     public CommonMessage changePassword(BackendAccountChangePassword payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -150,6 +159,9 @@ public class ConsumerAccountTag extends TagAbstract {
         }
     }
 
+    /**
+     * Change the password after the password reset flow was started
+     */
     public CommonMessage executePasswordReset(ConsumerUserPasswordReset payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -189,6 +201,9 @@ public class ConsumerAccountTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a user data for the authenticated user
+     */
     public ConsumerUserAccount get() throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -226,11 +241,16 @@ public class ConsumerAccountTag extends TagAbstract {
         }
     }
 
-    public ConsumerAuthorizeMeta getApp() throws ClientException {
+    /**
+     * Returns information about a specific app to start the OAuth2 authorization code flow
+     */
+    public ConsumerAuthorizeMeta getApp(String clientId, String scope) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
             Map<String, Object> queryParams = new HashMap<>();
+            queryParams.put("client_id", clientId);
+            queryParams.put("scope", scope);
 
             List<String> queryStructNames = new ArrayList<>();
 
@@ -263,6 +283,9 @@ public class ConsumerAccountTag extends TagAbstract {
         }
     }
 
+    /**
+     * User login by providing a username and password
+     */
     public ConsumerUserJWT login(ConsumerUserLogin payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -302,6 +325,9 @@ public class ConsumerAccountTag extends TagAbstract {
         }
     }
 
+    /**
+     * Refresh a previously obtained access token
+     */
     public ConsumerUserJWT refresh(ConsumerUserRefresh payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -341,6 +367,9 @@ public class ConsumerAccountTag extends TagAbstract {
         }
     }
 
+    /**
+     * Register a new user account
+     */
     public CommonMessage register(ConsumerUserRegister payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -380,6 +409,9 @@ public class ConsumerAccountTag extends TagAbstract {
         }
     }
 
+    /**
+     * Start the password reset flow
+     */
     public CommonMessage requestPasswordReset(ConsumerUserEmail payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -419,6 +451,9 @@ public class ConsumerAccountTag extends TagAbstract {
         }
     }
 
+    /**
+     * Updates user data for the authenticated user
+     */
     public CommonMessage update(ConsumerUserAccount payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

@@ -33,6 +33,9 @@ public class ConsumerPageTag extends TagAbstract {
     }
 
 
+    /**
+     * Returns a specific page for the authenticated user
+     */
     public ConsumerPage get(String pageId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -71,6 +74,9 @@ public class ConsumerPageTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a paginated list of pages which are relevant to the authenticated user
+     */
     public ConsumerPageCollection getAll(Integer startIndex, Integer count, String search) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

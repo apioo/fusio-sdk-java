@@ -7,6 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("A paginated collection of action objects")
 public class BackendActionCollection extends CommonCollection<BackendAction> {
 }
 

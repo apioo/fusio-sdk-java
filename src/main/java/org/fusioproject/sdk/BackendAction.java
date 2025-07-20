@@ -7,13 +7,21 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("This object represents the business logic which can be executed either through an operation or cronjob")
 public class BackendAction {
+    @JsonPropertyDescription("Unique identifier for the object")
     private Integer id;
+    @JsonPropertyDescription("Status of the object either 1 = active or 0 = deleted")
     private Integer status;
+    @JsonPropertyDescription("Unique name of the object")
     private String name;
+    @JsonPropertyDescription("Underlying class of this action which handles the action logic")
     private String _class;
+    @JsonPropertyDescription("Whether to execute the action asynchronously, if true the action directly returns a 202 response and the action is executed later on in the background, useful for expensive operations")
     private Boolean async;
+    @JsonPropertyDescription("Contains the action specific configuration")
     private BackendActionConfig config;
+    @JsonPropertyDescription("Use this parameter to attach key-value data")
     private CommonMetadata metadata;
 
     @JsonSetter("id")

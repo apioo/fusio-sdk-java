@@ -7,8 +7,11 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Represents a concrete action class")
 public class BackendActionIndexEntry {
+    @JsonPropertyDescription("Human-readable name of the action class")
     private String name;
+    @JsonPropertyDescription("Technical identifier of the action class")
     private String _class;
 
     @JsonSetter("name")

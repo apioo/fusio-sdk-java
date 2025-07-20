@@ -7,11 +7,17 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Represents a request to execute an action")
 public class BackendActionExecuteRequest {
+    @JsonPropertyDescription("HTTP method i.e. GET, POST")
     private String method;
+    @JsonPropertyDescription("URL-encoded uri fragments i.e. foo=bar&bar=foo")
     private String uriFragments;
+    @JsonPropertyDescription("URL-encoded query parameters i.e. foo=bar&bar=foo")
     private String parameters;
+    @JsonPropertyDescription("URL-encoded headers i.e. foo=bar&bar=foo")
     private String headers;
+    @JsonPropertyDescription("Request body of this execution")
     private BackendActionExecuteRequestBody body;
 
     @JsonSetter("method")

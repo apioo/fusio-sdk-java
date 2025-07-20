@@ -33,6 +33,9 @@ public class ConsumerLogTag extends TagAbstract {
     }
 
 
+    /**
+     * Returns a specific log for the authenticated user
+     */
     public ConsumerLog get(String logId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -71,6 +74,9 @@ public class ConsumerLogTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a paginated list of logs which are assigned to the authenticated user
+     */
     public ConsumerLogCollection getAll(Integer startIndex, Integer count, String search) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

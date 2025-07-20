@@ -33,6 +33,9 @@ public class BackendMarketplaceActionTag extends TagAbstract {
     }
 
 
+    /**
+     * Returns a specific marketplace action
+     */
     public MarketplaceAction get(String user, String name) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -72,6 +75,9 @@ public class BackendMarketplaceActionTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a paginated list of marketplace actions
+     */
     public MarketplaceActionCollection getAll(Integer startIndex, String query) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

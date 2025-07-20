@@ -33,6 +33,9 @@ public class BackendAppTag extends TagAbstract {
     }
 
 
+    /**
+     * Creates a new app
+     */
     public CommonMessage create(BackendAppCreate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -72,6 +75,9 @@ public class BackendAppTag extends TagAbstract {
         }
     }
 
+    /**
+     * Deletes an existing app
+     */
     public CommonMessage delete(String appId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -110,6 +116,9 @@ public class BackendAppTag extends TagAbstract {
         }
     }
 
+    /**
+     * Deletes an existing token from an app
+     */
     public CommonMessage deleteToken(String appId, String tokenId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -149,6 +158,9 @@ public class BackendAppTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a specific app
+     */
     public BackendApp get(String appId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -187,6 +199,9 @@ public class BackendAppTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a paginated list of apps
+     */
     public BackendAppCollection getAll(Integer startIndex, Integer count, String search) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -227,6 +242,9 @@ public class BackendAppTag extends TagAbstract {
         }
     }
 
+    /**
+     * Updates an existing app
+     */
     public CommonMessage update(String appId, BackendAppUpdate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

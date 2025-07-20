@@ -33,6 +33,9 @@ public class BackendFirewallTag extends TagAbstract {
     }
 
 
+    /**
+     * Creates a new firewall rule
+     */
     public CommonMessage create(BackendFirewallCreate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -72,6 +75,9 @@ public class BackendFirewallTag extends TagAbstract {
         }
     }
 
+    /**
+     * Deletes an existing firewall rule
+     */
     public CommonMessage delete(String firewallId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -110,6 +116,9 @@ public class BackendFirewallTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a specific firewall rule
+     */
     public BackendFirewall get(String firewallId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -148,6 +157,9 @@ public class BackendFirewallTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a paginated list of firewall rules
+     */
     public BackendFirewallCollection getAll(Integer startIndex, Integer count, String search) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -188,6 +200,9 @@ public class BackendFirewallTag extends TagAbstract {
         }
     }
 
+    /**
+     * Updates an existing firewall rule
+     */
     public CommonMessage update(String firewallId, BackendFirewallUpdate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

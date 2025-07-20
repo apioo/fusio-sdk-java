@@ -7,6 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Contains all possible classes which can be used at an generator as class")
 public class BackendGeneratorIndexProviders {
     private java.util.List<BackendGeneratorIndexProvider> providers;
 

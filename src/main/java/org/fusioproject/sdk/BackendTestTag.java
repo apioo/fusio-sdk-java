@@ -33,6 +33,9 @@ public class BackendTestTag extends TagAbstract {
     }
 
 
+    /**
+     * Returns a specific test
+     */
     public BackendTest get(String testId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -71,6 +74,9 @@ public class BackendTestTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a paginated list of tests
+     */
     public BackendTestCollection getAll(Integer startIndex, Integer count, String search) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -111,6 +117,9 @@ public class BackendTestTag extends TagAbstract {
         }
     }
 
+    /**
+     * Refresh all tests
+     */
     public CommonMessage refresh() throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -148,6 +157,9 @@ public class BackendTestTag extends TagAbstract {
         }
     }
 
+    /**
+     * Run all tests
+     */
     public CommonMessage run() throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -185,6 +197,9 @@ public class BackendTestTag extends TagAbstract {
         }
     }
 
+    /**
+     * Updates an existing test
+     */
     public CommonMessage update(String testId, BackendTest payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

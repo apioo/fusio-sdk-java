@@ -33,6 +33,9 @@ public class BackendStatisticTag extends TagAbstract {
     }
 
 
+    /**
+     * Returns a statistic containing the activities per user
+     */
     public BackendStatisticChart getActivitiesPerUser(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -84,6 +87,9 @@ public class BackendStatisticTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a statistic containing the request count
+     */
     public BackendStatisticCount getCountRequests(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -135,6 +141,9 @@ public class BackendStatisticTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a statistic containing the errors per operation
+     */
     public BackendStatisticChart getErrorsPerOperation(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -186,6 +195,9 @@ public class BackendStatisticTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a statistic containing the incoming requests
+     */
     public BackendStatisticChart getIncomingRequests(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -237,6 +249,9 @@ public class BackendStatisticTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a statistic containing the incoming transactions
+     */
     public BackendStatisticChart getIncomingTransactions(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -288,6 +303,9 @@ public class BackendStatisticTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a statistic containing the issues tokens
+     */
     public BackendStatisticChart getIssuedTokens(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -339,6 +357,9 @@ public class BackendStatisticTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a statistic containing the most used activities
+     */
     public BackendStatisticChart getMostUsedActivities(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -390,6 +411,9 @@ public class BackendStatisticTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a statistic containing the most used apps
+     */
     public BackendStatisticChart getMostUsedApps(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -441,6 +465,9 @@ public class BackendStatisticTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a statistic containing the most used operations
+     */
     public BackendStatisticChart getMostUsedOperations(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -492,6 +519,9 @@ public class BackendStatisticTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a statistic containing the test coverage
+     */
     public BackendStatisticChart getTestCoverage() throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -529,6 +559,9 @@ public class BackendStatisticTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a statistic containing the time average
+     */
     public BackendStatisticChart getTimeAverage(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -580,6 +613,9 @@ public class BackendStatisticTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a statistic containing the time per operation
+     */
     public BackendStatisticChart getTimePerOperation(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -631,6 +667,9 @@ public class BackendStatisticTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a statistic containing the used points
+     */
     public BackendStatisticChart getUsedPoints(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -682,6 +721,9 @@ public class BackendStatisticTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a statistic containing the user registrations
+     */
     public BackendStatisticChart getUserRegistrations(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

@@ -7,12 +7,19 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("This object represents a form which helps to dynamically generate a form at a frontend app")
 public class BackendForm {
+    @JsonPropertyDescription("Unique identifier for the object")
     private Integer id;
+    @JsonPropertyDescription("Status of the object either 1 = active or 0 = deleted")
     private Integer status;
+    @JsonPropertyDescription("Unique name of the object")
     private String name;
+    @JsonPropertyDescription("Target operation which gets invoked through this form")
     private Integer operationId;
+    @JsonPropertyDescription("Optional an UI schema to dynamically describe this form")
     private Object uiSchema;
+    @JsonPropertyDescription("Use this parameter to attach key-value data")
     private CommonMetadata metadata;
 
     @JsonSetter("id")

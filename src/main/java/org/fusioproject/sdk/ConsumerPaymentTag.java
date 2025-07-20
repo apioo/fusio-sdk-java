@@ -33,6 +33,9 @@ public class ConsumerPaymentTag extends TagAbstract {
     }
 
 
+    /**
+     * Start the checkout process for a specific plan
+     */
     public ConsumerPaymentCheckoutResponse checkout(String provider, ConsumerPaymentCheckoutRequest payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -73,6 +76,9 @@ public class ConsumerPaymentTag extends TagAbstract {
         }
     }
 
+    /**
+     * Generates a payment portal link for the authenticated user
+     */
     public ConsumerPaymentPortalResponse portal(String provider, ConsumerPaymentPortalRequest payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

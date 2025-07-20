@@ -7,11 +7,17 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("This object represents a scope. A scope is assigned to a user and is required to access operations")
 public class BackendScope {
+    @JsonPropertyDescription("Unique identifier for the object")
     private Integer id;
+    @JsonPropertyDescription("Unique name of the object")
     private String name;
+    @JsonPropertyDescription("Short description of the scope")
     private String description;
+    @JsonPropertyDescription("All operations which can be access through this scope")
     private java.util.List<BackendScopeOperation> operations;
+    @JsonPropertyDescription("Use this parameter to attach key-value data")
     private CommonMetadata metadata;
 
     @JsonSetter("id")

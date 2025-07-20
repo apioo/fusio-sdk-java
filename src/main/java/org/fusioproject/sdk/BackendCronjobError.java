@@ -7,6 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Represents an error which occurred on cronjob execution")
 public class BackendCronjobError {
     private String message;
     private String trace;

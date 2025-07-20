@@ -7,12 +7,19 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("This object represents an identity which allows to authenticate with a remote identity provider")
 public class BackendIdentity {
+    @JsonPropertyDescription("Unique identifier for the object")
     private Integer id;
+    @JsonPropertyDescription("The target app for this identity")
     private Integer appId;
+    @JsonPropertyDescription("Role which is assigned to new users")
     private Integer roleId;
+    @JsonPropertyDescription("Unique name of the object")
     private String name;
+    @JsonPropertyDescription("An icon for this identity provider")
     private String icon;
+    @JsonPropertyDescription("Underlying class of this identity provider")
     private String _class;
     private BackendIdentityConfig config;
     private Boolean allowCreate;

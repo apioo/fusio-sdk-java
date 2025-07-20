@@ -7,6 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Contains all possible classes which can be used at an connection as class")
 public class BackendConnectionIndex {
     private java.util.List<BackendConnectionIndexEntry> connections;
 

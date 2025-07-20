@@ -33,6 +33,9 @@ public class BackendCategoryTag extends TagAbstract {
     }
 
 
+    /**
+     * Creates a new category
+     */
     public CommonMessage create(BackendCategoryCreate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -72,6 +75,9 @@ public class BackendCategoryTag extends TagAbstract {
         }
     }
 
+    /**
+     * Deletes an existing category
+     */
     public CommonMessage delete(String categoryId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -110,6 +116,9 @@ public class BackendCategoryTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a specific category
+     */
     public BackendCategory get(String categoryId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -148,6 +157,9 @@ public class BackendCategoryTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a paginated list of categories
+     */
     public BackendCategoryCollection getAll(Integer startIndex, Integer count, String search) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -188,6 +200,9 @@ public class BackendCategoryTag extends TagAbstract {
         }
     }
 
+    /**
+     * Updates an existing category
+     */
     public CommonMessage update(String categoryId, BackendCategoryUpdate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

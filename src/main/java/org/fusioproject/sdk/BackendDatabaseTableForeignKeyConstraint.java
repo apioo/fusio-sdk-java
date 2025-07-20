@@ -7,10 +7,15 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("This object represents a foreign key constraint on a relational database")
 public class BackendDatabaseTableForeignKeyConstraint {
+    @JsonPropertyDescription("Name of the foreign key constraint")
     private String name;
+    @JsonPropertyDescription("Name of the foreign table")
     private String foreignTable;
+    @JsonPropertyDescription("Local column names")
     private java.util.List<String> localColumnNames;
+    @JsonPropertyDescription("Foreign column names")
     private java.util.List<String> foreignColumnNames;
 
     @JsonSetter("name")

@@ -33,6 +33,9 @@ public class BackendConnectionTag extends TagAbstract {
     }
 
 
+    /**
+     * Creates a new connection
+     */
     public CommonMessage create(BackendConnectionCreate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -72,6 +75,9 @@ public class BackendConnectionTag extends TagAbstract {
         }
     }
 
+    /**
+     * Deletes an existing connection
+     */
     public CommonMessage delete(String connectionId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -110,6 +116,9 @@ public class BackendConnectionTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a specific connection
+     */
     public BackendConnection get(String connectionId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -148,6 +157,9 @@ public class BackendConnectionTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a paginated list of connections
+     */
     public BackendConnectionCollection getAll(Integer startIndex, Integer count, String search, String _class) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -189,6 +201,9 @@ public class BackendConnectionTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns all available connection classes
+     */
     public BackendConnectionIndex getClasses() throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -226,6 +241,9 @@ public class BackendConnectionTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns the connection config form
+     */
     public CommonFormContainer getForm(String _class) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -264,6 +282,9 @@ public class BackendConnectionTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a redirect url to start the OAuth2 authorization flow for the given connection
+     */
     public BackendConnectionRedirectResponse getRedirect(String connectionId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -302,6 +323,9 @@ public class BackendConnectionTag extends TagAbstract {
         }
     }
 
+    /**
+     * Updates an existing connection
+     */
     public CommonMessage update(String connectionId, BackendConnectionUpdate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

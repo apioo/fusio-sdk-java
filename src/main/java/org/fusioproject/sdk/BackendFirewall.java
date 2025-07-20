@@ -7,12 +7,19 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("This object represents a firewall rule which blocks specific IP addresses")
 public class BackendFirewall {
+    @JsonPropertyDescription("Unique identifier for the object")
     private Integer id;
+    @JsonPropertyDescription("Unique name of the object")
     private String name;
+    @JsonPropertyDescription("The type of the rule either 1 = allow or 0 = deny")
     private Integer type;
+    @JsonPropertyDescription("The target IP address")
     private String ip;
+    @JsonPropertyDescription("The expire date")
     private java.time.LocalDateTime expire;
+    @JsonPropertyDescription("Use this parameter to attach key-value data")
     private CommonMetadata metadata;
 
     @JsonSetter("id")
