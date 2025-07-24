@@ -117,6 +117,9 @@ public class BackendMarketplaceAppTag extends TagAbstract {
         }
     }
 
+    /**
+     * Installs an app from the marketplace
+     */
     public MarketplaceMessage install(MarketplaceInstall payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

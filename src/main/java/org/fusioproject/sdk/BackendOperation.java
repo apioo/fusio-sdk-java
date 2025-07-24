@@ -31,13 +31,13 @@ public class BackendOperation {
     private String name;
     @JsonPropertyDescription("Describes available query parameters")
     private BackendOperationParameters parameters;
-    @JsonPropertyDescription("Describes the incoming request payload")
+    @JsonPropertyDescription("Describes the incoming request payload, this must contain a schema name")
     private String incoming;
-    @JsonPropertyDescription("Describes the outgoing response payload")
+    @JsonPropertyDescription("Describes the outgoing response payload, this must contain a schema name")
     private String outgoing;
     @JsonPropertyDescription("Describes error responses for i.e. client or server errors")
     private BackendOperationThrows _throws;
-    @JsonPropertyDescription("The target action to invoke")
+    @JsonPropertyDescription("The target action to invoke, this must contain an action name")
     private String action;
     @JsonPropertyDescription("Costs to invoke this operation. A user can only invoke this operation in case he has enough points")
     private Integer costs;
