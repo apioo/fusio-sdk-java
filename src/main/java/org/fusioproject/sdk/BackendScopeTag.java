@@ -200,6 +200,9 @@ public class BackendScopeTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns all available scopes grouped by category
+     */
     public BackendScopeCategories getCategories() throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

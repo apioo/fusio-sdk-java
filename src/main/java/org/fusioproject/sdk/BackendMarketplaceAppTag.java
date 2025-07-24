@@ -159,6 +159,9 @@ public class BackendMarketplaceAppTag extends TagAbstract {
         }
     }
 
+    /**
+     * Upgrades an app from the marketplace
+     */
     public MarketplaceMessage upgrade(String user, String name) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

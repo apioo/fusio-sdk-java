@@ -33,6 +33,9 @@ public class BackendGeneratorTag extends TagAbstract {
     }
 
 
+    /**
+     * Executes a generator with the provided config
+     */
     public CommonMessage executeProvider(String provider, BackendGeneratorProvider payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
@@ -73,6 +76,9 @@ public class BackendGeneratorTag extends TagAbstract {
         }
     }
 
+    /**
+     * Generates a changelog of all potential changes if you execute this generator with the provided config
+     */
     public BackendGeneratorProviderChangelog getChangelog(String provider, BackendGeneratorProviderConfig payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

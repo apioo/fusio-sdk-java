@@ -159,6 +159,9 @@ public class BackendMarketplaceActionTag extends TagAbstract {
         }
     }
 
+    /**
+     * Upgrades an action from the marketplace
+     */
     public CommonMessage upgrade(String user, String name) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

@@ -200,6 +200,9 @@ public class BackendSchemaTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a HTML preview of the provided schema
+     */
     public BackendSchemaPreviewResponse getPreview(String schemaId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();

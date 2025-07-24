@@ -171,6 +171,9 @@ public class BackendLogTag extends TagAbstract {
         }
     }
 
+    /**
+     * Returns a specific error
+     */
     public BackendLogError getError(String errorId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
