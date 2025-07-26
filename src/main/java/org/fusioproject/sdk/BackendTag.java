@@ -140,6 +140,15 @@ public class BackendTag extends TagAbstract {
         );
     }
 
+    public BackendFileTag file()
+    {
+        return new BackendFileTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
     public BackendFirewallTag firewall()
     {
         return new BackendFirewallTag(
