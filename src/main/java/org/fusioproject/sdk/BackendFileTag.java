@@ -88,7 +88,7 @@ public class BackendFileTag extends TagAbstract {
 
             List<String> queryStructNames = new ArrayList<>();
 
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/filesystem/:connection_id/:file_id", pathParams));
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/file/:connection_id/:file_id", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
 
             HttpDelete request = new HttpDelete(builder.build());
