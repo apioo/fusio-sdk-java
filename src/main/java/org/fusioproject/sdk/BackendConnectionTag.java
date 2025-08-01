@@ -32,6 +32,42 @@ public class BackendConnectionTag extends TagAbstract {
         super(httpClient, objectMapper, parser);
     }
 
+    public BackendConnectionDatabaseTag database()
+    {
+        return new BackendConnectionDatabaseTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
+    public BackendConnectionFilesystemTag filesystem()
+    {
+        return new BackendConnectionFilesystemTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
+    public BackendConnectionHttpTag http()
+    {
+        return new BackendConnectionHttpTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
+    public BackendConnectionSdkTag sdk()
+    {
+        return new BackendConnectionSdkTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
 
     /**
      * Creates a new connection
@@ -294,7 +330,7 @@ public class BackendConnectionTag extends TagAbstract {
 
             List<String> queryStructNames = new ArrayList<>();
 
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/connection/$connection_id<[0-9]+|^~>/redirect", pathParams));
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/connection/:connection_id/redirect", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());

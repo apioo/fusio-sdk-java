@@ -122,27 +122,9 @@ public class BackendTag extends TagAbstract {
         );
     }
 
-    public BackendDatabaseTag database()
-    {
-        return new BackendDatabaseTag(
-            this.httpClient,
-            this.objectMapper,
-            this.parser
-        );
-    }
-
     public BackendEventTag event()
     {
         return new BackendEventTag(
-            this.httpClient,
-            this.objectMapper,
-            this.parser
-        );
-    }
-
-    public BackendFileTag file()
-    {
-        return new BackendFileTag(
             this.httpClient,
             this.objectMapper,
             this.parser
