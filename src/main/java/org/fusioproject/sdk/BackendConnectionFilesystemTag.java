@@ -120,7 +120,7 @@ public class BackendConnectionFilesystemTag extends TagAbstract {
     /**
      * Returns the content of the provided file id on the filesystem connection
      */
-    public void get(String connectionId, String fileId) throws ClientException {
+    public byte[] get(String connectionId, String fileId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
             pathParams.put("connection_id", connectionId);
@@ -135,10 +135,13 @@ public class BackendConnectionFilesystemTag extends TagAbstract {
 
             HttpGet request = new HttpGet(builder.build());
 
+            request.setHeader("Accept", "application/octet-stream");
 
-            this.httpClient.execute(request, response -> {
+            return this.httpClient.execute(request, response -> {
                 if (response.getCode() >= 200 && response.getCode() <= 299) {
-                    return null;
+                    var data = EntityUtils.toByteArray(response.getEntity());
+
+                    return data;
                 }
 
                 var statusCode = response.getCode();
