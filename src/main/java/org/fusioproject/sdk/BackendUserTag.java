@@ -201,6 +201,49 @@ public class BackendUserTag extends TagAbstract {
     }
 
     /**
+     * Resend the activation mail to the provided user
+     */
+    public CommonMessage resend(String userId, Passthru payload) throws ClientException {
+        try {
+            Map<String, Object> pathParams = new HashMap<>();
+            pathParams.put("user_id", userId);
+
+            Map<String, Object> queryParams = new HashMap<>();
+
+            List<String> queryStructNames = new ArrayList<>();
+
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/user/$user_id<[0-9]+|^~>/resend", pathParams));
+            this.parser.query(builder, queryParams, queryStructNames);
+
+            HttpPost request = new HttpPost(builder.build());
+            request.setEntity(new StringEntity(this.objectMapper.writeValueAsString(payload), ContentType.APPLICATION_JSON));
+
+            request.setHeader("Content-Type", "application/json");
+
+            return this.httpClient.execute(request, response -> {
+                if (response.getCode() >= 200 && response.getCode() <= 299) {
+                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
+
+                    return data;
+                }
+
+                var statusCode = response.getCode();
+                if (statusCode >= 0 && statusCode <= 999) {
+                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
+
+                    throw new CommonMessageException(data);
+                }
+
+                throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
+            });
+        } catch (ClientException e) {
+            throw e;
+        } catch (URISyntaxException | IOException e) {
+            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
+        }
+    }
+
+    /**
      * Updates an existing user
      */
     public CommonMessage update(String userId, BackendUserUpdate payload) throws ClientException {
