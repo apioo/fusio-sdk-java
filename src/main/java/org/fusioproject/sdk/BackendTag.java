@@ -311,6 +311,15 @@ public class BackendTag extends TagAbstract {
         );
     }
 
+    public BackendTriggerTag trigger()
+    {
+        return new BackendTriggerTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
     public BackendUserTag user()
     {
         return new BackendUserTag(
