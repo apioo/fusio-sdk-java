@@ -50,5 +50,14 @@ public class BackendMarketplaceTag extends TagAbstract {
         );
     }
 
+    public BackendMarketplaceBundleTag bundle()
+    {
+        return new BackendMarketplaceBundleTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
 
 }
