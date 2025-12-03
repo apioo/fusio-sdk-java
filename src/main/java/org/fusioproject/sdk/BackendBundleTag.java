@@ -119,7 +119,7 @@ public class BackendBundleTag extends TagAbstract {
     /**
      * Returns a specific bundle
      */
-    public BackendEvent get(String bundleId) throws ClientException {
+    public BackendBundle get(String bundleId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
             pathParams.put("bundle_id", bundleId);
@@ -136,7 +136,7 @@ public class BackendBundleTag extends TagAbstract {
 
             return this.httpClient.execute(request, response -> {
                 if (response.getCode() >= 200 && response.getCode() <= 299) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<BackendEvent>(){});
+                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<BackendBundle>(){});
 
                     return data;
                 }
