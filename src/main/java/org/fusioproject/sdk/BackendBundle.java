@@ -7,7 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
-@JsonClassDescription("This object represents a bundle which allows you to submit action, schema, event, cronjob and trigger configuration from you local instance to the Fusio marketplace")
+@JsonClassDescription("This object represents a bundle which contains action, schema, event, cronjob and trigger configurations from you local instance")
 public class BackendBundle {
     @JsonPropertyDescription("Unique identifier for the object")
     private Integer id;
