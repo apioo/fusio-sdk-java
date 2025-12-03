@@ -77,6 +77,15 @@ public class BackendTag extends TagAbstract {
         );
     }
 
+    public BackendBundleTag bundle()
+    {
+        return new BackendBundleTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
     public BackendCategoryTag category()
     {
         return new BackendCategoryTag(
