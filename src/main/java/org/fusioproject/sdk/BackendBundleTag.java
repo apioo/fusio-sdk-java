@@ -203,7 +203,7 @@ public class BackendBundleTag extends TagAbstract {
     /**
      * Updates an existing bundle
      */
-    public CommonMessage update(String bundleId, BackendEventUpdate payload) throws ClientException {
+    public CommonMessage update(String bundleId, BackendBundleUpdate payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
             pathParams.put("bundle_id", bundleId);
