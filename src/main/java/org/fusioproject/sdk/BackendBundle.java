@@ -13,6 +13,16 @@ public class BackendBundle {
     private Integer id;
     @JsonPropertyDescription("Unique name of the object")
     private String name;
+    @JsonPropertyDescription("Version of this bundle")
+    private String version;
+    @JsonPropertyDescription("Icon to represent this bundle")
+    private String icon;
+    @JsonPropertyDescription("Short summary which explains the use case for this bundle")
+    private String summary;
+    @JsonPropertyDescription("Long description how to use this bundle may also contains markdown syntax")
+    private String description;
+    @JsonPropertyDescription("Optional a cost for this bundle")
+    private Integer cost;
     @JsonPropertyDescription("The bundle configuration")
     private BackendBundleConfig config;
 
@@ -34,6 +44,56 @@ public class BackendBundle {
     @JsonGetter("name")
     public String getName() {
         return this.name;
+    }
+
+    @JsonSetter("version")
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
+    @JsonGetter("version")
+    public String getVersion() {
+        return this.version;
+    }
+
+    @JsonSetter("icon")
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
+
+    @JsonGetter("icon")
+    public String getIcon() {
+        return this.icon;
+    }
+
+    @JsonSetter("summary")
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
+
+    @JsonGetter("summary")
+    public String getSummary() {
+        return this.summary;
+    }
+
+    @JsonSetter("description")
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @JsonGetter("description")
+    public String getDescription() {
+        return this.description;
+    }
+
+    @JsonSetter("cost")
+    public void setCost(Integer cost) {
+        this.cost = cost;
+    }
+
+    @JsonGetter("cost")
+    public Integer getCost() {
+        return this.cost;
     }
 
     @JsonSetter("config")
