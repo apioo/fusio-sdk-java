@@ -10,6 +10,7 @@ import com.fasterxml.jackson.annotation.*;
 public class MarketplaceMessage {
     private Boolean success;
     private String message;
+    private String id;
 
     @JsonSetter("success")
     public void setSuccess(Boolean success) {
@@ -29,6 +30,16 @@ public class MarketplaceMessage {
     @JsonGetter("message")
     public String getMessage() {
         return this.message;
+    }
+
+    @JsonSetter("id")
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    @JsonGetter("id")
+    public String getId() {
+        return this.id;
     }
 }
 
