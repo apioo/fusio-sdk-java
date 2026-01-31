@@ -7,6 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Represents a config form with a list of elements")
 public class CommonFormContainer {
     private java.util.List<CommonFormElement> element;
 

@@ -7,6 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Form element which represents an input tag editor to enter comma-separated values")
 public class CommonFormElementTag extends CommonFormElement {
 }
 

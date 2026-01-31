@@ -14,22 +14,12 @@ import com.fasterxml.jackson.annotation.*;
     @JsonSubTypes.Type(value = CommonFormElementTag.class, name = "http://fusio-project.org/ns/2015/form/tag"),
     @JsonSubTypes.Type(value = CommonFormElementTextArea.class, name = "http://fusio-project.org/ns/2015/form/textarea"),
 })
+@JsonClassDescription("Form base element")
 public abstract class CommonFormElement {
-    private String type;
     private String element;
     private String name;
     private String title;
     private String help;
-
-    @JsonSetter("type")
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    @JsonGetter("type")
-    public String getType() {
-        return this.type;
-    }
 
     @JsonSetter("element")
     public void setElement(String element) {

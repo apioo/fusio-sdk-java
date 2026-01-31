@@ -19,7 +19,7 @@ public class BackendAction {
     private String _class;
     @JsonPropertyDescription("Whether to execute the action asynchronously, if true the action directly returns a 202 response and the action is executed later on in the background, useful for expensive operations")
     private Boolean async;
-    @JsonPropertyDescription("Contains the action specific configuration")
+    @JsonPropertyDescription("Contains the action specific configuration. The config depends on the action class, you can get all details of the config format by passing the class to the backend-action-getForm tool")
     private BackendActionConfig config;
     @JsonPropertyDescription("Use this parameter to attach key-value data")
     private CommonMetadata metadata;

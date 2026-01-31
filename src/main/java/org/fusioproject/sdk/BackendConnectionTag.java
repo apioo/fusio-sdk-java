@@ -32,6 +32,15 @@ public class BackendConnectionTag extends TagAbstract {
         super(httpClient, objectMapper, parser);
     }
 
+    public BackendConnectionAgentTag agent()
+    {
+        return new BackendConnectionAgentTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
     public BackendConnectionDatabaseTag database()
     {
         return new BackendConnectionDatabaseTag(

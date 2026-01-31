@@ -7,6 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Represents a concrete option entry")
 public class CommonFormElementSelectOption {
     private String key;
     private String value;

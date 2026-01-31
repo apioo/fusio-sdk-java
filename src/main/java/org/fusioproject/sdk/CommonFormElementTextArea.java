@@ -7,7 +7,9 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Form element which represents a textarea")
 public class CommonFormElementTextArea extends CommonFormElement {
+    @JsonPropertyDescription("Describes which data is provided at the textarea, this can be i.e. a programming language like php, java or python or also a data format like json")
     private String mode;
 
     @JsonSetter("mode")

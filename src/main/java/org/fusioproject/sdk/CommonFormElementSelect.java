@@ -7,7 +7,9 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Form element which represents a select element")
 public class CommonFormElementSelect extends CommonFormElement {
+    @JsonPropertyDescription("Available options for the select element")
     private java.util.List<CommonFormElementSelectOption> options;
 
     @JsonSetter("options")
