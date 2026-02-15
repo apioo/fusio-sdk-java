@@ -275,6 +275,15 @@ public class BackendTag extends TagAbstract {
         );
     }
 
+    public BackendTaxonomyTag taxonomy()
+    {
+        return new BackendTaxonomyTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
     public BackendTenantTag tenant()
     {
         return new BackendTenantTag(

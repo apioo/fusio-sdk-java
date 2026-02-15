@@ -77,7 +77,7 @@ public class ConsumerEventTag extends TagAbstract {
     /**
      * Returns a paginated list of apps which are assigned to the authenticated user
      */
-    public ConsumerEventCollection getAll(Integer startIndex, Integer count, String search) throws ClientException {
+    public ConsumerEventCollection getAll(Integer startIndex, Integer count, String search, Integer taxonomy) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
@@ -85,6 +85,7 @@ public class ConsumerEventTag extends TagAbstract {
             queryParams.put("startIndex", startIndex);
             queryParams.put("count", count);
             queryParams.put("search", search);
+            queryParams.put("taxonomy", taxonomy);
 
             List<String> queryStructNames = new ArrayList<>();
 

@@ -77,7 +77,7 @@ public class BackendTransactionTag extends TagAbstract {
     /**
      * Returns a paginated list of transactions
      */
-    public BackendTransactionCollection getAll(Integer startIndex, Integer count, String search, String from, String to, Integer planId, Integer userId, Integer appId, String status, String provider) throws ClientException {
+    public BackendTransactionCollection getAll(Integer startIndex, Integer count, String search, String from, String to, Integer planId, Integer userId, Integer appId, String status, String provider, Integer taxonomy) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
@@ -92,6 +92,7 @@ public class BackendTransactionTag extends TagAbstract {
             queryParams.put("appId", appId);
             queryParams.put("status", status);
             queryParams.put("provider", provider);
+            queryParams.put("taxonomy", taxonomy);
 
             List<String> queryStructNames = new ArrayList<>();
 

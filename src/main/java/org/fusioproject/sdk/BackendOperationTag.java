@@ -160,7 +160,7 @@ public class BackendOperationTag extends TagAbstract {
     /**
      * Returns a paginated list of operations
      */
-    public BackendOperationCollection getAll(Integer startIndex, Integer count, String search) throws ClientException {
+    public BackendOperationCollection getAll(Integer startIndex, Integer count, String search, Integer taxonomy) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
@@ -168,6 +168,7 @@ public class BackendOperationTag extends TagAbstract {
             queryParams.put("startIndex", startIndex);
             queryParams.put("count", count);
             queryParams.put("search", search);
+            queryParams.put("taxonomy", taxonomy);
 
             List<String> queryStructNames = new ArrayList<>();
 
