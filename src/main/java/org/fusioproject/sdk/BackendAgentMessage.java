@@ -7,39 +7,54 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
-@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type")
-@JsonSubTypes({
-    @JsonSubTypes.Type(value = BackendAgentMessageBinary.class, name = "binary"),
-    @JsonSubTypes.Type(value = BackendAgentMessageChoice.class, name = "choice"),
-    @JsonSubTypes.Type(value = BackendAgentMessageObject.class, name = "object"),
-    @JsonSubTypes.Type(value = BackendAgentMessageText.class, name = "text"),
-    @JsonSubTypes.Type(value = BackendAgentMessageToolCall.class, name = "tool_call"),
-})
-@JsonClassDescription("Agent call result")
-public abstract class BackendAgentMessage {
-    @JsonPropertyDescription("The result type")
-    private String type;
-    @JsonPropertyDescription("Optional result metadata")
-    private java.util.Map<String, Object> metadata;
+@JsonClassDescription("This object represents an agent message")
+public class BackendAgentMessage {
+    @JsonPropertyDescription("Unique identifier for the object")
+    private Integer id;
+    @JsonPropertyDescription("The role of this message i.e. user, assistant or system")
+    private String role;
+    @JsonPropertyDescription("The message content")
+    private BackendAgentContent content;
+    private java.time.LocalDateTime insertDate;
 
-    @JsonSetter("type")
-    public void setType(String type) {
-        this.type = type;
+    @JsonSetter("id")
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    @JsonGetter("type")
-    public String getType() {
-        return this.type;
+    @JsonGetter("id")
+    public Integer getId() {
+        return this.id;
     }
 
-    @JsonSetter("metadata")
-    public void setMetadata(java.util.Map<String, Object> metadata) {
-        this.metadata = metadata;
+    @JsonSetter("role")
+    public void setRole(String role) {
+        this.role = role;
     }
 
-    @JsonGetter("metadata")
-    public java.util.Map<String, Object> getMetadata() {
-        return this.metadata;
+    @JsonGetter("role")
+    public String getRole() {
+        return this.role;
+    }
+
+    @JsonSetter("content")
+    public void setContent(BackendAgentContent content) {
+        this.content = content;
+    }
+
+    @JsonGetter("content")
+    public BackendAgentContent getContent() {
+        return this.content;
+    }
+
+    @JsonSetter("insertDate")
+    public void setInsertDate(java.time.LocalDateTime insertDate) {
+        this.insertDate = insertDate;
+    }
+
+    @JsonGetter("insertDate")
+    public java.time.LocalDateTime getInsertDate() {
+        return this.insertDate;
     }
 }
 

@@ -7,15 +7,29 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
-@JsonClassDescription("This object represents an agent message")
+@JsonClassDescription("This object represents an agent")
 public class BackendAgent {
     @JsonPropertyDescription("Unique identifier for the object")
     private Integer id;
-    @JsonPropertyDescription("The origin of this message i.e. 1 = user, 2 = assistant or 3 = system")
-    private Integer origin;
-    @JsonPropertyDescription("The message")
-    private BackendAgentMessage message;
+    @JsonPropertyDescription("The agent connection which should be used")
+    private Integer connection;
+    @JsonPropertyDescription("The agent type")
+    private Integer type;
+    @JsonPropertyDescription("Name of the agent")
+    private String name;
+    @JsonPropertyDescription("Description of the agent")
+    private String description;
+    @JsonPropertyDescription("Introduction message")
+    private String introduction;
+    @JsonPropertyDescription("Tools available to this agent")
+    private java.util.List<String> tools;
+    @JsonPropertyDescription("Describes the outgoing response payload, this must contain a schema name")
+    private String outgoing;
+    @JsonPropertyDescription("Action which gets invoked for each generated response")
+    private String action;
     private java.time.LocalDateTime insertDate;
+    @JsonPropertyDescription("Use this parameter to attach key-value data")
+    private CommonMetadata metadata;
 
     @JsonSetter("id")
     public void setId(Integer id) {
@@ -27,24 +41,84 @@ public class BackendAgent {
         return this.id;
     }
 
-    @JsonSetter("origin")
-    public void setOrigin(Integer origin) {
-        this.origin = origin;
+    @JsonSetter("connection")
+    public void setConnection(Integer connection) {
+        this.connection = connection;
     }
 
-    @JsonGetter("origin")
-    public Integer getOrigin() {
-        return this.origin;
+    @JsonGetter("connection")
+    public Integer getConnection() {
+        return this.connection;
     }
 
-    @JsonSetter("message")
-    public void setMessage(BackendAgentMessage message) {
-        this.message = message;
+    @JsonSetter("type")
+    public void setType(Integer type) {
+        this.type = type;
     }
 
-    @JsonGetter("message")
-    public BackendAgentMessage getMessage() {
-        return this.message;
+    @JsonGetter("type")
+    public Integer getType() {
+        return this.type;
+    }
+
+    @JsonSetter("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonGetter("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonSetter("description")
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @JsonGetter("description")
+    public String getDescription() {
+        return this.description;
+    }
+
+    @JsonSetter("introduction")
+    public void setIntroduction(String introduction) {
+        this.introduction = introduction;
+    }
+
+    @JsonGetter("introduction")
+    public String getIntroduction() {
+        return this.introduction;
+    }
+
+    @JsonSetter("tools")
+    public void setTools(java.util.List<String> tools) {
+        this.tools = tools;
+    }
+
+    @JsonGetter("tools")
+    public java.util.List<String> getTools() {
+        return this.tools;
+    }
+
+    @JsonSetter("outgoing")
+    public void setOutgoing(String outgoing) {
+        this.outgoing = outgoing;
+    }
+
+    @JsonGetter("outgoing")
+    public String getOutgoing() {
+        return this.outgoing;
+    }
+
+    @JsonSetter("action")
+    public void setAction(String action) {
+        this.action = action;
+    }
+
+    @JsonGetter("action")
+    public String getAction() {
+        return this.action;
     }
 
     @JsonSetter("insertDate")
@@ -55,6 +129,16 @@ public class BackendAgent {
     @JsonGetter("insertDate")
     public java.time.LocalDateTime getInsertDate() {
         return this.insertDate;
+    }
+
+    @JsonSetter("metadata")
+    public void setMetadata(CommonMetadata metadata) {
+        this.metadata = metadata;
+    }
+
+    @JsonGetter("metadata")
+    public CommonMetadata getMetadata() {
+        return this.metadata;
     }
 }
 

@@ -50,6 +50,15 @@ public class BackendTag extends TagAbstract {
         );
     }
 
+    public BackendAgentTag agent()
+    {
+        return new BackendAgentTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
     public BackendAppTag app()
     {
         return new BackendAppTag(
