@@ -9,8 +9,20 @@ import com.fasterxml.jackson.annotation.*;
 
 @JsonClassDescription("This object represents an agent output")
 public class BackendAgentOutput {
+    @JsonPropertyDescription("Available if the message was persisted")
+    private String id;
     @JsonPropertyDescription("The output")
     private BackendAgentContent output;
+
+    @JsonSetter("id")
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    @JsonGetter("id")
+    public String getId() {
+        return this.id;
+    }
 
     @JsonSetter("output")
     public void setOutput(BackendAgentContent output) {
