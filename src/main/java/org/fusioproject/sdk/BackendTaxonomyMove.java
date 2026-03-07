@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.*;
 public class BackendTaxonomyMove {
     private java.util.List<Integer> operations;
     private java.util.List<Integer> actions;
+    private java.util.List<Integer> schemas;
     private java.util.List<Integer> events;
     private java.util.List<Integer> cronjobs;
     private java.util.List<Integer> triggers;
@@ -33,6 +34,16 @@ public class BackendTaxonomyMove {
     @JsonGetter("actions")
     public java.util.List<Integer> getActions() {
         return this.actions;
+    }
+
+    @JsonSetter("schemas")
+    public void setSchemas(java.util.List<Integer> schemas) {
+        this.schemas = schemas;
+    }
+
+    @JsonGetter("schemas")
+    public java.util.List<Integer> getSchemas() {
+        return this.schemas;
     }
 
     @JsonSetter("events")
