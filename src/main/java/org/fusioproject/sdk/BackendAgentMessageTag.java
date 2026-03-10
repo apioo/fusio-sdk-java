@@ -78,12 +78,13 @@ public class BackendAgentMessageTag extends TagAbstract {
     /**
      * Submits a new agent message
      */
-    public BackendAgentOutput submit(String agentId, BackendAgentInput payload) throws ClientException {
+    public BackendAgentOutput submit(String agentId, BackendAgentInput payload, Integer parent) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
             pathParams.put("agent_id", agentId);
 
             Map<String, Object> queryParams = new HashMap<>();
+            queryParams.put("parent", parent);
 
             List<String> queryStructNames = new ArrayList<>();
 
