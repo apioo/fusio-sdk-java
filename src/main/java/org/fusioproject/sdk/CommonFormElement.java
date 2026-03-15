@@ -9,10 +9,17 @@ import com.fasterxml.jackson.annotation.*;
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type")
 @JsonSubTypes({
-    @JsonSubTypes.Type(value = CommonFormElementInput.class, name = "http://fusio-project.org/ns/2015/form/input"),
-    @JsonSubTypes.Type(value = CommonFormElementSelect.class, name = "http://fusio-project.org/ns/2015/form/select"),
-    @JsonSubTypes.Type(value = CommonFormElementTag.class, name = "http://fusio-project.org/ns/2015/form/tag"),
-    @JsonSubTypes.Type(value = CommonFormElementTextArea.class, name = "http://fusio-project.org/ns/2015/form/textarea"),
+    @JsonSubTypes.Type(value = CommonFormElementAction.class, name = "action"),
+    @JsonSubTypes.Type(value = CommonFormElementAgent.class, name = "agent"),
+    @JsonSubTypes.Type(value = CommonFormElementCheckbox.class, name = "checkbox"),
+    @JsonSubTypes.Type(value = CommonFormElementCollection.class, name = "collection"),
+    @JsonSubTypes.Type(value = CommonFormElementConnection.class, name = "connection"),
+    @JsonSubTypes.Type(value = CommonFormElementInput.class, name = "input"),
+    @JsonSubTypes.Type(value = CommonFormElementMap.class, name = "map"),
+    @JsonSubTypes.Type(value = CommonFormElementSelect.class, name = "select"),
+    @JsonSubTypes.Type(value = CommonFormElementTextArea.class, name = "textarea"),
+    @JsonSubTypes.Type(value = CommonFormElementTypeAPI.class, name = "typeapi"),
+    @JsonSubTypes.Type(value = CommonFormElementTypeSchema.class, name = "typeschema"),
 })
 @JsonClassDescription("Form base element")
 public abstract class CommonFormElement {

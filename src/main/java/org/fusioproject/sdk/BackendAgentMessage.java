@@ -14,7 +14,7 @@ public class BackendAgentMessage {
     @JsonPropertyDescription("The role of this message i.e. user, assistant or system")
     private String role;
     @JsonPropertyDescription("The message content")
-    private BackendAgentContent content;
+    private CommonAgentContent content;
     private java.time.LocalDateTime insertDate;
 
     @JsonSetter("id")
@@ -38,12 +38,12 @@ public class BackendAgentMessage {
     }
 
     @JsonSetter("content")
-    public void setContent(BackendAgentContent content) {
+    public void setContent(CommonAgentContent content) {
         this.content = content;
     }
 
     @JsonGetter("content")
-    public BackendAgentContent getContent() {
+    public CommonAgentContent getContent() {
         return this.content;
     }
 
