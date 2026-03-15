@@ -9,11 +9,8 @@ import com.fasterxml.jackson.annotation.*;
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type")
 @JsonSubTypes({
-    @JsonSubTypes.Type(value = CommonFormElementAction.class, name = "action"),
-    @JsonSubTypes.Type(value = CommonFormElementAgent.class, name = "agent"),
     @JsonSubTypes.Type(value = CommonFormElementCheckbox.class, name = "checkbox"),
     @JsonSubTypes.Type(value = CommonFormElementCollection.class, name = "collection"),
-    @JsonSubTypes.Type(value = CommonFormElementConnection.class, name = "connection"),
     @JsonSubTypes.Type(value = CommonFormElementInput.class, name = "input"),
     @JsonSubTypes.Type(value = CommonFormElementMap.class, name = "map"),
     @JsonSubTypes.Type(value = CommonFormElementSelect.class, name = "select"),
