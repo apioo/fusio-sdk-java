@@ -78,7 +78,7 @@ public class BackendAgentMessageTag extends TagAbstract {
     /**
      * Submits a new agent message
      */
-    public CommonAgentOutput submit(String agentId, CommonAgentInput payload) throws ClientException {
+    public AgentOutput submit(String agentId, AgentInput payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
             pathParams.put("agent_id", agentId);
@@ -97,7 +97,7 @@ public class BackendAgentMessageTag extends TagAbstract {
 
             return this.httpClient.execute(request, response -> {
                 if (response.getCode() >= 200 && response.getCode() <= 299) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonAgentOutput>(){});
+                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<AgentOutput>(){});
 
                     return data;
                 }

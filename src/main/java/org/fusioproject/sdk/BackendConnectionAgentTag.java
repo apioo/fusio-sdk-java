@@ -36,7 +36,7 @@ public class BackendConnectionAgentTag extends TagAbstract {
     /**
      * Sends a message to an agent
      */
-    public CommonAgentOutput send(String connectionId, CommonAgentInput payload) throws ClientException {
+    public AgentOutput send(String connectionId, AgentInput payload) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
             pathParams.put("connection_id", connectionId);
@@ -55,7 +55,7 @@ public class BackendConnectionAgentTag extends TagAbstract {
 
             return this.httpClient.execute(request, response -> {
                 if (response.getCode() >= 200 && response.getCode() <= 299) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonAgentOutput>(){});
+                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<AgentOutput>(){});
 
                     return data;
                 }

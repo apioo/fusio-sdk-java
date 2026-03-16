@@ -11,10 +11,12 @@ import com.fasterxml.jackson.annotation.*;
 public class BackendAgentMessage {
     @JsonPropertyDescription("Unique identifier for the object")
     private Integer id;
+    @JsonPropertyDescription("The assigned chat id which can be used to load the complete conversation")
+    private String chatId;
     @JsonPropertyDescription("The role of this message i.e. user, assistant or system")
     private String role;
-    @JsonPropertyDescription("The message content")
-    private CommonAgentContent content;
+    @JsonPropertyDescription("The message item")
+    private AgentItem item;
     private java.time.LocalDateTime insertDate;
 
     @JsonSetter("id")
@@ -27,6 +29,16 @@ public class BackendAgentMessage {
         return this.id;
     }
 
+    @JsonSetter("chatId")
+    public void setChatId(String chatId) {
+        this.chatId = chatId;
+    }
+
+    @JsonGetter("chatId")
+    public String getChatId() {
+        return this.chatId;
+    }
+
     @JsonSetter("role")
     public void setRole(String role) {
         this.role = role;
@@ -37,14 +49,14 @@ public class BackendAgentMessage {
         return this.role;
     }
 
-    @JsonSetter("content")
-    public void setContent(CommonAgentContent content) {
-        this.content = content;
+    @JsonSetter("item")
+    public void setItem(AgentItem item) {
+        this.item = item;
     }
 
-    @JsonGetter("content")
-    public CommonAgentContent getContent() {
-        return this.content;
+    @JsonGetter("item")
+    public AgentItem getItem() {
+        return this.item;
     }
 
     @JsonSetter("insertDate")
