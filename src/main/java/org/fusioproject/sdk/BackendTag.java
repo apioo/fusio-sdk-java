@@ -275,6 +275,15 @@ public class BackendTag extends TagAbstract {
         );
     }
 
+    public BackendSpecificationTag specification()
+    {
+        return new BackendSpecificationTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
     public BackendStatisticTag statistic()
     {
         return new BackendStatisticTag(
