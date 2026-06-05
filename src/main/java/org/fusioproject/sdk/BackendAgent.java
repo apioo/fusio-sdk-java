@@ -15,6 +15,8 @@ public class BackendAgent {
     private Integer connection;
     @JsonPropertyDescription("The agent type")
     private Integer type;
+    @JsonPropertyDescription("Indicates whether the agent is public")
+    private Boolean _public;
     @JsonPropertyDescription("Name of the agent")
     private String name;
     @JsonPropertyDescription("Description of the agent")
@@ -59,6 +61,16 @@ public class BackendAgent {
     @JsonGetter("type")
     public Integer getType() {
         return this.type;
+    }
+
+    @JsonSetter("public")
+    public void setPublic(Boolean _public) {
+        this._public = _public;
+    }
+
+    @JsonGetter("public")
+    public Boolean getPublic() {
+        return this._public;
     }
 
     @JsonSetter("name")

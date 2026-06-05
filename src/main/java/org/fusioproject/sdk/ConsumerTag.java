@@ -41,6 +41,15 @@ public class ConsumerTag extends TagAbstract {
         );
     }
 
+    public ConsumerAgentTag agent()
+    {
+        return new ConsumerAgentTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
     public ConsumerAppTag app()
     {
         return new ConsumerAppTag(
