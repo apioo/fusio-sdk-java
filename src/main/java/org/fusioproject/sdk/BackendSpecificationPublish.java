@@ -8,36 +8,36 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.*;
 
 public class BackendSpecificationPublish {
+    @JsonProperty("name")
     private String name;
+
+    @JsonProperty("filterName")
     private String filterName;
+
+    @JsonProperty("standalone")
     private Boolean standalone;
 
-    @JsonSetter("name")
+
     public void setName(String name) {
         this.name = name;
     }
 
-    @JsonGetter("name")
     public String getName() {
         return this.name;
     }
 
-    @JsonSetter("filterName")
     public void setFilterName(String filterName) {
         this.filterName = filterName;
     }
 
-    @JsonGetter("filterName")
     public String getFilterName() {
         return this.filterName;
     }
 
-    @JsonSetter("standalone")
     public void setStandalone(Boolean standalone) {
         this.standalone = standalone;
     }
 
-    @JsonGetter("standalone")
     public Boolean getStandalone() {
         return this.standalone;
     }

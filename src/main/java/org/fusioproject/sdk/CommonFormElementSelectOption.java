@@ -9,25 +9,25 @@ import com.fasterxml.jackson.annotation.*;
 
 @JsonClassDescription("Represents a concrete option entry")
 public class CommonFormElementSelectOption {
+    @JsonProperty("key")
     private String key;
+
+    @JsonProperty("value")
     private String value;
 
-    @JsonSetter("key")
+
     public void setKey(String key) {
         this.key = key;
     }
 
-    @JsonGetter("key")
     public String getKey() {
         return this.key;
     }
 
-    @JsonSetter("value")
     public void setValue(String value) {
         this.value = value;
     }
 
-    @JsonGetter("value")
     public String getValue() {
         return this.value;
     }

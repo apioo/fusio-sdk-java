@@ -10,50 +10,50 @@ import com.fasterxml.jackson.annotation.*;
 @JsonClassDescription("This object represents a role, every user is assigned to a role and all scopes of the role are automatically attached to the user")
 public class BackendRole {
     @JsonPropertyDescription("Unique identifier for the object")
+    @JsonProperty("id")
     private Integer id;
+
     @JsonPropertyDescription("The assigned category id of this role")
+    @JsonProperty("categoryId")
     private Integer categoryId;
+
     @JsonPropertyDescription("Unique name of the object")
+    @JsonProperty("name")
     private String name;
+
     @JsonPropertyDescription("All scopes which are assigned to this role")
+    @JsonProperty("scopes")
     private java.util.List<String> scopes;
 
-    @JsonSetter("id")
+
     public void setId(Integer id) {
         this.id = id;
     }
 
-    @JsonGetter("id")
     public Integer getId() {
         return this.id;
     }
 
-    @JsonSetter("categoryId")
     public void setCategoryId(Integer categoryId) {
         this.categoryId = categoryId;
     }
 
-    @JsonGetter("categoryId")
     public Integer getCategoryId() {
         return this.categoryId;
     }
 
-    @JsonSetter("name")
     public void setName(String name) {
         this.name = name;
     }
 
-    @JsonGetter("name")
     public String getName() {
         return this.name;
     }
 
-    @JsonSetter("scopes")
     public void setScopes(java.util.List<String> scopes) {
         this.scopes = scopes;
     }
 
-    @JsonGetter("scopes")
     public java.util.List<String> getScopes() {
         return this.scopes;
     }

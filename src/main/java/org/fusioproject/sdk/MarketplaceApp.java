@@ -8,36 +8,36 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.*;
 
 public class MarketplaceApp extends MarketplaceObject {
+    @JsonProperty("scopes")
     private java.util.List<String> scopes;
+
+    @JsonProperty("downloadUrl")
     private String downloadUrl;
+
+    @JsonProperty("hash")
     private String hash;
 
-    @JsonSetter("scopes")
+
     public void setScopes(java.util.List<String> scopes) {
         this.scopes = scopes;
     }
 
-    @JsonGetter("scopes")
     public java.util.List<String> getScopes() {
         return this.scopes;
     }
 
-    @JsonSetter("downloadUrl")
     public void setDownloadUrl(String downloadUrl) {
         this.downloadUrl = downloadUrl;
     }
 
-    @JsonGetter("downloadUrl")
     public String getDownloadUrl() {
         return this.downloadUrl;
     }
 
-    @JsonSetter("hash")
     public void setHash(String hash) {
         this.hash = hash;
     }
 
-    @JsonGetter("hash")
     public String getHash() {
         return this.hash;
     }

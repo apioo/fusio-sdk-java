@@ -10,110 +10,110 @@ import com.fasterxml.jackson.annotation.*;
 @JsonClassDescription("This object represents a plan, a plan allows users to obtain points or in general subscribe to your app")
 public class BackendPlan {
     @JsonPropertyDescription("Unique identifier for the object")
+    @JsonProperty("id")
     private Integer id;
+
     @JsonPropertyDescription("Name of the plan")
+    @JsonProperty("name")
     private String name;
+
     @JsonPropertyDescription("Short description of the plan")
+    @JsonProperty("description")
     private String description;
+
     @JsonPropertyDescription("The price of this plan")
+    @JsonProperty("price")
     private Double price;
+
     @JsonPropertyDescription("The points which are assigned to the user on purchase")
+    @JsonProperty("points")
     private Integer points;
+
     @JsonPropertyDescription("Whether the plan is one-time or periodically")
+    @JsonProperty("period")
     private Integer period;
+
     @JsonPropertyDescription("An external id of a remote payment provider like Stripe")
+    @JsonProperty("externalId")
     private String externalId;
+
     @JsonPropertyDescription("Scopes which are assigned dynamically to the user on purchase")
+    @JsonProperty("scopes")
     private java.util.List<String> scopes;
+
     @JsonPropertyDescription("Use this parameter to attach key-value data")
+    @JsonProperty("metadata")
     private CommonMetadata metadata;
 
-    @JsonSetter("id")
+
     public void setId(Integer id) {
         this.id = id;
     }
 
-    @JsonGetter("id")
     public Integer getId() {
         return this.id;
     }
 
-    @JsonSetter("name")
     public void setName(String name) {
         this.name = name;
     }
 
-    @JsonGetter("name")
     public String getName() {
         return this.name;
     }
 
-    @JsonSetter("description")
     public void setDescription(String description) {
         this.description = description;
     }
 
-    @JsonGetter("description")
     public String getDescription() {
         return this.description;
     }
 
-    @JsonSetter("price")
     public void setPrice(Double price) {
         this.price = price;
     }
 
-    @JsonGetter("price")
     public Double getPrice() {
         return this.price;
     }
 
-    @JsonSetter("points")
     public void setPoints(Integer points) {
         this.points = points;
     }
 
-    @JsonGetter("points")
     public Integer getPoints() {
         return this.points;
     }
 
-    @JsonSetter("period")
     public void setPeriod(Integer period) {
         this.period = period;
     }
 
-    @JsonGetter("period")
     public Integer getPeriod() {
         return this.period;
     }
 
-    @JsonSetter("externalId")
     public void setExternalId(String externalId) {
         this.externalId = externalId;
     }
 
-    @JsonGetter("externalId")
     public String getExternalId() {
         return this.externalId;
     }
 
-    @JsonSetter("scopes")
     public void setScopes(java.util.List<String> scopes) {
         this.scopes = scopes;
     }
 
-    @JsonGetter("scopes")
     public java.util.List<String> getScopes() {
         return this.scopes;
     }
 
-    @JsonSetter("metadata")
     public void setMetadata(CommonMetadata metadata) {
         this.metadata = metadata;
     }
 
-    @JsonGetter("metadata")
     public CommonMetadata getMetadata() {
         return this.metadata;
     }

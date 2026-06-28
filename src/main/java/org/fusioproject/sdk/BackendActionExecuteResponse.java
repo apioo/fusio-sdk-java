@@ -10,38 +10,38 @@ import com.fasterxml.jackson.annotation.*;
 @JsonClassDescription("Represents an action execution response")
 public class BackendActionExecuteResponse {
     @JsonPropertyDescription("HTTP status code i.e. 200, 400, etc.")
+    @JsonProperty("statusCode")
     private Integer statusCode;
+
     @JsonPropertyDescription("The response header returned by the action")
+    @JsonProperty("headers")
     private BackendActionExecuteResponseHeaders headers;
+
     @JsonPropertyDescription("The response body returned by the action")
+    @JsonProperty("body")
     private BackendActionExecuteResponseBody body;
 
-    @JsonSetter("statusCode")
+
     public void setStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
     }
 
-    @JsonGetter("statusCode")
     public Integer getStatusCode() {
         return this.statusCode;
     }
 
-    @JsonSetter("headers")
     public void setHeaders(BackendActionExecuteResponseHeaders headers) {
         this.headers = headers;
     }
 
-    @JsonGetter("headers")
     public BackendActionExecuteResponseHeaders getHeaders() {
         return this.headers;
     }
 
-    @JsonSetter("body")
     public void setBody(BackendActionExecuteResponseBody body) {
         this.body = body;
     }
 
-    @JsonGetter("body")
     public BackendActionExecuteResponseBody getBody() {
         return this.body;
     }

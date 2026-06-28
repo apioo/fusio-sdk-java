@@ -10,61 +10,61 @@ import com.fasterxml.jackson.annotation.*;
 @JsonClassDescription("A schema commit which represents a change in the schema source")
 public class BackendSchemaCommit {
     @JsonPropertyDescription("Unique identifier for the object")
+    @JsonProperty("id")
     private Integer id;
+
     @JsonPropertyDescription("The user which has made the change")
+    @JsonProperty("user")
     private BackendUser user;
+
     @JsonPropertyDescription("A unique hash which represents this commit")
+    @JsonProperty("commitHash")
     private String commitHash;
+
     @JsonPropertyDescription("The provided schema payload")
+    @JsonProperty("schema")
     private BackendSchemaSource schema;
+
+    @JsonProperty("insertDate")
     private java.time.LocalDateTime insertDate;
 
-    @JsonSetter("id")
+
     public void setId(Integer id) {
         this.id = id;
     }
 
-    @JsonGetter("id")
     public Integer getId() {
         return this.id;
     }
 
-    @JsonSetter("user")
     public void setUser(BackendUser user) {
         this.user = user;
     }
 
-    @JsonGetter("user")
     public BackendUser getUser() {
         return this.user;
     }
 
-    @JsonSetter("commitHash")
     public void setCommitHash(String commitHash) {
         this.commitHash = commitHash;
     }
 
-    @JsonGetter("commitHash")
     public String getCommitHash() {
         return this.commitHash;
     }
 
-    @JsonSetter("schema")
     public void setSchema(BackendSchemaSource schema) {
         this.schema = schema;
     }
 
-    @JsonGetter("schema")
     public BackendSchemaSource getSchema() {
         return this.schema;
     }
 
-    @JsonSetter("insertDate")
     public void setInsertDate(java.time.LocalDateTime insertDate) {
         this.insertDate = insertDate;
     }
 
-    @JsonGetter("insertDate")
     public java.time.LocalDateTime getInsertDate() {
         return this.insertDate;
     }

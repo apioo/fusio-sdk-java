@@ -18,26 +18,26 @@ import com.fasterxml.jackson.annotation.*;
 @JsonClassDescription("Agent item")
 public abstract class AgentItem {
     @JsonPropertyDescription("The result type")
+    @JsonProperty("type")
     private String type;
+
     @JsonPropertyDescription("Optional result metadata")
+    @JsonProperty("metadata")
     private java.util.Map<String, Object> metadata;
 
-    @JsonSetter("type")
+
     public void setType(String type) {
         this.type = type;
     }
 
-    @JsonGetter("type")
     public String getType() {
         return this.type;
     }
 
-    @JsonSetter("metadata")
     public void setMetadata(java.util.Map<String, Object> metadata) {
         this.metadata = metadata;
     }
 
-    @JsonGetter("metadata")
     public java.util.Map<String, Object> getMetadata() {
         return this.metadata;
     }

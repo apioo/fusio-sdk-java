@@ -10,38 +10,38 @@ import com.fasterxml.jackson.annotation.*;
 @JsonClassDescription("This object represents a HTTP response")
 public class BackendHttpResponse {
     @JsonPropertyDescription("HTTP status code")
+    @JsonProperty("statusCode")
     private Integer statusCode;
+
     @JsonPropertyDescription("HTTP response headers")
+    @JsonProperty("headers")
     private java.util.Map<String, String> headers;
+
     @JsonPropertyDescription("HTTP response body")
+    @JsonProperty("body")
     private String body;
 
-    @JsonSetter("statusCode")
+
     public void setStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
     }
 
-    @JsonGetter("statusCode")
     public Integer getStatusCode() {
         return this.statusCode;
     }
 
-    @JsonSetter("headers")
     public void setHeaders(java.util.Map<String, String> headers) {
         this.headers = headers;
     }
 
-    @JsonGetter("headers")
     public java.util.Map<String, String> getHeaders() {
         return this.headers;
     }
 
-    @JsonSetter("body")
     public void setBody(String body) {
         this.body = body;
     }
 
-    @JsonGetter("body")
     public String getBody() {
         return this.body;
     }

@@ -8,47 +8,47 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.*;
 
 public class BackendOperationSchema {
+    @JsonProperty("description")
     private String description;
+
+    @JsonProperty("type")
     private String type;
+
+    @JsonProperty("format")
     private String format;
+
+    @JsonProperty("enum")
     private String _enum;
 
-    @JsonSetter("description")
+
     public void setDescription(String description) {
         this.description = description;
     }
 
-    @JsonGetter("description")
     public String getDescription() {
         return this.description;
     }
 
-    @JsonSetter("type")
     public void setType(String type) {
         this.type = type;
     }
 
-    @JsonGetter("type")
     public String getType() {
         return this.type;
     }
 
-    @JsonSetter("format")
     public void setFormat(String format) {
         this.format = format;
     }
 
-    @JsonGetter("format")
     public String getFormat() {
         return this.format;
     }
 
-    @JsonSetter("enum")
     public void setEnum(String _enum) {
         this._enum = _enum;
     }
 
-    @JsonGetter("enum")
     public String getEnum() {
         return this._enum;
     }

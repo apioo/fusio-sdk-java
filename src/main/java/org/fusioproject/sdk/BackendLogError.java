@@ -9,80 +9,80 @@ import com.fasterxml.jackson.annotation.*;
 
 public class BackendLogError {
     @JsonPropertyDescription("Unique identifier for the object")
+    @JsonProperty("id")
     private Integer id;
+
+    @JsonProperty("logId")
     private Integer logId;
+
+    @JsonProperty("message")
     private String message;
+
+    @JsonProperty("trace")
     private String trace;
+
+    @JsonProperty("file")
     private String file;
+
+    @JsonProperty("line")
     private Integer line;
+
+    @JsonProperty("insertDate")
     private java.time.LocalDateTime insertDate;
 
-    @JsonSetter("id")
+
     public void setId(Integer id) {
         this.id = id;
     }
 
-    @JsonGetter("id")
     public Integer getId() {
         return this.id;
     }
 
-    @JsonSetter("logId")
     public void setLogId(Integer logId) {
         this.logId = logId;
     }
 
-    @JsonGetter("logId")
     public Integer getLogId() {
         return this.logId;
     }
 
-    @JsonSetter("message")
     public void setMessage(String message) {
         this.message = message;
     }
 
-    @JsonGetter("message")
     public String getMessage() {
         return this.message;
     }
 
-    @JsonSetter("trace")
     public void setTrace(String trace) {
         this.trace = trace;
     }
 
-    @JsonGetter("trace")
     public String getTrace() {
         return this.trace;
     }
 
-    @JsonSetter("file")
     public void setFile(String file) {
         this.file = file;
     }
 
-    @JsonGetter("file")
     public String getFile() {
         return this.file;
     }
 
-    @JsonSetter("line")
     public void setLine(Integer line) {
         this.line = line;
     }
 
-    @JsonGetter("line")
     public Integer getLine() {
         return this.line;
     }
 
-    @JsonSetter("insertDate")
     public void setInsertDate(java.time.LocalDateTime insertDate) {
         this.insertDate = insertDate;
     }
 
-    @JsonGetter("insertDate")
     public java.time.LocalDateTime getInsertDate() {
         return this.insertDate;
     }

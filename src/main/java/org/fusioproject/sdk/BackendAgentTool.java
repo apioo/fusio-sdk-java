@@ -10,26 +10,26 @@ import com.fasterxml.jackson.annotation.*;
 @JsonClassDescription("Represents a concrete tool")
 public class BackendAgentTool {
     @JsonPropertyDescription("Name of the tool")
+    @JsonProperty("name")
     private String name;
+
     @JsonPropertyDescription("Description of the tool")
+    @JsonProperty("description")
     private String description;
 
-    @JsonSetter("name")
+
     public void setName(String name) {
         this.name = name;
     }
 
-    @JsonGetter("name")
     public String getName() {
         return this.name;
     }
 
-    @JsonSetter("description")
     public void setDescription(String description) {
         this.description = description;
     }
 
-    @JsonGetter("description")
     public String getDescription() {
         return this.description;
     }

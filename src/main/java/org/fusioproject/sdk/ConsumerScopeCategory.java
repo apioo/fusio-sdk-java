@@ -8,36 +8,36 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.*;
 
 public class ConsumerScopeCategory {
+    @JsonProperty("id")
     private Integer id;
+
+    @JsonProperty("name")
     private String name;
+
+    @JsonProperty("scopes")
     private java.util.List<ConsumerScopeCategoryScope> scopes;
 
-    @JsonSetter("id")
+
     public void setId(Integer id) {
         this.id = id;
     }
 
-    @JsonGetter("id")
     public Integer getId() {
         return this.id;
     }
 
-    @JsonSetter("name")
     public void setName(String name) {
         this.name = name;
     }
 
-    @JsonGetter("name")
     public String getName() {
         return this.name;
     }
 
-    @JsonSetter("scopes")
     public void setScopes(java.util.List<ConsumerScopeCategoryScope> scopes) {
         this.scopes = scopes;
     }
 
-    @JsonGetter("scopes")
     public java.util.List<ConsumerScopeCategoryScope> getScopes() {
         return this.scopes;
     }

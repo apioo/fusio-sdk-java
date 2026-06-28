@@ -10,145 +10,145 @@ import com.fasterxml.jackson.annotation.*;
 @JsonClassDescription("This object represents an agent")
 public class BackendAgent {
     @JsonPropertyDescription("Unique identifier for the object")
+    @JsonProperty("id")
     private Integer id;
+
     @JsonPropertyDescription("The agent connection which should be used")
+    @JsonProperty("connection")
     private Integer connection;
+
     @JsonPropertyDescription("The agent type")
+    @JsonProperty("type")
     private Integer type;
+
     @JsonPropertyDescription("Indicates whether the agent is public")
+    @JsonProperty("public")
     private Boolean _public;
+
     @JsonPropertyDescription("Name of the agent")
+    @JsonProperty("name")
     private String name;
+
     @JsonPropertyDescription("Description of the agent")
+    @JsonProperty("description")
     private String description;
+
     @JsonPropertyDescription("Introduction message")
+    @JsonProperty("introduction")
     private String introduction;
+
     @JsonPropertyDescription("Tools available to this agent")
+    @JsonProperty("tools")
     private java.util.List<String> tools;
+
     @JsonPropertyDescription("Describes the outgoing response payload, this must contain a schema name")
+    @JsonProperty("outgoing")
     private String outgoing;
+
     @JsonPropertyDescription("Action which gets invoked for each generated response")
+    @JsonProperty("action")
     private String action;
+
+    @JsonProperty("insertDate")
     private java.time.LocalDateTime insertDate;
+
     @JsonPropertyDescription("Use this parameter to attach key-value data")
+    @JsonProperty("metadata")
     private CommonMetadata metadata;
 
-    @JsonSetter("id")
+
     public void setId(Integer id) {
         this.id = id;
     }
 
-    @JsonGetter("id")
     public Integer getId() {
         return this.id;
     }
 
-    @JsonSetter("connection")
     public void setConnection(Integer connection) {
         this.connection = connection;
     }
 
-    @JsonGetter("connection")
     public Integer getConnection() {
         return this.connection;
     }
 
-    @JsonSetter("type")
     public void setType(Integer type) {
         this.type = type;
     }
 
-    @JsonGetter("type")
     public Integer getType() {
         return this.type;
     }
 
-    @JsonSetter("public")
     public void setPublic(Boolean _public) {
         this._public = _public;
     }
 
-    @JsonGetter("public")
     public Boolean getPublic() {
         return this._public;
     }
 
-    @JsonSetter("name")
     public void setName(String name) {
         this.name = name;
     }
 
-    @JsonGetter("name")
     public String getName() {
         return this.name;
     }
 
-    @JsonSetter("description")
     public void setDescription(String description) {
         this.description = description;
     }
 
-    @JsonGetter("description")
     public String getDescription() {
         return this.description;
     }
 
-    @JsonSetter("introduction")
     public void setIntroduction(String introduction) {
         this.introduction = introduction;
     }
 
-    @JsonGetter("introduction")
     public String getIntroduction() {
         return this.introduction;
     }
 
-    @JsonSetter("tools")
     public void setTools(java.util.List<String> tools) {
         this.tools = tools;
     }
 
-    @JsonGetter("tools")
     public java.util.List<String> getTools() {
         return this.tools;
     }
 
-    @JsonSetter("outgoing")
     public void setOutgoing(String outgoing) {
         this.outgoing = outgoing;
     }
 
-    @JsonGetter("outgoing")
     public String getOutgoing() {
         return this.outgoing;
     }
 
-    @JsonSetter("action")
     public void setAction(String action) {
         this.action = action;
     }
 
-    @JsonGetter("action")
     public String getAction() {
         return this.action;
     }
 
-    @JsonSetter("insertDate")
     public void setInsertDate(java.time.LocalDateTime insertDate) {
         this.insertDate = insertDate;
     }
 
-    @JsonGetter("insertDate")
     public java.time.LocalDateTime getInsertDate() {
         return this.insertDate;
     }
 
-    @JsonSetter("metadata")
     public void setMetadata(CommonMetadata metadata) {
         this.metadata = metadata;
     }
 
-    @JsonGetter("metadata")
     public CommonMetadata getMetadata() {
         return this.metadata;
     }

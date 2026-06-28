@@ -8,25 +8,25 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.*;
 
 public class BackendSdkGenerate {
+    @JsonProperty("format")
     private String format;
+
+    @JsonProperty("config")
     private String config;
 
-    @JsonSetter("format")
+
     public void setFormat(String format) {
         this.format = format;
     }
 
-    @JsonGetter("format")
     public String getFormat() {
         return this.format;
     }
 
-    @JsonSetter("config")
     public void setConfig(String config) {
         this.config = config;
     }
 
-    @JsonGetter("config")
     public String getConfig() {
         return this.config;
     }

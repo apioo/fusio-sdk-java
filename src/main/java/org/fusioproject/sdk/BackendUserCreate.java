@@ -8,14 +8,14 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.*;
 
 public class BackendUserCreate extends BackendUser {
+    @JsonProperty("password")
     private String password;
 
-    @JsonSetter("password")
+
     public void setPassword(String password) {
         this.password = password;
     }
 
-    @JsonGetter("password")
     public String getPassword() {
         return this.password;
     }

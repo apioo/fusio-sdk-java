@@ -8,36 +8,36 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.*;
 
 public class MarketplaceBundleCronjob {
+    @JsonProperty("name")
     private String name;
+
+    @JsonProperty("cron")
     private String cron;
+
+    @JsonProperty("action")
     private String action;
 
-    @JsonSetter("name")
+
     public void setName(String name) {
         this.name = name;
     }
 
-    @JsonGetter("name")
     public String getName() {
         return this.name;
     }
 
-    @JsonSetter("cron")
     public void setCron(String cron) {
         this.cron = cron;
     }
 
-    @JsonGetter("cron")
     public String getCron() {
         return this.cron;
     }
 
-    @JsonSetter("action")
     public void setAction(String action) {
         this.action = action;
     }
 
-    @JsonGetter("action")
     public String getAction() {
         return this.action;
     }

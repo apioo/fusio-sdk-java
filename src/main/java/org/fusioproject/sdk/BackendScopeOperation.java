@@ -8,25 +8,25 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.*;
 
 public class BackendScopeOperation {
+    @JsonProperty("operationId")
     private Integer operationId;
+
+    @JsonProperty("allow")
     private Boolean allow;
 
-    @JsonSetter("operationId")
+
     public void setOperationId(Integer operationId) {
         this.operationId = operationId;
     }
 
-    @JsonGetter("operationId")
     public Integer getOperationId() {
         return this.operationId;
     }
 
-    @JsonSetter("allow")
     public void setAllow(Boolean allow) {
         this.allow = allow;
     }
 
-    @JsonGetter("allow")
     public Boolean getAllow() {
         return this.allow;
     }

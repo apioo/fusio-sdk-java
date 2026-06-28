@@ -8,14 +8,14 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.*;
 
 public class BackendTrashTypes {
+    @JsonProperty("types")
     private java.util.List<String> types;
 
-    @JsonSetter("types")
+
     public void setTypes(java.util.List<String> types) {
         this.types = types;
     }
 
-    @JsonGetter("types")
     public java.util.List<String> getTypes() {
         return this.types;
     }

@@ -10,74 +10,74 @@ import com.fasterxml.jackson.annotation.*;
 @JsonClassDescription("This object represents a page at the developer portal")
 public class BackendPage {
     @JsonPropertyDescription("Unique identifier for the object")
+    @JsonProperty("id")
     private Integer id;
+
     @JsonPropertyDescription("Status of the object either 1 = visible, 2 = invisible or 0 = deleted")
+    @JsonProperty("status")
     private Integer status;
+
     @JsonPropertyDescription("Title of the page")
+    @JsonProperty("title")
     private String title;
+
     @JsonPropertyDescription("Slug of the page which gets dynamically generated from the title")
+    @JsonProperty("slug")
     private String slug;
+
     @JsonPropertyDescription("HTML content of this page")
+    @JsonProperty("content")
     private String content;
+
     @JsonPropertyDescription("Use this parameter to attach key-value data")
+    @JsonProperty("metadata")
     private CommonMetadata metadata;
 
-    @JsonSetter("id")
+
     public void setId(Integer id) {
         this.id = id;
     }
 
-    @JsonGetter("id")
     public Integer getId() {
         return this.id;
     }
 
-    @JsonSetter("status")
     public void setStatus(Integer status) {
         this.status = status;
     }
 
-    @JsonGetter("status")
     public Integer getStatus() {
         return this.status;
     }
 
-    @JsonSetter("title")
     public void setTitle(String title) {
         this.title = title;
     }
 
-    @JsonGetter("title")
     public String getTitle() {
         return this.title;
     }
 
-    @JsonSetter("slug")
     public void setSlug(String slug) {
         this.slug = slug;
     }
 
-    @JsonGetter("slug")
     public String getSlug() {
         return this.slug;
     }
 
-    @JsonSetter("content")
     public void setContent(String content) {
         this.content = content;
     }
 
-    @JsonGetter("content")
     public String getContent() {
         return this.content;
     }
 
-    @JsonSetter("metadata")
     public void setMetadata(CommonMetadata metadata) {
         this.metadata = metadata;
     }
 
-    @JsonGetter("metadata")
     public CommonMetadata getMetadata() {
         return this.metadata;
     }

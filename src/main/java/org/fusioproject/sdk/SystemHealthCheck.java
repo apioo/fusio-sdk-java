@@ -8,25 +8,25 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.*;
 
 public class SystemHealthCheck {
+    @JsonProperty("healthy")
     private Boolean healthy;
+
+    @JsonProperty("error")
     private String error;
 
-    @JsonSetter("healthy")
+
     public void setHealthy(Boolean healthy) {
         this.healthy = healthy;
     }
 
-    @JsonGetter("healthy")
     public Boolean getHealthy() {
         return this.healthy;
     }
 
-    @JsonSetter("error")
     public void setError(String error) {
         this.error = error;
     }
 
-    @JsonGetter("error")
     public String getError() {
         return this.error;
     }

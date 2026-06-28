@@ -10,62 +10,62 @@ import com.fasterxml.jackson.annotation.*;
 @JsonClassDescription("This object represents a schema to describe a JSON payload")
 public class BackendSchema {
     @JsonPropertyDescription("Unique identifier for the object")
+    @JsonProperty("id")
     private Integer id;
+
     @JsonPropertyDescription("Status of the object either 1 = active or 0 = deleted")
+    @JsonProperty("status")
     private Integer status;
+
     @JsonPropertyDescription("Unique name of the object")
+    @JsonProperty("name")
     private String name;
+
     @JsonPropertyDescription("The TypeSchema specification to describe a JSON payload")
+    @JsonProperty("source")
     private BackendSchemaSource source;
+
     @JsonPropertyDescription("Use this parameter to attach key-value data")
+    @JsonProperty("metadata")
     private CommonMetadata metadata;
 
-    @JsonSetter("id")
+
     public void setId(Integer id) {
         this.id = id;
     }
 
-    @JsonGetter("id")
     public Integer getId() {
         return this.id;
     }
 
-    @JsonSetter("status")
     public void setStatus(Integer status) {
         this.status = status;
     }
 
-    @JsonGetter("status")
     public Integer getStatus() {
         return this.status;
     }
 
-    @JsonSetter("name")
     public void setName(String name) {
         this.name = name;
     }
 
-    @JsonGetter("name")
     public String getName() {
         return this.name;
     }
 
-    @JsonSetter("source")
     public void setSource(BackendSchemaSource source) {
         this.source = source;
     }
 
-    @JsonGetter("source")
     public BackendSchemaSource getSource() {
         return this.source;
     }
 
-    @JsonSetter("metadata")
     public void setMetadata(CommonMetadata metadata) {
         this.metadata = metadata;
     }
 
-    @JsonGetter("metadata")
     public CommonMetadata getMetadata() {
         return this.metadata;
     }

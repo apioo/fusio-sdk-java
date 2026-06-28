@@ -10,14 +10,14 @@ import com.fasterxml.jackson.annotation.*;
 @JsonClassDescription("Text agent message")
 public class AgentItemText extends AgentItem {
     @JsonPropertyDescription("The content text")
+    @JsonProperty("content")
     private String content;
 
-    @JsonSetter("content")
+
     public void setContent(String content) {
         this.content = content;
     }
 
-    @JsonGetter("content")
     public String getContent() {
         return this.content;
     }

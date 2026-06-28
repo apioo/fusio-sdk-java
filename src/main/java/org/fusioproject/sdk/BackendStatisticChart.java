@@ -8,25 +8,25 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.*;
 
 public class BackendStatisticChart {
+    @JsonProperty("labels")
     private java.util.List<String> labels;
+
+    @JsonProperty("series")
     private java.util.List<BackendStatisticChartSeries> series;
 
-    @JsonSetter("labels")
+
     public void setLabels(java.util.List<String> labels) {
         this.labels = labels;
     }
 
-    @JsonGetter("labels")
     public java.util.List<String> getLabels() {
         return this.labels;
     }
 
-    @JsonSetter("series")
     public void setSeries(java.util.List<BackendStatisticChartSeries> series) {
         this.series = series;
     }
 
-    @JsonGetter("series")
     public java.util.List<BackendStatisticChartSeries> getSeries() {
         return this.series;
     }

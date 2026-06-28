@@ -9,47 +9,47 @@ import com.fasterxml.jackson.annotation.*;
 
 @JsonClassDescription("Base collection")
 public class CommonCollection<T> {
+    @JsonProperty("totalResults")
     private Integer totalResults;
+
+    @JsonProperty("startIndex")
     private Integer startIndex;
+
+    @JsonProperty("itemsPerPage")
     private Integer itemsPerPage;
+
+    @JsonProperty("entry")
     private java.util.List<T> entry;
 
-    @JsonSetter("totalResults")
+
     public void setTotalResults(Integer totalResults) {
         this.totalResults = totalResults;
     }
 
-    @JsonGetter("totalResults")
     public Integer getTotalResults() {
         return this.totalResults;
     }
 
-    @JsonSetter("startIndex")
     public void setStartIndex(Integer startIndex) {
         this.startIndex = startIndex;
     }
 
-    @JsonGetter("startIndex")
     public Integer getStartIndex() {
         return this.startIndex;
     }
 
-    @JsonSetter("itemsPerPage")
     public void setItemsPerPage(Integer itemsPerPage) {
         this.itemsPerPage = itemsPerPage;
     }
 
-    @JsonGetter("itemsPerPage")
     public Integer getItemsPerPage() {
         return this.itemsPerPage;
     }
 
-    @JsonSetter("entry")
     public void setEntry(java.util.List<T> entry) {
         this.entry = entry;
     }
 
-    @JsonGetter("entry")
     public java.util.List<T> getEntry() {
         return this.entry;
     }

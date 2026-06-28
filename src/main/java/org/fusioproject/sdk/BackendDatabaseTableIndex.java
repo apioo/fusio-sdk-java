@@ -10,38 +10,38 @@ import com.fasterxml.jackson.annotation.*;
 @JsonClassDescription("This object represents a table index on a relational database")
 public class BackendDatabaseTableIndex {
     @JsonPropertyDescription("Name of the index")
+    @JsonProperty("name")
     private String name;
+
     @JsonPropertyDescription("Indicates whether the index is unique")
+    @JsonProperty("unique")
     private Boolean unique;
+
     @JsonPropertyDescription("Columns assigned ot the index")
+    @JsonProperty("columns")
     private java.util.List<String> columns;
 
-    @JsonSetter("name")
+
     public void setName(String name) {
         this.name = name;
     }
 
-    @JsonGetter("name")
     public String getName() {
         return this.name;
     }
 
-    @JsonSetter("unique")
     public void setUnique(Boolean unique) {
         this.unique = unique;
     }
 
-    @JsonGetter("unique")
     public Boolean getUnique() {
         return this.unique;
     }
 
-    @JsonSetter("columns")
     public void setColumns(java.util.List<String> columns) {
         this.columns = columns;
     }
 
-    @JsonGetter("columns")
     public java.util.List<String> getColumns() {
         return this.columns;
     }

@@ -10,61 +10,61 @@ import com.fasterxml.jackson.annotation.*;
 @JsonClassDescription("This object represents an agent message")
 public class ConsumerAgentMessage {
     @JsonPropertyDescription("Unique identifier for the object")
+    @JsonProperty("id")
     private Integer id;
+
     @JsonPropertyDescription("The assigned chat id which can be used to load the complete conversation")
+    @JsonProperty("chatId")
     private String chatId;
+
     @JsonPropertyDescription("The role of this message i.e. user, assistant or system")
+    @JsonProperty("role")
     private String role;
+
     @JsonPropertyDescription("The message item")
+    @JsonProperty("item")
     private AgentItem item;
+
+    @JsonProperty("insertDate")
     private java.time.LocalDateTime insertDate;
 
-    @JsonSetter("id")
+
     public void setId(Integer id) {
         this.id = id;
     }
 
-    @JsonGetter("id")
     public Integer getId() {
         return this.id;
     }
 
-    @JsonSetter("chatId")
     public void setChatId(String chatId) {
         this.chatId = chatId;
     }
 
-    @JsonGetter("chatId")
     public String getChatId() {
         return this.chatId;
     }
 
-    @JsonSetter("role")
     public void setRole(String role) {
         this.role = role;
     }
 
-    @JsonGetter("role")
     public String getRole() {
         return this.role;
     }
 
-    @JsonSetter("item")
     public void setItem(AgentItem item) {
         this.item = item;
     }
 
-    @JsonGetter("item")
     public AgentItem getItem() {
         return this.item;
     }
 
-    @JsonSetter("insertDate")
     public void setInsertDate(java.time.LocalDateTime insertDate) {
         this.insertDate = insertDate;
     }
 
-    @JsonGetter("insertDate")
     public java.time.LocalDateTime getInsertDate() {
         return this.insertDate;
     }

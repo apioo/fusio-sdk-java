@@ -8,14 +8,14 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.*;
 
 public class ConsumerUserRefresh {
+    @JsonProperty("refresh_token")
     private String refreshToken;
 
-    @JsonSetter("refresh_token")
+
     public void setRefreshToken(String refreshToken) {
         this.refreshToken = refreshToken;
     }
 
-    @JsonGetter("refresh_token")
     public String getRefreshToken() {
         return this.refreshToken;
     }

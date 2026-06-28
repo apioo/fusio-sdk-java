@@ -10,26 +10,26 @@ import com.fasterxml.jackson.annotation.*;
 @JsonClassDescription("Binary agent message")
 public class AgentItemBinary extends AgentItem {
     @JsonPropertyDescription("The mime of the binary data")
+    @JsonProperty("mime")
     private String mime;
+
     @JsonPropertyDescription("The base64 encoded binary data")
+    @JsonProperty("data")
     private String data;
 
-    @JsonSetter("mime")
+
     public void setMime(String mime) {
         this.mime = mime;
     }
 
-    @JsonGetter("mime")
     public String getMime() {
         return this.mime;
     }
 
-    @JsonSetter("data")
     public void setData(String data) {
         this.data = data;
     }
 
-    @JsonGetter("data")
     public String getData() {
         return this.data;
     }

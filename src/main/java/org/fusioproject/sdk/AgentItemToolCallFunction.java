@@ -9,36 +9,36 @@ import com.fasterxml.jackson.annotation.*;
 
 @JsonClassDescription("Concrete values for a function tool call")
 public class AgentItemToolCallFunction {
+    @JsonProperty("id")
     private String id;
+
+    @JsonProperty("name")
     private String name;
+
+    @JsonProperty("arguments")
     private String arguments;
 
-    @JsonSetter("id")
+
     public void setId(String id) {
         this.id = id;
     }
 
-    @JsonGetter("id")
     public String getId() {
         return this.id;
     }
 
-    @JsonSetter("name")
     public void setName(String name) {
         this.name = name;
     }
 
-    @JsonGetter("name")
     public String getName() {
         return this.name;
     }
 
-    @JsonSetter("arguments")
     public void setArguments(String arguments) {
         this.arguments = arguments;
     }
 
-    @JsonGetter("arguments")
     public String getArguments() {
         return this.arguments;
     }

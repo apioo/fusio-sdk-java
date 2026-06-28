@@ -8,14 +8,14 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.*;
 
 public class MarketplaceBundle extends MarketplaceObject {
+    @JsonProperty("config")
     private MarketplaceBundleConfig config;
 
-    @JsonSetter("config")
+
     public void setConfig(MarketplaceBundleConfig config) {
         this.config = config;
     }
 
-    @JsonGetter("config")
     public MarketplaceBundleConfig getConfig() {
         return this.config;
     }

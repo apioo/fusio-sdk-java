@@ -9,14 +9,14 @@ import com.fasterxml.jackson.annotation.*;
 
 @JsonClassDescription("Redirect response to initiate an OAuth2 flow")
 public class BackendConnectionRedirectResponse {
+    @JsonProperty("redirectUri")
     private String redirectUri;
 
-    @JsonSetter("redirectUri")
+
     public void setRedirectUri(String redirectUri) {
         this.redirectUri = redirectUri;
     }
 
-    @JsonGetter("redirectUri")
     public String getRedirectUri() {
         return this.redirectUri;
     }

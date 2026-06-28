@@ -8,14 +8,14 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.*;
 
 public class BackendSpecificationGet {
+    @JsonProperty("spec")
     private Object spec;
 
-    @JsonSetter("spec")
+
     public void setSpec(Object spec) {
         this.spec = spec;
     }
 
-    @JsonGetter("spec")
     public Object getSpec() {
         return this.spec;
     }

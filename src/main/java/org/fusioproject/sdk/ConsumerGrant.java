@@ -8,36 +8,36 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.*;
 
 public class ConsumerGrant {
+    @JsonProperty("id")
     private Integer id;
+
+    @JsonProperty("app")
     private ConsumerApp app;
+
+    @JsonProperty("createDate")
     private java.time.LocalDateTime createDate;
 
-    @JsonSetter("id")
+
     public void setId(Integer id) {
         this.id = id;
     }
 
-    @JsonGetter("id")
     public Integer getId() {
         return this.id;
     }
 
-    @JsonSetter("app")
     public void setApp(ConsumerApp app) {
         this.app = app;
     }
 
-    @JsonGetter("app")
     public ConsumerApp getApp() {
         return this.app;
     }
 
-    @JsonSetter("createDate")
     public void setCreateDate(java.time.LocalDateTime createDate) {
         this.createDate = createDate;
     }
 
-    @JsonGetter("createDate")
     public java.time.LocalDateTime getCreateDate() {
         return this.createDate;
     }

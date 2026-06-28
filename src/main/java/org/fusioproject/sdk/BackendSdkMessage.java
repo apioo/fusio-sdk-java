@@ -8,36 +8,36 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.*;
 
 public class BackendSdkMessage {
+    @JsonProperty("success")
     private Boolean success;
+
+    @JsonProperty("message")
     private String message;
+
+    @JsonProperty("link")
     private String link;
 
-    @JsonSetter("success")
+
     public void setSuccess(Boolean success) {
         this.success = success;
     }
 
-    @JsonGetter("success")
     public Boolean getSuccess() {
         return this.success;
     }
 
-    @JsonSetter("message")
     public void setMessage(String message) {
         this.message = message;
     }
 
-    @JsonGetter("message")
     public String getMessage() {
         return this.message;
     }
 
-    @JsonSetter("link")
     public void setLink(String link) {
         this.link = link;
     }
 
-    @JsonGetter("link")
     public String getLink() {
         return this.link;
     }

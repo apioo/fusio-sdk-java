@@ -10,14 +10,14 @@ import com.fasterxml.jackson.annotation.*;
 @JsonClassDescription("Form element which represents an input element")
 public class CommonFormElementInput extends CommonFormElement {
     @JsonPropertyDescription("The input type i.e. text or password, all HTML input types are allowed")
+    @JsonProperty("type")
     private String type;
 
-    @JsonSetter("type")
+
     public void setType(String type) {
         this.type = type;
     }
 
-    @JsonGetter("type")
     public String getType() {
         return this.type;
     }

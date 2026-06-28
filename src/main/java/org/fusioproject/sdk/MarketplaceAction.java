@@ -8,25 +8,25 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.*;
 
 public class MarketplaceAction extends MarketplaceObject {
+    @JsonProperty("class")
     private String _class;
+
+    @JsonProperty("config")
     private MarketplaceActionConfig config;
 
-    @JsonSetter("class")
+
     public void setClass(String _class) {
         this._class = _class;
     }
 
-    @JsonGetter("class")
     public String get_Class() {
         return this._class;
     }
 
-    @JsonSetter("config")
     public void setConfig(MarketplaceActionConfig config) {
         this.config = config;
     }
 
-    @JsonGetter("config")
     public MarketplaceActionConfig getConfig() {
         return this.config;
     }

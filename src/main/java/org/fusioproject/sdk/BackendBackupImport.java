@@ -9,14 +9,14 @@ import com.fasterxml.jackson.annotation.*;
 
 @JsonClassDescription("Import a previously exported system configuration")
 public class BackendBackupImport {
+    @JsonProperty("import")
     private String _import;
 
-    @JsonSetter("import")
+
     public void setImport(String _import) {
         this._import = _import;
     }
 
-    @JsonGetter("import")
     public String getImport() {
         return this._import;
     }

@@ -10,62 +10,62 @@ import com.fasterxml.jackson.annotation.*;
 @JsonClassDescription("This object represents a system configuration")
 public class BackendConfig {
     @JsonPropertyDescription("Unique identifier for the object")
+    @JsonProperty("id")
     private Integer id;
+
     @JsonPropertyDescription("The config value type")
+    @JsonProperty("type")
     private Integer type;
+
     @JsonPropertyDescription("Unique name of the object")
+    @JsonProperty("name")
     private String name;
+
     @JsonPropertyDescription("A short description fo this configuration value")
+    @JsonProperty("description")
     private String description;
+
     @JsonPropertyDescription("The actual config value")
+    @JsonProperty("value")
     private Object value;
 
-    @JsonSetter("id")
+
     public void setId(Integer id) {
         this.id = id;
     }
 
-    @JsonGetter("id")
     public Integer getId() {
         return this.id;
     }
 
-    @JsonSetter("type")
     public void setType(Integer type) {
         this.type = type;
     }
 
-    @JsonGetter("type")
     public Integer getType() {
         return this.type;
     }
 
-    @JsonSetter("name")
     public void setName(String name) {
         this.name = name;
     }
 
-    @JsonGetter("name")
     public String getName() {
         return this.name;
     }
 
-    @JsonSetter("description")
     public void setDescription(String description) {
         this.description = description;
     }
 
-    @JsonGetter("description")
     public String getDescription() {
         return this.description;
     }
 
-    @JsonSetter("value")
     public void setValue(Object value) {
         this.value = value;
     }
 
-    @JsonGetter("value")
     public Object getValue() {
         return this.value;
     }

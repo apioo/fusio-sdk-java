@@ -10,62 +10,62 @@ import com.fasterxml.jackson.annotation.*;
 @JsonClassDescription("This object represents a relational table on a database connection")
 public class BackendDatabaseTable {
     @JsonPropertyDescription("Name of the table")
+    @JsonProperty("name")
     private String name;
+
     @JsonPropertyDescription("Available columns on the table")
+    @JsonProperty("columns")
     private java.util.List<BackendDatabaseTableColumn> columns;
+
     @JsonPropertyDescription("The primary key column")
+    @JsonProperty("primaryKey")
     private String primaryKey;
+
     @JsonPropertyDescription("Available indices on the table")
+    @JsonProperty("indexes")
     private java.util.List<BackendDatabaseTableIndex> indexes;
+
     @JsonPropertyDescription("Available foreign key constraints")
+    @JsonProperty("foreignKeys")
     private java.util.List<BackendDatabaseTableForeignKeyConstraint> foreignKeys;
 
-    @JsonSetter("name")
+
     public void setName(String name) {
         this.name = name;
     }
 
-    @JsonGetter("name")
     public String getName() {
         return this.name;
     }
 
-    @JsonSetter("columns")
     public void setColumns(java.util.List<BackendDatabaseTableColumn> columns) {
         this.columns = columns;
     }
 
-    @JsonGetter("columns")
     public java.util.List<BackendDatabaseTableColumn> getColumns() {
         return this.columns;
     }
 
-    @JsonSetter("primaryKey")
     public void setPrimaryKey(String primaryKey) {
         this.primaryKey = primaryKey;
     }
 
-    @JsonGetter("primaryKey")
     public String getPrimaryKey() {
         return this.primaryKey;
     }
 
-    @JsonSetter("indexes")
     public void setIndexes(java.util.List<BackendDatabaseTableIndex> indexes) {
         this.indexes = indexes;
     }
 
-    @JsonGetter("indexes")
     public java.util.List<BackendDatabaseTableIndex> getIndexes() {
         return this.indexes;
     }
 
-    @JsonSetter("foreignKeys")
     public void setForeignKeys(java.util.List<BackendDatabaseTableForeignKeyConstraint> foreignKeys) {
         this.foreignKeys = foreignKeys;
     }
 
-    @JsonGetter("foreignKeys")
     public java.util.List<BackendDatabaseTableForeignKeyConstraint> getForeignKeys() {
         return this.foreignKeys;
     }

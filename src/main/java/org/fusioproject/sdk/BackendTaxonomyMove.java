@@ -9,69 +9,69 @@ import com.fasterxml.jackson.annotation.*;
 
 @JsonClassDescription("Moves the provided objects to a taxonomy")
 public class BackendTaxonomyMove {
+    @JsonProperty("operations")
     private java.util.List<Integer> operations;
+
+    @JsonProperty("actions")
     private java.util.List<Integer> actions;
+
+    @JsonProperty("schemas")
     private java.util.List<Integer> schemas;
+
+    @JsonProperty("events")
     private java.util.List<Integer> events;
+
+    @JsonProperty("cronjobs")
     private java.util.List<Integer> cronjobs;
+
+    @JsonProperty("triggers")
     private java.util.List<Integer> triggers;
 
-    @JsonSetter("operations")
+
     public void setOperations(java.util.List<Integer> operations) {
         this.operations = operations;
     }
 
-    @JsonGetter("operations")
     public java.util.List<Integer> getOperations() {
         return this.operations;
     }
 
-    @JsonSetter("actions")
     public void setActions(java.util.List<Integer> actions) {
         this.actions = actions;
     }
 
-    @JsonGetter("actions")
     public java.util.List<Integer> getActions() {
         return this.actions;
     }
 
-    @JsonSetter("schemas")
     public void setSchemas(java.util.List<Integer> schemas) {
         this.schemas = schemas;
     }
 
-    @JsonGetter("schemas")
     public java.util.List<Integer> getSchemas() {
         return this.schemas;
     }
 
-    @JsonSetter("events")
     public void setEvents(java.util.List<Integer> events) {
         this.events = events;
     }
 
-    @JsonGetter("events")
     public java.util.List<Integer> getEvents() {
         return this.events;
     }
 
-    @JsonSetter("cronjobs")
     public void setCronjobs(java.util.List<Integer> cronjobs) {
         this.cronjobs = cronjobs;
     }
 
-    @JsonGetter("cronjobs")
     public java.util.List<Integer> getCronjobs() {
         return this.cronjobs;
     }
 
-    @JsonSetter("triggers")
     public void setTriggers(java.util.List<Integer> triggers) {
         this.triggers = triggers;
     }
 
-    @JsonGetter("triggers")
     public java.util.List<Integer> getTriggers() {
         return this.triggers;
     }

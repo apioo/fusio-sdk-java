@@ -8,25 +8,25 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.*;
 
 public class ConsumerPaymentCheckoutRequest {
+    @JsonProperty("planId")
     private Integer planId;
+
+    @JsonProperty("returnUrl")
     private String returnUrl;
 
-    @JsonSetter("planId")
+
     public void setPlanId(Integer planId) {
         this.planId = planId;
     }
 
-    @JsonGetter("planId")
     public Integer getPlanId() {
         return this.planId;
     }
 
-    @JsonSetter("returnUrl")
     public void setReturnUrl(String returnUrl) {
         this.returnUrl = returnUrl;
     }
 
-    @JsonGetter("returnUrl")
     public String getReturnUrl() {
         return this.returnUrl;
     }

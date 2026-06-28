@@ -9,14 +9,14 @@ import com.fasterxml.jackson.annotation.*;
 
 @JsonClassDescription("Represents a collection of available tools")
 public class BackendAgentTools {
+    @JsonProperty("tools")
     private java.util.List<BackendAgentTool> tools;
 
-    @JsonSetter("tools")
+
     public void setTools(java.util.List<BackendAgentTool> tools) {
         this.tools = tools;
     }
 
-    @JsonGetter("tools")
     public java.util.List<BackendAgentTool> getTools() {
         return this.tools;
     }

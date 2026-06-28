@@ -8,25 +8,25 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.*;
 
 public class ConsumerTokenUpdate {
+    @JsonProperty("name")
     private String name;
+
+    @JsonProperty("expire")
     private java.time.LocalDate expire;
 
-    @JsonSetter("name")
+
     public void setName(String name) {
         this.name = name;
     }
 
-    @JsonGetter("name")
     public String getName() {
         return this.name;
     }
 
-    @JsonSetter("expire")
     public void setExpire(java.time.LocalDate expire) {
         this.expire = expire;
     }
 
-    @JsonGetter("expire")
     public java.time.LocalDate getExpire() {
         return this.expire;
     }

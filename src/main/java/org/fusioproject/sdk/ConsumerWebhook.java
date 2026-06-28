@@ -8,69 +8,69 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.*;
 
 public class ConsumerWebhook {
+    @JsonProperty("id")
     private Integer id;
+
+    @JsonProperty("status")
     private Integer status;
+
+    @JsonProperty("event")
     private String event;
+
+    @JsonProperty("name")
     private String name;
+
+    @JsonProperty("endpoint")
     private String endpoint;
+
+    @JsonProperty("responses")
     private java.util.List<ConsumerWebhookResponse> responses;
 
-    @JsonSetter("id")
+
     public void setId(Integer id) {
         this.id = id;
     }
 
-    @JsonGetter("id")
     public Integer getId() {
         return this.id;
     }
 
-    @JsonSetter("status")
     public void setStatus(Integer status) {
         this.status = status;
     }
 
-    @JsonGetter("status")
     public Integer getStatus() {
         return this.status;
     }
 
-    @JsonSetter("event")
     public void setEvent(String event) {
         this.event = event;
     }
 
-    @JsonGetter("event")
     public String getEvent() {
         return this.event;
     }
 
-    @JsonSetter("name")
     public void setName(String name) {
         this.name = name;
     }
 
-    @JsonGetter("name")
     public String getName() {
         return this.name;
     }
 
-    @JsonSetter("endpoint")
     public void setEndpoint(String endpoint) {
         this.endpoint = endpoint;
     }
 
-    @JsonGetter("endpoint")
     public String getEndpoint() {
         return this.endpoint;
     }
 
-    @JsonSetter("responses")
     public void setResponses(java.util.List<ConsumerWebhookResponse> responses) {
         this.responses = responses;
     }
 
-    @JsonGetter("responses")
     public java.util.List<ConsumerWebhookResponse> getResponses() {
         return this.responses;
     }

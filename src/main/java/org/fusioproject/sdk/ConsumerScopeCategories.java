@@ -8,14 +8,14 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.*;
 
 public class ConsumerScopeCategories {
+    @JsonProperty("categories")
     private java.util.List<ConsumerScopeCategory> categories;
 
-    @JsonSetter("categories")
+
     public void setCategories(java.util.List<ConsumerScopeCategory> categories) {
         this.categories = categories;
     }
 
-    @JsonGetter("categories")
     public java.util.List<ConsumerScopeCategory> getCategories() {
         return this.categories;
     }

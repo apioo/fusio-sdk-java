@@ -10,25 +10,25 @@ import com.fasterxml.jackson.annotation.*;
 @JsonClassDescription("This object represents an agent output")
 public class AgentOutput {
     @JsonPropertyDescription("Chat id of this conversation")
+    @JsonProperty("id")
     private String id;
+
+    @JsonProperty("item")
     private AgentItem item;
 
-    @JsonSetter("id")
+
     public void setId(String id) {
         this.id = id;
     }
 
-    @JsonGetter("id")
     public String getId() {
         return this.id;
     }
 
-    @JsonSetter("item")
     public void setItem(AgentItem item) {
         this.item = item;
     }
 
-    @JsonGetter("item")
     public AgentItem getItem() {
         return this.item;
     }

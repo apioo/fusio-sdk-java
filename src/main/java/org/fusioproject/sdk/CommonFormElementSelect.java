@@ -10,14 +10,14 @@ import com.fasterxml.jackson.annotation.*;
 @JsonClassDescription("Form element which represents a select element")
 public class CommonFormElementSelect extends CommonFormElement {
     @JsonPropertyDescription("Available options for the select element")
+    @JsonProperty("options")
     private java.util.List<CommonFormElementSelectOption> options;
 
-    @JsonSetter("options")
+
     public void setOptions(java.util.List<CommonFormElementSelectOption> options) {
         this.options = options;
     }
 
-    @JsonGetter("options")
     public java.util.List<CommonFormElementSelectOption> getOptions() {
         return this.options;
     }

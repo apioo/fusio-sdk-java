@@ -9,14 +9,14 @@ import com.fasterxml.jackson.annotation.*;
 
 @JsonClassDescription("Represents a config form with a list of elements")
 public class CommonFormContainer {
+    @JsonProperty("element")
     private java.util.List<CommonFormElement> element;
 
-    @JsonSetter("element")
+
     public void setElement(java.util.List<CommonFormElement> element) {
         this.element = element;
     }
 
-    @JsonGetter("element")
     public java.util.List<CommonFormElement> getElement() {
         return this.element;
     }

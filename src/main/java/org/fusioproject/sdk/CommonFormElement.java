@@ -20,47 +20,47 @@ import com.fasterxml.jackson.annotation.*;
 })
 @JsonClassDescription("Form base element")
 public abstract class CommonFormElement {
+    @JsonProperty("element")
     private String element;
+
+    @JsonProperty("name")
     private String name;
+
+    @JsonProperty("title")
     private String title;
+
+    @JsonProperty("help")
     private String help;
 
-    @JsonSetter("element")
+
     public void setElement(String element) {
         this.element = element;
     }
 
-    @JsonGetter("element")
     public String getElement() {
         return this.element;
     }
 
-    @JsonSetter("name")
     public void setName(String name) {
         this.name = name;
     }
 
-    @JsonGetter("name")
     public String getName() {
         return this.name;
     }
 
-    @JsonSetter("title")
     public void setTitle(String title) {
         this.title = title;
     }
 
-    @JsonGetter("title")
     public String getTitle() {
         return this.title;
     }
 
-    @JsonSetter("help")
     public void setHelp(String help) {
         this.help = help;
     }
 
-    @JsonGetter("help")
     public String getHelp() {
         return this.help;
     }

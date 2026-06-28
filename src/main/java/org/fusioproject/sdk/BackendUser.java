@@ -10,133 +10,133 @@ import com.fasterxml.jackson.annotation.*;
 @JsonClassDescription("This object represents a user")
 public class BackendUser {
     @JsonPropertyDescription("Unique identifier for the object")
+    @JsonProperty("id")
     private Integer id;
+
     @JsonPropertyDescription("A role which is assigned to the user")
+    @JsonProperty("roleId")
     private Integer roleId;
+
     @JsonPropertyDescription("A plan which is assigned to the user")
+    @JsonProperty("planId")
     private Integer planId;
+
     @JsonPropertyDescription("Status of the object either 1 = active, 2 = disabled or 0 = deleted")
+    @JsonProperty("status")
     private Integer status;
+
     @JsonPropertyDescription("Unique name of the object")
+    @JsonProperty("name")
     private String name;
+
     @JsonPropertyDescription("The email address of the user")
+    @JsonProperty("email")
     private String email;
+
     @JsonPropertyDescription("Points assigned to the user")
+    @JsonProperty("points")
     private Integer points;
+
     @JsonPropertyDescription("List of scopes which are assigned to the user")
+    @JsonProperty("scopes")
     private java.util.List<String> scopes;
+
+    @JsonProperty("apps")
     private java.util.List<BackendApp> apps;
+
     @JsonPropertyDescription("Use this parameter to attach key-value data")
+    @JsonProperty("metadata")
     private CommonMetadata metadata;
+
     @JsonPropertyDescription("The insert date")
+    @JsonProperty("date")
     private java.time.LocalDateTime date;
 
-    @JsonSetter("id")
+
     public void setId(Integer id) {
         this.id = id;
     }
 
-    @JsonGetter("id")
     public Integer getId() {
         return this.id;
     }
 
-    @JsonSetter("roleId")
     public void setRoleId(Integer roleId) {
         this.roleId = roleId;
     }
 
-    @JsonGetter("roleId")
     public Integer getRoleId() {
         return this.roleId;
     }
 
-    @JsonSetter("planId")
     public void setPlanId(Integer planId) {
         this.planId = planId;
     }
 
-    @JsonGetter("planId")
     public Integer getPlanId() {
         return this.planId;
     }
 
-    @JsonSetter("status")
     public void setStatus(Integer status) {
         this.status = status;
     }
 
-    @JsonGetter("status")
     public Integer getStatus() {
         return this.status;
     }
 
-    @JsonSetter("name")
     public void setName(String name) {
         this.name = name;
     }
 
-    @JsonGetter("name")
     public String getName() {
         return this.name;
     }
 
-    @JsonSetter("email")
     public void setEmail(String email) {
         this.email = email;
     }
 
-    @JsonGetter("email")
     public String getEmail() {
         return this.email;
     }
 
-    @JsonSetter("points")
     public void setPoints(Integer points) {
         this.points = points;
     }
 
-    @JsonGetter("points")
     public Integer getPoints() {
         return this.points;
     }
 
-    @JsonSetter("scopes")
     public void setScopes(java.util.List<String> scopes) {
         this.scopes = scopes;
     }
 
-    @JsonGetter("scopes")
     public java.util.List<String> getScopes() {
         return this.scopes;
     }
 
-    @JsonSetter("apps")
     public void setApps(java.util.List<BackendApp> apps) {
         this.apps = apps;
     }
 
-    @JsonGetter("apps")
     public java.util.List<BackendApp> getApps() {
         return this.apps;
     }
 
-    @JsonSetter("metadata")
     public void setMetadata(CommonMetadata metadata) {
         this.metadata = metadata;
     }
 
-    @JsonGetter("metadata")
     public CommonMetadata getMetadata() {
         return this.metadata;
     }
 
-    @JsonSetter("date")
     public void setDate(java.time.LocalDateTime date) {
         this.date = date;
     }
 
-    @JsonGetter("date")
     public java.time.LocalDateTime getDate() {
         return this.date;
     }

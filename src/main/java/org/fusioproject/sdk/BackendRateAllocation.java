@@ -10,70 +10,70 @@ import com.fasterxml.jackson.annotation.*;
 @JsonClassDescription("This object represents a rate allocation, in case a request matches it gets assigned to the attached rate")
 public class BackendRateAllocation {
     @JsonPropertyDescription("Unique identifier for the object")
+    @JsonProperty("id")
     private Integer id;
+
+    @JsonProperty("operationId")
     private Integer operationId;
+
+    @JsonProperty("userId")
     private Integer userId;
+
+    @JsonProperty("planId")
     private Integer planId;
+
+    @JsonProperty("appId")
     private Integer appId;
+
     @JsonPropertyDescription("Whether the request is authenticated")
+    @JsonProperty("authenticated")
     private Boolean authenticated;
 
-    @JsonSetter("id")
+
     public void setId(Integer id) {
         this.id = id;
     }
 
-    @JsonGetter("id")
     public Integer getId() {
         return this.id;
     }
 
-    @JsonSetter("operationId")
     public void setOperationId(Integer operationId) {
         this.operationId = operationId;
     }
 
-    @JsonGetter("operationId")
     public Integer getOperationId() {
         return this.operationId;
     }
 
-    @JsonSetter("userId")
     public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
-    @JsonGetter("userId")
     public Integer getUserId() {
         return this.userId;
     }
 
-    @JsonSetter("planId")
     public void setPlanId(Integer planId) {
         this.planId = planId;
     }
 
-    @JsonGetter("planId")
     public Integer getPlanId() {
         return this.planId;
     }
 
-    @JsonSetter("appId")
     public void setAppId(Integer appId) {
         this.appId = appId;
     }
 
-    @JsonGetter("appId")
     public Integer getAppId() {
         return this.appId;
     }
 
-    @JsonSetter("authenticated")
     public void setAuthenticated(Boolean authenticated) {
         this.authenticated = authenticated;
     }
 
-    @JsonGetter("authenticated")
     public Boolean getAuthenticated() {
         return this.authenticated;
     }

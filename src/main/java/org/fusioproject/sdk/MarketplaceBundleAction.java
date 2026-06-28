@@ -8,36 +8,36 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.*;
 
 public class MarketplaceBundleAction {
+    @JsonProperty("name")
     private String name;
+
+    @JsonProperty("class")
     private String _class;
+
+    @JsonProperty("config")
     private MarketplaceBundleActionConfig config;
 
-    @JsonSetter("name")
+
     public void setName(String name) {
         this.name = name;
     }
 
-    @JsonGetter("name")
     public String getName() {
         return this.name;
     }
 
-    @JsonSetter("class")
     public void setClass(String _class) {
         this._class = _class;
     }
 
-    @JsonGetter("class")
     public String get_Class() {
         return this._class;
     }
 
-    @JsonSetter("config")
     public void setConfig(MarketplaceBundleActionConfig config) {
         this.config = config;
     }
 
-    @JsonGetter("config")
     public MarketplaceBundleActionConfig getConfig() {
         return this.config;
     }

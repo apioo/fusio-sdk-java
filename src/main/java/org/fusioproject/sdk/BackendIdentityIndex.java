@@ -9,14 +9,14 @@ import com.fasterxml.jackson.annotation.*;
 
 @JsonClassDescription("Contains all possible classes which can be used at an identity as class")
 public class BackendIdentityIndex {
+    @JsonProperty("providers")
     private java.util.List<BackendIdentityIndexEntry> providers;
 
-    @JsonSetter("providers")
+
     public void setProviders(java.util.List<BackendIdentityIndexEntry> providers) {
         this.providers = providers;
     }
 
-    @JsonGetter("providers")
     public java.util.List<BackendIdentityIndexEntry> getProviders() {
         return this.providers;
     }

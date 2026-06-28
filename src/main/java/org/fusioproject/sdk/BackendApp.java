@@ -10,145 +10,145 @@ import com.fasterxml.jackson.annotation.*;
 @JsonClassDescription("This object represents an app to access the API on-behalf of a user")
 public class BackendApp {
     @JsonPropertyDescription("Unique identifier for the object")
+    @JsonProperty("id")
     private Integer id;
+
+    @JsonProperty("userId")
     private Integer userId;
+
     @JsonPropertyDescription("Status of the object either 1 = active, 2 = pending, 3 = deactivated or 4 = deleted")
+    @JsonProperty("status")
     private Integer status;
+
     @JsonPropertyDescription("Unique name of the object")
+    @JsonProperty("name")
     private String name;
+
     @JsonPropertyDescription("Url where the app is hosted")
+    @JsonProperty("url")
     private String url;
+
     @JsonPropertyDescription("Optional URL-encoded parameters of the app i.e. foo=bar&bar=foo")
+    @JsonProperty("parameters")
     private String parameters;
+
     @JsonPropertyDescription("The app key also known as client id which is generated on creation")
+    @JsonProperty("appKey")
     private String appKey;
+
     @JsonPropertyDescription("The app secret also known as client secret which is generated on creation")
+    @JsonProperty("appSecret")
     private String appSecret;
+
     @JsonPropertyDescription("Use this parameter to attach key-value data")
+    @JsonProperty("metadata")
     private CommonMetadata metadata;
+
     @JsonPropertyDescription("The create date of this object")
+    @JsonProperty("date")
     private java.time.LocalDateTime date;
+
     @JsonPropertyDescription("A list of assigned scopes for this app")
+    @JsonProperty("scopes")
     private java.util.List<String> scopes;
+
     @JsonPropertyDescription("A list of tokens which are assigned to this app")
+    @JsonProperty("tokens")
     private java.util.List<BackendToken> tokens;
 
-    @JsonSetter("id")
+
     public void setId(Integer id) {
         this.id = id;
     }
 
-    @JsonGetter("id")
     public Integer getId() {
         return this.id;
     }
 
-    @JsonSetter("userId")
     public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
-    @JsonGetter("userId")
     public Integer getUserId() {
         return this.userId;
     }
 
-    @JsonSetter("status")
     public void setStatus(Integer status) {
         this.status = status;
     }
 
-    @JsonGetter("status")
     public Integer getStatus() {
         return this.status;
     }
 
-    @JsonSetter("name")
     public void setName(String name) {
         this.name = name;
     }
 
-    @JsonGetter("name")
     public String getName() {
         return this.name;
     }
 
-    @JsonSetter("url")
     public void setUrl(String url) {
         this.url = url;
     }
 
-    @JsonGetter("url")
     public String getUrl() {
         return this.url;
     }
 
-    @JsonSetter("parameters")
     public void setParameters(String parameters) {
         this.parameters = parameters;
     }
 
-    @JsonGetter("parameters")
     public String getParameters() {
         return this.parameters;
     }
 
-    @JsonSetter("appKey")
     public void setAppKey(String appKey) {
         this.appKey = appKey;
     }
 
-    @JsonGetter("appKey")
     public String getAppKey() {
         return this.appKey;
     }
 
-    @JsonSetter("appSecret")
     public void setAppSecret(String appSecret) {
         this.appSecret = appSecret;
     }
 
-    @JsonGetter("appSecret")
     public String getAppSecret() {
         return this.appSecret;
     }
 
-    @JsonSetter("metadata")
     public void setMetadata(CommonMetadata metadata) {
         this.metadata = metadata;
     }
 
-    @JsonGetter("metadata")
     public CommonMetadata getMetadata() {
         return this.metadata;
     }
 
-    @JsonSetter("date")
     public void setDate(java.time.LocalDateTime date) {
         this.date = date;
     }
 
-    @JsonGetter("date")
     public java.time.LocalDateTime getDate() {
         return this.date;
     }
 
-    @JsonSetter("scopes")
     public void setScopes(java.util.List<String> scopes) {
         this.scopes = scopes;
     }
 
-    @JsonGetter("scopes")
     public java.util.List<String> getScopes() {
         return this.scopes;
     }
 
-    @JsonSetter("tokens")
     public void setTokens(java.util.List<BackendToken> tokens) {
         this.tokens = tokens;
     }
 
-    @JsonGetter("tokens")
     public java.util.List<BackendToken> getTokens() {
         return this.tokens;
     }

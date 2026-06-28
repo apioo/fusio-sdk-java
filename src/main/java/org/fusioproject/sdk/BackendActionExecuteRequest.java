@@ -10,62 +10,62 @@ import com.fasterxml.jackson.annotation.*;
 @JsonClassDescription("Represents a request to execute an action")
 public class BackendActionExecuteRequest {
     @JsonPropertyDescription("HTTP method i.e. GET, POST")
+    @JsonProperty("method")
     private String method;
+
     @JsonPropertyDescription("URL-encoded uri fragments i.e. foo=bar&bar=foo")
+    @JsonProperty("uriFragments")
     private String uriFragments;
+
     @JsonPropertyDescription("URL-encoded query parameters i.e. foo=bar&bar=foo")
+    @JsonProperty("parameters")
     private String parameters;
+
     @JsonPropertyDescription("URL-encoded headers i.e. foo=bar&bar=foo")
+    @JsonProperty("headers")
     private String headers;
+
     @JsonPropertyDescription("Request body of this execution")
+    @JsonProperty("body")
     private BackendActionExecuteRequestBody body;
 
-    @JsonSetter("method")
+
     public void setMethod(String method) {
         this.method = method;
     }
 
-    @JsonGetter("method")
     public String getMethod() {
         return this.method;
     }
 
-    @JsonSetter("uriFragments")
     public void setUriFragments(String uriFragments) {
         this.uriFragments = uriFragments;
     }
 
-    @JsonGetter("uriFragments")
     public String getUriFragments() {
         return this.uriFragments;
     }
 
-    @JsonSetter("parameters")
     public void setParameters(String parameters) {
         this.parameters = parameters;
     }
 
-    @JsonGetter("parameters")
     public String getParameters() {
         return this.parameters;
     }
 
-    @JsonSetter("headers")
     public void setHeaders(String headers) {
         this.headers = headers;
     }
 
-    @JsonGetter("headers")
     public String getHeaders() {
         return this.headers;
     }
 
-    @JsonSetter("body")
     public void setBody(BackendActionExecuteRequestBody body) {
         this.body = body;
     }
 
-    @JsonGetter("body")
     public BackendActionExecuteRequestBody getBody() {
         return this.body;
     }

@@ -9,36 +9,36 @@ import com.fasterxml.jackson.annotation.*;
 
 @JsonClassDescription("Result of a backup import operation")
 public class BackendBackupImportResult {
+    @JsonProperty("success")
     private Boolean success;
+
+    @JsonProperty("message")
     private String message;
+
+    @JsonProperty("logs")
     private java.util.List<String> logs;
 
-    @JsonSetter("success")
+
     public void setSuccess(Boolean success) {
         this.success = success;
     }
 
-    @JsonGetter("success")
     public Boolean getSuccess() {
         return this.success;
     }
 
-    @JsonSetter("message")
     public void setMessage(String message) {
         this.message = message;
     }
 
-    @JsonGetter("message")
     public String getMessage() {
         return this.message;
     }
 
-    @JsonSetter("logs")
     public void setLogs(java.util.List<String> logs) {
         this.logs = logs;
     }
 
-    @JsonGetter("logs")
     public java.util.List<String> getLogs() {
         return this.logs;
     }

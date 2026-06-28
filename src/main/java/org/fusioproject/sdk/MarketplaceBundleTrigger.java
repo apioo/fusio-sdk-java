@@ -8,36 +8,36 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.*;
 
 public class MarketplaceBundleTrigger {
+    @JsonProperty("name")
     private String name;
+
+    @JsonProperty("event")
     private String event;
+
+    @JsonProperty("action")
     private String action;
 
-    @JsonSetter("name")
+
     public void setName(String name) {
         this.name = name;
     }
 
-    @JsonGetter("name")
     public String getName() {
         return this.name;
     }
 
-    @JsonSetter("event")
     public void setEvent(String event) {
         this.event = event;
     }
 
-    @JsonGetter("event")
     public String getEvent() {
         return this.event;
     }
 
-    @JsonSetter("action")
     public void setAction(String action) {
         this.action = action;
     }
 
-    @JsonGetter("action")
     public String getAction() {
         return this.action;
     }

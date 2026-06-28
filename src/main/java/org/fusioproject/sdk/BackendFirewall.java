@@ -10,74 +10,74 @@ import com.fasterxml.jackson.annotation.*;
 @JsonClassDescription("This object represents a firewall rule which blocks specific IP addresses")
 public class BackendFirewall {
     @JsonPropertyDescription("Unique identifier for the object")
+    @JsonProperty("id")
     private Integer id;
+
     @JsonPropertyDescription("Unique name of the object")
+    @JsonProperty("name")
     private String name;
+
     @JsonPropertyDescription("The type of the rule either 1 = allow or 0 = deny")
+    @JsonProperty("type")
     private Integer type;
+
     @JsonPropertyDescription("The target IP address")
+    @JsonProperty("ip")
     private String ip;
+
     @JsonPropertyDescription("The expire date")
+    @JsonProperty("expire")
     private java.time.LocalDateTime expire;
+
     @JsonPropertyDescription("Use this parameter to attach key-value data")
+    @JsonProperty("metadata")
     private CommonMetadata metadata;
 
-    @JsonSetter("id")
+
     public void setId(Integer id) {
         this.id = id;
     }
 
-    @JsonGetter("id")
     public Integer getId() {
         return this.id;
     }
 
-    @JsonSetter("name")
     public void setName(String name) {
         this.name = name;
     }
 
-    @JsonGetter("name")
     public String getName() {
         return this.name;
     }
 
-    @JsonSetter("type")
     public void setType(Integer type) {
         this.type = type;
     }
 
-    @JsonGetter("type")
     public Integer getType() {
         return this.type;
     }
 
-    @JsonSetter("ip")
     public void setIp(String ip) {
         this.ip = ip;
     }
 
-    @JsonGetter("ip")
     public String getIp() {
         return this.ip;
     }
 
-    @JsonSetter("expire")
     public void setExpire(java.time.LocalDateTime expire) {
         this.expire = expire;
     }
 
-    @JsonGetter("expire")
     public java.time.LocalDateTime getExpire() {
         return this.expire;
     }
 
-    @JsonSetter("metadata")
     public void setMetadata(CommonMetadata metadata) {
         this.metadata = metadata;
     }
 
-    @JsonGetter("metadata")
     public CommonMetadata getMetadata() {
         return this.metadata;
     }

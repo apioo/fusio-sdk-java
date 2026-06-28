@@ -10,74 +10,74 @@ import com.fasterxml.jackson.annotation.*;
 @JsonClassDescription("This object represents a form which helps to dynamically generate a form at a frontend app")
 public class BackendForm {
     @JsonPropertyDescription("Unique identifier for the object")
+    @JsonProperty("id")
     private Integer id;
+
     @JsonPropertyDescription("Status of the object either 1 = active or 0 = deleted")
+    @JsonProperty("status")
     private Integer status;
+
     @JsonPropertyDescription("Unique name of the object")
+    @JsonProperty("name")
     private String name;
+
     @JsonPropertyDescription("Target operation which gets invoked through this form")
+    @JsonProperty("operationId")
     private Integer operationId;
+
     @JsonPropertyDescription("Optional an UI schema to dynamically describe this form")
+    @JsonProperty("uiSchema")
     private Object uiSchema;
+
     @JsonPropertyDescription("Use this parameter to attach key-value data")
+    @JsonProperty("metadata")
     private CommonMetadata metadata;
 
-    @JsonSetter("id")
+
     public void setId(Integer id) {
         this.id = id;
     }
 
-    @JsonGetter("id")
     public Integer getId() {
         return this.id;
     }
 
-    @JsonSetter("status")
     public void setStatus(Integer status) {
         this.status = status;
     }
 
-    @JsonGetter("status")
     public Integer getStatus() {
         return this.status;
     }
 
-    @JsonSetter("name")
     public void setName(String name) {
         this.name = name;
     }
 
-    @JsonGetter("name")
     public String getName() {
         return this.name;
     }
 
-    @JsonSetter("operationId")
     public void setOperationId(Integer operationId) {
         this.operationId = operationId;
     }
 
-    @JsonGetter("operationId")
     public Integer getOperationId() {
         return this.operationId;
     }
 
-    @JsonSetter("uiSchema")
     public void setUiSchema(Object uiSchema) {
         this.uiSchema = uiSchema;
     }
 
-    @JsonGetter("uiSchema")
     public Object getUiSchema() {
         return this.uiSchema;
     }
 
-    @JsonSetter("metadata")
     public void setMetadata(CommonMetadata metadata) {
         this.metadata = metadata;
     }
 
-    @JsonGetter("metadata")
     public CommonMetadata getMetadata() {
         return this.metadata;
     }

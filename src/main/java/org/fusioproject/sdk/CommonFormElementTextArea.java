@@ -10,14 +10,14 @@ import com.fasterxml.jackson.annotation.*;
 @JsonClassDescription("Form element which represents a textarea")
 public class CommonFormElementTextArea extends CommonFormElement {
     @JsonPropertyDescription("Describes which data is provided at the textarea, this can be i.e. a programming language like php, java or python or also a data format like json")
+    @JsonProperty("mode")
     private String mode;
 
-    @JsonSetter("mode")
+
     public void setMode(String mode) {
         this.mode = mode;
     }
 
-    @JsonGetter("mode")
     public String getMode() {
         return this.mode;
     }

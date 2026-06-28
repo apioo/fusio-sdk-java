@@ -10,62 +10,62 @@ import com.fasterxml.jackson.annotation.*;
 @JsonClassDescription("This object represents a file on the filesystem")
 public class BackendFile {
     @JsonPropertyDescription("Unique identifier for the object")
+    @JsonProperty("id")
     private String id;
+
     @JsonPropertyDescription("Name of the file")
+    @JsonProperty("name")
     private String name;
+
     @JsonPropertyDescription("MIME type of the file")
+    @JsonProperty("contentType")
     private String contentType;
+
     @JsonPropertyDescription("Checksum of the file")
+    @JsonProperty("checksum")
     private String checksum;
+
     @JsonPropertyDescription("Last modified date of the file")
+    @JsonProperty("lastModified")
     private java.time.LocalDateTime lastModified;
 
-    @JsonSetter("id")
+
     public void setId(String id) {
         this.id = id;
     }
 
-    @JsonGetter("id")
     public String getId() {
         return this.id;
     }
 
-    @JsonSetter("name")
     public void setName(String name) {
         this.name = name;
     }
 
-    @JsonGetter("name")
     public String getName() {
         return this.name;
     }
 
-    @JsonSetter("contentType")
     public void setContentType(String contentType) {
         this.contentType = contentType;
     }
 
-    @JsonGetter("contentType")
     public String getContentType() {
         return this.contentType;
     }
 
-    @JsonSetter("checksum")
     public void setChecksum(String checksum) {
         this.checksum = checksum;
     }
 
-    @JsonGetter("checksum")
     public String getChecksum() {
         return this.checksum;
     }
 
-    @JsonSetter("lastModified")
     public void setLastModified(java.time.LocalDateTime lastModified) {
         this.lastModified = lastModified;
     }
 
-    @JsonGetter("lastModified")
     public java.time.LocalDateTime getLastModified() {
         return this.lastModified;
     }

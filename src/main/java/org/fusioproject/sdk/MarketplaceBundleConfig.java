@@ -8,58 +8,58 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.*;
 
 public class MarketplaceBundleConfig {
+    @JsonProperty("actions")
     private java.util.List<MarketplaceBundleAction> actions;
+
+    @JsonProperty("schemas")
     private java.util.List<MarketplaceBundleSchema> schemas;
+
+    @JsonProperty("events")
     private java.util.List<MarketplaceBundleEvent> events;
+
+    @JsonProperty("cronjobs")
     private java.util.List<MarketplaceBundleCronjob> cronjobs;
+
+    @JsonProperty("triggers")
     private java.util.List<MarketplaceBundleTrigger> triggers;
 
-    @JsonSetter("actions")
+
     public void setActions(java.util.List<MarketplaceBundleAction> actions) {
         this.actions = actions;
     }
 
-    @JsonGetter("actions")
     public java.util.List<MarketplaceBundleAction> getActions() {
         return this.actions;
     }
 
-    @JsonSetter("schemas")
     public void setSchemas(java.util.List<MarketplaceBundleSchema> schemas) {
         this.schemas = schemas;
     }
 
-    @JsonGetter("schemas")
     public java.util.List<MarketplaceBundleSchema> getSchemas() {
         return this.schemas;
     }
 
-    @JsonSetter("events")
     public void setEvents(java.util.List<MarketplaceBundleEvent> events) {
         this.events = events;
     }
 
-    @JsonGetter("events")
     public java.util.List<MarketplaceBundleEvent> getEvents() {
         return this.events;
     }
 
-    @JsonSetter("cronjobs")
     public void setCronjobs(java.util.List<MarketplaceBundleCronjob> cronjobs) {
         this.cronjobs = cronjobs;
     }
 
-    @JsonGetter("cronjobs")
     public java.util.List<MarketplaceBundleCronjob> getCronjobs() {
         return this.cronjobs;
     }
 
-    @JsonSetter("triggers")
     public void setTriggers(java.util.List<MarketplaceBundleTrigger> triggers) {
         this.triggers = triggers;
     }
 
-    @JsonGetter("triggers")
     public java.util.List<MarketplaceBundleTrigger> getTriggers() {
         return this.triggers;
     }

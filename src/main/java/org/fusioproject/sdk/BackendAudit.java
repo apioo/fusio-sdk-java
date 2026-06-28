@@ -10,96 +10,96 @@ import com.fasterxml.jackson.annotation.*;
 @JsonClassDescription("This object represents an audit which is created every time something was changed at the system")
 public class BackendAudit {
     @JsonPropertyDescription("Unique identifier for the object")
+    @JsonProperty("id")
     private Integer id;
+
+    @JsonProperty("app")
     private BackendApp app;
+
+    @JsonProperty("user")
     private BackendUser user;
+
     @JsonPropertyDescription("Trigger event of this audit")
+    @JsonProperty("event")
     private String event;
+
     @JsonPropertyDescription("IP which as issued the request")
+    @JsonProperty("ip")
     private String ip;
+
     @JsonPropertyDescription("Message of this audit event")
+    @JsonProperty("message")
     private String message;
+
     @JsonPropertyDescription("Content of this adit event")
+    @JsonProperty("content")
     private BackendAuditObject content;
+
     @JsonPropertyDescription("Insert date of this audit event")
+    @JsonProperty("date")
     private java.time.LocalDateTime date;
 
-    @JsonSetter("id")
+
     public void setId(Integer id) {
         this.id = id;
     }
 
-    @JsonGetter("id")
     public Integer getId() {
         return this.id;
     }
 
-    @JsonSetter("app")
     public void setApp(BackendApp app) {
         this.app = app;
     }
 
-    @JsonGetter("app")
     public BackendApp getApp() {
         return this.app;
     }
 
-    @JsonSetter("user")
     public void setUser(BackendUser user) {
         this.user = user;
     }
 
-    @JsonGetter("user")
     public BackendUser getUser() {
         return this.user;
     }
 
-    @JsonSetter("event")
     public void setEvent(String event) {
         this.event = event;
     }
 
-    @JsonGetter("event")
     public String getEvent() {
         return this.event;
     }
 
-    @JsonSetter("ip")
     public void setIp(String ip) {
         this.ip = ip;
     }
 
-    @JsonGetter("ip")
     public String getIp() {
         return this.ip;
     }
 
-    @JsonSetter("message")
     public void setMessage(String message) {
         this.message = message;
     }
 
-    @JsonGetter("message")
     public String getMessage() {
         return this.message;
     }
 
-    @JsonSetter("content")
     public void setContent(BackendAuditObject content) {
         this.content = content;
     }
 
-    @JsonGetter("content")
     public BackendAuditObject getContent() {
         return this.content;
     }
 
-    @JsonSetter("date")
     public void setDate(java.time.LocalDateTime date) {
         this.date = date;
     }
 
-    @JsonGetter("date")
     public java.time.LocalDateTime getDate() {
         return this.date;
     }

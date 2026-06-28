@@ -10,50 +10,50 @@ import com.fasterxml.jackson.annotation.*;
 @JsonClassDescription("This object represents a HTTP request")
 public class BackendHttpRequest {
     @JsonPropertyDescription("HTTP method i.e. GET, POST")
+    @JsonProperty("method")
     private String method;
+
     @JsonPropertyDescription("HTTP request uri")
+    @JsonProperty("uri")
     private String uri;
+
     @JsonPropertyDescription("HTTP request headers")
+    @JsonProperty("headers")
     private java.util.Map<String, String> headers;
+
     @JsonPropertyDescription("HTTP request body")
+    @JsonProperty("body")
     private String body;
 
-    @JsonSetter("method")
+
     public void setMethod(String method) {
         this.method = method;
     }
 
-    @JsonGetter("method")
     public String getMethod() {
         return this.method;
     }
 
-    @JsonSetter("uri")
     public void setUri(String uri) {
         this.uri = uri;
     }
 
-    @JsonGetter("uri")
     public String getUri() {
         return this.uri;
     }
 
-    @JsonSetter("headers")
     public void setHeaders(java.util.Map<String, String> headers) {
         this.headers = headers;
     }
 
-    @JsonGetter("headers")
     public java.util.Map<String, String> getHeaders() {
         return this.headers;
     }
 
-    @JsonSetter("body")
     public void setBody(String body) {
         this.body = body;
     }
 
-    @JsonGetter("body")
     public String getBody() {
         return this.body;
     }

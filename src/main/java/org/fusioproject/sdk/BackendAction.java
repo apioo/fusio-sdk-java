@@ -10,86 +10,86 @@ import com.fasterxml.jackson.annotation.*;
 @JsonClassDescription("This object represents the business logic which can be executed either through an operation or cronjob")
 public class BackendAction {
     @JsonPropertyDescription("Unique identifier for the object")
+    @JsonProperty("id")
     private Integer id;
+
     @JsonPropertyDescription("Status of the object either 1 = active or 0 = deleted")
+    @JsonProperty("status")
     private Integer status;
+
     @JsonPropertyDescription("Unique name of the object")
+    @JsonProperty("name")
     private String name;
+
     @JsonPropertyDescription("Underlying class of this action which handles the action logic")
+    @JsonProperty("class")
     private String _class;
+
     @JsonPropertyDescription("Whether to execute the action asynchronously, if true the action directly returns a 202 response and the action is executed later on in the background, useful for expensive operations")
+    @JsonProperty("async")
     private Boolean async;
+
     @JsonPropertyDescription("Contains the action specific configuration. The config depends on the action class, you can get all details of the config format by passing the class to the backend-action-getForm tool")
+    @JsonProperty("config")
     private BackendActionConfig config;
+
     @JsonPropertyDescription("Use this parameter to attach key-value data")
+    @JsonProperty("metadata")
     private CommonMetadata metadata;
 
-    @JsonSetter("id")
+
     public void setId(Integer id) {
         this.id = id;
     }
 
-    @JsonGetter("id")
     public Integer getId() {
         return this.id;
     }
 
-    @JsonSetter("status")
     public void setStatus(Integer status) {
         this.status = status;
     }
 
-    @JsonGetter("status")
     public Integer getStatus() {
         return this.status;
     }
 
-    @JsonSetter("name")
     public void setName(String name) {
         this.name = name;
     }
 
-    @JsonGetter("name")
     public String getName() {
         return this.name;
     }
 
-    @JsonSetter("class")
     public void setClass(String _class) {
         this._class = _class;
     }
 
-    @JsonGetter("class")
     public String get_Class() {
         return this._class;
     }
 
-    @JsonSetter("async")
     public void setAsync(Boolean async) {
         this.async = async;
     }
 
-    @JsonGetter("async")
     public Boolean getAsync() {
         return this.async;
     }
 
-    @JsonSetter("config")
     public void setConfig(BackendActionConfig config) {
         this.config = config;
     }
 
-    @JsonGetter("config")
     public BackendActionConfig getConfig() {
         return this.config;
     }
 
-    @JsonSetter("metadata")
     public void setMetadata(CommonMetadata metadata) {
         this.metadata = metadata;
     }
 
-    @JsonGetter("metadata")
     public CommonMetadata getMetadata() {
         return this.metadata;
     }

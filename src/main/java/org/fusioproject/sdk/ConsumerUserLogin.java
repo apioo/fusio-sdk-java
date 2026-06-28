@@ -8,36 +8,36 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.*;
 
 public class ConsumerUserLogin {
+    @JsonProperty("username")
     private String username;
+
+    @JsonProperty("password")
     private String password;
+
+    @JsonProperty("scopes")
     private java.util.List<String> scopes;
 
-    @JsonSetter("username")
+
     public void setUsername(String username) {
         this.username = username;
     }
 
-    @JsonGetter("username")
     public String getUsername() {
         return this.username;
     }
 
-    @JsonSetter("password")
     public void setPassword(String password) {
         this.password = password;
     }
 
-    @JsonGetter("password")
     public String getPassword() {
         return this.password;
     }
 
-    @JsonSetter("scopes")
     public void setScopes(java.util.List<String> scopes) {
         this.scopes = scopes;
     }
 
-    @JsonGetter("scopes")
     public java.util.List<String> getScopes() {
         return this.scopes;
     }

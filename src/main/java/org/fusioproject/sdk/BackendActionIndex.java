@@ -9,14 +9,14 @@ import com.fasterxml.jackson.annotation.*;
 
 @JsonClassDescription("Contains all possible classes which can be used at an action as class")
 public class BackendActionIndex {
+    @JsonProperty("actions")
     private java.util.List<BackendActionIndexEntry> actions;
 
-    @JsonSetter("actions")
+
     public void setActions(java.util.List<BackendActionIndexEntry> actions) {
         this.actions = actions;
     }
 
-    @JsonGetter("actions")
     public java.util.List<BackendActionIndexEntry> getActions() {
         return this.actions;
     }

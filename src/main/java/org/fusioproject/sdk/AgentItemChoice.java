@@ -10,14 +10,14 @@ import com.fasterxml.jackson.annotation.*;
 @JsonClassDescription("Choice agent message")
 public class AgentItemChoice extends AgentItem {
     @JsonPropertyDescription("Contains multiple agent items")
+    @JsonProperty("items")
     private java.util.List<AgentItem> items;
 
-    @JsonSetter("items")
+
     public void setItems(java.util.List<AgentItem> items) {
         this.items = items;
     }
 
-    @JsonGetter("items")
     public java.util.List<AgentItem> getItems() {
         return this.items;
     }

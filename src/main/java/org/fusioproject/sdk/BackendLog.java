@@ -10,110 +10,110 @@ import com.fasterxml.jackson.annotation.*;
 @JsonClassDescription("This object represents a log entry. Every HTTP requests to the system generates such a log entry.")
 public class BackendLog {
     @JsonPropertyDescription("Unique identifier for the object")
+    @JsonProperty("id")
     private Integer id;
+
     @JsonPropertyDescription("The remote IP which has initiated the request")
+    @JsonProperty("ip")
     private String ip;
+
     @JsonPropertyDescription("The user agent provided by the HTTP user agent header")
+    @JsonProperty("userAgent")
     private String userAgent;
+
     @JsonPropertyDescription("The HTTP method i.e. GET or POST")
+    @JsonProperty("method")
     private String method;
+
     @JsonPropertyDescription("The target path")
+    @JsonProperty("path")
     private String path;
+
     @JsonPropertyDescription("The provided HTTP headers")
+    @JsonProperty("header")
     private String header;
+
     @JsonPropertyDescription("The provided HTTP body")
+    @JsonProperty("body")
     private String body;
+
     @JsonPropertyDescription("Insert date of this request")
+    @JsonProperty("date")
     private java.time.LocalDateTime date;
+
     @JsonPropertyDescription("An array of errors which occurred through this request")
+    @JsonProperty("errors")
     private java.util.List<BackendLogError> errors;
 
-    @JsonSetter("id")
+
     public void setId(Integer id) {
         this.id = id;
     }
 
-    @JsonGetter("id")
     public Integer getId() {
         return this.id;
     }
 
-    @JsonSetter("ip")
     public void setIp(String ip) {
         this.ip = ip;
     }
 
-    @JsonGetter("ip")
     public String getIp() {
         return this.ip;
     }
 
-    @JsonSetter("userAgent")
     public void setUserAgent(String userAgent) {
         this.userAgent = userAgent;
     }
 
-    @JsonGetter("userAgent")
     public String getUserAgent() {
         return this.userAgent;
     }
 
-    @JsonSetter("method")
     public void setMethod(String method) {
         this.method = method;
     }
 
-    @JsonGetter("method")
     public String getMethod() {
         return this.method;
     }
 
-    @JsonSetter("path")
     public void setPath(String path) {
         this.path = path;
     }
 
-    @JsonGetter("path")
     public String getPath() {
         return this.path;
     }
 
-    @JsonSetter("header")
     public void setHeader(String header) {
         this.header = header;
     }
 
-    @JsonGetter("header")
     public String getHeader() {
         return this.header;
     }
 
-    @JsonSetter("body")
     public void setBody(String body) {
         this.body = body;
     }
 
-    @JsonGetter("body")
     public String getBody() {
         return this.body;
     }
 
-    @JsonSetter("date")
     public void setDate(java.time.LocalDateTime date) {
         this.date = date;
     }
 
-    @JsonGetter("date")
     public java.time.LocalDateTime getDate() {
         return this.date;
     }
 
-    @JsonSetter("errors")
     public void setErrors(java.util.List<BackendLogError> errors) {
         this.errors = errors;
     }
 
-    @JsonGetter("errors")
     public java.util.List<BackendLogError> getErrors() {
         return this.errors;
     }

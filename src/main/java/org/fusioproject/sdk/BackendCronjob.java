@@ -10,98 +10,98 @@ import com.fasterxml.jackson.annotation.*;
 @JsonClassDescription("This object represents a cronjob which can invoke an action at a specific interval")
 public class BackendCronjob {
     @JsonPropertyDescription("Unique identifier for the object")
+    @JsonProperty("id")
     private Integer id;
+
     @JsonPropertyDescription("Unique name of the object")
+    @JsonProperty("name")
     private String name;
+
     @JsonPropertyDescription("The cron expression i.e. */5 * * * * for every 5 minutes")
+    @JsonProperty("cron")
     private String cron;
+
     @JsonPropertyDescription("The target action which gets invoked")
+    @JsonProperty("action")
     private String action;
+
     @JsonPropertyDescription("The last execution date")
+    @JsonProperty("executeDate")
     private java.time.LocalDateTime executeDate;
+
     @JsonPropertyDescription("The last exit code")
+    @JsonProperty("exitCode")
     private Integer exitCode;
+
     @JsonPropertyDescription("Use this parameter to attach key-value data")
+    @JsonProperty("metadata")
     private CommonMetadata metadata;
+
     @JsonPropertyDescription("Contains an array of errors in case the cronjob has failed")
+    @JsonProperty("errors")
     private java.util.List<BackendCronjobError> errors;
 
-    @JsonSetter("id")
+
     public void setId(Integer id) {
         this.id = id;
     }
 
-    @JsonGetter("id")
     public Integer getId() {
         return this.id;
     }
 
-    @JsonSetter("name")
     public void setName(String name) {
         this.name = name;
     }
 
-    @JsonGetter("name")
     public String getName() {
         return this.name;
     }
 
-    @JsonSetter("cron")
     public void setCron(String cron) {
         this.cron = cron;
     }
 
-    @JsonGetter("cron")
     public String getCron() {
         return this.cron;
     }
 
-    @JsonSetter("action")
     public void setAction(String action) {
         this.action = action;
     }
 
-    @JsonGetter("action")
     public String getAction() {
         return this.action;
     }
 
-    @JsonSetter("executeDate")
     public void setExecuteDate(java.time.LocalDateTime executeDate) {
         this.executeDate = executeDate;
     }
 
-    @JsonGetter("executeDate")
     public java.time.LocalDateTime getExecuteDate() {
         return this.executeDate;
     }
 
-    @JsonSetter("exitCode")
     public void setExitCode(Integer exitCode) {
         this.exitCode = exitCode;
     }
 
-    @JsonGetter("exitCode")
     public Integer getExitCode() {
         return this.exitCode;
     }
 
-    @JsonSetter("metadata")
     public void setMetadata(CommonMetadata metadata) {
         this.metadata = metadata;
     }
 
-    @JsonGetter("metadata")
     public CommonMetadata getMetadata() {
         return this.metadata;
     }
 
-    @JsonSetter("errors")
     public void setErrors(java.util.List<BackendCronjobError> errors) {
         this.errors = errors;
     }
 
-    @JsonGetter("errors")
     public java.util.List<BackendCronjobError> getErrors() {
         return this.errors;
     }

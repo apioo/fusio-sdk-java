@@ -8,58 +8,58 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.*;
 
 public class ConsumerUserPlan {
+    @JsonProperty("id")
     private Integer id;
+
+    @JsonProperty("name")
     private String name;
+
+    @JsonProperty("price")
     private Integer price;
+
+    @JsonProperty("points")
     private Integer points;
+
+    @JsonProperty("period")
     private Integer period;
 
-    @JsonSetter("id")
+
     public void setId(Integer id) {
         this.id = id;
     }
 
-    @JsonGetter("id")
     public Integer getId() {
         return this.id;
     }
 
-    @JsonSetter("name")
     public void setName(String name) {
         this.name = name;
     }
 
-    @JsonGetter("name")
     public String getName() {
         return this.name;
     }
 
-    @JsonSetter("price")
     public void setPrice(Integer price) {
         this.price = price;
     }
 
-    @JsonGetter("price")
     public Integer getPrice() {
         return this.price;
     }
 
-    @JsonSetter("points")
     public void setPoints(Integer points) {
         this.points = points;
     }
 
-    @JsonGetter("points")
     public Integer getPoints() {
         return this.points;
     }
 
-    @JsonSetter("period")
     public void setPeriod(Integer period) {
         this.period = period;
     }
 
-    @JsonGetter("period")
     public Integer getPeriod() {
         return this.period;
     }

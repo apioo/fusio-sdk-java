@@ -10,26 +10,26 @@ import com.fasterxml.jackson.annotation.*;
 @JsonClassDescription("Represents a concrete action class")
 public class BackendActionIndexEntry {
     @JsonPropertyDescription("Human-readable name of the action class")
+    @JsonProperty("name")
     private String name;
+
     @JsonPropertyDescription("Technical identifier of the action class")
+    @JsonProperty("class")
     private String _class;
 
-    @JsonSetter("name")
+
     public void setName(String name) {
         this.name = name;
     }
 
-    @JsonGetter("name")
     public String getName() {
         return this.name;
     }
 
-    @JsonSetter("class")
     public void setClass(String _class) {
         this._class = _class;
     }
 
-    @JsonGetter("class")
     public String get_Class() {
         return this._class;
     }

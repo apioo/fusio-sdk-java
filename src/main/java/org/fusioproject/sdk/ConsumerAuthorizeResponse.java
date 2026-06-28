@@ -8,58 +8,58 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.*;
 
 public class ConsumerAuthorizeResponse {
+    @JsonProperty("type")
     private String type;
+
+    @JsonProperty("code")
     private String code;
+
+    @JsonProperty("error")
     private String error;
+
+    @JsonProperty("state")
     private String state;
+
+    @JsonProperty("redirectUri")
     private String redirectUri;
 
-    @JsonSetter("type")
+
     public void setType(String type) {
         this.type = type;
     }
 
-    @JsonGetter("type")
     public String getType() {
         return this.type;
     }
 
-    @JsonSetter("code")
     public void setCode(String code) {
         this.code = code;
     }
 
-    @JsonGetter("code")
     public String getCode() {
         return this.code;
     }
 
-    @JsonSetter("error")
     public void setError(String error) {
         this.error = error;
     }
 
-    @JsonGetter("error")
     public String getError() {
         return this.error;
     }
 
-    @JsonSetter("state")
     public void setState(String state) {
         this.state = state;
     }
 
-    @JsonGetter("state")
     public String getState() {
         return this.state;
     }
 
-    @JsonSetter("redirectUri")
     public void setRedirectUri(String redirectUri) {
         this.redirectUri = redirectUri;
     }
 
-    @JsonGetter("redirectUri")
     public String getRedirectUri() {
         return this.redirectUri;
     }

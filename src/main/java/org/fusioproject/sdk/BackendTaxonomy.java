@@ -10,38 +10,38 @@ import com.fasterxml.jackson.annotation.*;
 @JsonClassDescription("This object represents a taxonomy. A taxonomy helps to internally organize operations, actions and other entities")
 public class BackendTaxonomy {
     @JsonPropertyDescription("Unique identifier for the object")
+    @JsonProperty("id")
     private Integer id;
+
     @JsonPropertyDescription("Identifier of the parent object")
+    @JsonProperty("parentId")
     private Integer parentId;
+
     @JsonPropertyDescription("Unique name of the object")
+    @JsonProperty("name")
     private String name;
 
-    @JsonSetter("id")
+
     public void setId(Integer id) {
         this.id = id;
     }
 
-    @JsonGetter("id")
     public Integer getId() {
         return this.id;
     }
 
-    @JsonSetter("parentId")
     public void setParentId(Integer parentId) {
         this.parentId = parentId;
     }
 
-    @JsonGetter("parentId")
     public Integer getParentId() {
         return this.parentId;
     }
 
-    @JsonSetter("name")
     public void setName(String name) {
         this.name = name;
     }
 
-    @JsonGetter("name")
     public String getName() {
         return this.name;
     }

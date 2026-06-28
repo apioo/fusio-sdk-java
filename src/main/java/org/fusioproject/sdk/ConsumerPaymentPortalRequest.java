@@ -8,14 +8,14 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.*;
 
 public class ConsumerPaymentPortalRequest {
+    @JsonProperty("returnUrl")
     private String returnUrl;
 
-    @JsonSetter("returnUrl")
+
     public void setReturnUrl(String returnUrl) {
         this.returnUrl = returnUrl;
     }
 
-    @JsonGetter("returnUrl")
     public String getReturnUrl() {
         return this.returnUrl;
     }

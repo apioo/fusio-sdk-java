@@ -9,14 +9,14 @@ import com.fasterxml.jackson.annotation.*;
 
 @JsonClassDescription("Export of the complete system configuration")
 public class BackendBackupExport {
+    @JsonProperty("export")
     private String export;
 
-    @JsonSetter("export")
+
     public void setExport(String export) {
         this.export = export;
     }
 
-    @JsonGetter("export")
     public String getExport() {
         return this.export;
     }

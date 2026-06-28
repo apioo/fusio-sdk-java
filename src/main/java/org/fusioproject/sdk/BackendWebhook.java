@@ -10,69 +10,69 @@ import com.fasterxml.jackson.annotation.*;
 @JsonClassDescription("This object represents a webhook, a webhook is called in case a specific event was triggered")
 public class BackendWebhook {
     @JsonPropertyDescription("Unique identifier for the object")
+    @JsonProperty("id")
     private Integer id;
+
+    @JsonProperty("eventId")
     private Integer eventId;
+
+    @JsonProperty("userId")
     private Integer userId;
+
+    @JsonProperty("name")
     private String name;
+
+    @JsonProperty("endpoint")
     private String endpoint;
+
+    @JsonProperty("responses")
     private java.util.List<BackendWebhookResponse> responses;
 
-    @JsonSetter("id")
+
     public void setId(Integer id) {
         this.id = id;
     }
 
-    @JsonGetter("id")
     public Integer getId() {
         return this.id;
     }
 
-    @JsonSetter("eventId")
     public void setEventId(Integer eventId) {
         this.eventId = eventId;
     }
 
-    @JsonGetter("eventId")
     public Integer getEventId() {
         return this.eventId;
     }
 
-    @JsonSetter("userId")
     public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
-    @JsonGetter("userId")
     public Integer getUserId() {
         return this.userId;
     }
 
-    @JsonSetter("name")
     public void setName(String name) {
         this.name = name;
     }
 
-    @JsonGetter("name")
     public String getName() {
         return this.name;
     }
 
-    @JsonSetter("endpoint")
     public void setEndpoint(String endpoint) {
         this.endpoint = endpoint;
     }
 
-    @JsonGetter("endpoint")
     public String getEndpoint() {
         return this.endpoint;
     }
 
-    @JsonSetter("responses")
     public void setResponses(java.util.List<BackendWebhookResponse> responses) {
         this.responses = responses;
     }
 
-    @JsonGetter("responses")
     public java.util.List<BackendWebhookResponse> getResponses() {
         return this.responses;
     }

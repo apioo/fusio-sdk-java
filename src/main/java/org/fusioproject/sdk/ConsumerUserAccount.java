@@ -8,113 +8,113 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.*;
 
 public class ConsumerUserAccount {
+    @JsonProperty("id")
     private Integer id;
+
+    @JsonProperty("planId")
     private Integer planId;
+
+    @JsonProperty("status")
     private Integer status;
+
+    @JsonProperty("name")
     private String name;
+
+    @JsonProperty("email")
     private String email;
+
+    @JsonProperty("points")
     private Integer points;
+
+    @JsonProperty("scopes")
     private java.util.List<String> scopes;
+
+    @JsonProperty("plans")
     private java.util.List<ConsumerUserPlan> plans;
+
+    @JsonProperty("metadata")
     private CommonMetadata metadata;
+
+    @JsonProperty("date")
     private java.time.LocalDateTime date;
 
-    @JsonSetter("id")
+
     public void setId(Integer id) {
         this.id = id;
     }
 
-    @JsonGetter("id")
     public Integer getId() {
         return this.id;
     }
 
-    @JsonSetter("planId")
     public void setPlanId(Integer planId) {
         this.planId = planId;
     }
 
-    @JsonGetter("planId")
     public Integer getPlanId() {
         return this.planId;
     }
 
-    @JsonSetter("status")
     public void setStatus(Integer status) {
         this.status = status;
     }
 
-    @JsonGetter("status")
     public Integer getStatus() {
         return this.status;
     }
 
-    @JsonSetter("name")
     public void setName(String name) {
         this.name = name;
     }
 
-    @JsonGetter("name")
     public String getName() {
         return this.name;
     }
 
-    @JsonSetter("email")
     public void setEmail(String email) {
         this.email = email;
     }
 
-    @JsonGetter("email")
     public String getEmail() {
         return this.email;
     }
 
-    @JsonSetter("points")
     public void setPoints(Integer points) {
         this.points = points;
     }
 
-    @JsonGetter("points")
     public Integer getPoints() {
         return this.points;
     }
 
-    @JsonSetter("scopes")
     public void setScopes(java.util.List<String> scopes) {
         this.scopes = scopes;
     }
 
-    @JsonGetter("scopes")
     public java.util.List<String> getScopes() {
         return this.scopes;
     }
 
-    @JsonSetter("plans")
     public void setPlans(java.util.List<ConsumerUserPlan> plans) {
         this.plans = plans;
     }
 
-    @JsonGetter("plans")
     public java.util.List<ConsumerUserPlan> getPlans() {
         return this.plans;
     }
 
-    @JsonSetter("metadata")
     public void setMetadata(CommonMetadata metadata) {
         this.metadata = metadata;
     }
 
-    @JsonGetter("metadata")
     public CommonMetadata getMetadata() {
         return this.metadata;
     }
 
-    @JsonSetter("date")
     public void setDate(java.time.LocalDateTime date) {
         this.date = date;
     }
 
-    @JsonGetter("date")
     public java.time.LocalDateTime getDate() {
         return this.date;
     }

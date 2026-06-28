@@ -8,14 +8,14 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.*;
 
 public class BackendSchemaPreviewResponse {
+    @JsonProperty("preview")
     private String preview;
 
-    @JsonSetter("preview")
+
     public void setPreview(String preview) {
         this.preview = preview;
     }
 
-    @JsonGetter("preview")
     public String getPreview() {
         return this.preview;
     }

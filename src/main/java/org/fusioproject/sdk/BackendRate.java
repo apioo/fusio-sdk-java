@@ -10,86 +10,86 @@ import com.fasterxml.jackson.annotation.*;
 @JsonClassDescription("This object represents a rate limitation, which allows to limit the requests which a user can send")
 public class BackendRate {
     @JsonPropertyDescription("Unique identifier for the object")
+    @JsonProperty("id")
     private Integer id;
+
     @JsonPropertyDescription("All rates are applied based on the priority, higher priorities are applied first")
+    @JsonProperty("priority")
     private Integer priority;
+
     @JsonPropertyDescription("Unique name of the object")
+    @JsonProperty("name")
     private String name;
+
     @JsonPropertyDescription("Maximum number of allowed requests")
+    @JsonProperty("rateLimit")
     private Integer rateLimit;
+
     @JsonPropertyDescription("Timespan for the allowed requests")
+    @JsonProperty("timespan")
     private String timespan;
+
     @JsonPropertyDescription("Through a rate allocation a user gets assigned to a specific rate")
+    @JsonProperty("allocation")
     private java.util.List<BackendRateAllocation> allocation;
+
     @JsonPropertyDescription("Use this parameter to attach key-value data")
+    @JsonProperty("metadata")
     private CommonMetadata metadata;
 
-    @JsonSetter("id")
+
     public void setId(Integer id) {
         this.id = id;
     }
 
-    @JsonGetter("id")
     public Integer getId() {
         return this.id;
     }
 
-    @JsonSetter("priority")
     public void setPriority(Integer priority) {
         this.priority = priority;
     }
 
-    @JsonGetter("priority")
     public Integer getPriority() {
         return this.priority;
     }
 
-    @JsonSetter("name")
     public void setName(String name) {
         this.name = name;
     }
 
-    @JsonGetter("name")
     public String getName() {
         return this.name;
     }
 
-    @JsonSetter("rateLimit")
     public void setRateLimit(Integer rateLimit) {
         this.rateLimit = rateLimit;
     }
 
-    @JsonGetter("rateLimit")
     public Integer getRateLimit() {
         return this.rateLimit;
     }
 
-    @JsonSetter("timespan")
     public void setTimespan(String timespan) {
         this.timespan = timespan;
     }
 
-    @JsonGetter("timespan")
     public String getTimespan() {
         return this.timespan;
     }
 
-    @JsonSetter("allocation")
     public void setAllocation(java.util.List<BackendRateAllocation> allocation) {
         this.allocation = allocation;
     }
 
-    @JsonGetter("allocation")
     public java.util.List<BackendRateAllocation> getAllocation() {
         return this.allocation;
     }
 
-    @JsonSetter("metadata")
     public void setMetadata(CommonMetadata metadata) {
         this.metadata = metadata;
     }
 
-    @JsonGetter("metadata")
     public CommonMetadata getMetadata() {
         return this.metadata;
     }

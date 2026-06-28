@@ -10,14 +10,14 @@ import com.fasterxml.jackson.annotation.*;
 @JsonClassDescription("Structured agent message")
 public class AgentItemObject extends AgentItem {
     @JsonPropertyDescription("The structured JSON payload")
+    @JsonProperty("payload")
     private Object payload;
 
-    @JsonSetter("payload")
+
     public void setPayload(Object payload) {
         this.payload = payload;
     }
 
-    @JsonGetter("payload")
     public Object getPayload() {
         return this.payload;
     }

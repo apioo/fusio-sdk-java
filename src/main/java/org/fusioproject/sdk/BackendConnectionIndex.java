@@ -9,14 +9,14 @@ import com.fasterxml.jackson.annotation.*;
 
 @JsonClassDescription("Contains all possible classes which can be used at an connection as class")
 public class BackendConnectionIndex {
+    @JsonProperty("connections")
     private java.util.List<BackendConnectionIndexEntry> connections;
 
-    @JsonSetter("connections")
+
     public void setConnections(java.util.List<BackendConnectionIndexEntry> connections) {
         this.connections = connections;
     }
 
-    @JsonGetter("connections")
     public java.util.List<BackendConnectionIndexEntry> getConnections() {
         return this.connections;
     }

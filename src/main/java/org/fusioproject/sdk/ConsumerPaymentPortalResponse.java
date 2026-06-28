@@ -8,14 +8,14 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.*;
 
 public class ConsumerPaymentPortalResponse {
+    @JsonProperty("redirectUrl")
     private String redirectUrl;
 
-    @JsonSetter("redirectUrl")
+
     public void setRedirectUrl(String redirectUrl) {
         this.redirectUrl = redirectUrl;
     }
 
-    @JsonGetter("redirectUrl")
     public String getRedirectUrl() {
         return this.redirectUrl;
     }

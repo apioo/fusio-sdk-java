@@ -10,50 +10,50 @@ import com.fasterxml.jackson.annotation.*;
 @JsonClassDescription("This object represents a foreign key constraint on a relational database")
 public class BackendDatabaseTableForeignKeyConstraint {
     @JsonPropertyDescription("Name of the foreign key constraint")
+    @JsonProperty("name")
     private String name;
+
     @JsonPropertyDescription("Name of the foreign table")
+    @JsonProperty("foreignTable")
     private String foreignTable;
+
     @JsonPropertyDescription("Local column names")
+    @JsonProperty("localColumnNames")
     private java.util.List<String> localColumnNames;
+
     @JsonPropertyDescription("Foreign column names")
+    @JsonProperty("foreignColumnNames")
     private java.util.List<String> foreignColumnNames;
 
-    @JsonSetter("name")
+
     public void setName(String name) {
         this.name = name;
     }
 
-    @JsonGetter("name")
     public String getName() {
         return this.name;
     }
 
-    @JsonSetter("foreignTable")
     public void setForeignTable(String foreignTable) {
         this.foreignTable = foreignTable;
     }
 
-    @JsonGetter("foreignTable")
     public String getForeignTable() {
         return this.foreignTable;
     }
 
-    @JsonSetter("localColumnNames")
     public void setLocalColumnNames(java.util.List<String> localColumnNames) {
         this.localColumnNames = localColumnNames;
     }
 
-    @JsonGetter("localColumnNames")
     public java.util.List<String> getLocalColumnNames() {
         return this.localColumnNames;
     }
 
-    @JsonSetter("foreignColumnNames")
     public void setForeignColumnNames(java.util.List<String> foreignColumnNames) {
         this.foreignColumnNames = foreignColumnNames;
     }
 
-    @JsonGetter("foreignColumnNames")
     public java.util.List<String> getForeignColumnNames() {
         return this.foreignColumnNames;
     }

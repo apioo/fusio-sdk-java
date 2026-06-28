@@ -9,38 +9,38 @@ import com.fasterxml.jackson.annotation.*;
 
 public class BackendAccountChangePassword {
     @JsonPropertyDescription("The old password")
+    @JsonProperty("oldPassword")
     private String oldPassword;
+
     @JsonPropertyDescription("The new password")
+    @JsonProperty("newPassword")
     private String newPassword;
+
     @JsonPropertyDescription("To verify the new password must contain the same value as the new password")
+    @JsonProperty("verifyPassword")
     private String verifyPassword;
 
-    @JsonSetter("oldPassword")
+
     public void setOldPassword(String oldPassword) {
         this.oldPassword = oldPassword;
     }
 
-    @JsonGetter("oldPassword")
     public String getOldPassword() {
         return this.oldPassword;
     }
 
-    @JsonSetter("newPassword")
     public void setNewPassword(String newPassword) {
         this.newPassword = newPassword;
     }
 
-    @JsonGetter("newPassword")
     public String getNewPassword() {
         return this.newPassword;
     }
 
-    @JsonSetter("verifyPassword")
     public void setVerifyPassword(String verifyPassword) {
         this.verifyPassword = verifyPassword;
     }
 
-    @JsonGetter("verifyPassword")
     public String getVerifyPassword() {
         return this.verifyPassword;
     }

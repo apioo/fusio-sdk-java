@@ -8,25 +8,25 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.*;
 
 public class MarketplaceBundleSchema {
+    @JsonProperty("name")
     private String name;
+
+    @JsonProperty("source")
     private MarketplaceBundleSchemaSource source;
 
-    @JsonSetter("name")
+
     public void setName(String name) {
         this.name = name;
     }
 
-    @JsonGetter("name")
     public String getName() {
         return this.name;
     }
 
-    @JsonSetter("source")
     public void setSource(MarketplaceBundleSchemaSource source) {
         this.source = source;
     }
 
-    @JsonGetter("source")
     public MarketplaceBundleSchemaSource getSource() {
         return this.source;
     }

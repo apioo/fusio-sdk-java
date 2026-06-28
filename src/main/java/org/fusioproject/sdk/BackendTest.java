@@ -10,70 +10,70 @@ import com.fasterxml.jackson.annotation.*;
 @JsonClassDescription("This object represents a test. A test helps to verify that all operations work as expected")
 public class BackendTest {
     @JsonPropertyDescription("Unique identifier for the object")
+    @JsonProperty("id")
     private Integer id;
+
     @JsonPropertyDescription("Status of the object either 1 = pending, 2 = success, 3 = warning, 4 = error, 5 = skipped or 6 = disabled")
+    @JsonProperty("status")
     private Integer status;
+
+    @JsonProperty("operationName")
     private String operationName;
+
+    @JsonProperty("message")
     private String message;
+
+    @JsonProperty("response")
     private String response;
+
+    @JsonProperty("config")
     private BackendTestConfig config;
 
-    @JsonSetter("id")
+
     public void setId(Integer id) {
         this.id = id;
     }
 
-    @JsonGetter("id")
     public Integer getId() {
         return this.id;
     }
 
-    @JsonSetter("status")
     public void setStatus(Integer status) {
         this.status = status;
     }
 
-    @JsonGetter("status")
     public Integer getStatus() {
         return this.status;
     }
 
-    @JsonSetter("operationName")
     public void setOperationName(String operationName) {
         this.operationName = operationName;
     }
 
-    @JsonGetter("operationName")
     public String getOperationName() {
         return this.operationName;
     }
 
-    @JsonSetter("message")
     public void setMessage(String message) {
         this.message = message;
     }
 
-    @JsonGetter("message")
     public String getMessage() {
         return this.message;
     }
 
-    @JsonSetter("response")
     public void setResponse(String response) {
         this.response = response;
     }
 
-    @JsonGetter("response")
     public String getResponse() {
         return this.response;
     }
 
-    @JsonSetter("config")
     public void setConfig(BackendTestConfig config) {
         this.config = config;
     }
 
-    @JsonGetter("config")
     public BackendTestConfig getConfig() {
         return this.config;
     }

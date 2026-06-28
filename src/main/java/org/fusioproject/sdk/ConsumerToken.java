@@ -8,80 +8,80 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.*;
 
 public class ConsumerToken {
+    @JsonProperty("id")
     private Integer id;
+
+    @JsonProperty("status")
     private Integer status;
+
+    @JsonProperty("name")
     private String name;
+
+    @JsonProperty("scopes")
     private java.util.List<String> scopes;
+
+    @JsonProperty("ip")
     private String ip;
+
+    @JsonProperty("expire")
     private java.time.LocalDate expire;
+
+    @JsonProperty("date")
     private java.time.LocalDateTime date;
 
-    @JsonSetter("id")
+
     public void setId(Integer id) {
         this.id = id;
     }
 
-    @JsonGetter("id")
     public Integer getId() {
         return this.id;
     }
 
-    @JsonSetter("status")
     public void setStatus(Integer status) {
         this.status = status;
     }
 
-    @JsonGetter("status")
     public Integer getStatus() {
         return this.status;
     }
 
-    @JsonSetter("name")
     public void setName(String name) {
         this.name = name;
     }
 
-    @JsonGetter("name")
     public String getName() {
         return this.name;
     }
 
-    @JsonSetter("scopes")
     public void setScopes(java.util.List<String> scopes) {
         this.scopes = scopes;
     }
 
-    @JsonGetter("scopes")
     public java.util.List<String> getScopes() {
         return this.scopes;
     }
 
-    @JsonSetter("ip")
     public void setIp(String ip) {
         this.ip = ip;
     }
 
-    @JsonGetter("ip")
     public String getIp() {
         return this.ip;
     }
 
-    @JsonSetter("expire")
     public void setExpire(java.time.LocalDate expire) {
         this.expire = expire;
     }
 
-    @JsonGetter("expire")
     public java.time.LocalDate getExpire() {
         return this.expire;
     }
 
-    @JsonSetter("date")
     public void setDate(java.time.LocalDateTime date) {
         this.date = date;
     }
 
-    @JsonGetter("date")
     public java.time.LocalDateTime getDate() {
         return this.date;
     }

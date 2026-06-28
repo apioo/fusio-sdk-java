@@ -8,25 +8,25 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.*;
 
 public class ConsumerUserPasswordReset {
+    @JsonProperty("token")
     private String token;
+
+    @JsonProperty("newPassword")
     private String newPassword;
 
-    @JsonSetter("token")
+
     public void setToken(String token) {
         this.token = token;
     }
 
-    @JsonGetter("token")
     public String getToken() {
         return this.token;
     }
 
-    @JsonSetter("newPassword")
     public void setNewPassword(String newPassword) {
         this.newPassword = newPassword;
     }
 
-    @JsonGetter("newPassword")
     public String getNewPassword() {
         return this.newPassword;
     }

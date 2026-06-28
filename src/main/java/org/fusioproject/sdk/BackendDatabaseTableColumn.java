@@ -10,134 +10,134 @@ import com.fasterxml.jackson.annotation.*;
 @JsonClassDescription("This object represents a column at a relation table")
 public class BackendDatabaseTableColumn {
     @JsonPropertyDescription("Name of the column")
+    @JsonProperty("name")
     private String name;
+
     @JsonPropertyDescription("The column type i.e. integer or string")
+    @JsonProperty("type")
     private String type;
+
     @JsonPropertyDescription("Optional the max length of the column")
+    @JsonProperty("length")
     private Integer length;
+
     @JsonPropertyDescription("Optional the precision of the column")
+    @JsonProperty("precision")
     private Integer precision;
+
     @JsonPropertyDescription("Optional the scale of the column")
+    @JsonProperty("scale")
     private Integer scale;
+
     @JsonPropertyDescription("Indicates whether the column is unsigned, relevant for integer types")
+    @JsonProperty("unsigned")
     private Boolean unsigned;
+
     @JsonPropertyDescription("Indicates whether the column has a fixed length")
+    @JsonProperty("fixed")
     private Boolean fixed;
+
     @JsonPropertyDescription("Indicates whether the column allows null")
+    @JsonProperty("notNull")
     private Boolean notNull;
+
     @JsonPropertyDescription("Indicates whether this column is an auto increment column")
+    @JsonProperty("autoIncrement")
     private Boolean autoIncrement;
+
     @JsonPropertyDescription("Optional defines the default value")
+    @JsonProperty("default")
     private Object _default;
+
     @JsonPropertyDescription("Optional a comment for this column")
+    @JsonProperty("comment")
     private String comment;
 
-    @JsonSetter("name")
+
     public void setName(String name) {
         this.name = name;
     }
 
-    @JsonGetter("name")
     public String getName() {
         return this.name;
     }
 
-    @JsonSetter("type")
     public void setType(String type) {
         this.type = type;
     }
 
-    @JsonGetter("type")
     public String getType() {
         return this.type;
     }
 
-    @JsonSetter("length")
     public void setLength(Integer length) {
         this.length = length;
     }
 
-    @JsonGetter("length")
     public Integer getLength() {
         return this.length;
     }
 
-    @JsonSetter("precision")
     public void setPrecision(Integer precision) {
         this.precision = precision;
     }
 
-    @JsonGetter("precision")
     public Integer getPrecision() {
         return this.precision;
     }
 
-    @JsonSetter("scale")
     public void setScale(Integer scale) {
         this.scale = scale;
     }
 
-    @JsonGetter("scale")
     public Integer getScale() {
         return this.scale;
     }
 
-    @JsonSetter("unsigned")
     public void setUnsigned(Boolean unsigned) {
         this.unsigned = unsigned;
     }
 
-    @JsonGetter("unsigned")
     public Boolean getUnsigned() {
         return this.unsigned;
     }
 
-    @JsonSetter("fixed")
     public void setFixed(Boolean fixed) {
         this.fixed = fixed;
     }
 
-    @JsonGetter("fixed")
     public Boolean getFixed() {
         return this.fixed;
     }
 
-    @JsonSetter("notNull")
     public void setNotNull(Boolean notNull) {
         this.notNull = notNull;
     }
 
-    @JsonGetter("notNull")
     public Boolean getNotNull() {
         return this.notNull;
     }
 
-    @JsonSetter("autoIncrement")
     public void setAutoIncrement(Boolean autoIncrement) {
         this.autoIncrement = autoIncrement;
     }
 
-    @JsonGetter("autoIncrement")
     public Boolean getAutoIncrement() {
         return this.autoIncrement;
     }
 
-    @JsonSetter("default")
     public void setDefault(Object _default) {
         this._default = _default;
     }
 
-    @JsonGetter("default")
     public Object getDefault() {
         return this._default;
     }
 
-    @JsonSetter("comment")
     public void setComment(String comment) {
         this.comment = comment;
     }
 
-    @JsonGetter("comment")
     public String getComment() {
         return this.comment;
     }
