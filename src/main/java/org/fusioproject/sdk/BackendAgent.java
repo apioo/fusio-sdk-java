@@ -37,6 +37,10 @@ public class BackendAgent {
     @JsonProperty("introduction")
     private String introduction;
 
+    @JsonPropertyDescription("The used temperature default is 1.0")
+    @JsonProperty("temperature")
+    private Double temperature;
+
     @JsonPropertyDescription("Tools available to this agent")
     @JsonProperty("tools")
     private java.util.List<String> tools;
@@ -111,6 +115,14 @@ public class BackendAgent {
 
     public String getIntroduction() {
         return this.introduction;
+    }
+
+    public void setTemperature(Double temperature) {
+        this.temperature = temperature;
+    }
+
+    public Double getTemperature() {
+        return this.temperature;
     }
 
     public void setTools(java.util.List<String> tools) {
