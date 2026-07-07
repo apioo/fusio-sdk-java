@@ -41,6 +41,10 @@ public class BackendAgent {
     @JsonProperty("temperature")
     private Double temperature;
 
+    @JsonPropertyDescription("Costs per token")
+    @JsonProperty("costs")
+    private Integer costs;
+
     @JsonPropertyDescription("Tools available to this agent")
     @JsonProperty("tools")
     private java.util.List<String> tools;
@@ -123,6 +127,14 @@ public class BackendAgent {
 
     public Double getTemperature() {
         return this.temperature;
+    }
+
+    public void setCosts(Integer costs) {
+        this.costs = costs;
+    }
+
+    public Integer getCosts() {
+        return this.costs;
     }
 
     public void setTools(java.util.List<String> tools) {
