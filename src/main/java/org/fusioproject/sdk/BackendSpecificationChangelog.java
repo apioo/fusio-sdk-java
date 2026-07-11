@@ -18,7 +18,7 @@ public class BackendSpecificationChangelog {
     private String version;
 
     @JsonProperty("changelog")
-    private java.util.List<String> changelog;
+    private String changelog;
 
 
     public void setMaster(Object master) {
@@ -45,11 +45,11 @@ public class BackendSpecificationChangelog {
         return this.version;
     }
 
-    public void setChangelog(java.util.List<String> changelog) {
+    public void setChangelog(String changelog) {
         this.changelog = changelog;
     }
 
-    public java.util.List<String> getChangelog() {
+    public String getChangelog() {
         return this.changelog;
     }
 }
