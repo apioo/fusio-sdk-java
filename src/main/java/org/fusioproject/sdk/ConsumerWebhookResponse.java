@@ -7,16 +7,21 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Recorded delivery log response for a webhook dispatch")
 public class ConsumerWebhookResponse {
+    @JsonPropertyDescription("Internal status code of the webhook delivery process")
     @JsonProperty("status")
     private Integer status;
 
+    @JsonPropertyDescription("HTTP status code received from the destination endpoint")
     @JsonProperty("code")
     private Integer code;
 
+    @JsonPropertyDescription("Number of delivery retry attempts executed")
     @JsonProperty("attempts")
     private String attempts;
 
+    @JsonPropertyDescription("Timestamp when the webhook delivery attempt occurred")
     @JsonProperty("executeDate")
     private String executeDate;
 

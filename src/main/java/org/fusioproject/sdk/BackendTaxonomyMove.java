@@ -9,21 +9,27 @@ import com.fasterxml.jackson.annotation.*;
 
 @JsonClassDescription("Moves the provided objects to a taxonomy")
 public class BackendTaxonomyMove {
+    @JsonPropertyDescription("List of operation IDs to assign to the taxonomy")
     @JsonProperty("operations")
     private java.util.List<Integer> operations;
 
+    @JsonPropertyDescription("List of action IDs to assign to the taxonomy")
     @JsonProperty("actions")
     private java.util.List<Integer> actions;
 
+    @JsonPropertyDescription("List of schema IDs to assign to the taxonomy")
     @JsonProperty("schemas")
     private java.util.List<Integer> schemas;
 
+    @JsonPropertyDescription("List of event IDs to assign to the taxonomy")
     @JsonProperty("events")
     private java.util.List<Integer> events;
 
+    @JsonPropertyDescription("List of cronjob IDs to assign to the taxonomy")
     @JsonProperty("cronjobs")
     private java.util.List<Integer> cronjobs;
 
+    @JsonPropertyDescription("List of trigger IDs to assign to the taxonomy")
     @JsonProperty("triggers")
     private java.util.List<Integer> triggers;
 

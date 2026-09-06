@@ -9,6 +9,10 @@ import com.fasterxml.jackson.annotation.*;
 
 @JsonClassDescription("This object represents a test. A test helps to verify that all operations work as expected")
 public class BackendTest {
+    @JsonPropertyDescription("Uniquely identifies the object schema type")
+    @JsonProperty("kind")
+    private String kind;
+
     @JsonPropertyDescription("Unique identifier for the object")
     @JsonProperty("id")
     private Integer id;
@@ -17,18 +21,30 @@ public class BackendTest {
     @JsonProperty("status")
     private Integer status;
 
+    @JsonPropertyDescription("The target operation name being tested")
     @JsonProperty("operationName")
     private String operationName;
 
+    @JsonPropertyDescription("The result or error message of the test run")
     @JsonProperty("message")
     private String message;
 
+    @JsonPropertyDescription("The raw payload or output produced by the test execution")
     @JsonProperty("response")
     private String response;
 
+    @JsonPropertyDescription("The payload configuration passed to the test execution")
     @JsonProperty("config")
     private BackendTestConfig config;
 
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+
+    public String getKind() {
+        return this.kind;
+    }
 
     public void setId(Integer id) {
         this.id = id;

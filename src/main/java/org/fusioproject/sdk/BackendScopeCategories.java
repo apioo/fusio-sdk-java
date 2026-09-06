@@ -7,7 +7,9 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Container for grouping available scopes into logical categories")
 public class BackendScopeCategories {
+    @JsonPropertyDescription("List of scope categories")
     @JsonProperty("categories")
     private java.util.List<BackendScopeCategory> categories;
 

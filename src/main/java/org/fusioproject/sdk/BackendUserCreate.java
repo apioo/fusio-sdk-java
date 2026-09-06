@@ -7,7 +7,9 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Request payload to register or create a new user account")
 public class BackendUserCreate extends BackendUser {
+    @JsonPropertyDescription("Plaintext password for the user account during creation")
     @JsonProperty("password")
     private String password;
 

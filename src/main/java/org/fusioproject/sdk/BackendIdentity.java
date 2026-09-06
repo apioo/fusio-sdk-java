@@ -9,6 +9,10 @@ import com.fasterxml.jackson.annotation.*;
 
 @JsonClassDescription("This object represents an identity which allows to authenticate with a remote identity provider")
 public class BackendIdentity {
+    @JsonPropertyDescription("Uniquely identifies the object schema type")
+    @JsonProperty("kind")
+    private String kind;
+
     @JsonPropertyDescription("Unique identifier for the object")
     @JsonProperty("id")
     private Integer id;
@@ -33,12 +37,22 @@ public class BackendIdentity {
     @JsonProperty("class")
     private String _class;
 
+    @JsonPropertyDescription("Contains identity provider specific configuration values")
     @JsonProperty("config")
     private BackendIdentityConfig config;
 
+    @JsonPropertyDescription("Indicates whether a new local user account should be created if it does not exist yet")
     @JsonProperty("allowCreate")
     private Boolean allowCreate;
 
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+
+    public String getKind() {
+        return this.kind;
+    }
 
     public void setId(Integer id) {
         this.id = id;

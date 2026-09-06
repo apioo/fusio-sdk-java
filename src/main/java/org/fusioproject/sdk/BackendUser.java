@@ -9,6 +9,10 @@ import com.fasterxml.jackson.annotation.*;
 
 @JsonClassDescription("This object represents a user")
 public class BackendUser {
+    @JsonPropertyDescription("Uniquely identifies the object schema type")
+    @JsonProperty("kind")
+    private String kind;
+
     @JsonPropertyDescription("Unique identifier for the object")
     @JsonProperty("id")
     private Integer id;
@@ -41,6 +45,7 @@ public class BackendUser {
     @JsonProperty("scopes")
     private java.util.List<String> scopes;
 
+    @JsonPropertyDescription("List of applications associated with or owned by the user")
     @JsonProperty("apps")
     private java.util.List<BackendApp> apps;
 
@@ -52,6 +57,14 @@ public class BackendUser {
     @JsonProperty("date")
     private java.time.LocalDateTime date;
 
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+
+    public String getKind() {
+        return this.kind;
+    }
 
     public void setId(Integer id) {
         this.id = id;

@@ -7,16 +7,32 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Response structure detailing the outcome of an SDK generation job")
 public class BackendSdkMessage {
+    @JsonPropertyDescription("Uniquely identifies the object schema type")
+    @JsonProperty("kind")
+    private String kind;
+
+    @JsonPropertyDescription("Indicates whether the SDK build was completed successfully")
     @JsonProperty("success")
     private Boolean success;
 
+    @JsonPropertyDescription("Informational status or diagnostic message regarding SDK generation")
     @JsonProperty("message")
     private String message;
 
+    @JsonPropertyDescription("Download link to retrieve the generated SDK bundle")
     @JsonProperty("link")
     private String link;
 
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+
+    public String getKind() {
+        return this.kind;
+    }
 
     public void setSuccess(Boolean success) {
         this.success = success;

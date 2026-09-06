@@ -7,13 +7,17 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Payload for updating an existing consumer application")
 public class ConsumerAppUpdate {
+    @JsonPropertyDescription("Updated name for the application")
     @JsonProperty("name")
     private String name;
 
+    @JsonPropertyDescription("Updated URL for the application")
     @JsonProperty("url")
     private String url;
 
+    @JsonPropertyDescription("Updated list of scopes for the application")
     @JsonProperty("scopes")
     private java.util.List<String> scopes;
 

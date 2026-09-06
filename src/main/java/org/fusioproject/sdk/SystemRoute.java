@@ -8,9 +8,22 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.*;
 
 public class SystemRoute {
+    @JsonPropertyDescription("Uniquely identifies the object schema type")
+    @JsonProperty("kind")
+    private String kind;
+
+    @JsonPropertyDescription("Mapping of API endpoint paths to their supported HTTP methods and handlers")
     @JsonProperty("routes")
     private SystemRoutePath routes;
 
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+
+    public String getKind() {
+        return this.kind;
+    }
 
     public void setRoutes(SystemRoutePath routes) {
         this.routes = routes;

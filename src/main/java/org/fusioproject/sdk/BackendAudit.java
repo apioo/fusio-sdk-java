@@ -9,13 +9,19 @@ import com.fasterxml.jackson.annotation.*;
 
 @JsonClassDescription("This object represents an audit which is created every time something was changed at the system")
 public class BackendAudit {
+    @JsonPropertyDescription("Uniquely identifies the object schema type")
+    @JsonProperty("kind")
+    private String kind;
+
     @JsonPropertyDescription("Unique identifier for the object")
     @JsonProperty("id")
     private Integer id;
 
+    @JsonPropertyDescription("Application context associated with this audit event")
     @JsonProperty("app")
     private BackendApp app;
 
+    @JsonPropertyDescription("User context associated with this audit event")
     @JsonProperty("user")
     private BackendUser user;
 
@@ -39,6 +45,14 @@ public class BackendAudit {
     @JsonProperty("date")
     private java.time.LocalDateTime date;
 
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+
+    public String getKind() {
+        return this.kind;
+    }
 
     public void setId(Integer id) {
         this.id = id;

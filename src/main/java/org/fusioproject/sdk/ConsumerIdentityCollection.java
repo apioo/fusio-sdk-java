@@ -7,6 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Collection of third-party identity providers")
 public class ConsumerIdentityCollection extends CommonCollection<ConsumerIdentity> {
 }
 

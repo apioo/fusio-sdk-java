@@ -8,9 +8,11 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.*;
 
 public class SystemAboutLink {
+    @JsonPropertyDescription("The relationship type defining the target URL's connection to the current context")
     @JsonProperty("rel")
     private String rel;
 
+    @JsonPropertyDescription("The target URI for the linked resource")
     @JsonProperty("href")
     private String href;
 

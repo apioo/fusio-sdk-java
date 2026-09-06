@@ -7,6 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("This object represents a deleted item stored in the trash bin")
 public class BackendTrashData {
     @JsonPropertyDescription("Unique identifier for the object")
     @JsonProperty("id")
@@ -16,6 +17,7 @@ public class BackendTrashData {
     @JsonProperty("status")
     private Integer status;
 
+    @JsonPropertyDescription("Display name or label of the deleted entity")
     @JsonProperty("name")
     private String name;
 

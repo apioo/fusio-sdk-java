@@ -7,6 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Collection of access log records")
 public class ConsumerLogCollection extends CommonCollection<ConsumerLog> {
 }
 

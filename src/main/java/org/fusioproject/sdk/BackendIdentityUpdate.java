@@ -7,6 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Payload for updating an existing identity provider entity")
 public class BackendIdentityUpdate extends BackendIdentity {
 }
 

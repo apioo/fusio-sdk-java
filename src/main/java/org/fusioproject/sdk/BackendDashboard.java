@@ -9,33 +9,54 @@ import com.fasterxml.jackson.annotation.*;
 
 @JsonClassDescription("Represents an object containing all widget data for the dashboard")
 public class BackendDashboard {
+    @JsonPropertyDescription("Uniquely identifies the object schema type")
+    @JsonProperty("kind")
+    private String kind;
+
+    @JsonPropertyDescription("Chart showing errors logged per operation over time")
     @JsonProperty("errorsPerOperation")
     private BackendStatisticChart errorsPerOperation;
 
+    @JsonPropertyDescription("Chart showing total incoming HTTP requests over time")
     @JsonProperty("incomingRequests")
     private BackendStatisticChart incomingRequests;
 
+    @JsonPropertyDescription("Chart showing total executed transactions over time")
     @JsonProperty("incomingTransactions")
     private BackendStatisticChart incomingTransactions;
 
+    @JsonPropertyDescription("Chart displaying the most frequently invoked API operations")
     @JsonProperty("mostUsedOperations")
     private BackendStatisticChart mostUsedOperations;
 
+    @JsonPropertyDescription("Chart depicting average execution time per operation")
     @JsonProperty("timePerOperation")
     private BackendStatisticChart timePerOperation;
 
+    @JsonPropertyDescription("Chart showing automated test execution and coverage metrics")
     @JsonProperty("testCoverage")
     private BackendStatisticChart testCoverage;
 
+    @JsonPropertyDescription("Chart showing the most active user activity types")
     @JsonProperty("mostUsedActivities")
     private BackendStatisticChart mostUsedActivities;
 
+    @JsonPropertyDescription("Chart breaking down user activity frequencies")
     @JsonProperty("activitiesPerUser")
     private BackendStatisticChart activitiesPerUser;
 
+    @JsonPropertyDescription("Chart tracking user registrations over time")
     @JsonProperty("userRegistrations")
     private BackendStatisticChart userRegistrations;
 
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+
+    public String getKind() {
+        return this.kind;
+    }
 
     public void setErrorsPerOperation(BackendStatisticChart errorsPerOperation) {
         this.errorsPerOperation = errorsPerOperation;

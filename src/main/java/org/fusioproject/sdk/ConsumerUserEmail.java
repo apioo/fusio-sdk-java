@@ -7,10 +7,13 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Payload used to initiate account recovery or email requests")
 public class ConsumerUserEmail {
+    @JsonPropertyDescription("Target email address")
     @JsonProperty("email")
     private String email;
 
+    @JsonPropertyDescription("CAPTCHA challenge response token")
     @JsonProperty("captcha")
     private String captcha;
 

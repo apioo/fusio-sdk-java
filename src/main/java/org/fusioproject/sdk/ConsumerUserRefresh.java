@@ -7,7 +7,9 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Payload to request a refreshed authentication token")
 public class ConsumerUserRefresh {
+    @JsonPropertyDescription("Valid refresh token string")
     @JsonProperty("refresh_token")
     private String refreshToken;
 

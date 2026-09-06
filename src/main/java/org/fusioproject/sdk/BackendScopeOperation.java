@@ -7,10 +7,13 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Mapping defining access permissions for a specific operation within a scope")
 public class BackendScopeOperation {
+    @JsonPropertyDescription("Target operation ID mapped to the scope")
     @JsonProperty("operationId")
     private Integer operationId;
 
+    @JsonPropertyDescription("Indicates whether access to the operation is explicitly granted")
     @JsonProperty("allow")
     private Boolean allow;
 

@@ -7,37 +7,60 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("User profile and subscription status details")
 public class ConsumerUserAccount {
+    @JsonPropertyDescription("Uniquely identifies the object schema type")
+    @JsonProperty("kind")
+    private String kind;
+
+    @JsonPropertyDescription("Unique identifier for the user account")
     @JsonProperty("id")
     private Integer id;
 
+    @JsonPropertyDescription("ID of the user's currently active subscription plan")
     @JsonProperty("planId")
     private Integer planId;
 
+    @JsonPropertyDescription("Operational status code of the user account")
     @JsonProperty("status")
     private Integer status;
 
+    @JsonPropertyDescription("Full name of the user")
     @JsonProperty("name")
     private String name;
 
+    @JsonPropertyDescription("Primary email address associated with the account")
     @JsonProperty("email")
     private String email;
 
+    @JsonPropertyDescription("Current balance of available execution points/quota")
     @JsonProperty("points")
     private Integer points;
 
+    @JsonPropertyDescription("List of scopes assigned directly to the user")
     @JsonProperty("scopes")
     private java.util.List<String> scopes;
 
+    @JsonPropertyDescription("List of active plan subscriptions for the user")
     @JsonProperty("plans")
     private java.util.List<ConsumerUserPlan> plans;
 
+    @JsonPropertyDescription("Custom key-value metadata attached to the account")
     @JsonProperty("metadata")
     private CommonMetadata metadata;
 
+    @JsonPropertyDescription("Registration date of the user account")
     @JsonProperty("date")
     private java.time.LocalDateTime date;
 
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+
+    public String getKind() {
+        return this.kind;
+    }
 
     public void setId(Integer id) {
         this.id = id;

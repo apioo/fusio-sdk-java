@@ -9,18 +9,34 @@ import com.fasterxml.jackson.annotation.*;
 
 @JsonClassDescription("Base collection")
 public class CommonCollection<T> {
+    @JsonPropertyDescription("Uniquely identifies the object schema type")
+    @JsonProperty("kind")
+    private String kind;
+
+    @JsonPropertyDescription("Total number of items available in the entire collection")
     @JsonProperty("totalResults")
     private Integer totalResults;
 
+    @JsonPropertyDescription("Zero-based index of the first item contained in the current response")
     @JsonProperty("startIndex")
     private Integer startIndex;
 
+    @JsonPropertyDescription("Maximum number of items returned in a single response page")
     @JsonProperty("itemsPerPage")
     private Integer itemsPerPage;
 
+    @JsonPropertyDescription("Array containing the actual paginated collection items")
     @JsonProperty("entry")
     private java.util.List<T> entry;
 
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+
+    public String getKind() {
+        return this.kind;
+    }
 
     public void setTotalResults(Integer totalResults) {
         this.totalResults = totalResults;

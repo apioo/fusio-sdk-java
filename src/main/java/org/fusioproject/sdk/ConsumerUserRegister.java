@@ -7,16 +7,21 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Payload for registering a new user account")
 public class ConsumerUserRegister {
+    @JsonPropertyDescription("Full name of the user registering")
     @JsonProperty("name")
     private String name;
 
+    @JsonPropertyDescription("Email address for the new account")
     @JsonProperty("email")
     private String email;
 
+    @JsonPropertyDescription("Desired account password")
     @JsonProperty("password")
     private String password;
 
+    @JsonPropertyDescription("CAPTCHA challenge response token for anti-spam verification")
     @JsonProperty("captcha")
     private String captcha;
 

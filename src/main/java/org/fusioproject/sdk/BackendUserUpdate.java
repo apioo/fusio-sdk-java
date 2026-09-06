@@ -7,6 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Request payload to update existing user account information")
 public class BackendUserUpdate extends BackendUser {
 }
 

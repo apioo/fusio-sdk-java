@@ -9,25 +9,42 @@ import com.fasterxml.jackson.annotation.*;
 
 @JsonClassDescription("This object represents a webhook, a webhook is called in case a specific event was triggered")
 public class BackendWebhook {
+    @JsonPropertyDescription("Uniquely identifies the object schema type")
+    @JsonProperty("kind")
+    private String kind;
+
     @JsonPropertyDescription("Unique identifier for the object")
     @JsonProperty("id")
     private Integer id;
 
+    @JsonPropertyDescription("Unique identifier of the event that triggers this webhook")
     @JsonProperty("eventId")
     private Integer eventId;
 
+    @JsonPropertyDescription("Unique identifier of the user who owns this webhook")
     @JsonProperty("userId")
     private Integer userId;
 
+    @JsonPropertyDescription("Friendly name or identifier for the webhook configuration")
     @JsonProperty("name")
     private String name;
 
+    @JsonPropertyDescription("Target HTTP URL where payload notifications will be delivered")
     @JsonProperty("endpoint")
     private String endpoint;
 
+    @JsonPropertyDescription("Historical log of HTTP responses received from dispatch attempts")
     @JsonProperty("responses")
     private java.util.List<BackendWebhookResponse> responses;
 
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+
+    public String getKind() {
+        return this.kind;
+    }
 
     public void setId(Integer id) {
         this.id = id;

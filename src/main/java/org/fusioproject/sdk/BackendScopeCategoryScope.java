@@ -7,13 +7,17 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Simplified scope representation within a category view")
 public class BackendScopeCategoryScope {
+    @JsonPropertyDescription("Unique identifier for the scope")
     @JsonProperty("id")
     private Integer id;
 
+    @JsonPropertyDescription("Unique name of the scope")
     @JsonProperty("name")
     private String name;
 
+    @JsonPropertyDescription("Short description explaining the scope purpose")
     @JsonProperty("description")
     private String description;
 

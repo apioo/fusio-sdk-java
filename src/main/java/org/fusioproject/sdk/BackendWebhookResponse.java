@@ -7,22 +7,29 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Log record representing an execution attempt and delivery response for a webhook target")
 public class BackendWebhookResponse {
+    @JsonPropertyDescription("Unique identifier for the webhook response log entry")
     @JsonProperty("id")
     private Integer id;
 
+    @JsonPropertyDescription("Internal status code of the webhook delivery attempt")
     @JsonProperty("status")
     private Integer status;
 
+    @JsonPropertyDescription("HTTP status code returned by the remote webhook endpoint")
     @JsonProperty("code")
     private Integer code;
 
+    @JsonPropertyDescription("Number of retry attempts executed for this webhook dispatch")
     @JsonProperty("attempts")
     private Integer attempts;
 
+    @JsonPropertyDescription("Error message details if the delivery attempt failed")
     @JsonProperty("error")
     private String error;
 
+    @JsonPropertyDescription("Timestamp when the webhook dispatch was attempted")
     @JsonProperty("executeDate")
     private java.time.LocalDateTime executeDate;
 

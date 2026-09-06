@@ -7,6 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Collection of dynamic form definitions")
 public class ConsumerFormCollection extends CommonCollection<ConsumerForm> {
 }
 

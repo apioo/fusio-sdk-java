@@ -9,10 +9,15 @@ import com.fasterxml.jackson.annotation.*;
 
 @JsonClassDescription("This object represents an app to access the API on-behalf of a user")
 public class BackendApp {
+    @JsonPropertyDescription("Uniquely identifies the object schema type")
+    @JsonProperty("kind")
+    private String kind;
+
     @JsonPropertyDescription("Unique identifier for the object")
     @JsonProperty("id")
     private Integer id;
 
+    @JsonPropertyDescription("Unique identifier of the owning user")
     @JsonProperty("userId")
     private Integer userId;
 
@@ -56,6 +61,14 @@ public class BackendApp {
     @JsonProperty("tokens")
     private java.util.List<BackendToken> tokens;
 
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+
+    public String getKind() {
+        return this.kind;
+    }
 
     public void setId(Integer id) {
         this.id = id;

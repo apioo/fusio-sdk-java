@@ -7,16 +7,21 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Represents structural changelog differences between specification versions")
 public class BackendSpecificationChangelog {
+    @JsonPropertyDescription("Specification content corresponding to the current master definition")
     @JsonProperty("master")
     private Object master;
 
+    @JsonPropertyDescription("Specification content corresponding to the target tagged version")
     @JsonProperty("tag")
     private Object tag;
 
+    @JsonPropertyDescription("Version identifier for the tag release")
     @JsonProperty("version")
     private String version;
 
+    @JsonPropertyDescription("Formatted summary detailing API changes between master and tag")
     @JsonProperty("changelog")
     private String changelog;
 

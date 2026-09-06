@@ -13,6 +13,7 @@ public class AgentOutput {
     @JsonProperty("id")
     private String id;
 
+    @JsonPropertyDescription("The response payload item produced by the agent")
     @JsonProperty("item")
     private AgentItem item;
 

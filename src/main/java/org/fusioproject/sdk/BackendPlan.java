@@ -9,6 +9,10 @@ import com.fasterxml.jackson.annotation.*;
 
 @JsonClassDescription("This object represents a plan, a plan allows users to obtain points or in general subscribe to your app")
 public class BackendPlan {
+    @JsonPropertyDescription("Uniquely identifies the object schema type")
+    @JsonProperty("kind")
+    private String kind;
+
     @JsonPropertyDescription("Unique identifier for the object")
     @JsonProperty("id")
     private Integer id;
@@ -45,6 +49,14 @@ public class BackendPlan {
     @JsonProperty("metadata")
     private CommonMetadata metadata;
 
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+
+    public String getKind() {
+        return this.kind;
+    }
 
     public void setId(Integer id) {
         this.id = id;

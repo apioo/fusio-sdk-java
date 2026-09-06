@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.*;
 
 @JsonClassDescription("Contains all possible classes which can be used at an generator as class")
 public class BackendGeneratorIndexProviders {
+    @JsonPropertyDescription("List of available generator provider entries")
     @JsonProperty("providers")
     private java.util.List<BackendGeneratorIndexProvider> providers;
 

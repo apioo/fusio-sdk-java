@@ -9,6 +9,10 @@ import com.fasterxml.jackson.annotation.*;
 
 @JsonClassDescription("Represents an action execution response")
 public class BackendActionExecuteResponse {
+    @JsonPropertyDescription("Uniquely identifies the object schema type")
+    @JsonProperty("kind")
+    private String kind;
+
     @JsonPropertyDescription("HTTP status code i.e. 200, 400, etc.")
     @JsonProperty("statusCode")
     private Integer statusCode;
@@ -21,6 +25,14 @@ public class BackendActionExecuteResponse {
     @JsonProperty("body")
     private BackendActionExecuteResponseBody body;
 
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+
+    public String getKind() {
+        return this.kind;
+    }
 
     public void setStatusCode(Integer statusCode) {
         this.statusCode = statusCode;

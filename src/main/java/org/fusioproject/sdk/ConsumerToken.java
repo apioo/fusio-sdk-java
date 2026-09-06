@@ -7,28 +7,48 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Personal access token entity generated for consumer access")
 public class ConsumerToken {
+    @JsonPropertyDescription("Uniquely identifies the object schema type")
+    @JsonProperty("kind")
+    private String kind;
+
+    @JsonPropertyDescription("Unique identifier for the token")
     @JsonProperty("id")
     private Integer id;
 
+    @JsonPropertyDescription("Status code indicating if the token is active or revoked")
     @JsonProperty("status")
     private Integer status;
 
+    @JsonPropertyDescription("User-assigned label or name for the token")
     @JsonProperty("name")
     private String name;
 
+    @JsonPropertyDescription("List of scopes assigned to this token")
     @JsonProperty("scopes")
     private java.util.List<String> scopes;
 
+    @JsonPropertyDescription("IP address restriction associated with the token")
     @JsonProperty("ip")
     private String ip;
 
+    @JsonPropertyDescription("Expiration date of the access token")
     @JsonProperty("expire")
     private java.time.LocalDate expire;
 
+    @JsonPropertyDescription("Creation date of the token")
     @JsonProperty("date")
     private java.time.LocalDateTime date;
 
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+
+    public String getKind() {
+        return this.kind;
+    }
 
     public void setId(Integer id) {
         this.id = id;

@@ -7,19 +7,36 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Represents an event trigger definition within the platform")
 public class ConsumerEvent {
+    @JsonPropertyDescription("Uniquely identifies the object schema type")
+    @JsonProperty("kind")
+    private String kind;
+
+    @JsonPropertyDescription("Unique identifier for the event")
     @JsonProperty("id")
     private Integer id;
 
+    @JsonPropertyDescription("Name of the event")
     @JsonProperty("name")
     private String name;
 
+    @JsonPropertyDescription("Detailed description of when and why this event fires")
     @JsonProperty("description")
     private String description;
 
+    @JsonPropertyDescription("Custom metadata key-value mapping")
     @JsonProperty("metadata")
     private CommonMetadata metadata;
 
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+
+    public String getKind() {
+        return this.kind;
+    }
 
     public void setId(Integer id) {
         this.id = id;

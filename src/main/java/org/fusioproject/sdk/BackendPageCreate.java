@@ -7,6 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Payload for creating a new portal page")
 public class BackendPageCreate extends BackendPage {
 }
 

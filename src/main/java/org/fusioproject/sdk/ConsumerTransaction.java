@@ -7,37 +7,60 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Billing transaction record for quota or subscription purchases")
 public class ConsumerTransaction {
+    @JsonPropertyDescription("Uniquely identifies the object schema type")
+    @JsonProperty("kind")
+    private String kind;
+
+    @JsonPropertyDescription("Unique identifier for the transaction record")
     @JsonProperty("id")
     private Integer id;
 
+    @JsonPropertyDescription("ID of the user who executed the transaction")
     @JsonProperty("userId")
     private Integer userId;
 
+    @JsonPropertyDescription("ID of the subscription plan purchased")
     @JsonProperty("planId")
     private Integer planId;
 
+    @JsonPropertyDescription("Plan details associated with the transaction")
     @JsonProperty("plan")
     private ConsumerPlan plan;
 
+    @JsonPropertyDescription("External payment processor transaction reference ID")
     @JsonProperty("transactionId")
     private String transactionId;
 
+    @JsonPropertyDescription("Monetary amount billed for the transaction")
     @JsonProperty("amount")
     private Double amount;
 
+    @JsonPropertyDescription("Number of points credited to the user account")
     @JsonProperty("points")
     private Double points;
 
+    @JsonPropertyDescription("Start timestamp of the active billing period")
     @JsonProperty("periodStart")
     private java.time.LocalDateTime periodStart;
 
+    @JsonPropertyDescription("End timestamp of the active billing period")
     @JsonProperty("periodEnd")
     private java.time.LocalDateTime periodEnd;
 
+    @JsonPropertyDescription("Timestamp when the transaction was recorded")
     @JsonProperty("insertDate")
     private java.time.LocalDateTime insertDate;
 
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+
+    public String getKind() {
+        return this.kind;
+    }
 
     public void setId(Integer id) {
         this.id = id;

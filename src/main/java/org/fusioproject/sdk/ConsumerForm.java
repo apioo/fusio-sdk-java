@@ -7,28 +7,48 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Dynamic form configuration entity")
 public class ConsumerForm {
+    @JsonPropertyDescription("Uniquely identifies the object schema type")
+    @JsonProperty("kind")
+    private String kind;
+
+    @JsonPropertyDescription("Unique identifier for the form")
     @JsonProperty("id")
     private Integer id;
 
+    @JsonPropertyDescription("Name of the form")
     @JsonProperty("name")
     private String name;
 
+    @JsonPropertyDescription("Target action path or route triggered on form submission")
     @JsonProperty("action")
     private String action;
 
+    @JsonPropertyDescription("HTTP method used to submit the form (e.g., POST)")
     @JsonProperty("method")
     private String method;
 
+    @JsonPropertyDescription("JSON Schema validating form structure and data inputs")
     @JsonProperty("jsonSchema")
     private Object jsonSchema;
 
+    @JsonPropertyDescription("UI schema defining control layout and widget presentation options")
     @JsonProperty("uiSchema")
     private Object uiSchema;
 
+    @JsonPropertyDescription("Custom metadata key-value mapping")
     @JsonProperty("metadata")
     private CommonMetadata metadata;
 
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+
+    public String getKind() {
+        return this.kind;
+    }
 
     public void setId(Integer id) {
         this.id = id;

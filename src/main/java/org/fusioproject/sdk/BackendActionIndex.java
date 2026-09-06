@@ -9,9 +9,22 @@ import com.fasterxml.jackson.annotation.*;
 
 @JsonClassDescription("Contains all possible classes which can be used at an action as class")
 public class BackendActionIndex {
+    @JsonPropertyDescription("Uniquely identifies the object schema type")
+    @JsonProperty("kind")
+    private String kind;
+
+    @JsonPropertyDescription("List of available action class entries")
     @JsonProperty("actions")
     private java.util.List<BackendActionIndexEntry> actions;
 
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+
+    public String getKind() {
+        return this.kind;
+    }
 
     public void setActions(java.util.List<BackendActionIndexEntry> actions) {
         this.actions = actions;

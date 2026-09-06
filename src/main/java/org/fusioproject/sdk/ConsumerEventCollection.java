@@ -7,6 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Collection of event definitions")
 public class ConsumerEventCollection extends CommonCollection<ConsumerEvent> {
 }
 

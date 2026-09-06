@@ -7,10 +7,13 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Request payload to initiate a checkout flow for a plan")
 public class ConsumerPaymentCheckoutRequest {
+    @JsonPropertyDescription("Target subscription plan ID to purchase")
     @JsonProperty("planId")
     private Integer planId;
 
+    @JsonPropertyDescription("URL where the user is redirected after successful payment completion")
     @JsonProperty("returnUrl")
     private String returnUrl;
 

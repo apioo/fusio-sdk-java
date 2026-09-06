@@ -7,10 +7,13 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Represents dataset structures formatted for rendering statistic charts")
 public class BackendStatisticChart {
+    @JsonPropertyDescription("X-axis labels or time units for the statistic chart")
     @JsonProperty("labels")
     private java.util.List<String> labels;
 
+    @JsonPropertyDescription("Data series elements displayed within the chart")
     @JsonProperty("series")
     private java.util.List<BackendStatisticChartSeries> series;
 

@@ -7,7 +7,9 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("List of available entity types that can be restored from the trash")
 public class BackendTrashTypes {
+    @JsonPropertyDescription("Array of restorably deleted object type identifiers")
     @JsonProperty("types")
     private java.util.List<String> types;
 

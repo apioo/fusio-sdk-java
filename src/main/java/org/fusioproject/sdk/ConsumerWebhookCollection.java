@@ -7,6 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Collection of webhook subscriptions")
 public class ConsumerWebhookCollection extends CommonCollection<ConsumerWebhook> {
 }
 

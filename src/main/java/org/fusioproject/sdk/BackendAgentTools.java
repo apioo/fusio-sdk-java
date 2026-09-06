@@ -9,9 +9,22 @@ import com.fasterxml.jackson.annotation.*;
 
 @JsonClassDescription("Represents a collection of available tools")
 public class BackendAgentTools {
+    @JsonPropertyDescription("Uniquely identifies the object schema type")
+    @JsonProperty("kind")
+    private String kind;
+
+    @JsonPropertyDescription("List of available tools for agent invocation")
     @JsonProperty("tools")
     private java.util.List<BackendAgentTool> tools;
 
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+
+    public String getKind() {
+        return this.kind;
+    }
 
     public void setTools(java.util.List<BackendAgentTool> tools) {
         this.tools = tools;

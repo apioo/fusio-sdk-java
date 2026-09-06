@@ -7,13 +7,17 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Represents a preview changelog of entities created or updated by a generator run")
 public class BackendGeneratorProviderChangelog {
+    @JsonPropertyDescription("List of schemas affected or generated")
     @JsonProperty("schemas")
     private java.util.List<BackendSchema> schemas;
 
+    @JsonPropertyDescription("List of actions affected or generated")
     @JsonProperty("actions")
     private java.util.List<BackendAction> actions;
 
+    @JsonPropertyDescription("List of operations affected or generated")
     @JsonProperty("operations")
     private java.util.List<BackendOperation> operations;
 

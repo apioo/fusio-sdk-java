@@ -9,9 +9,22 @@ import com.fasterxml.jackson.annotation.*;
 
 @JsonClassDescription("Contains all possible classes which can be used at an connection as class")
 public class BackendConnectionIndex {
+    @JsonPropertyDescription("Uniquely identifies the object schema type")
+    @JsonProperty("kind")
+    private String kind;
+
+    @JsonPropertyDescription("List of available connection class entries")
     @JsonProperty("connections")
     private java.util.List<BackendConnectionIndexEntry> connections;
 
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+
+    public String getKind() {
+        return this.kind;
+    }
 
     public void setConnections(java.util.List<BackendConnectionIndexEntry> connections) {
         this.connections = connections;

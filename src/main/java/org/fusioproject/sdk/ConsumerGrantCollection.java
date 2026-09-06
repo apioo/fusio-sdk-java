@@ -7,6 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Collection of user authorization grant records")
 public class ConsumerGrantCollection extends CommonCollection<ConsumerGrant> {
 }
 

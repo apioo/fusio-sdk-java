@@ -7,19 +7,25 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Active plan summary associated with a user")
 public class ConsumerUserPlan {
+    @JsonPropertyDescription("Unique identifier for the assigned plan")
     @JsonProperty("id")
     private Integer id;
 
+    @JsonPropertyDescription("Name of the assigned plan")
     @JsonProperty("name")
     private String name;
 
+    @JsonPropertyDescription("Price of the plan")
     @JsonProperty("price")
     private Integer price;
 
+    @JsonPropertyDescription("Points granted by the plan")
     @JsonProperty("points")
     private Integer points;
 
+    @JsonPropertyDescription("Billing period interval classification code")
     @JsonProperty("period")
     private Integer period;
 

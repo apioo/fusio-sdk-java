@@ -7,10 +7,13 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Payload for updating an existing personal access token")
 public class ConsumerTokenUpdate {
+    @JsonPropertyDescription("Updated name for the token")
     @JsonProperty("name")
     private String name;
 
+    @JsonPropertyDescription("Updated expiration date for the token")
     @JsonProperty("expire")
     private java.time.LocalDate expire;
 

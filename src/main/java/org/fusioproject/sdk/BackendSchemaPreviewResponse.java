@@ -7,7 +7,9 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Response container for a generated schema code preview")
 public class BackendSchemaPreviewResponse {
+    @JsonPropertyDescription("The formatted source code preview generated from the schema")
     @JsonProperty("preview")
     private String preview;
 

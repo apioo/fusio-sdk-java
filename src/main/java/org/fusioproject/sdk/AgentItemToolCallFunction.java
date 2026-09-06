@@ -9,12 +9,15 @@ import com.fasterxml.jackson.annotation.*;
 
 @JsonClassDescription("Concrete values for a function tool call")
 public class AgentItemToolCallFunction {
+    @JsonPropertyDescription("Unique identifier for the function call execution context")
     @JsonProperty("id")
     private String id;
 
+    @JsonPropertyDescription("The name of the targeted tool or function to execute")
     @JsonProperty("name")
     private String name;
 
+    @JsonPropertyDescription("JSON string of arguments passed into the function call")
     @JsonProperty("arguments")
     private String arguments;
 

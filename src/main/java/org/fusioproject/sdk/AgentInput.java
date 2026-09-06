@@ -13,6 +13,7 @@ public class AgentInput {
     @JsonProperty("previousId")
     private String previousId;
 
+    @JsonPropertyDescription("The payload item sent to the agent")
     @JsonProperty("item")
     private AgentItem item;
 

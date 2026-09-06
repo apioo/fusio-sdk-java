@@ -7,6 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Collection of content page entries")
 public class ConsumerPageCollection extends CommonCollection<ConsumerPage> {
 }
 

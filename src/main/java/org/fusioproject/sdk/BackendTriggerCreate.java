@@ -7,6 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Request payload to create a new trigger")
 public class BackendTriggerCreate extends BackendTrigger {
 }
 
