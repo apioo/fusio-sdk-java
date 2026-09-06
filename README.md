@@ -21,821 +21,821 @@ BackendUser response = client.authorization().getwhoami();
 CommonMessage response = client.authorization().revoke();
 
 // Changes the password of the authenticated user.
-CommonMessage response = client.backend().accountChangepassword(new BackendAccountchangepassword());
+CommonMessage response = client.backend().account().changepassword(new BackendAccountchangepassword());
 
 // Returns user data of the authenticated user.
-BackendUser response = client.backend().accountGet();
+BackendUser response = client.backend().account().get();
 
 // Updates user data of the authenticated user.
-CommonMessage response = client.backend().accountUpdate(new BackendUserupdate());
+CommonMessage response = client.backend().account().update(new BackendUserupdate());
 
 // Creates a new action.
-CommonMessage response = client.backend().actionCreate(new BackendActioncreate());
+CommonMessage response = client.backend().action().create(new BackendActioncreate());
 
 // Deletes an existing action.
-CommonMessage response = client.backend().actionDelete("action_id");
+CommonMessage response = client.backend().action().delete("action_id");
 
 // Executes a specific action.
-BackendActionexecuteresponse response = client.backend().actionExecute("action_id", new BackendActionexecuterequest());
+BackendActionexecuteresponse response = client.backend().action().execute("action_id", new BackendActionexecuterequest());
 
 // Returns a specific action.
-BackendAction response = client.backend().actionGet("action_id");
+BackendAction response = client.backend().action().get("action_id");
 
 // Returns a paginated list of actions.
-BackendActioncollection response = client.backend().actionGetall(1, 1, "search");
+BackendActioncollection response = client.backend().action().getall(1, 1, "search");
 
 // Returns all available action classes.
-BackendActionindex response = client.backend().actionGetclasses();
+BackendActionindex response = client.backend().action().getclasses();
 
 // Returns a paginated list of action commits.
-BackendActioncommitcollection response = client.backend().actionGetcommits("action_id", 1, 1, "search");
+BackendActioncommitcollection response = client.backend().action().getcommits("action_id", 1, 1, "search");
 
 // Returns the action config form.
-CommonFormcontainer response = client.backend().actionGetform("class");
+CommonFormcontainer response = client.backend().action().getform("class");
 
 // Updates an existing action.
-CommonMessage response = client.backend().actionUpdate("action_id", new BackendActionupdate());
+CommonMessage response = client.backend().action().update("action_id", new BackendActionupdate());
 
 // Creates a new agent.
-CommonMessage response = client.backend().agentCreate(new BackendAgentcreate());
+CommonMessage response = client.backend().agent().create(new BackendAgentcreate());
 
 // Deletes an existing agent.
-CommonMessage response = client.backend().agentDelete("agent_id");
+CommonMessage response = client.backend().agent().delete("agent_id");
 
 // Returns a specific agent.
-BackendAgent response = client.backend().agentGet("agent_id");
+BackendAgent response = client.backend().agent().get("agent_id");
 
 // Returns a paginated list of agents.
-BackendAgentcollection response = client.backend().agentGetall(1, 1, "search");
+BackendAgentcollection response = client.backend().agent().getall(1, 1, "search");
 
 // Returns available tools for an agent.
-BackendAgenttools response = client.backend().agentGettools();
+BackendAgenttools response = client.backend().agent().gettools();
 
 // Returns a paginated list of agent messages.
-BackendAgentmessagecollection response = client.backend().agentMessageGetall("agent_id", "chat_id");
+BackendAgentmessagecollection response = client.backend().agent().message().getall("agent_id", "chat_id");
 
 // Submits a new agent message.
-AgentOutput response = client.backend().agentMessageSubmit("agent_id", new AgentInput());
+AgentOutput response = client.backend().agent().message().submit("agent_id", new AgentInput());
 
 // Updates an existing agent.
-CommonMessage response = client.backend().agentUpdate("agent_id", new BackendAgentupdate());
+CommonMessage response = client.backend().agent().update("agent_id", new BackendAgentupdate());
 
 // Creates a new app.
-CommonMessage response = client.backend().appCreate(new BackendAppcreate());
+CommonMessage response = client.backend().app().create(new BackendAppcreate());
 
 // Deletes an existing app.
-CommonMessage response = client.backend().appDelete("app_id");
+CommonMessage response = client.backend().app().delete("app_id");
 
 // Deletes an existing token from an app.
-CommonMessage response = client.backend().appDeletetoken("app_id", "token_id");
+CommonMessage response = client.backend().app().deletetoken("app_id", "token_id");
 
 // Returns a specific app.
-BackendApp response = client.backend().appGet("app_id");
+BackendApp response = client.backend().app().get("app_id");
 
 // Returns a paginated list of apps.
-BackendAppcollection response = client.backend().appGetall(1, 1, "search");
+BackendAppcollection response = client.backend().app().getall(1, 1, "search");
 
 // Updates an existing app.
-CommonMessage response = client.backend().appUpdate("app_id", new BackendAppupdate());
+CommonMessage response = client.backend().app().update("app_id", new BackendAppupdate());
 
 // Returns a specific audit.
-BackendAudit response = client.backend().auditGet("audit_id");
+BackendAudit response = client.backend().audit().get("audit_id");
 
 // Returns a paginated list of audits.
-BackendAuditcollection response = client.backend().auditGetall(1, 1, "search", "from", "to", 1, 1, "event", "ip", "message");
+BackendAuditcollection response = client.backend().audit().getall(1, 1, "search", "from", "to", 1, 1, "event", "ip", "message");
 
 // Generates an backup of the current system.
-BackendBackupexport response = client.backend().backupExport();
+BackendBackupexport response = client.backend().backup().export();
 
 // Imports an backup to the current system.
-BackendBackupimportresult response = client.backend().backupImport(new BackendBackupimport());
+BackendBackupimportresult response = client.backend().backup().import(new BackendBackupimport());
 
 // Creates a new bundle.
-CommonMessage response = client.backend().bundleCreate(new BackendBundlecreate());
+CommonMessage response = client.backend().bundle().create(new BackendBundlecreate());
 
 // Deletes an existing bundle.
-CommonMessage response = client.backend().bundleDelete("bundle_id");
+CommonMessage response = client.backend().bundle().delete("bundle_id");
 
 // Returns a specific bundle.
-BackendBundle response = client.backend().bundleGet("bundle_id");
+BackendBundle response = client.backend().bundle().get("bundle_id");
 
 // Returns a paginated list of bundles.
-BackendBundlecollection response = client.backend().bundleGetall(1, 1, "search");
+BackendBundlecollection response = client.backend().bundle().getall(1, 1, "search");
 
 // Publish an existing bundle to the marketplace.
-CommonMessage response = client.backend().bundlePublish("bundle_id");
+CommonMessage response = client.backend().bundle().publish("bundle_id");
 
 // Updates an existing bundle.
-CommonMessage response = client.backend().bundleUpdate("bundle_id", new BackendBundleupdate());
+CommonMessage response = client.backend().bundle().update("bundle_id", new BackendBundleupdate());
 
 // Creates a new category.
-CommonMessage response = client.backend().categoryCreate(new BackendCategorycreate());
+CommonMessage response = client.backend().category().create(new BackendCategorycreate());
 
 // Deletes an existing category.
-CommonMessage response = client.backend().categoryDelete("category_id");
+CommonMessage response = client.backend().category().delete("category_id");
 
 // Returns a specific category.
-BackendCategory response = client.backend().categoryGet("category_id");
+BackendCategory response = client.backend().category().get("category_id");
 
 // Returns a paginated list of categories.
-BackendCategorycollection response = client.backend().categoryGetall(1, 1, "search");
+BackendCategorycollection response = client.backend().category().getall(1, 1, "search");
 
 // Updates an existing category.
-CommonMessage response = client.backend().categoryUpdate("category_id", new BackendCategoryupdate());
+CommonMessage response = client.backend().category().update("category_id", new BackendCategoryupdate());
 
 // Returns a specific config.
-BackendConfig response = client.backend().configGet("config_id");
+BackendConfig response = client.backend().config().get("config_id");
 
 // Returns a paginated list of configuration values.
-BackendConfigcollection response = client.backend().configGetall(1, 1, "search");
+BackendConfigcollection response = client.backend().config().getall(1, 1, "search");
 
 // Updates an existing config value.
-CommonMessage response = client.backend().configUpdate("config_id", new BackendConfigupdate());
+CommonMessage response = client.backend().config().update("config_id", new BackendConfigupdate());
 
 // Sends a message to an agent.
-AgentOutput response = client.backend().connectionAgentSend("connection_id", new AgentInput());
+AgentOutput response = client.backend().connection().agent().send("connection_id", new AgentInput());
 
 // Creates a new connection.
-CommonMessage response = client.backend().connectionCreate(new BackendConnectioncreate());
+CommonMessage response = client.backend().connection().create(new BackendConnectioncreate());
 
 // Creates a new row at a table on a database.
-CommonMessage response = client.backend().connectionDatabaseCreaterow("connection_id", "table_name", new BackendDatabaserow());
+CommonMessage response = client.backend().connection().database().createrow("connection_id", "table_name", new BackendDatabaserow());
 
 // Creates a new table on a database.
-CommonMessage response = client.backend().connectionDatabaseCreatetable("connection_id", new BackendDatabasetable());
+CommonMessage response = client.backend().connection().database().createtable("connection_id", new BackendDatabasetable());
 
 // Deletes an existing row at a table on a database.
-CommonMessage response = client.backend().connectionDatabaseDeleterow("connection_id", "table_name", "id");
+CommonMessage response = client.backend().connection().database().deleterow("connection_id", "table_name", "id");
 
 // Deletes an existing table on a database.
-CommonMessage response = client.backend().connectionDatabaseDeletetable("connection_id", "table_name");
+CommonMessage response = client.backend().connection().database().deletetable("connection_id", "table_name");
 
 // Returns a specific row at a table on a database.
-BackendDatabaserow response = client.backend().connectionDatabaseGetrow("connection_id", "table_name", "id");
+BackendDatabaserow response = client.backend().connection().database().getrow("connection_id", "table_name", "id");
 
 // Returns paginated rows at a table on a database.
-BackendDatabaserowcollection response = client.backend().connectionDatabaseGetrows("connection_id", "table_name", 1, 1, "filterBy", "filterOp", "filterValue", "sortBy", "sortOrder", "columns");
+BackendDatabaserowcollection response = client.backend().connection().database().getrows("connection_id", "table_name", 1, 1, "filterBy", "filterOp", "filterValue", "sortBy", "sortOrder", "columns");
 
 // Returns the schema of a specific table on a database.
-BackendDatabasetable response = client.backend().connectionDatabaseGettable("connection_id", "table_name");
+BackendDatabasetable response = client.backend().connection().database().gettable("connection_id", "table_name");
 
 // Returns all available tables on a database.
-BackendDatabasetablecollection response = client.backend().connectionDatabaseGettables("connection_id", 1, 1);
+BackendDatabasetablecollection response = client.backend().connection().database().gettables("connection_id", 1, 1);
 
 // Updates an existing row at a table on a database.
-CommonMessage response = client.backend().connectionDatabaseUpdaterow("connection_id", "table_name", "id", new BackendDatabaserow());
+CommonMessage response = client.backend().connection().database().updaterow("connection_id", "table_name", "id", new BackendDatabaserow());
 
 // Updates an existing table on a database.
-CommonMessage response = client.backend().connectionDatabaseUpdatetable("connection_id", "table_name", new BackendDatabasetable());
+CommonMessage response = client.backend().connection().database().updatetable("connection_id", "table_name", new BackendDatabasetable());
 
 // Deletes an existing connection.
-CommonMessage response = client.backend().connectionDelete("connection_id");
+CommonMessage response = client.backend().connection().delete("connection_id");
 
 // Uploads one or more files on the filesystem connection.
-CommonMessage response = client.backend().connectionFilesystemCreate("connection_id", new Object());
+CommonMessage response = client.backend().connection().filesystem().create("connection_id", new Object());
 
 // Deletes an existing file on the filesystem connection.
-CommonMessage response = client.backend().connectionFilesystemDelete("connection_id", "file_id");
+CommonMessage response = client.backend().connection().filesystem().delete("connection_id", "file_id");
 
 // Returns the content of the provided file id on the filesystem connection.
-client.backend().connectionFilesystemGet("connection_id", "file_id");
+client.backend().connection().filesystem().get("connection_id", "file_id");
 
 // Returns all available files on the filesystem connection.
-BackendFilecollection response = client.backend().connectionFilesystemGetall("connection_id", 1, 1);
+BackendFilecollection response = client.backend().connection().filesystem().getall("connection_id", 1, 1);
 
 // Updates an existing file on the filesystem connection.
-CommonMessage response = client.backend().connectionFilesystemUpdate("connection_id", "file_id", new Object());
+CommonMessage response = client.backend().connection().filesystem().update("connection_id", "file_id", new Object());
 
 // Returns a specific connection.
-BackendConnection response = client.backend().connectionGet("connection_id");
+BackendConnection response = client.backend().connection().get("connection_id");
 
 // Returns a paginated list of connections.
-BackendConnectioncollection response = client.backend().connectionGetall(1, 1, "search", "class");
+BackendConnectioncollection response = client.backend().connection().getall(1, 1, "search", "class");
 
 // Returns all available connection classes.
-BackendConnectionindex response = client.backend().connectionGetclasses();
+BackendConnectionindex response = client.backend().connection().getclasses();
 
 // Returns the connection config form.
-CommonFormcontainer response = client.backend().connectionGetform("class");
+CommonFormcontainer response = client.backend().connection().getform("class");
 
 // Returns a redirect url to start the OAuth2 authorization flow for the given connection.
-BackendConnectionredirectresponse response = client.backend().connectionGetredirect("connection_id");
+BackendConnectionredirectresponse response = client.backend().connection().getredirect("connection_id");
 
 // Sends an arbitrary HTTP request to the connection.
-BackendHttpresponse response = client.backend().connectionHttpExecute("connection_id", new BackendHttprequest());
+BackendHttpresponse response = client.backend().connection().http().execute("connection_id", new BackendHttprequest());
 
 // Returns the SDK specification.
-Passthru response = client.backend().connectionSdkGet("connection_id");
+Passthru response = client.backend().connection().sdk().get("connection_id");
 
 // Updates an existing connection.
-CommonMessage response = client.backend().connectionUpdate("connection_id", new BackendConnectionupdate());
+CommonMessage response = client.backend().connection().update("connection_id", new BackendConnectionupdate());
 
 // Creates a new cronjob.
-CommonMessage response = client.backend().cronjobCreate(new BackendCronjobcreate());
+CommonMessage response = client.backend().cronjob().create(new BackendCronjobcreate());
 
 // Deletes an existing cronjob.
-CommonMessage response = client.backend().cronjobDelete("cronjob_id");
+CommonMessage response = client.backend().cronjob().delete("cronjob_id");
 
 // Returns a specific cronjob.
-BackendCronjob response = client.backend().cronjobGet("cronjob_id");
+BackendCronjob response = client.backend().cronjob().get("cronjob_id");
 
 // Returns a paginated list of cronjobs.
-BackendCronjobcollection response = client.backend().cronjobGetall(1, 1, "search", 1);
+BackendCronjobcollection response = client.backend().cronjob().getall(1, 1, "search", 1);
 
 // Updates an existing cronjob.
-CommonMessage response = client.backend().cronjobUpdate("cronjob_id", new BackendCronjobupdate());
+CommonMessage response = client.backend().cronjob().update("cronjob_id", new BackendCronjobupdate());
 
 // Returns all available dashboard widgets.
-BackendDashboard response = client.backend().dashboardGetall();
+BackendDashboard response = client.backend().dashboard().getall();
 
 // Creates a new event.
-CommonMessage response = client.backend().eventCreate(new BackendEventcreate());
+CommonMessage response = client.backend().event().create(new BackendEventcreate());
 
 // Deletes an existing event.
-CommonMessage response = client.backend().eventDelete("event_id");
+CommonMessage response = client.backend().event().delete("event_id");
 
 // Returns a specific event.
-BackendEvent response = client.backend().eventGet("event_id");
+BackendEvent response = client.backend().event().get("event_id");
 
 // Returns a paginated list of events.
-BackendEventcollection response = client.backend().eventGetall(1, 1, "search", 1);
+BackendEventcollection response = client.backend().event().getall(1, 1, "search", 1);
 
 // Updates an existing event.
-CommonMessage response = client.backend().eventUpdate("event_id", new BackendEventupdate());
+CommonMessage response = client.backend().event().update("event_id", new BackendEventupdate());
 
 // Creates a new firewall rule.
-CommonMessage response = client.backend().firewallCreate(new BackendFirewallcreate());
+CommonMessage response = client.backend().firewall().create(new BackendFirewallcreate());
 
 // Deletes an existing firewall rule.
-CommonMessage response = client.backend().firewallDelete("firewall_id");
+CommonMessage response = client.backend().firewall().delete("firewall_id");
 
 // Returns a specific firewall rule.
-BackendFirewall response = client.backend().firewallGet("firewall_id");
+BackendFirewall response = client.backend().firewall().get("firewall_id");
 
 // Returns a paginated list of firewall rules.
-BackendFirewallcollection response = client.backend().firewallGetall(1, 1, "search");
+BackendFirewallcollection response = client.backend().firewall().getall(1, 1, "search");
 
 // Updates an existing firewall rule.
-CommonMessage response = client.backend().firewallUpdate("firewall_id", new BackendFirewallupdate());
+CommonMessage response = client.backend().firewall().update("firewall_id", new BackendFirewallupdate());
 
 // Creates a new form.
-CommonMessage response = client.backend().formCreate(new BackendFormcreate());
+CommonMessage response = client.backend().form().create(new BackendFormcreate());
 
 // Deletes an existing form.
-CommonMessage response = client.backend().formDelete("form_id");
+CommonMessage response = client.backend().form().delete("form_id");
 
 // Returns a specific form.
-BackendForm response = client.backend().formGet("form_id");
+BackendForm response = client.backend().form().get("form_id");
 
 // Returns a paginated list of forms.
-BackendFormcollection response = client.backend().formGetall(1, 1, "search");
+BackendFormcollection response = client.backend().form().getall(1, 1, "search");
 
 // Updates an existing form.
-CommonMessage response = client.backend().formUpdate("form_id", new BackendFormupdate());
+CommonMessage response = client.backend().form().update("form_id", new BackendFormupdate());
 
 // Executes a generator with the provided config.
-CommonMessage response = client.backend().generatorExecuteprovider("provider", new BackendGeneratorprovider());
+CommonMessage response = client.backend().generator().executeprovider("provider", new BackendGeneratorprovider());
 
 // Generates a changelog of all potential changes if you execute this generator with the provided config.
-BackendGeneratorproviderchangelog response = client.backend().generatorGetchangelog("provider", new BackendGeneratorproviderconfig());
+BackendGeneratorproviderchangelog response = client.backend().generator().getchangelog("provider", new BackendGeneratorproviderconfig());
 
 // Returns all available generator classes.
-BackendGeneratorindexproviders response = client.backend().generatorGetclasses();
+BackendGeneratorindexproviders response = client.backend().generator().getclasses();
 
 // Returns the generator config form.
-CommonFormcontainer response = client.backend().generatorGetform("provider");
+CommonFormcontainer response = client.backend().generator().getform("provider");
 
 // Creates a new identity.
-CommonMessage response = client.backend().identityCreate(new BackendIdentitycreate());
+CommonMessage response = client.backend().identity().create(new BackendIdentitycreate());
 
 // Deletes an existing identity.
-CommonMessage response = client.backend().identityDelete("identity_id");
+CommonMessage response = client.backend().identity().delete("identity_id");
 
 // Returns a specific identity.
-BackendIdentity response = client.backend().identityGet("identity_id");
+BackendIdentity response = client.backend().identity().get("identity_id");
 
 // Returns a paginated list of identities.
-BackendIdentitycollection response = client.backend().identityGetall(1, 1, "search");
+BackendIdentitycollection response = client.backend().identity().getall(1, 1, "search");
 
 // Returns all available identity classes.
-BackendIdentityindex response = client.backend().identityGetclasses();
+BackendIdentityindex response = client.backend().identity().getclasses();
 
 // Returns the identity config form.
-CommonFormcontainer response = client.backend().identityGetform("class");
+CommonFormcontainer response = client.backend().identity().getform("class");
 
 // Updates an existing identity.
-CommonMessage response = client.backend().identityUpdate("identity_id", new BackendIdentityupdate());
+CommonMessage response = client.backend().identity().update("identity_id", new BackendIdentityupdate());
 
 // Returns a specific log.
-BackendLog response = client.backend().logGet("log_id");
+BackendLog response = client.backend().log().get("log_id");
 
 // Returns a paginated list of logs.
-BackendLogcollection response = client.backend().logGetall(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
+BackendLogcollection response = client.backend().log().getall(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
 
 // Returns a paginated list of log errors.
-BackendLogerrorcollection response = client.backend().logGetallerrors(1, 1, "search");
+BackendLogerrorcollection response = client.backend().log().getallerrors(1, 1, "search");
 
 // Returns a specific error.
-BackendLogerror response = client.backend().logGeterror("error_id");
+BackendLogerror response = client.backend().log().geterror("error_id");
 
 // Returns a specific marketplace action.
-Marketplaceaction response = client.backend().marketplaceActionGet("user", "name");
+Marketplaceaction response = client.backend().marketplace().action().get("user", "name");
 
 // Returns a paginated list of marketplace actions.
-Marketplaceactioncollection response = client.backend().marketplaceActionGetall(1, "query");
+Marketplaceactioncollection response = client.backend().marketplace().action().getall(1, "query");
 
 // Installs an action from the marketplace.
-Marketplacemessage response = client.backend().marketplaceActionInstall(new Marketplaceinstall());
+Marketplacemessage response = client.backend().marketplace().action().install(new Marketplaceinstall());
 
 // Upgrades an action from the marketplace.
-CommonMessage response = client.backend().marketplaceActionUpgrade("user", "name");
+CommonMessage response = client.backend().marketplace().action().upgrade("user", "name");
 
 // Returns a specific marketplace app.
-Marketplaceapp response = client.backend().marketplaceAppGet("user", "name");
+Marketplaceapp response = client.backend().marketplace().app().get("user", "name");
 
 // Returns a paginated list of marketplace apps.
-Marketplaceappcollection response = client.backend().marketplaceAppGetall(1, "query");
+Marketplaceappcollection response = client.backend().marketplace().app().getall(1, "query");
 
 // Installs an app from the marketplace.
-Marketplacemessage response = client.backend().marketplaceAppInstall(new Marketplaceinstall());
+Marketplacemessage response = client.backend().marketplace().app().install(new Marketplaceinstall());
 
 // Upgrades an app from the marketplace.
-Marketplacemessage response = client.backend().marketplaceAppUpgrade("user", "name");
+Marketplacemessage response = client.backend().marketplace().app().upgrade("user", "name");
 
 // Returns a specific marketplace bundle.
-Marketplacebundle response = client.backend().marketplaceBundleGet("user", "name");
+Marketplacebundle response = client.backend().marketplace().bundle().get("user", "name");
 
 // Returns a paginated list of marketplace bundles.
-Marketplacebundlecollection response = client.backend().marketplaceBundleGetall(1, "query");
+Marketplacebundlecollection response = client.backend().marketplace().bundle().getall(1, "query");
 
 // Installs an bundle from the marketplace.
-Marketplacemessage response = client.backend().marketplaceBundleInstall(new Marketplaceinstall());
+Marketplacemessage response = client.backend().marketplace().bundle().install(new Marketplaceinstall());
 
 // Upgrades an bundle from the marketplace.
-Marketplacemessage response = client.backend().marketplaceBundleUpgrade("user", "name");
+Marketplacemessage response = client.backend().marketplace().bundle().upgrade("user", "name");
 
 // Creates a new operation.
-CommonMessage response = client.backend().operationCreate(new BackendOperationcreate());
+CommonMessage response = client.backend().operation().create(new BackendOperationcreate());
 
 // Deletes an existing operation.
-CommonMessage response = client.backend().operationDelete("operation_id");
+CommonMessage response = client.backend().operation().delete("operation_id");
 
 // Returns a specific operation.
-BackendOperation response = client.backend().operationGet("operation_id");
+BackendOperation response = client.backend().operation().get("operation_id");
 
 // Returns a paginated list of operations.
-BackendOperationcollection response = client.backend().operationGetall(1, 1, "search", 1);
+BackendOperationcollection response = client.backend().operation().getall(1, 1, "search", 1);
 
 // Updates an existing operation.
-CommonMessage response = client.backend().operationUpdate("operation_id", new BackendOperationupdate());
+CommonMessage response = client.backend().operation().update("operation_id", new BackendOperationupdate());
 
 // Creates a new page.
-CommonMessage response = client.backend().pageCreate(new BackendPagecreate());
+CommonMessage response = client.backend().page().create(new BackendPagecreate());
 
 // Deletes an existing page.
-CommonMessage response = client.backend().pageDelete("page_id");
+CommonMessage response = client.backend().page().delete("page_id");
 
 // Returns a specific page.
-BackendPage response = client.backend().pageGet("page_id");
+BackendPage response = client.backend().page().get("page_id");
 
 // Returns a paginated list of pages.
-BackendPagecollection response = client.backend().pageGetall(1, 1, "search");
+BackendPagecollection response = client.backend().page().getall(1, 1, "search");
 
 // Updates an existing page.
-CommonMessage response = client.backend().pageUpdate("page_id", new BackendPageupdate());
+CommonMessage response = client.backend().page().update("page_id", new BackendPageupdate());
 
 // Creates a new plan.
-CommonMessage response = client.backend().planCreate(new BackendPlancreate());
+CommonMessage response = client.backend().plan().create(new BackendPlancreate());
 
 // Deletes an existing plan.
-CommonMessage response = client.backend().planDelete("plan_id");
+CommonMessage response = client.backend().plan().delete("plan_id");
 
 // Returns a specific plan.
-BackendPlan response = client.backend().planGet("plan_id");
+BackendPlan response = client.backend().plan().get("plan_id");
 
 // Returns a paginated list of plans.
-BackendPlancollection response = client.backend().planGetall(1, 1, "search");
+BackendPlancollection response = client.backend().plan().getall(1, 1, "search");
 
 // Updates an existing plan.
-CommonMessage response = client.backend().planUpdate("plan_id", new BackendPlanupdate());
+CommonMessage response = client.backend().plan().update("plan_id", new BackendPlanupdate());
 
 // Creates a new rate limitation.
-CommonMessage response = client.backend().rateCreate(new BackendRatecreate());
+CommonMessage response = client.backend().rate().create(new BackendRatecreate());
 
 // Deletes an existing rate.
-CommonMessage response = client.backend().rateDelete("rate_id");
+CommonMessage response = client.backend().rate().delete("rate_id");
 
 // Returns a specific rate.
-BackendRate response = client.backend().rateGet("rate_id");
+BackendRate response = client.backend().rate().get("rate_id");
 
 // Returns a paginated list of rate limitations.
-BackendRatecollection response = client.backend().rateGetall(1, 1, "search");
+BackendRatecollection response = client.backend().rate().getall(1, 1, "search");
 
 // Updates an existing rate.
-CommonMessage response = client.backend().rateUpdate("rate_id", new BackendRateupdate());
+CommonMessage response = client.backend().rate().update("rate_id", new BackendRateupdate());
 
 // Creates a new role.
-CommonMessage response = client.backend().roleCreate(new BackendRolecreate());
+CommonMessage response = client.backend().role().create(new BackendRolecreate());
 
 // Deletes an existing role.
-CommonMessage response = client.backend().roleDelete("role_id");
+CommonMessage response = client.backend().role().delete("role_id");
 
 // Returns a specific role.
-BackendRole response = client.backend().roleGet("role_id");
+BackendRole response = client.backend().role().get("role_id");
 
 // Returns a paginated list of roles.
-BackendRolecollection response = client.backend().roleGetall(1, 1, "search");
+BackendRolecollection response = client.backend().role().getall(1, 1, "search");
 
 // Updates an existing role.
-CommonMessage response = client.backend().roleUpdate("role_id", new BackendRoleupdate());
+CommonMessage response = client.backend().role().update("role_id", new BackendRoleupdate());
 
 // Creates a new schema.
-CommonMessage response = client.backend().schemaCreate(new BackendSchemacreate());
+CommonMessage response = client.backend().schema().create(new BackendSchemacreate());
 
 // Deletes an existing schema.
-CommonMessage response = client.backend().schemaDelete("schema_id");
+CommonMessage response = client.backend().schema().delete("schema_id");
 
 // Returns a specific schema.
-BackendSchema response = client.backend().schemaGet("schema_id");
+BackendSchema response = client.backend().schema().get("schema_id");
 
 // Returns a paginated list of schemas.
-BackendSchemacollection response = client.backend().schemaGetall(1, 1, "search", 1);
+BackendSchemacollection response = client.backend().schema().getall(1, 1, "search", 1);
 
 // Returns a paginated list of schema commits.
-BackendSchemacommitcollection response = client.backend().schemaGetcommits("schema_id", 1, 1, "search");
+BackendSchemacommitcollection response = client.backend().schema().getcommits("schema_id", 1, 1, "search");
 
 // Returns a HTML preview of the provided schema.
-BackendSchemapreviewresponse response = client.backend().schemaGetpreview("schema_id");
+BackendSchemapreviewresponse response = client.backend().schema().getpreview("schema_id");
 
 // Updates an existing schema.
-CommonMessage response = client.backend().schemaUpdate("schema_id", new BackendSchemaupdate());
+CommonMessage response = client.backend().schema().update("schema_id", new BackendSchemaupdate());
 
 // Creates a new scope.
-CommonMessage response = client.backend().scopeCreate(new BackendScopecreate());
+CommonMessage response = client.backend().scope().create(new BackendScopecreate());
 
 // Deletes an existing scope.
-CommonMessage response = client.backend().scopeDelete("scope_id");
+CommonMessage response = client.backend().scope().delete("scope_id");
 
 // Returns a specific scope.
-BackendScope response = client.backend().scopeGet("scope_id");
+BackendScope response = client.backend().scope().get("scope_id");
 
 // Returns a paginated list of scopes.
-BackendScopecollection response = client.backend().scopeGetall(1, 1, "search");
+BackendScopecollection response = client.backend().scope().getall(1, 1, "search");
 
 // Returns all available scopes grouped by category.
-BackendScopecategories response = client.backend().scopeGetcategories();
+BackendScopecategories response = client.backend().scope().getcategories();
 
 // Updates an existing scope.
-CommonMessage response = client.backend().scopeUpdate("scope_id", new BackendScopeupdate());
+CommonMessage response = client.backend().scope().update("scope_id", new BackendScopeupdate());
 
 // Generates a specific SDK.
-BackendSdkmessage response = client.backend().sdkGenerate(new BackendSdkgenerate());
+BackendSdkmessage response = client.backend().sdk().generate(new BackendSdkgenerate());
 
 // Returns a paginated list of SDKs.
-BackendSdkresponse response = client.backend().sdkGetall();
+BackendSdkresponse response = client.backend().sdk().getall();
 
 // Returns the TypeHub specification.
-BackendSpecificationget response = client.backend().specificationGet();
+BackendSpecificationget response = client.backend().specification().get();
 
 // Returns the changelog between your current specification and the last tag.
-BackendSpecificationchangelog response = client.backend().specificationGetchangelog();
+BackendSpecificationchangelog response = client.backend().specification().getchangelog();
 
 // Publish the specification.
-CommonMessage response = client.backend().specificationPublish(new BackendSpecificationpublish());
+CommonMessage response = client.backend().specification().publish(new BackendSpecificationpublish());
 
 // Creates a new tag of your specification.
-CommonMessage response = client.backend().specificationTag(new Passthru());
+CommonMessage response = client.backend().specification().tag(new Passthru());
 
 // Returns a statistic containing the activities per user.
-BackendStatisticchart response = client.backend().statisticGetactivitiesperuser(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
+BackendStatisticchart response = client.backend().statistic().getactivitiesperuser(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
 
 // Returns a statistic containing the request count.
-BackendStatisticcount response = client.backend().statisticGetcountrequests(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
+BackendStatisticcount response = client.backend().statistic().getcountrequests(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
 
 // Returns a statistic containing the errors per operation.
-BackendStatisticchart response = client.backend().statisticGeterrorsperoperation(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
+BackendStatisticchart response = client.backend().statistic().geterrorsperoperation(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
 
 // Returns a statistic containing the incoming requests.
-BackendStatisticchart response = client.backend().statisticGetincomingrequests(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
+BackendStatisticchart response = client.backend().statistic().getincomingrequests(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
 
 // Returns a statistic containing the incoming transactions.
-BackendStatisticchart response = client.backend().statisticGetincomingtransactions(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
+BackendStatisticchart response = client.backend().statistic().getincomingtransactions(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
 
 // Returns a statistic containing the issues tokens.
-BackendStatisticchart response = client.backend().statisticGetissuedtokens(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
+BackendStatisticchart response = client.backend().statistic().getissuedtokens(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
 
 // Returns a statistic containing the most used activities.
-BackendStatisticchart response = client.backend().statisticGetmostusedactivities(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
+BackendStatisticchart response = client.backend().statistic().getmostusedactivities(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
 
 // Returns a statistic containing the most used apps.
-BackendStatisticchart response = client.backend().statisticGetmostusedapps(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
+BackendStatisticchart response = client.backend().statistic().getmostusedapps(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
 
 // Returns a statistic containing the most used operations.
-BackendStatisticchart response = client.backend().statisticGetmostusedoperations(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
+BackendStatisticchart response = client.backend().statistic().getmostusedoperations(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
 
 // Returns a statistic containing the requests per ip.
-BackendStatisticchart response = client.backend().statisticGetrequestsperip(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
+BackendStatisticchart response = client.backend().statistic().getrequestsperip(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
 
 // Returns a statistic containing the requests per operation.
-BackendStatisticchart response = client.backend().statisticGetrequestsperoperation(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
+BackendStatisticchart response = client.backend().statistic().getrequestsperoperation(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
 
 // Returns a statistic containing the requests per user.
-BackendStatisticchart response = client.backend().statisticGetrequestsperuser(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
+BackendStatisticchart response = client.backend().statistic().getrequestsperuser(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
 
 // Returns a statistic containing the test coverage.
-BackendStatisticchart response = client.backend().statisticGettestcoverage();
+BackendStatisticchart response = client.backend().statistic().gettestcoverage();
 
 // Returns a statistic containing the time average.
-BackendStatisticchart response = client.backend().statisticGettimeaverage(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
+BackendStatisticchart response = client.backend().statistic().gettimeaverage(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
 
 // Returns a statistic containing the time per operation.
-BackendStatisticchart response = client.backend().statisticGettimeperoperation(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
+BackendStatisticchart response = client.backend().statistic().gettimeperoperation(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
 
 // Returns a statistic containing the used points.
-BackendStatisticchart response = client.backend().statisticGetusedpoints(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
+BackendStatisticchart response = client.backend().statistic().getusedpoints(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
 
 // Returns a statistic containing the user registrations.
-BackendStatisticchart response = client.backend().statisticGetuserregistrations(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
+BackendStatisticchart response = client.backend().statistic().getuserregistrations(1, 1, "search", "from", "to", 1, 1, 1, "ip", "userAgent", "method", "path", "header", "body");
 
 // Creates a new taxonomy.
-CommonMessage response = client.backend().taxonomyCreate(new BackendTaxonomycreate());
+CommonMessage response = client.backend().taxonomy().create(new BackendTaxonomycreate());
 
 // Deletes an existing taxonomy.
-CommonMessage response = client.backend().taxonomyDelete("taxonomy_id");
+CommonMessage response = client.backend().taxonomy().delete("taxonomy_id");
 
 // Returns a specific taxonomy.
-BackendTaxonomy response = client.backend().taxonomyGet("taxonomy_id");
+BackendTaxonomy response = client.backend().taxonomy().get("taxonomy_id");
 
 // Returns a paginated list of taxonomies.
-BackendTaxonomycollection response = client.backend().taxonomyGetall(1, 1, "search");
+BackendTaxonomycollection response = client.backend().taxonomy().getall(1, 1, "search");
 
 // Moves the provided ids to the taxonomy.
-CommonMessage response = client.backend().taxonomyMove("taxonomy_id", new BackendTaxonomymove());
+CommonMessage response = client.backend().taxonomy().move("taxonomy_id", new BackendTaxonomymove());
 
 // Updates an existing taxonomy.
-CommonMessage response = client.backend().taxonomyUpdate("taxonomy_id", new BackendTaxonomyupdate());
+CommonMessage response = client.backend().taxonomy().update("taxonomy_id", new BackendTaxonomyupdate());
 
 // Removes an existing tenant.
-CommonMessage response = client.backend().tenantRemove("tenant_id");
+CommonMessage response = client.backend().tenant().remove("tenant_id");
 
 // Setup a new tenant.
-CommonMessage response = client.backend().tenantSetup("tenant_id");
+CommonMessage response = client.backend().tenant().setup("tenant_id");
 
 // Returns a specific test.
-BackendTest response = client.backend().testGet("test_id");
+BackendTest response = client.backend().test().get("test_id");
 
 // Returns a paginated list of tests.
-BackendTestcollection response = client.backend().testGetall(1, 1, "search");
+BackendTestcollection response = client.backend().test().getall(1, 1, "search");
 
 // Refresh all tests.
-CommonMessage response = client.backend().testRefresh();
+CommonMessage response = client.backend().test().refresh();
 
 // Run all tests.
-CommonMessage response = client.backend().testRun();
+CommonMessage response = client.backend().test().run();
 
 // Updates an existing test.
-CommonMessage response = client.backend().testUpdate("test_id", new BackendTest());
+CommonMessage response = client.backend().test().update("test_id", new BackendTest());
 
 // Returns a specific token.
-BackendToken response = client.backend().tokenGet("token_id");
+BackendToken response = client.backend().token().get("token_id");
 
 // Returns a paginated list of tokens.
-BackendTokencollection response = client.backend().tokenGetall(1, 1, "search", "from", "to", 1, 1, 1, "scope", "ip");
+BackendTokencollection response = client.backend().token().getall(1, 1, "search", "from", "to", 1, 1, 1, "scope", "ip");
 
 // Returns a specific transaction.
-BackendTransaction response = client.backend().transactionGet("transaction_id");
+BackendTransaction response = client.backend().transaction().get("transaction_id");
 
 // Returns a paginated list of transactions.
-BackendTransactioncollection response = client.backend().transactionGetall(1, 1, "search", "from", "to", 1, 1, 1, "status", "provider", 1);
+BackendTransactioncollection response = client.backend().transaction().getall(1, 1, "search", "from", "to", 1, 1, 1, "status", "provider", 1);
 
 // Returns all deleted records by trash type.
-BackendTrashdatacollection response = client.backend().trashGetallbytype("type", 1, 1, "search");
+BackendTrashdatacollection response = client.backend().trash().getallbytype("type", 1, 1, "search");
 
 // Returns all trash types.
-BackendTrashtypes response = client.backend().trashGettypes();
+BackendTrashtypes response = client.backend().trash().gettypes();
 
 // Restores a previously deleted record.
-CommonMessage response = client.backend().trashRestore("type", new BackendTrashrestore());
+CommonMessage response = client.backend().trash().restore("type", new BackendTrashrestore());
 
 // Creates a new trigger.
-CommonMessage response = client.backend().triggerCreate(new BackendTriggercreate());
+CommonMessage response = client.backend().trigger().create(new BackendTriggercreate());
 
 // Deletes an existing trigger.
-CommonMessage response = client.backend().triggerDelete("trigger_id");
+CommonMessage response = client.backend().trigger().delete("trigger_id");
 
 // Returns a specific trigger.
-BackendTrigger response = client.backend().triggerGet("trigger_id");
+BackendTrigger response = client.backend().trigger().get("trigger_id");
 
 // Returns a paginated list of triggers.
-BackendTriggercollection response = client.backend().triggerGetall(1, 1, "search", 1);
+BackendTriggercollection response = client.backend().trigger().getall(1, 1, "search", 1);
 
 // Updates an existing trigger.
-CommonMessage response = client.backend().triggerUpdate("trigger_id", new BackendTriggerupdate());
+CommonMessage response = client.backend().trigger().update("trigger_id", new BackendTriggerupdate());
 
 // Creates a new user.
-CommonMessage response = client.backend().userCreate(new BackendUsercreate());
+CommonMessage response = client.backend().user().create(new BackendUsercreate());
 
 // Deletes an existing user.
-CommonMessage response = client.backend().userDelete("user_id");
+CommonMessage response = client.backend().user().delete("user_id");
 
 // Returns a specific user.
-BackendUser response = client.backend().userGet("user_id");
+BackendUser response = client.backend().user().get("user_id");
 
 // Returns a paginated list of users.
-BackendUsercollection response = client.backend().userGetall(1, 1, "search");
+BackendUsercollection response = client.backend().user().getall(1, 1, "search");
 
 // Resend the activation mail to the provided user.
-CommonMessage response = client.backend().userResend("user_id", new Passthru());
+CommonMessage response = client.backend().user().resend("user_id", new Passthru());
 
 // Updates an existing user.
-CommonMessage response = client.backend().userUpdate("user_id", new BackendUserupdate());
+CommonMessage response = client.backend().user().update("user_id", new BackendUserupdate());
 
 // Creates a new webhook.
-CommonMessage response = client.backend().webhookCreate(new BackendWebhookcreate());
+CommonMessage response = client.backend().webhook().create(new BackendWebhookcreate());
 
 // Deletes an existing webhook.
-CommonMessage response = client.backend().webhookDelete("webhook_id");
+CommonMessage response = client.backend().webhook().delete("webhook_id");
 
 // Returns a specific webhook.
-BackendWebhook response = client.backend().webhookGet("webhook_id");
+BackendWebhook response = client.backend().webhook().get("webhook_id");
 
 // Returns a paginated list of webhooks.
-BackendWebhookcollection response = client.backend().webhookGetall(1, 1, "search");
+BackendWebhookcollection response = client.backend().webhook().getall(1, 1, "search");
 
 // Updates an existing webhook.
-CommonMessage response = client.backend().webhookUpdate("webhook_id", new BackendWebhookupdate());
+CommonMessage response = client.backend().webhook().update("webhook_id", new BackendWebhookupdate());
 
 // Activates an previously registered account through a token which was provided to the user via email.
-CommonMessage response = client.consumer().accountActivate(new ConsumerUseractivate());
+CommonMessage response = client.consumer().account().activate(new ConsumerUseractivate());
 
 // Authorizes the access of a specific app for the authenticated user.
-ConsumerAuthorizeresponse response = client.consumer().accountAuthorize(new ConsumerAuthorizerequest());
+ConsumerAuthorizeresponse response = client.consumer().account().authorize(new ConsumerAuthorizerequest());
 
 // Change the password for the authenticated user.
-CommonMessage response = client.consumer().accountChangepassword(new BackendAccountchangepassword());
+CommonMessage response = client.consumer().account().changepassword(new BackendAccountchangepassword());
 
 // Change the password after the password reset flow was started.
-CommonMessage response = client.consumer().accountExecutepasswordreset(new ConsumerUserpasswordreset());
+CommonMessage response = client.consumer().account().executepasswordreset(new ConsumerUserpasswordreset());
 
 // Returns a user data for the authenticated user.
-ConsumerUseraccount response = client.consumer().accountGet();
+ConsumerUseraccount response = client.consumer().account().get();
 
 // Returns information about a specific app to start the OAuth2 authorization code flow.
-ConsumerAuthorizemeta response = client.consumer().accountGetapp("client_id", "scope");
+ConsumerAuthorizemeta response = client.consumer().account().getapp("client_id", "scope");
 
 // User login by providing a username and password.
-ConsumerUserjwt response = client.consumer().accountLogin(new ConsumerUserlogin());
+ConsumerUserjwt response = client.consumer().account().login(new ConsumerUserlogin());
 
 // Refresh a previously obtained access token.
-ConsumerUserjwt response = client.consumer().accountRefresh(new ConsumerUserrefresh());
+ConsumerUserjwt response = client.consumer().account().refresh(new ConsumerUserrefresh());
 
 // Register a new user account.
-CommonMessage response = client.consumer().accountRegister(new ConsumerUserregister());
+CommonMessage response = client.consumer().account().register(new ConsumerUserregister());
 
 // Start the password reset flow.
-CommonMessage response = client.consumer().accountRequestpasswordreset(new ConsumerUseremail());
+CommonMessage response = client.consumer().account().requestpasswordreset(new ConsumerUseremail());
 
 // Updates user data for the authenticated user.
-CommonMessage response = client.consumer().accountUpdate(new ConsumerUseraccount());
+CommonMessage response = client.consumer().account().update(new ConsumerUseraccount());
 
 // Returns a specific agent.
-ConsumerAgent response = client.consumer().agentGet("agent_id");
+ConsumerAgent response = client.consumer().agent().get("agent_id");
 
 // Returns a paginated list of agents.
-ConsumerAgentcollection response = client.consumer().agentGetall(1, 1, "search");
+ConsumerAgentcollection response = client.consumer().agent().getall(1, 1, "search");
 
 // Returns a paginated list of agent messages.
-ConsumerAgentmessagecollection response = client.consumer().agentMessageGetall("agent_id", "chat_id");
+ConsumerAgentmessagecollection response = client.consumer().agent().message().getall("agent_id", "chat_id");
 
 // Submits a new agent message.
-AgentOutput response = client.consumer().agentMessageSubmit("agent_id", new AgentInput());
+AgentOutput response = client.consumer().agent().message().submit("agent_id", new AgentInput());
 
 // Creates a new app for the authenticated user.
-CommonMessage response = client.consumer().appCreate(new ConsumerAppcreate());
+CommonMessage response = client.consumer().app().create(new ConsumerAppcreate());
 
 // Deletes an existing app for the authenticated user.
-CommonMessage response = client.consumer().appDelete("app_id");
+CommonMessage response = client.consumer().app().delete("app_id");
 
 // Returns a specific app for the authenticated user.
-ConsumerApp response = client.consumer().appGet("app_id");
+ConsumerApp response = client.consumer().app().get("app_id");
 
 // Returns a paginated list of apps which are assigned to the authenticated user.
-ConsumerAppcollection response = client.consumer().appGetall(1, 1, "search");
+ConsumerAppcollection response = client.consumer().app().getall(1, 1, "search");
 
 // Updates an existing app for the authenticated user.
-CommonMessage response = client.consumer().appUpdate("app_id", new ConsumerAppupdate());
+CommonMessage response = client.consumer().app().update("app_id", new ConsumerAppupdate());
 
 // Returns a specific event for the authenticated user.
-ConsumerEvent response = client.consumer().eventGet("event_id");
+ConsumerEvent response = client.consumer().event().get("event_id");
 
 // Returns a paginated list of apps which are assigned to the authenticated user.
-ConsumerEventcollection response = client.consumer().eventGetall(1, 1, "search");
+ConsumerEventcollection response = client.consumer().event().getall(1, 1, "search");
 
 // Returns a specific form for the authenticated user.
-ConsumerForm response = client.consumer().formGet("form_id");
+ConsumerForm response = client.consumer().form().get("form_id");
 
 // Returns a paginated list of forms which are relevant to the authenticated user.
-ConsumerFormcollection response = client.consumer().formGetall(1, 1, "search");
+ConsumerFormcollection response = client.consumer().form().getall(1, 1, "search");
 
 // Deletes an existing grant for an app which was created by the authenticated user.
-CommonMessage response = client.consumer().grantDelete("grant_id");
+CommonMessage response = client.consumer().grant().delete("grant_id");
 
 // Returns a paginated list of grants which are assigned to the authenticated user.
-ConsumerGrantcollection response = client.consumer().grantGetall(1, 1, "search");
+ConsumerGrantcollection response = client.consumer().grant().getall(1, 1, "search");
 
 // Identity callback endpoint to exchange an access token.
-Passthru response = client.consumer().identityExchange("identity");
+Passthru response = client.consumer().identity().exchange("identity");
 
 // Returns a paginated list of identities which are relevant to the authenticated user.
-ConsumerIdentitycollection response = client.consumer().identityGetall(1, "appKey");
+ConsumerIdentitycollection response = client.consumer().identity().getall(1, "appKey");
 
 // Redirect the user to the configured identity provider.
-Passthru response = client.consumer().identityRedirect("identity");
+Passthru response = client.consumer().identity().redirect("identity");
 
 // Returns a specific log for the authenticated user.
-ConsumerLog response = client.consumer().logGet("log_id");
+ConsumerLog response = client.consumer().log().get("log_id");
 
 // Returns a paginated list of logs which are assigned to the authenticated user.
-ConsumerLogcollection response = client.consumer().logGetall(1, 1, "search");
+ConsumerLogcollection response = client.consumer().log().getall(1, 1, "search");
 
 // Returns a specific page for the authenticated user.
-ConsumerPage response = client.consumer().pageGet("page_id");
+ConsumerPage response = client.consumer().page().get("page_id");
 
 // Returns a paginated list of pages which are relevant to the authenticated user.
-ConsumerPagecollection response = client.consumer().pageGetall(1, 1, "search");
+ConsumerPagecollection response = client.consumer().page().getall(1, 1, "search");
 
 // Start the checkout process for a specific plan.
-ConsumerPaymentcheckoutresponse response = client.consumer().paymentCheckout("provider", new ConsumerPaymentcheckoutrequest());
+ConsumerPaymentcheckoutresponse response = client.consumer().payment().checkout("provider", new ConsumerPaymentcheckoutrequest());
 
 // Generates a payment portal link for the authenticated user.
-ConsumerPaymentportalresponse response = client.consumer().paymentPortal("provider", new ConsumerPaymentportalrequest());
+ConsumerPaymentportalresponse response = client.consumer().payment().portal("provider", new ConsumerPaymentportalrequest());
 
 // Returns a specific plan for the authenticated user.
-ConsumerPlan response = client.consumer().planGet("plan_id");
+ConsumerPlan response = client.consumer().plan().get("plan_id");
 
 // Returns a paginated list of plans which are relevant to the authenticated user.
-ConsumerPlancollection response = client.consumer().planGetall(1, 1, "search");
+ConsumerPlancollection response = client.consumer().plan().getall(1, 1, "search");
 
 // Returns a paginated list of scopes which are assigned to the authenticated user.
-ConsumerScopecollection response = client.consumer().scopeGetall(1, 1, "search");
+ConsumerScopecollection response = client.consumer().scope().getall(1, 1, "search");
 
 // Returns all scopes by category.
-ConsumerScopecategories response = client.consumer().scopeGetcategories();
+ConsumerScopecategories response = client.consumer().scope().getcategories();
 
 // Creates a new token for the authenticated user.
-ConsumerTokenaccesstoken response = client.consumer().tokenCreate(new ConsumerTokencreate());
+ConsumerTokenaccesstoken response = client.consumer().token().create(new ConsumerTokencreate());
 
 // Deletes an existing token for the authenticated user.
-CommonMessage response = client.consumer().tokenDelete("token_id");
+CommonMessage response = client.consumer().token().delete("token_id");
 
 // Returns a specific token for the authenticated user.
-ConsumerToken response = client.consumer().tokenGet("token_id");
+ConsumerToken response = client.consumer().token().get("token_id");
 
 // Returns a paginated list of tokens which are assigned to the authenticated user.
-ConsumerTokencollection response = client.consumer().tokenGetall(1, 1, "search");
+ConsumerTokencollection response = client.consumer().token().getall(1, 1, "search");
 
 // Updates an existing token for the authenticated user.
-ConsumerTokenaccesstoken response = client.consumer().tokenUpdate("token_id", new ConsumerTokenupdate());
+ConsumerTokenaccesstoken response = client.consumer().token().update("token_id", new ConsumerTokenupdate());
 
 // Returns a specific transaction for the authenticated user.
-ConsumerTransaction response = client.consumer().transactionGet("transaction_id");
+ConsumerTransaction response = client.consumer().transaction().get("transaction_id");
 
 // Returns a paginated list of transactions which are assigned to the authenticated user.
-ConsumerTransactioncollection response = client.consumer().transactionGetall(1, 1, "search");
+ConsumerTransactioncollection response = client.consumer().transaction().getall(1, 1, "search");
 
 // Creates a new webhook for the authenticated user.
-CommonMessage response = client.consumer().webhookCreate(new ConsumerWebhookcreate());
+CommonMessage response = client.consumer().webhook().create(new ConsumerWebhookcreate());
 
 // Deletes an existing webhook for the authenticated user.
-CommonMessage response = client.consumer().webhookDelete("webhook_id");
+CommonMessage response = client.consumer().webhook().delete("webhook_id");
 
 // Returns a specific webhook for the authenticated user.
-ConsumerWebhook response = client.consumer().webhookGet("webhook_id");
+ConsumerWebhook response = client.consumer().webhook().get("webhook_id");
 
 // Returns a paginated list of webhooks which are assigned to the authenticated user.
-ConsumerWebhookcollection response = client.consumer().webhookGetall(1, 1, "search");
+ConsumerWebhookcollection response = client.consumer().webhook().getall(1, 1, "search");
 
 // Updates an existing webhook for the authenticated user.
-CommonMessage response = client.consumer().webhookUpdate("webhook_id", new ConsumerWebhookupdate());
+CommonMessage response = client.consumer().webhook().update("webhook_id", new ConsumerWebhookupdate());
 
 // Connection OAuth2 callback to authorize a connection.
-CommonMessage response = client.system().connectionCallback("name");
+CommonMessage response = client.system().connection().callback("name");
 
 // Returns meta information and links about the current installed Fusio version.
-SystemAbout response = client.system().metaGetabout();
+SystemAbout response = client.system().meta().getabout();
 
 // Debug endpoint which returns the provided data.
-Passthru response = client.system().metaGetdebug(new Passthru());
+Passthru response = client.system().meta().getdebug(new Passthru());
 
 // Health check endpoint which returns information about the health status of the system.
-SystemHealthcheck response = client.system().metaGethealth();
+SystemHealthcheck response = client.system().meta().gethealth();
 
 // Returns all available routes.
-SystemRoute response = client.system().metaGetroutes();
+SystemRoute response = client.system().meta().getroutes();
 
 // Returns details of a specific schema.
-SystemSchema response = client.system().metaGetschema("name");
+SystemSchema response = client.system().meta().getschema("name");
 
 // Payment webhook endpoint after successful purchase of a plan.
-CommonMessage response = client.system().paymentWebhook("provider");
+CommonMessage response = client.system().payment().webhook("provider");
 ```
