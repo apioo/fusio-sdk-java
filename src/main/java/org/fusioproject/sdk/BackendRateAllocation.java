@@ -13,15 +13,19 @@ public class BackendRateAllocation {
     @JsonProperty("id")
     private Integer id;
 
+    @JsonPropertyDescription("Target operation ID for the rate allocation")
     @JsonProperty("operationId")
     private Integer operationId;
 
+    @JsonPropertyDescription("Target user ID for the rate allocation")
     @JsonProperty("userId")
     private Integer userId;
 
+    @JsonPropertyDescription("Target plan ID associated with this allocation")
     @JsonProperty("planId")
     private Integer planId;
 
+    @JsonPropertyDescription("Target app ID associated with this allocation")
     @JsonProperty("appId")
     private Integer appId;
 

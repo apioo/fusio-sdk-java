@@ -7,13 +7,17 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Scope entry within a specific category group")
 public class ConsumerScopeCategoryScope {
+    @JsonPropertyDescription("Unique identifier for the scope")
     @JsonProperty("id")
     private Integer id;
 
+    @JsonPropertyDescription("Name key of the scope")
     @JsonProperty("name")
     private String name;
 
+    @JsonPropertyDescription("Description of access privileges")
     @JsonProperty("description")
     private String description;
 

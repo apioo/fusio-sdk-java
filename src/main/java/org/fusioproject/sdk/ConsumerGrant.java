@@ -7,16 +7,32 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Represents user authorization granted to a consumer application")
 public class ConsumerGrant {
+    @JsonPropertyDescription("Uniquely identifies the object schema type")
+    @JsonProperty("kind")
+    private String kind;
+
+    @JsonPropertyDescription("Unique identifier for the grant record")
     @JsonProperty("id")
     private Integer id;
 
+    @JsonPropertyDescription("Application that received the user grant")
     @JsonProperty("app")
     private ConsumerApp app;
 
+    @JsonPropertyDescription("Timestamp when the user granted access")
     @JsonProperty("createDate")
     private java.time.LocalDateTime createDate;
 
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+
+    public String getKind() {
+        return this.kind;
+    }
 
     public void setId(Integer id) {
         this.id = id;

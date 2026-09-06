@@ -8,12 +8,26 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.*;
 
 public class SystemSchema {
+    @JsonPropertyDescription("Uniquely identifies the object schema type")
+    @JsonProperty("kind")
+    private String kind;
+
+    @JsonPropertyDescription("TypeSchema definition object containing structural constraints")
     @JsonProperty("schema")
     private SystemSchemaTypeSchema schema;
 
+    @JsonPropertyDescription("UI layout or form representation options mapped to the schema")
     @JsonProperty("form")
     private SystemSchemaForm form;
 
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+
+    public String getKind() {
+        return this.kind;
+    }
 
     public void setSchema(SystemSchemaTypeSchema schema) {
         this.schema = schema;

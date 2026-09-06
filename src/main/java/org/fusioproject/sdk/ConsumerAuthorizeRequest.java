@@ -7,22 +7,29 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Parameters sent to initiate an OAuth authorization decision")
 public class ConsumerAuthorizeRequest {
+    @JsonPropertyDescription("OAuth 2.0 response type (e.g., code)")
     @JsonProperty("responseType")
     private String responseType;
 
+    @JsonPropertyDescription("App key / client ID requesting authorization")
     @JsonProperty("clientId")
     private String clientId;
 
+    @JsonPropertyDescription("Callback URI where the authorization response will be delivered")
     @JsonProperty("redirectUri")
     private String redirectUri;
 
+    @JsonPropertyDescription("Space-delimited list of requested scopes")
     @JsonProperty("scope")
     private String scope;
 
+    @JsonPropertyDescription("Opaque value passed to maintain state between request and callback")
     @JsonProperty("state")
     private String state;
 
+    @JsonPropertyDescription("User decision to grant or deny access")
     @JsonProperty("allow")
     private Boolean allow;
 

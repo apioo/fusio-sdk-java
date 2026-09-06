@@ -7,13 +7,17 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Metadata for an OAuth authorization request screen")
 public class ConsumerAuthorizeMeta {
+    @JsonPropertyDescription("Name of the application requesting authorization")
     @JsonProperty("name")
     private String name;
 
+    @JsonPropertyDescription("Website or documentation URL of the requesting application")
     @JsonProperty("url")
     private String url;
 
+    @JsonPropertyDescription("List of scopes requested for user consent")
     @JsonProperty("scopes")
     private java.util.List<ConsumerScope> scopes;
 

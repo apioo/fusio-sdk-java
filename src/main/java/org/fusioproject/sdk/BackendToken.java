@@ -9,6 +9,10 @@ import com.fasterxml.jackson.annotation.*;
 
 @JsonClassDescription("This object represents a token, this an access token which was requested by a user")
 public class BackendToken {
+    @JsonPropertyDescription("Uniquely identifies the object schema type")
+    @JsonProperty("kind")
+    private String kind;
+
     @JsonPropertyDescription("Unique identifier for the object")
     @JsonProperty("id")
     private Integer id;
@@ -17,21 +21,34 @@ public class BackendToken {
     @JsonProperty("status")
     private Integer status;
 
+    @JsonPropertyDescription("Name or friendly description for the token")
     @JsonProperty("name")
     private String name;
 
+    @JsonPropertyDescription("List of access scopes granted to this token")
     @JsonProperty("scopes")
     private java.util.List<String> scopes;
 
+    @JsonPropertyDescription("IP address from which the token was requested")
     @JsonProperty("ip")
     private String ip;
 
+    @JsonPropertyDescription("Expiration timestamp after which the token is invalid")
     @JsonProperty("expire")
     private java.time.LocalDateTime expire;
 
+    @JsonPropertyDescription("Creation timestamp of the token")
     @JsonProperty("date")
     private java.time.LocalDateTime date;
 
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+
+    public String getKind() {
+        return this.kind;
+    }
 
     public void setId(Integer id) {
         this.id = id;

@@ -7,6 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Payload for creating a new rate limit policy")
 public class BackendRateCreate extends BackendRate {
 }
 

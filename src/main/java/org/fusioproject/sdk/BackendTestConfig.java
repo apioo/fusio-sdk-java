@@ -7,6 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Configuration parameters for executing a test run")
 public class BackendTestConfig extends BackendActionExecuteRequest {
 }
 

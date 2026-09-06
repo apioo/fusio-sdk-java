@@ -7,6 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Collection of personal access tokens")
 public class ConsumerTokenCollection extends CommonCollection<ConsumerToken> {
 }
 

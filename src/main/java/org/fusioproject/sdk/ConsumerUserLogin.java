@@ -7,13 +7,17 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Credentials payload for user login")
 public class ConsumerUserLogin {
+    @JsonPropertyDescription("Username or email address for authentication")
     @JsonProperty("username")
     private String username;
 
+    @JsonPropertyDescription("User password")
     @JsonProperty("password")
     private String password;
 
+    @JsonPropertyDescription("Optional list of specific scopes requested for the login session")
     @JsonProperty("scopes")
     private java.util.List<String> scopes;
 

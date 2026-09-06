@@ -8,48 +8,74 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.*;
 
 public class SystemAbout {
+    @JsonPropertyDescription("Uniquely identifies the object schema type")
+    @JsonProperty("kind")
+    private String kind;
+
+    @JsonPropertyDescription("The current version of the API")
     @JsonProperty("apiVersion")
     private String apiVersion;
 
+    @JsonPropertyDescription("The title or name of the API project")
     @JsonProperty("title")
     private String title;
 
+    @JsonPropertyDescription("A comprehensive description of the API and its capabilities")
     @JsonProperty("description")
     private String description;
 
+    @JsonPropertyDescription("URL to the terms of service for using the API")
     @JsonProperty("termsOfService")
     private String termsOfService;
 
+    @JsonPropertyDescription("The name of the primary contact person or organization for the API")
     @JsonProperty("contactName")
     private String contactName;
 
+    @JsonPropertyDescription("URL to contact information or support site for the API")
     @JsonProperty("contactUrl")
     private String contactUrl;
 
+    @JsonPropertyDescription("The email address to reach out to for API support")
     @JsonProperty("contactEmail")
     private String contactEmail;
 
+    @JsonPropertyDescription("The name of the license under which the API is exposed")
     @JsonProperty("licenseName")
     private String licenseName;
 
+    @JsonPropertyDescription("URL to the full text of the API license agreement")
     @JsonProperty("licenseUrl")
     private String licenseUrl;
 
+    @JsonPropertyDescription("The primary ISO currency code used for API billing and payments")
     @JsonProperty("paymentCurrency")
     private String paymentCurrency;
 
+    @JsonPropertyDescription("List of categories or tags assigned to classify the API")
     @JsonProperty("categories")
     private java.util.List<String> categories;
 
+    @JsonPropertyDescription("List of global scopes available across the API")
     @JsonProperty("scopes")
     private java.util.List<String> scopes;
 
+    @JsonPropertyDescription("Map of available application endpoints or integration links")
     @JsonProperty("apps")
     private SystemAboutApps apps;
 
+    @JsonPropertyDescription("List of related hypermedia links providing contextual navigational paths")
     @JsonProperty("links")
     private java.util.List<SystemAboutLink> links;
 
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+
+    public String getKind() {
+        return this.kind;
+    }
 
     public void setApiVersion(String apiVersion) {
         this.apiVersion = apiVersion;

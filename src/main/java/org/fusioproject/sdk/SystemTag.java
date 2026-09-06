@@ -32,6 +32,15 @@ public class SystemTag extends TagAbstract {
         super(httpClient, objectMapper, parser);
     }
 
+    public SystemCaptchaTag captcha()
+    {
+        return new SystemCaptchaTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
     public SystemConnectionTag connection()
     {
         return new SystemConnectionTag(

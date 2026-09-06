@@ -9,6 +9,10 @@ import com.fasterxml.jackson.annotation.*;
 
 @JsonClassDescription("This object represents an event which can be triggered by an action")
 public class BackendEvent {
+    @JsonPropertyDescription("Uniquely identifies the object schema type")
+    @JsonProperty("kind")
+    private String kind;
+
     @JsonPropertyDescription("Unique identifier for the object")
     @JsonProperty("id")
     private Integer id;
@@ -17,9 +21,11 @@ public class BackendEvent {
     @JsonProperty("name")
     private String name;
 
+    @JsonPropertyDescription("Short description explaining the purpose of this event")
     @JsonProperty("description")
     private String description;
 
+    @JsonPropertyDescription("Name of the schema defining the event payload structure")
     @JsonProperty("schema")
     private String schema;
 
@@ -27,6 +33,14 @@ public class BackendEvent {
     @JsonProperty("metadata")
     private CommonMetadata metadata;
 
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+
+    public String getKind() {
+        return this.kind;
+    }
 
     public void setId(Integer id) {
         this.id = id;

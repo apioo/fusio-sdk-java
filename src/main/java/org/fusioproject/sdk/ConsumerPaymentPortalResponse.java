@@ -7,7 +7,9 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Response payload containing the customer portal portal link")
 public class ConsumerPaymentPortalResponse {
+    @JsonPropertyDescription("URL to access the customer billing self-service portal")
     @JsonProperty("redirectUrl")
     private String redirectUrl;
 

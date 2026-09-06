@@ -7,7 +7,9 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Payload used to activate a user account via token")
 public class ConsumerUserActivate {
+    @JsonPropertyDescription("Account activation verification token")
     @JsonProperty("token")
     private String token;
 

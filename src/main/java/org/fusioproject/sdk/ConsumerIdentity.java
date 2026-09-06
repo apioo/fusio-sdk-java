@@ -7,19 +7,36 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Identity provider configuration for single sign-on")
 public class ConsumerIdentity {
+    @JsonPropertyDescription("Uniquely identifies the object schema type")
+    @JsonProperty("kind")
+    private String kind;
+
+    @JsonPropertyDescription("Unique identifier for the identity provider")
     @JsonProperty("id")
     private Integer id;
 
+    @JsonPropertyDescription("Display name of the identity provider (e.g., GitHub, Google)")
     @JsonProperty("name")
     private String name;
 
+    @JsonPropertyDescription("CSS icon class or visual asset URL representing the provider")
     @JsonProperty("icon")
     private String icon;
 
+    @JsonPropertyDescription("Redirection endpoint to initiate the third-party authentication flow")
     @JsonProperty("redirect")
     private String redirect;
 
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+
+    public String getKind() {
+        return this.kind;
+    }
 
     public void setId(Integer id) {
         this.id = id;

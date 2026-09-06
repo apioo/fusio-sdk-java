@@ -7,13 +7,17 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Payload for creating a new consumer application")
 public class ConsumerAppCreate {
+    @JsonPropertyDescription("Name of the application to create")
     @JsonProperty("name")
     private String name;
 
+    @JsonPropertyDescription("Homepage or redirect URL for the application")
     @JsonProperty("url")
     private String url;
 
+    @JsonPropertyDescription("List of scopes requested for the application")
     @JsonProperty("scopes")
     private java.util.List<String> scopes;
 

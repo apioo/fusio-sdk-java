@@ -7,37 +7,60 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Represents a consumer application registered by a user")
 public class ConsumerApp {
+    @JsonPropertyDescription("Uniquely identifies the object schema type")
+    @JsonProperty("kind")
+    private String kind;
+
+    @JsonPropertyDescription("Unique identifier for the application")
     @JsonProperty("id")
     private Integer id;
 
+    @JsonPropertyDescription("Unique identifier of the owning user")
     @JsonProperty("userId")
     private Integer userId;
 
+    @JsonPropertyDescription("Current operational status of the application")
     @JsonProperty("status")
     private Integer status;
 
+    @JsonPropertyDescription("Name of the application")
     @JsonProperty("name")
     private String name;
 
+    @JsonPropertyDescription("Homepage or callback URL of the application")
     @JsonProperty("url")
     private String url;
 
+    @JsonPropertyDescription("Client app key used for API authentication")
     @JsonProperty("appKey")
     private String appKey;
 
+    @JsonPropertyDescription("Client secret used for API authentication")
     @JsonProperty("appSecret")
     private String appSecret;
 
+    @JsonPropertyDescription("Creation timestamp of the application")
     @JsonProperty("date")
     private String date;
 
+    @JsonPropertyDescription("List of scopes assigned to this application")
     @JsonProperty("scopes")
     private java.util.List<String> scopes;
 
+    @JsonPropertyDescription("Custom key-value metadata associated with the application")
     @JsonProperty("metadata")
     private CommonMetadata metadata;
 
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+
+    public String getKind() {
+        return this.kind;
+    }
 
     public void setId(Integer id) {
         this.id = id;

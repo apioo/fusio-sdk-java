@@ -7,19 +7,36 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Permission scope defining access rights to API endpoints")
 public class ConsumerScope {
+    @JsonPropertyDescription("Uniquely identifies the object schema type")
+    @JsonProperty("kind")
+    private String kind;
+
+    @JsonPropertyDescription("Unique identifier for the scope")
     @JsonProperty("id")
     private Integer id;
 
+    @JsonPropertyDescription("Name of the scope key")
     @JsonProperty("name")
     private String name;
 
+    @JsonPropertyDescription("Detailed explanation of privileges granted by this scope")
     @JsonProperty("description")
     private String description;
 
+    @JsonPropertyDescription("Custom metadata key-value mapping")
     @JsonProperty("metadata")
     private CommonMetadata metadata;
 
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+
+    public String getKind() {
+        return this.kind;
+    }
 
     public void setId(Integer id) {
         this.id = id;

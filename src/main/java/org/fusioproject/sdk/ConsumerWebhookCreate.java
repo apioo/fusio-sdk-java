@@ -7,13 +7,17 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Payload for registering a new webhook subscription")
 public class ConsumerWebhookCreate {
+    @JsonPropertyDescription("Event name to subscribe to")
     @JsonProperty("event")
     private String event;
 
+    @JsonPropertyDescription("Descriptive name for the webhook")
     @JsonProperty("name")
     private String name;
 
+    @JsonPropertyDescription("Destination HTTP URI for event delivery")
     @JsonProperty("endpoint")
     private String endpoint;
 

@@ -7,29 +7,48 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Represents an error logged during a specific HTTP request")
 public class BackendLogError {
+    @JsonPropertyDescription("Uniquely identifies the object schema type")
+    @JsonProperty("kind")
+    private String kind;
+
     @JsonPropertyDescription("Unique identifier for the object")
     @JsonProperty("id")
     private Integer id;
 
+    @JsonPropertyDescription("Identifier of the associated parent log entry")
     @JsonProperty("logId")
     private Integer logId;
 
+    @JsonPropertyDescription("Error message detailing the failure context")
     @JsonProperty("message")
     private String message;
 
+    @JsonPropertyDescription("Stack trace associated with the error exception")
     @JsonProperty("trace")
     private String trace;
 
+    @JsonPropertyDescription("File path where the error was thrown")
     @JsonProperty("file")
     private String file;
 
+    @JsonPropertyDescription("Line number where the error was thrown")
     @JsonProperty("line")
     private Integer line;
 
+    @JsonPropertyDescription("Timestamp when the log error was recorded")
     @JsonProperty("insertDate")
     private java.time.LocalDateTime insertDate;
 
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+
+    public String getKind() {
+        return this.kind;
+    }
 
     public void setId(Integer id) {
         this.id = id;

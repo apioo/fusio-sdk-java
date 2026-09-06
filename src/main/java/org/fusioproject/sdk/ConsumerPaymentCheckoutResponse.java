@@ -7,7 +7,9 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Response payload containing the payment provider checkout URI")
 public class ConsumerPaymentCheckoutResponse {
+    @JsonPropertyDescription("URL to redirect the user to complete payment authorization")
     @JsonProperty("approvalUrl")
     private String approvalUrl;
 

@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.*;
 
 @JsonClassDescription("Import a previously exported system configuration")
 public class BackendBackupImport {
+    @JsonPropertyDescription("JSON string containing the system configuration payload to import")
     @JsonProperty("import")
     private String _import;
 

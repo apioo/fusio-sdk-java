@@ -7,10 +7,24 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Container listing target SDK languages or formats available for generator execution")
 public class BackendSdkResponse {
+    @JsonPropertyDescription("Uniquely identifies the object schema type")
+    @JsonProperty("kind")
+    private String kind;
+
+    @JsonPropertyDescription("Map of available SDK generator target identifiers to display names")
     @JsonProperty("types")
     private BackendSdkTypes types;
 
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+
+    public String getKind() {
+        return this.kind;
+    }
 
     public void setTypes(BackendSdkTypes types) {
         this.types = types;

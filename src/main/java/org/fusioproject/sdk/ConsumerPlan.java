@@ -7,28 +7,48 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Subscription or monetization plan for API consumers")
 public class ConsumerPlan {
+    @JsonPropertyDescription("Uniquely identifies the object schema type")
+    @JsonProperty("kind")
+    private String kind;
+
+    @JsonPropertyDescription("Unique identifier for the plan")
     @JsonProperty("id")
     private Integer id;
 
+    @JsonPropertyDescription("Display name of the plan")
     @JsonProperty("name")
     private String name;
 
+    @JsonPropertyDescription("Detailed description of plan features and limits")
     @JsonProperty("description")
     private String description;
 
+    @JsonPropertyDescription("Cost of the plan per billing cycle")
     @JsonProperty("price")
     private Double price;
 
+    @JsonPropertyDescription("Quota points allocated per billing cycle")
     @JsonProperty("points")
     private Integer points;
 
+    @JsonPropertyDescription("Billing period interval classification code")
     @JsonProperty("period")
     private Integer period;
 
+    @JsonPropertyDescription("Custom metadata key-value mapping")
     @JsonProperty("metadata")
     private CommonMetadata metadata;
 
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+
+    public String getKind() {
+        return this.kind;
+    }
 
     public void setId(Integer id) {
         this.id = id;

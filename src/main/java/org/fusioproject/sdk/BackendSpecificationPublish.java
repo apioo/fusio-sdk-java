@@ -7,13 +7,17 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Payload defining configuration parameters for publishing an API specification export")
 public class BackendSpecificationPublish {
+    @JsonPropertyDescription("Target specification format name to output")
     @JsonProperty("name")
     private String name;
 
+    @JsonPropertyDescription("Optional category or entity filter applied to scope the exported specification")
     @JsonProperty("filterName")
     private String filterName;
 
+    @JsonPropertyDescription("Indicates whether the specification output should be rendered as a standalone unit")
     @JsonProperty("standalone")
     private Boolean standalone;
 

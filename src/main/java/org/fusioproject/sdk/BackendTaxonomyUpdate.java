@@ -7,6 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Payload for updating an existing taxonomy node")
 public class BackendTaxonomyUpdate extends BackendTaxonomy {
 }
 

@@ -7,6 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Payload for updating an existing AI agent")
 public class BackendAgentUpdate extends BackendAgent {
 }
 

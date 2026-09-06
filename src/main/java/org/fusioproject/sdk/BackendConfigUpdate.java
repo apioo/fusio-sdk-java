@@ -7,6 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Payload for updating a system configuration entry")
 public class BackendConfigUpdate extends BackendConfig {
 }
 

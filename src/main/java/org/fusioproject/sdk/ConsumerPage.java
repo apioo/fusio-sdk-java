@@ -7,22 +7,40 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Content page definition for developer portal documentation")
 public class ConsumerPage {
+    @JsonPropertyDescription("Uniquely identifies the object schema type")
+    @JsonProperty("kind")
+    private String kind;
+
+    @JsonPropertyDescription("Unique identifier for the content page")
     @JsonProperty("id")
     private Integer id;
 
+    @JsonPropertyDescription("Title of the page")
     @JsonProperty("title")
     private String title;
 
+    @JsonPropertyDescription("URL-friendly slug identifier for routing")
     @JsonProperty("slug")
     private String slug;
 
+    @JsonPropertyDescription("Markdown or HTML body content of the page")
     @JsonProperty("content")
     private String content;
 
+    @JsonPropertyDescription("Custom metadata key-value mapping")
     @JsonProperty("metadata")
     private CommonMetadata metadata;
 
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+
+    public String getKind() {
+        return this.kind;
+    }
 
     public void setId(Integer id) {
         this.id = id;

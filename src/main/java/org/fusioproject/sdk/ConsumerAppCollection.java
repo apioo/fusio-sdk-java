@@ -7,6 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Collection of consumer applications")
 public class ConsumerAppCollection extends CommonCollection<ConsumerApp> {
 }
 

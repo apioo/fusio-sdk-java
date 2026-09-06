@@ -7,10 +7,13 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("A single data line or bar series for a statistic chart")
 public class BackendStatisticChartSeries {
+    @JsonPropertyDescription("Name or key identifier for the data series")
     @JsonProperty("name")
     private String name;
 
+    @JsonPropertyDescription("Numeric data points corresponding to chart labels")
     @JsonProperty("data")
     private java.util.List<Double> data;
 

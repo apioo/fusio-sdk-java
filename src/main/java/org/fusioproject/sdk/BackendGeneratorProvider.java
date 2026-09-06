@@ -7,16 +7,21 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Configuration object used to invoke a schema/operation generator")
 public class BackendGeneratorProvider {
+    @JsonPropertyDescription("Base HTTP path to mount generated operations")
     @JsonProperty("path")
     private String path;
 
+    @JsonPropertyDescription("Scopes to assign to generated operations")
     @JsonProperty("scopes")
     private java.util.List<String> scopes;
 
+    @JsonPropertyDescription("Indicates whether generated operations are publicly accessible")
     @JsonProperty("public")
     private Boolean _public;
 
+    @JsonPropertyDescription("Generator specific configuration key-value pairs")
     @JsonProperty("config")
     private BackendGeneratorProviderConfig config;
 

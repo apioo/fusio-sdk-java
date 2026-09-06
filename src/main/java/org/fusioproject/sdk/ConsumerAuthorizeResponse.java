@@ -7,19 +7,25 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Result of an OAuth authorization decision")
 public class ConsumerAuthorizeResponse {
+    @JsonPropertyDescription("Response classification or grant type")
     @JsonProperty("type")
     private String type;
 
+    @JsonPropertyDescription("Authorization code issued upon user approval")
     @JsonProperty("code")
     private String code;
 
+    @JsonPropertyDescription("Error code if the authorization request failed or was denied")
     @JsonProperty("error")
     private String error;
 
+    @JsonPropertyDescription("State parameter echoed back from the original authorization request")
     @JsonProperty("state")
     private String state;
 
+    @JsonPropertyDescription("Target callback URI for redirection")
     @JsonProperty("redirectUri")
     private String redirectUri;
 

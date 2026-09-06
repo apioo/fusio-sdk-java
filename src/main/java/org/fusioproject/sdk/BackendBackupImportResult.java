@@ -9,12 +9,15 @@ import com.fasterxml.jackson.annotation.*;
 
 @JsonClassDescription("Result of a backup import operation")
 public class BackendBackupImportResult {
+    @JsonPropertyDescription("Indicates whether the backup import operation completed successfully")
     @JsonProperty("success")
     private Boolean success;
 
+    @JsonPropertyDescription("Human-readable status or summary message detailing the import result")
     @JsonProperty("message")
     private String message;
 
+    @JsonPropertyDescription("Execution logs generated during the backup restoration process")
     @JsonProperty("logs")
     private java.util.List<String> logs;
 

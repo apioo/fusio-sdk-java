@@ -7,19 +7,25 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("OAuth 2.0 access token response object")
 public class ConsumerTokenAccessToken {
+    @JsonPropertyDescription("The bearer access token string")
     @JsonProperty("access_token")
     private String accessToken;
 
+    @JsonPropertyDescription("Type of token issued (typically Bearer)")
     @JsonProperty("token_type")
     private String tokenType;
 
+    @JsonPropertyDescription("Lifetime in seconds of the access token")
     @JsonProperty("expires_in")
     private Integer expiresIn;
 
+    @JsonPropertyDescription("Optional refresh token used to obtain new access tokens")
     @JsonProperty("refresh_token")
     private String refreshToken;
 
+    @JsonPropertyDescription("Space-separated list of scopes granted")
     @JsonProperty("scope")
     private String scope;
 

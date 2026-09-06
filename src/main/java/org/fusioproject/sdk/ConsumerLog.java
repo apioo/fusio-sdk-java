@@ -7,34 +7,56 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Access log entry recording an incoming HTTP request")
 public class ConsumerLog {
+    @JsonPropertyDescription("Uniquely identifies the object schema type")
+    @JsonProperty("kind")
+    private String kind;
+
+    @JsonPropertyDescription("Unique identifier for the log entry")
     @JsonProperty("id")
     private Integer id;
 
+    @JsonPropertyDescription("ID of the application that authorized the request")
     @JsonProperty("appId")
     private Integer appId;
 
+    @JsonPropertyDescription("Originating IP address of the caller")
     @JsonProperty("ip")
     private String ip;
 
+    @JsonPropertyDescription("User-Agent header string from the client request")
     @JsonProperty("userAgent")
     private String userAgent;
 
+    @JsonPropertyDescription("HTTP method of the executed request")
     @JsonProperty("method")
     private String method;
 
+    @JsonPropertyDescription("URL path requested by the client")
     @JsonProperty("path")
     private String path;
 
+    @JsonPropertyDescription("HTTP request headers recorded for debugging")
     @JsonProperty("header")
     private String header;
 
+    @JsonPropertyDescription("HTTP request body payload recorded for debugging")
     @JsonProperty("body")
     private String body;
 
+    @JsonPropertyDescription("Timestamp when the request occurred")
     @JsonProperty("date")
     private java.time.LocalDateTime date;
 
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+
+    public String getKind() {
+        return this.kind;
+    }
 
     public void setId(Integer id) {
         this.id = id;

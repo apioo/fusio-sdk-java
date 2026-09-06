@@ -7,13 +7,17 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Payload for updating an existing webhook subscription")
 public class ConsumerWebhookUpdate {
+    @JsonPropertyDescription("Updated event name to subscribe to")
     @JsonProperty("event")
     private String event;
 
+    @JsonPropertyDescription("Updated descriptive name for the webhook")
     @JsonProperty("name")
     private String name;
 
+    @JsonPropertyDescription("Updated target HTTP URI for event delivery")
     @JsonProperty("endpoint")
     private String endpoint;
 

@@ -9,15 +9,30 @@ import com.fasterxml.jackson.annotation.*;
 
 @JsonClassDescription("Common error message")
 public class CommonMessage {
+    @JsonPropertyDescription("Uniquely identifies the object schema type")
+    @JsonProperty("kind")
+    private String kind;
+
+    @JsonPropertyDescription("Indicates whether the requested operation was successful")
     @JsonProperty("success")
     private Boolean success;
 
+    @JsonPropertyDescription("Human-readable message describing the outcome of the operation")
     @JsonProperty("message")
     private String message;
 
+    @JsonPropertyDescription("Optional unique identifier of the resource associated with the operation")
     @JsonProperty("id")
     private String id;
 
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+
+    public String getKind() {
+        return this.kind;
+    }
 
     public void setSuccess(Boolean success) {
         this.success = success;

@@ -9,6 +9,10 @@ import com.fasterxml.jackson.annotation.*;
 
 @JsonClassDescription("This object represents an agent message")
 public class ConsumerAgentMessage {
+    @JsonPropertyDescription("Uniquely identifies the object schema type")
+    @JsonProperty("kind")
+    private String kind;
+
     @JsonPropertyDescription("Unique identifier for the object")
     @JsonProperty("id")
     private Integer id;
@@ -25,9 +29,18 @@ public class ConsumerAgentMessage {
     @JsonProperty("item")
     private AgentItem item;
 
+    @JsonPropertyDescription("Timestamp when the message was created")
     @JsonProperty("insertDate")
     private java.time.LocalDateTime insertDate;
 
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+
+    public String getKind() {
+        return this.kind;
+    }
 
     public void setId(Integer id) {
         this.id = id;

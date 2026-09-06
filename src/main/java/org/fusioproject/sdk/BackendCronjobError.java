@@ -9,15 +9,19 @@ import com.fasterxml.jackson.annotation.*;
 
 @JsonClassDescription("Represents an error which occurred on cronjob execution")
 public class BackendCronjobError {
+    @JsonPropertyDescription("Error message detailing the cause of failure")
     @JsonProperty("message")
     private String message;
 
+    @JsonPropertyDescription("Stack trace of the error exception")
     @JsonProperty("trace")
     private String trace;
 
+    @JsonPropertyDescription("File path where the execution error occurred")
     @JsonProperty("file")
     private String file;
 
+    @JsonPropertyDescription("Line number where the execution error occurred")
     @JsonProperty("line")
     private Integer line;
 

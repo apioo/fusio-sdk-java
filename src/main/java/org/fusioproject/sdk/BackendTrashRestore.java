@@ -7,7 +7,9 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Request payload to restore an item from the trash bin")
 public class BackendTrashRestore {
+    @JsonPropertyDescription("Unique identifier of the deleted entity to restore")
     @JsonProperty("id")
     private Integer id;
 

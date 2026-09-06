@@ -7,16 +7,21 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("JWT authentication response containing access credentials")
 public class ConsumerUserJWT {
+    @JsonPropertyDescription("JSON Web Token string used for authentication")
     @JsonProperty("token")
     private String token;
 
+    @JsonPropertyDescription("Token validity duration in seconds")
     @JsonProperty("expires_in")
     private Integer expiresIn;
 
+    @JsonPropertyDescription("Refresh token string used to obtain new access tokens")
     @JsonProperty("refresh_token")
     private String refreshToken;
 
+    @JsonPropertyDescription("Space-separated list of granted scopes")
     @JsonProperty("scope")
     private String scope;
 

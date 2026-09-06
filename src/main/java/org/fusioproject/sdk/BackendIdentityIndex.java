@@ -9,9 +9,22 @@ import com.fasterxml.jackson.annotation.*;
 
 @JsonClassDescription("Contains all possible classes which can be used at an identity as class")
 public class BackendIdentityIndex {
+    @JsonPropertyDescription("Uniquely identifies the object schema type")
+    @JsonProperty("kind")
+    private String kind;
+
+    @JsonPropertyDescription("List of available identity provider class entries")
     @JsonProperty("providers")
     private java.util.List<BackendIdentityIndexEntry> providers;
 
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+
+    public String getKind() {
+        return this.kind;
+    }
 
     public void setProviders(java.util.List<BackendIdentityIndexEntry> providers) {
         this.providers = providers;

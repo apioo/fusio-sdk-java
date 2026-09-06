@@ -7,10 +7,13 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Payload defining target format and configuration for triggering an SDK generation run")
 public class BackendSdkGenerate {
+    @JsonPropertyDescription("Target language format or output type for the SDK build")
     @JsonProperty("format")
     private String format;
 
+    @JsonPropertyDescription("Optional generator specific configuration options")
     @JsonProperty("config")
     private String config;
 

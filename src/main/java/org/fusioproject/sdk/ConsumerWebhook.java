@@ -7,25 +7,44 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Webhook endpoint subscription definition")
 public class ConsumerWebhook {
+    @JsonPropertyDescription("Uniquely identifies the object schema type")
+    @JsonProperty("kind")
+    private String kind;
+
+    @JsonPropertyDescription("Unique identifier for the webhook")
     @JsonProperty("id")
     private Integer id;
 
+    @JsonPropertyDescription("Status code indicating whether the webhook subscription is active")
     @JsonProperty("status")
     private Integer status;
 
+    @JsonPropertyDescription("Target event name triggering this webhook")
     @JsonProperty("event")
     private String event;
 
+    @JsonPropertyDescription("Descriptive label for the webhook registration")
     @JsonProperty("name")
     private String name;
 
+    @JsonPropertyDescription("Target HTTP endpoint URL to receive webhook event payloads")
     @JsonProperty("endpoint")
     private String endpoint;
 
+    @JsonPropertyDescription("List of recent delivery attempts and status responses")
     @JsonProperty("responses")
     private java.util.List<ConsumerWebhookResponse> responses;
 
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+
+    public String getKind() {
+        return this.kind;
+    }
 
     public void setId(Integer id) {
         this.id = id;

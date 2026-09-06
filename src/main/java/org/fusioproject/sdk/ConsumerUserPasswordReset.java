@@ -7,10 +7,13 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Payload for completing a password reset")
 public class ConsumerUserPasswordReset {
+    @JsonPropertyDescription("Password reset verification token")
     @JsonProperty("token")
     private String token;
 
+    @JsonPropertyDescription("New password to set for the account")
     @JsonProperty("newPassword")
     private String newPassword;
 

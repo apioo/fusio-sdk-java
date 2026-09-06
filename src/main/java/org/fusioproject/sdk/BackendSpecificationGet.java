@@ -7,7 +7,9 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Container delivering the compiled API specification schema object")
 public class BackendSpecificationGet {
+    @JsonPropertyDescription("The raw API specification definition schema content")
     @JsonProperty("spec")
     private Object spec;
 

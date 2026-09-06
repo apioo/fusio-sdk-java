@@ -7,13 +7,17 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Represents an aggregated count metric over a specific timeframe")
 public class BackendStatisticCount {
+    @JsonPropertyDescription("Total aggregated metric count")
     @JsonProperty("count")
     private Integer count;
 
+    @JsonPropertyDescription("Start timestamp of the metric aggregation period")
     @JsonProperty("from")
     private java.time.LocalDateTime from;
 
+    @JsonPropertyDescription("End timestamp of the metric aggregation period")
     @JsonProperty("to")
     private java.time.LocalDateTime to;
 

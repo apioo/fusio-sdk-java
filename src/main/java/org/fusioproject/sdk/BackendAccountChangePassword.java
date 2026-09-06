@@ -7,6 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Payload required to update the current user's password")
 public class BackendAccountChangePassword {
     @JsonPropertyDescription("The old password")
     @JsonProperty("oldPassword")

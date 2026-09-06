@@ -9,6 +9,10 @@ import com.fasterxml.jackson.annotation.*;
 
 @JsonClassDescription("A schema commit which represents a change in the schema source")
 public class BackendSchemaCommit {
+    @JsonPropertyDescription("Uniquely identifies the object schema type")
+    @JsonProperty("kind")
+    private String kind;
+
     @JsonPropertyDescription("Unique identifier for the object")
     @JsonProperty("id")
     private Integer id;
@@ -25,9 +29,18 @@ public class BackendSchemaCommit {
     @JsonProperty("schema")
     private BackendSchemaSource schema;
 
+    @JsonPropertyDescription("Timestamp when the schema commit was created")
     @JsonProperty("insertDate")
     private java.time.LocalDateTime insertDate;
 
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+
+    public String getKind() {
+        return this.kind;
+    }
 
     public void setId(Integer id) {
         this.id = id;

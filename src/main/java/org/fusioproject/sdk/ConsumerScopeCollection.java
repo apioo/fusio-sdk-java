@@ -7,6 +7,7 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Collection of API permission scopes")
 public class ConsumerScopeCollection extends CommonCollection<ConsumerScope> {
 }
 

@@ -7,13 +7,17 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Represents a functional grouping of scopes")
 public class BackendScopeCategory {
+    @JsonPropertyDescription("Unique identifier for the scope category")
     @JsonProperty("id")
     private Integer id;
 
+    @JsonPropertyDescription("Name of the scope category")
     @JsonProperty("name")
     private String name;
 
+    @JsonPropertyDescription("List of scopes assigned to this category")
     @JsonProperty("scopes")
     private java.util.List<BackendScopeCategoryScope> scopes;
 

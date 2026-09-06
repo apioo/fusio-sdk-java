@@ -7,10 +7,24 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Grouped list of scope categories for user authorization forms")
 public class ConsumerScopeCategories {
+    @JsonPropertyDescription("Uniquely identifies the object schema type")
+    @JsonProperty("kind")
+    private String kind;
+
+    @JsonPropertyDescription("List of scope category definitions")
     @JsonProperty("categories")
     private java.util.List<ConsumerScopeCategory> categories;
 
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+
+    public String getKind() {
+        return this.kind;
+    }
 
     public void setCategories(java.util.List<ConsumerScopeCategory> categories) {
         this.categories = categories;

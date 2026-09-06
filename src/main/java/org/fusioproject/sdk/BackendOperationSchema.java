@@ -7,16 +7,21 @@ package org.fusioproject.sdk;
 
 import com.fasterxml.jackson.annotation.*;
 
+@JsonClassDescription("Defines primitive type constraints for parameter schema definitions")
 public class BackendOperationSchema {
+    @JsonPropertyDescription("Description explaining the parameter purpose")
     @JsonProperty("description")
     private String description;
 
+    @JsonPropertyDescription("Primitive type of the parameter i.e. string or integer")
     @JsonProperty("type")
     private String type;
 
+    @JsonPropertyDescription("Type formatting detail i.e. date-time or int64")
     @JsonProperty("format")
     private String format;
 
+    @JsonPropertyDescription("Allowed enumerated string value constraints")
     @JsonProperty("enum")
     private String _enum;
 

@@ -9,34 +9,54 @@ import com.fasterxml.jackson.annotation.*;
 
 @JsonClassDescription("This object represents a transaction. The system generates a transaction in case a payment was successfully executed")
 public class BackendTransaction {
+    @JsonPropertyDescription("Uniquely identifies the object schema type")
+    @JsonProperty("kind")
+    private String kind;
+
     @JsonPropertyDescription("Unique identifier for the object")
     @JsonProperty("id")
     private Integer id;
 
+    @JsonPropertyDescription("Unique identifier of the associated user")
     @JsonProperty("userId")
     private Integer userId;
 
+    @JsonPropertyDescription("Unique identifier of the associated plan")
     @JsonProperty("planId")
     private Integer planId;
 
+    @JsonPropertyDescription("External reference or gateway transaction identifier")
     @JsonProperty("transactionId")
     private String transactionId;
 
+    @JsonPropertyDescription("Monetary amount paid for the transaction")
     @JsonProperty("amount")
     private Double amount;
 
+    @JsonPropertyDescription("Number of credits or points credited by this transaction")
     @JsonProperty("points")
     private Double points;
 
+    @JsonPropertyDescription("Start timestamp of the active billing period")
     @JsonProperty("periodStart")
     private java.time.LocalDateTime periodStart;
 
+    @JsonPropertyDescription("End timestamp of the active billing period")
     @JsonProperty("periodEnd")
     private java.time.LocalDateTime periodEnd;
 
+    @JsonPropertyDescription("Creation timestamp of the transaction record")
     @JsonProperty("insertDate")
     private java.time.LocalDateTime insertDate;
 
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+
+    public String getKind() {
+        return this.kind;
+    }
 
     public void setId(Integer id) {
         this.id = id;

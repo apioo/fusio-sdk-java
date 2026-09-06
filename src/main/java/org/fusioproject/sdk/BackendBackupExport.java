@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.*;
 
 @JsonClassDescription("Export of the complete system configuration")
 public class BackendBackupExport {
+    @JsonPropertyDescription("Base64 or JSON string containing the exported system configuration payload")
     @JsonProperty("export")
     private String export;
 

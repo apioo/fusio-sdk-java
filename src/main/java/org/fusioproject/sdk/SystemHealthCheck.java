@@ -8,12 +8,26 @@ package org.fusioproject.sdk;
 import com.fasterxml.jackson.annotation.*;
 
 public class SystemHealthCheck {
+    @JsonPropertyDescription("Uniquely identifies the object schema type")
+    @JsonProperty("kind")
+    private String kind;
+
+    @JsonPropertyDescription("Indicates whether the specific service component is operational")
     @JsonProperty("healthy")
     private Boolean healthy;
 
+    @JsonPropertyDescription("Error details or message explaining why the check failed, if applicable")
     @JsonProperty("error")
     private String error;
 
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+
+    public String getKind() {
+        return this.kind;
+    }
 
     public void setHealthy(Boolean healthy) {
         this.healthy = healthy;
