@@ -818,6 +818,9 @@ Consumer_WebhookCollection response = client.consumer().webhook().getAll(1, 1, "
 // Updates an existing webhook for the authenticated user.
 Common_Message response = client.consumer().webhook().update("webhook_id", new Consumer_WebhookUpdate());
 
+// Endpoint to generate a captcha challenge.
+System_CaptchaChallenge response = client.system().captcha().challenge();
+
 // Connection OAuth2 callback to authorize a connection.
 Common_Message response = client.system().connection().callback("name");
 
