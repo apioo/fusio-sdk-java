@@ -36,12 +36,13 @@ public class BackendAgentMessageTag extends TagAbstract {
     /**
      * Returns a paginated list of agent messages
      */
-    public BackendAgentMessageCollection getAll(String agentId, String chatId) throws ClientException {
+    public BackendAgentMessageCollection getAll(String agentId, Integer refId, String chatId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
             pathParams.put("agent_id", agentId);
 
             Map<String, Object> queryParams = new HashMap<>();
+            queryParams.put("ref_id", refId);
             queryParams.put("chat_id", chatId);
 
             List<String> queryStructNames = new ArrayList<>();
@@ -78,12 +79,13 @@ public class BackendAgentMessageTag extends TagAbstract {
     /**
      * Submits a new agent message
      */
-    public AgentOutput submit(String agentId, AgentInput payload) throws ClientException {
+    public AgentOutput submit(String agentId, AgentInput payload, Integer refId) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
             pathParams.put("agent_id", agentId);
 
             Map<String, Object> queryParams = new HashMap<>();
+            queryParams.put("ref_id", refId);
 
             List<String> queryStructNames = new ArrayList<>();
 
