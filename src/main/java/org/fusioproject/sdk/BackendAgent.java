@@ -41,6 +41,10 @@ public class BackendAgent {
     @JsonProperty("introduction")
     private String introduction;
 
+    @JsonPropertyDescription("Introduction action")
+    @JsonProperty("introductionAction")
+    private String introductionAction;
+
     @JsonPropertyDescription("The used temperature default is 1.0")
     @JsonProperty("temperature")
     private Double temperature;
@@ -132,6 +136,14 @@ public class BackendAgent {
 
     public String getIntroduction() {
         return this.introduction;
+    }
+
+    public void setIntroductionAction(String introductionAction) {
+        this.introductionAction = introductionAction;
+    }
+
+    public String getIntroductionAction() {
+        return this.introductionAction;
     }
 
     public void setTemperature(Double temperature) {
