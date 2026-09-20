@@ -17,6 +17,10 @@ public class ConsumerAgent {
     @JsonProperty("id")
     private Integer id;
 
+    @JsonPropertyDescription("The agent type")
+    @JsonProperty("type")
+    private Integer type;
+
     @JsonPropertyDescription("Name of the agent")
     @JsonProperty("name")
     private String name;
@@ -40,6 +44,14 @@ public class ConsumerAgent {
 
     public Integer getId() {
         return this.id;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
+    public Integer getType() {
+        return this.type;
     }
 
     public void setName(String name) {
