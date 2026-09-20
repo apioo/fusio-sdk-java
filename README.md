@@ -72,10 +72,10 @@ Backend_AgentCollection response = client.backend().agent().getAll(1, 1, "search
 Backend_AgentTools response = client.backend().agent().getTools();
 
 // Returns a paginated list of agent messages.
-Backend_AgentMessageCollection response = client.backend().agent().message().getAll("agent_id", "chat_id");
+Backend_AgentMessageCollection response = client.backend().agent().message().getAll("agent_id", 1, "chat_id");
 
 // Submits a new agent message.
-Agent_Output response = client.backend().agent().message().submit("agent_id", new Agent_Input());
+Agent_Output response = client.backend().agent().message().submit("agent_id", 1, new Agent_Input());
 
 // Updates an existing agent.
 Common_Message response = client.backend().agent().update("agent_id", new Backend_AgentUpdate());
@@ -705,10 +705,10 @@ Consumer_Agent response = client.consumer().agent().get("agent_id");
 Consumer_AgentCollection response = client.consumer().agent().getAll(1, 1, "search");
 
 // Returns a paginated list of agent messages.
-Consumer_AgentMessageCollection response = client.consumer().agent().message().getAll("agent_id", "chat_id");
+Consumer_AgentMessageCollection response = client.consumer().agent().message().getAll("agent_id", 1, "chat_id");
 
 // Submits a new agent message.
-Agent_Output response = client.consumer().agent().message().submit("agent_id", new Agent_Input());
+Agent_Output response = client.consumer().agent().message().submit("agent_id", 1, new Agent_Input());
 
 // Creates a new app for the authenticated user.
 Common_Message response = client.consumer().app().create(new Consumer_AppCreate());
