@@ -246,11 +246,14 @@ public class BackendActionTag extends TagAbstract {
     /**
      * Returns all available action classes
      */
-    public BackendActionIndex getClasses() throws ClientException {
+    public BackendActionIndex getClasses(Boolean marketplace, Integer startIndex, String search) throws ClientException {
         try {
             Map<String, Object> pathParams = new HashMap<>();
 
             Map<String, Object> queryParams = new HashMap<>();
+            queryParams.put("marketplace", marketplace);
+            queryParams.put("startIndex", startIndex);
+            queryParams.put("search", search);
 
             List<String> queryStructNames = new ArrayList<>();
 
