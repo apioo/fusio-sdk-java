@@ -13,6 +13,10 @@ public class BackendActionIndexEntry {
     @JsonProperty("name")
     private String name;
 
+    @JsonPropertyDescription("A longer description what the action does")
+    @JsonProperty("description")
+    private String description;
+
     @JsonPropertyDescription("Technical identifier of the action class")
     @JsonProperty("class")
     private String _class;
@@ -24,6 +28,14 @@ public class BackendActionIndexEntry {
 
     public String getName() {
         return this.name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getDescription() {
+        return this.description;
     }
 
     public void setClass(String _class) {

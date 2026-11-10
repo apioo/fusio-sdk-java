@@ -13,6 +13,10 @@ public class BackendConnectionIndexEntry {
     @JsonProperty("name")
     private String name;
 
+    @JsonPropertyDescription("A longer description what the connection does")
+    @JsonProperty("description")
+    private String description;
+
     @JsonPropertyDescription("Technical identifier of the connection class")
     @JsonProperty("class")
     private String _class;
@@ -24,6 +28,14 @@ public class BackendConnectionIndexEntry {
 
     public String getName() {
         return this.name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getDescription() {
+        return this.description;
     }
 
     public void setClass(String _class) {

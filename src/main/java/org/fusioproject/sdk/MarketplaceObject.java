@@ -12,6 +12,9 @@ public class MarketplaceObject {
     @JsonProperty("id")
     private Integer id;
 
+    @JsonProperty("visibility")
+    private Integer visibility;
+
     @JsonProperty("name")
     private String name;
 
@@ -46,6 +49,14 @@ public class MarketplaceObject {
 
     public Integer getId() {
         return this.id;
+    }
+
+    public void setVisibility(Integer visibility) {
+        this.visibility = visibility;
+    }
+
+    public Integer getVisibility() {
+        return this.visibility;
     }
 
     public void setName(String name) {

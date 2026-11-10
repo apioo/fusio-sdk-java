@@ -11,6 +11,9 @@ public class MarketplaceAction extends MarketplaceObject {
     @JsonProperty("class")
     private String _class;
 
+    @JsonProperty("form")
+    private java.util.List<FormElement> form;
+
     @JsonProperty("config")
     private MarketplaceActionConfig config;
 
@@ -21,6 +24,14 @@ public class MarketplaceAction extends MarketplaceObject {
 
     public String get_Class() {
         return this._class;
+    }
+
+    public void setForm(java.util.List<FormElement> form) {
+        this.form = form;
+    }
+
+    public java.util.List<FormElement> getForm() {
+        return this.form;
     }
 
     public void setConfig(MarketplaceActionConfig config) {
