@@ -45,10 +45,6 @@ public class BackendAgent {
     @JsonProperty("introductionAction")
     private String introductionAction;
 
-    @JsonPropertyDescription("The used temperature default is 1.0")
-    @JsonProperty("temperature")
-    private Double temperature;
-
     @JsonPropertyDescription("Costs per token")
     @JsonProperty("costs")
     private Integer costs;
@@ -144,14 +140,6 @@ public class BackendAgent {
 
     public String getIntroductionAction() {
         return this.introductionAction;
-    }
-
-    public void setTemperature(Double temperature) {
-        this.temperature = temperature;
-    }
-
-    public Double getTemperature() {
-        return this.temperature;
     }
 
     public void setCosts(Integer costs) {
