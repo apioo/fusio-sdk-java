@@ -41,6 +41,15 @@ public class BackendAgentTag extends TagAbstract {
         );
     }
 
+    public BackendAgentTaskTag task()
+    {
+        return new BackendAgentTaskTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
+
 
     /**
      * Creates a new agent
