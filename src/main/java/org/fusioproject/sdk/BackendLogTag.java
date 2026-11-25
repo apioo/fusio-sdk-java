@@ -45,7 +45,7 @@ public class BackendLogTag extends TagAbstract {
 
             List<String> queryStructNames = new ArrayList<>();
 
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/log/$log_id<[0-9]+>", pathParams));
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/log/:log_id", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
@@ -108,90 +108,6 @@ public class BackendLogTag extends TagAbstract {
             return this.httpClient.execute(request, response -> {
                 if (response.getCode() >= 200 && response.getCode() <= 299) {
                     var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<BackendLogCollection>(){});
-
-                    return data;
-                }
-
-                var statusCode = response.getCode();
-                if (statusCode >= 0 && statusCode <= 999) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
-            });
-        } catch (ClientException e) {
-            throw e;
-        } catch (URISyntaxException | IOException e) {
-            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
-        }
-    }
-
-    /**
-     * Returns a paginated list of log errors
-     */
-    public BackendLogErrorCollection getAllErrors(Integer startIndex, Integer count, String search) throws ClientException {
-        try {
-            Map<String, Object> pathParams = new HashMap<>();
-
-            Map<String, Object> queryParams = new HashMap<>();
-            queryParams.put("startIndex", startIndex);
-            queryParams.put("count", count);
-            queryParams.put("search", search);
-
-            List<String> queryStructNames = new ArrayList<>();
-
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/log/error", pathParams));
-            this.parser.query(builder, queryParams, queryStructNames);
-
-            HttpGet request = new HttpGet(builder.build());
-
-
-            return this.httpClient.execute(request, response -> {
-                if (response.getCode() >= 200 && response.getCode() <= 299) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<BackendLogErrorCollection>(){});
-
-                    return data;
-                }
-
-                var statusCode = response.getCode();
-                if (statusCode >= 0 && statusCode <= 999) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
-            });
-        } catch (ClientException e) {
-            throw e;
-        } catch (URISyntaxException | IOException e) {
-            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
-        }
-    }
-
-    /**
-     * Returns a specific error
-     */
-    public BackendLogError getError(String errorId) throws ClientException {
-        try {
-            Map<String, Object> pathParams = new HashMap<>();
-            pathParams.put("error_id", errorId);
-
-            Map<String, Object> queryParams = new HashMap<>();
-
-            List<String> queryStructNames = new ArrayList<>();
-
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/log/error/$error_id<[0-9]+>", pathParams));
-            this.parser.query(builder, queryParams, queryStructNames);
-
-            HttpGet request = new HttpGet(builder.build());
-
-
-            return this.httpClient.execute(request, response -> {
-                if (response.getCode() >= 200 && response.getCode() <= 299) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<BackendLogError>(){});
 
                     return data;
                 }

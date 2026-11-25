@@ -45,7 +45,7 @@ public class BackendTransactionTag extends TagAbstract {
 
             List<String> queryStructNames = new ArrayList<>();
 
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/transaction/$transaction_id<[0-9]+>", pathParams));
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/transaction/:transaction_id", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());

@@ -87,7 +87,7 @@ public class ConsumerTokenTag extends TagAbstract {
 
             List<String> queryStructNames = new ArrayList<>();
 
-            URIBuilder builder = new URIBuilder(this.parser.url("/consumer/token/$token_id<[0-9]+|^~>", pathParams));
+            URIBuilder builder = new URIBuilder(this.parser.url("/consumer/token/:token_id", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
 
             HttpDelete request = new HttpDelete(builder.build());
@@ -128,7 +128,7 @@ public class ConsumerTokenTag extends TagAbstract {
 
             List<String> queryStructNames = new ArrayList<>();
 
-            URIBuilder builder = new URIBuilder(this.parser.url("/consumer/token/$token_id<[0-9]+|^~>", pathParams));
+            URIBuilder builder = new URIBuilder(this.parser.url("/consumer/token/:token_id", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
@@ -212,7 +212,7 @@ public class ConsumerTokenTag extends TagAbstract {
 
             List<String> queryStructNames = new ArrayList<>();
 
-            URIBuilder builder = new URIBuilder(this.parser.url("/consumer/token/$token_id<[0-9]+|^~>", pathParams));
+            URIBuilder builder = new URIBuilder(this.parser.url("/consumer/token/:token_id", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
 
             HttpPut request = new HttpPut(builder.build());

@@ -132,7 +132,7 @@ public class BackendConnectionTag extends TagAbstract {
 
             List<String> queryStructNames = new ArrayList<>();
 
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/connection/$connection_id<[0-9]+|^~>", pathParams));
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/connection/:connection_id", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
 
             HttpDelete request = new HttpDelete(builder.build());
@@ -173,7 +173,7 @@ public class BackendConnectionTag extends TagAbstract {
 
             List<String> queryStructNames = new ArrayList<>();
 
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/connection/$connection_id<[0-9]+|^~>", pathParams));
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/connection/:connection_id", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
@@ -257,7 +257,7 @@ public class BackendConnectionTag extends TagAbstract {
 
             List<String> queryStructNames = new ArrayList<>();
 
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/connection/list", pathParams));
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/capability/connection/list", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
@@ -298,7 +298,7 @@ public class BackendConnectionTag extends TagAbstract {
 
             List<String> queryStructNames = new ArrayList<>();
 
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/connection/form", pathParams));
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/capability/connection/form", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
@@ -380,7 +380,7 @@ public class BackendConnectionTag extends TagAbstract {
 
             List<String> queryStructNames = new ArrayList<>();
 
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/connection/$connection_id<[0-9]+|^~>", pathParams));
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/connection/:connection_id", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
 
             HttpPut request = new HttpPut(builder.build());

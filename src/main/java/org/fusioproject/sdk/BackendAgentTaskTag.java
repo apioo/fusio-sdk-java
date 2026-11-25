@@ -46,7 +46,7 @@ public class BackendAgentTaskTag extends TagAbstract {
 
             List<String> queryStructNames = new ArrayList<>();
 
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/agent/$agent_id<[0-9]+|^~>/task/:task_id", pathParams));
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/agent/:agent_id/task/:task_id", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
 
             HttpDelete request = new HttpDelete(builder.build());
@@ -88,7 +88,7 @@ public class BackendAgentTaskTag extends TagAbstract {
 
             List<String> queryStructNames = new ArrayList<>();
 
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/agent/$agent_id<[0-9]+|^~>/task", pathParams));
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/agent/:agent_id/task", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
 
             HttpPost request = new HttpPost(builder.build());
@@ -132,7 +132,7 @@ public class BackendAgentTaskTag extends TagAbstract {
 
             List<String> queryStructNames = new ArrayList<>();
 
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/agent/$agent_id<[0-9]+|^~>/task/:task_id", pathParams));
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/agent/:agent_id/task/:task_id", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
@@ -175,7 +175,7 @@ public class BackendAgentTaskTag extends TagAbstract {
 
             List<String> queryStructNames = new ArrayList<>();
 
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/agent/$agent_id<[0-9]+|^~>/task", pathParams));
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/agent/:agent_id/task", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());

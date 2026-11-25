@@ -45,7 +45,7 @@ public class ConsumerGrantTag extends TagAbstract {
 
             List<String> queryStructNames = new ArrayList<>();
 
-            URIBuilder builder = new URIBuilder(this.parser.url("/consumer/grant/$grant_id<[0-9]+>", pathParams));
+            URIBuilder builder = new URIBuilder(this.parser.url("/consumer/grant/:grant_id", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
 
             HttpDelete request = new HttpDelete(builder.build());

@@ -47,7 +47,7 @@ public class ConsumerAgentMessageTag extends TagAbstract {
 
             List<String> queryStructNames = new ArrayList<>();
 
-            URIBuilder builder = new URIBuilder(this.parser.url("/consumer/agent/$agent_id<[0-9]+|^~>/message", pathParams));
+            URIBuilder builder = new URIBuilder(this.parser.url("/consumer/agent/:agent_id/message", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
@@ -89,7 +89,7 @@ public class ConsumerAgentMessageTag extends TagAbstract {
 
             List<String> queryStructNames = new ArrayList<>();
 
-            URIBuilder builder = new URIBuilder(this.parser.url("/consumer/agent/$agent_id<[0-9]+|^~>/message", pathParams));
+            URIBuilder builder = new URIBuilder(this.parser.url("/consumer/agent/:agent_id/message", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
 
             HttpPost request = new HttpPost(builder.build());

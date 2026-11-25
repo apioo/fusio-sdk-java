@@ -87,7 +87,7 @@ public class BackendActionTag extends TagAbstract {
 
             List<String> queryStructNames = new ArrayList<>();
 
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/action/$action_id<[0-9]+|^~>", pathParams));
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/action/:action_id", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
 
             HttpDelete request = new HttpDelete(builder.build());
@@ -128,7 +128,7 @@ public class BackendActionTag extends TagAbstract {
 
             List<String> queryStructNames = new ArrayList<>();
 
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/action/execute/:action_id", pathParams));
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/action/:action_id/execute", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
 
             HttpPost request = new HttpPost(builder.build());
@@ -171,7 +171,7 @@ public class BackendActionTag extends TagAbstract {
 
             List<String> queryStructNames = new ArrayList<>();
 
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/action/$action_id<[0-9]+|^~>", pathParams));
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/action/:action_id", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
@@ -257,7 +257,7 @@ public class BackendActionTag extends TagAbstract {
 
             List<String> queryStructNames = new ArrayList<>();
 
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/action/list", pathParams));
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/capability/action/list", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
@@ -301,7 +301,7 @@ public class BackendActionTag extends TagAbstract {
 
             List<String> queryStructNames = new ArrayList<>();
 
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/action/$action_id<[0-9]+|^~>/commit", pathParams));
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/action/:action_id/commit", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
@@ -342,7 +342,7 @@ public class BackendActionTag extends TagAbstract {
 
             List<String> queryStructNames = new ArrayList<>();
 
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/action/form", pathParams));
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/capability/action/form", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
 
             HttpGet request = new HttpGet(builder.build());
@@ -383,7 +383,7 @@ public class BackendActionTag extends TagAbstract {
 
             List<String> queryStructNames = new ArrayList<>();
 
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/action/$action_id<[0-9]+|^~>", pathParams));
+            URIBuilder builder = new URIBuilder(this.parser.url("/backend/action/:action_id", pathParams));
             this.parser.query(builder, queryParams, queryStructNames);
 
             HttpPut request = new HttpPut(builder.build());
