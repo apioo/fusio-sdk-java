@@ -32,102 +32,32 @@ public class BackendLogTag extends TagAbstract {
         super(httpClient, objectMapper, parser);
     }
 
-
-    /**
-     * Returns a specific log
-     */
-    public BackendLog get(String logId) throws ClientException {
-        try {
-            Map<String, Object> pathParams = new HashMap<>();
-            pathParams.put("log_id", logId);
-
-            Map<String, Object> queryParams = new HashMap<>();
-
-            List<String> queryStructNames = new ArrayList<>();
-
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/log/:log_id", pathParams));
-            this.parser.query(builder, queryParams, queryStructNames);
-
-            HttpGet request = new HttpGet(builder.build());
-
-
-            return this.httpClient.execute(request, response -> {
-                if (response.getCode() >= 200 && response.getCode() <= 299) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<BackendLog>(){});
-
-                    return data;
-                }
-
-                var statusCode = response.getCode();
-                if (statusCode >= 0 && statusCode <= 999) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
-            });
-        } catch (ClientException e) {
-            throw e;
-        } catch (URISyntaxException | IOException e) {
-            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
-        }
+    public BackendLogErrorTag error()
+    {
+        return new BackendLogErrorTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
     }
 
-    /**
-     * Returns a paginated list of logs
-     */
-    public BackendLogCollection getAll(Integer startIndex, Integer count, String search, String from, String to, Integer operationId, Integer appId, Integer userId, String ip, String userAgent, String method, String path, String header, String body) throws ClientException {
-        try {
-            Map<String, Object> pathParams = new HashMap<>();
-
-            Map<String, Object> queryParams = new HashMap<>();
-            queryParams.put("startIndex", startIndex);
-            queryParams.put("count", count);
-            queryParams.put("search", search);
-            queryParams.put("from", from);
-            queryParams.put("to", to);
-            queryParams.put("operationId", operationId);
-            queryParams.put("appId", appId);
-            queryParams.put("userId", userId);
-            queryParams.put("ip", ip);
-            queryParams.put("userAgent", userAgent);
-            queryParams.put("method", method);
-            queryParams.put("path", path);
-            queryParams.put("header", header);
-            queryParams.put("body", body);
-
-            List<String> queryStructNames = new ArrayList<>();
-
-            URIBuilder builder = new URIBuilder(this.parser.url("/backend/log", pathParams));
-            this.parser.query(builder, queryParams, queryStructNames);
-
-            HttpGet request = new HttpGet(builder.build());
-
-
-            return this.httpClient.execute(request, response -> {
-                if (response.getCode() >= 200 && response.getCode() <= 299) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<BackendLogCollection>(){});
-
-                    return data;
-                }
-
-                var statusCode = response.getCode();
-                if (statusCode >= 0 && statusCode <= 999) {
-                    var data = this.parser.parse(EntityUtils.toString(response.getEntity()), new TypeReference<CommonMessage>(){});
-
-                    throw new CommonMessageException(data);
-                }
-
-                throw new UnknownStatusCodeException("The server returned an unknown status code: " + statusCode);
-            });
-        } catch (ClientException e) {
-            throw e;
-        } catch (URISyntaxException | IOException e) {
-            throw new ClientException("An unknown error occurred: " + e.getMessage(), e);
-        }
+    public BackendLogMessageTag message()
+    {
+        return new BackendLogMessageTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
     }
 
+    public BackendLogRequestTag request()
+    {
+        return new BackendLogRequestTag(
+            this.httpClient,
+            this.objectMapper,
+            this.parser
+        );
+    }
 
 
 }

@@ -140,15 +140,6 @@ public class BackendTag extends TagAbstract {
         );
     }
 
-    public BackendErrorTag error()
-    {
-        return new BackendErrorTag(
-            this.httpClient,
-            this.objectMapper,
-            this.parser
-        );
-    }
-
     public BackendEventTag event()
     {
         return new BackendEventTag(
